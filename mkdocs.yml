@@ -81,13 +81,7 @@ nav:
   - Choose a prebuilt image: start/prebuilt-images.md
   - QEMU x86-64: start/qemu-x86-64.md
   - Raspberry Pi 4: start/raspberry-pi.md
-  - Explore the demos:
-    - Flutter IVI homescreen: start/demos/flutter-homescreen.md
-    - Qt IVI homescreen: start/demos/qt-homescreen.md
-    - Instrument Cluster reference GUI: start/demos/cluster-dashboard.md
-    - Momi Screen: start/demos/momi/screen.md
-    - Momi navigation: start/demos/momi/navigation.md
-    - Momi Weather: start/demos/momi/weather.md
+  - Explore the demos: start/demos/index.md
 - Develop:
   - Overview: develop/index.md
   - Applications:
@@ -134,6 +128,14 @@ nav:
   - AGL system architecture: explanation/architecture.md
   - Build host, target, image, and SDK: explanation/build-and-runtime.md
   - How AGL services fit together: explanation/services.md
+  - Applications:
+    - Application explanations: explanation/applications/index.md
+    - Flutter IVI homescreen: explanation/applications/flutter-homescreen.md
+    - Qt IVI homescreen: explanation/applications/qt-homescreen.md
+    - Instrument Cluster reference GUI: explanation/applications/cluster-dashboard.md
+    - Momi Screen: explanation/applications/momi/screen.md
+    - Momi navigation: explanation/applications/momi/navigation.md
+    - Momi Weather: explanation/applications/momi/weather.md
   - AGL application framework: explanation/application-framework.md
   - Application sandboxing: explanation/application-sandboxing.md
 - API & configuration:

@@ -4,6 +4,8 @@ This directory contains an English documentation site organized around user goal
 
 The original `../docs/` directory remains unchanged. This site imports all 84 source Markdown articles and 104 source assets into the new structure. The Get started section provides two prebuilt-image setup guides: QEMU x86-64 and Raspberry Pi 4.
 
+Get started > Explore the demos introduces the Flutter IVI Demo as a whole, with links to official web sources. The six original individual application pages are under Understand AGL > Applications. The importer preserves the authored demo overview and application landing page.
+
 ## Contents
 
 | Path | Purpose |

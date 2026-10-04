@@ -47,19 +47,19 @@ content_status: imported
 
 ### For Flutter Demo IVI
 
-- [Flutter Homescreen](../start/demos/flutter-homescreen.md)
+- [Flutter Homescreen](../explanation/applications/flutter-homescreen.md)
 
 ### For Qt Demo IVI
 
-- [Qt Homescreen](../start/demos/qt-homescreen.md)
+- [Qt Homescreen](../explanation/applications/qt-homescreen.md)
 
 ### For Instrument Cluster
 
-- [Cluster Ref GUI](../start/demos/cluster-dashboard.md)
+- [Cluster Ref GUI](../explanation/applications/cluster-dashboard.md)
 
 ### For Momi IVI Demo
 
-- [Momi Navi](../start/demos/momi/navigation.md)
+- [Momi Navi](../explanation/applications/momi/navigation.md)
 
 
 ## Platform extension

@@ -327,7 +327,7 @@ $ cmcontrol --force-reboot-guest-role=ivi
 
 | Questions | Answer |
 |:---|:---|
-| Why not show map in default screen of Momi IVI. | When you want to show the map, you need an extra step.  Please follow [this page](../../start/demos/momi/navigation.md).|
+| Why not show map in default screen of Momi IVI. | When you want to show the map, you need an extra step.  Please follow [this page](../../explanation/applications/momi/navigation.md).|
 
 
 ## Appendix.1.  Typical Hardware set.

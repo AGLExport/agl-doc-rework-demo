@@ -32,6 +32,10 @@ Confirm that the login prompt or demo screen described in your chosen instructio
 
 If the expected screen does not appear, record the version, downloaded filenames, launch command, and console messages, then use [Diagnose common problems](../troubleshooting/diagnostics.md) for initial checks and log collection.
 
+## Explore the Flutter IVI Demo
+
+Read [Explore the demos](demos/index.md) for an overview of the Flutter IVI Demo, its main features, and the services behind the user interface.
+
 ## Next steps
 
 - [Develop an application](../develop/index.md#apps): work with Flutter or an SDK.

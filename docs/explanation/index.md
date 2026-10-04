@@ -18,6 +18,8 @@ Use the [AGL glossary](../reference/glossary.md) when you encounter unfamiliar t
 
 ## Applications and services
 
+Use [Application explanations](applications/index.md) for the homescreen, Instrument Cluster reference GUI, and Momi application guides.
+
 Read [How AGL services fit together](services.md) for the relationship between applications, lifecycle management, graphics, audio, and vehicle data.
 
 [Create a new application](../develop/apps/create-application.md) includes information about application structure, execution, and deployment.

@@ -274,32 +274,32 @@
     },
     {
       "source": "06_Component_Documentation/40_Demo_Application/01_Flutter_Demo_IVI/01_Flutter_Homescreen.md",
-      "destination": "start/demos/flutter-homescreen.md",
+      "destination": "explanation/applications/flutter-homescreen.md",
       "source_sha256": "eca807e7075e8f88bdbeb8318b19f20a5b805772dbcf466733871d1ac920aa6e"
     },
     {
       "source": "06_Component_Documentation/40_Demo_Application/02_Qt_Demo_IVI/01_Qt_Homescreen.md",
-      "destination": "start/demos/qt-homescreen.md",
+      "destination": "explanation/applications/qt-homescreen.md",
       "source_sha256": "1b580f2302f4378ea59f1e1d38cde0a9e67dc93bac45902c80d63e95068b5fd8"
     },
     {
       "source": "06_Component_Documentation/40_Demo_Application/03_Instrument_Cluster/01_Cluster_Ref_GUI.md",
-      "destination": "start/demos/cluster-dashboard.md",
+      "destination": "explanation/applications/cluster-dashboard.md",
       "source_sha256": "ccabff13450c30e12db048a8d0c4d9327311f43c1cfd2ece03d2a17ec9735826"
     },
     {
       "source": "06_Component_Documentation/40_Demo_Application/04_Momi_IVI_Demo/01_Momi_Screen.md",
-      "destination": "start/demos/momi/screen.md",
+      "destination": "explanation/applications/momi/screen.md",
       "source_sha256": "dfb36012f87d004a5b777960d02a9caef75827f3d2febd1a2a36e020cde7d8af"
     },
     {
       "source": "06_Component_Documentation/40_Demo_Application/04_Momi_IVI_Demo/02_Momi_Navi.md",
-      "destination": "start/demos/momi/navigation.md",
+      "destination": "explanation/applications/momi/navigation.md",
       "source_sha256": "ec6669b633350219f436f4d1fa74efc1f756393013193213f1c8809e028534a4"
     },
     {
       "source": "06_Component_Documentation/40_Demo_Application/04_Momi_IVI_Demo/04_Momi_Weather.md",
-      "destination": "start/demos/momi/weather.md",
+      "destination": "explanation/applications/momi/weather.md",
       "source_sha256": "8af47bd44c417b9b66810f15eecd15a5d0808c9b60e4fb7352b2aec02c355a2f"
     },
     {
