@@ -1,0 +1,36 @@
+---
+title: Understand AGL
+---
+
+# Understand AGL
+
+Use this section when you want to understand the overall platform or the relationship between applications and services.
+
+## Start with the architecture
+
+Read the [architecture overview](architecture.md) to understand AGL's structure. The official [Unified Code Base](https://www.automotivelinux.org/software/unified-code-base) page provides broader context.
+
+## Build and runtime environments
+
+Read [Build host, target, image, and SDK](build-and-runtime.md) to distinguish the development environment from the running AGL system. It explains how a target, image, features, and SDK relate to each other.
+
+Use the [AGL glossary](../reference/glossary.md) when you encounter unfamiliar terms.
+
+## Applications and services
+
+Read [How AGL services fit together](services.md) for the relationship between applications, lifecycle management, graphics, audio, and vehicle data.
+
+[Create a new application](../develop/apps/create-application.md) includes information about application structure, execution, and deployment.
+
+For individual feature specifications, use the [API and service catalog](../reference/services/index.md). It links service specifications with related explanations.
+
+## Continue from the overview
+
+| Next goal | Guide |
+| --- | --- |
+| Explore a running environment | [Get started](../start/index.md) |
+| Develop your own application | [Application development](../develop/index.md#apps) |
+| Build an image with your own configuration | [Platform development](../develop/index.md#platform) |
+| Look up an API or a setting | [API & configuration](../reference/index.md) |
+
+Concepts and features can differ between versions. This site targets the `{{ agl.codename }}` development branch. For another version, use [Releases & migration](../releases/index.md) to find its documentation.

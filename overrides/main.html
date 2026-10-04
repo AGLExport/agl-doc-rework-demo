@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block announce %}
+  <strong>AGL {{ config.extra.agl.codename }}</strong>
+  {% if config.extra.artifact_kind == "snapshots" %} · Development documentation{% else %} · Release documentation{% endif %}
+  · Yocto {{ config.extra.yocto.version }}
+  <a href="{{ 'releases/' | url }}">Release guidance →</a>
+{% endblock %}
+{% block content %}
+  {% if page.meta.content_status == "imported" %}
+    <div class="agl-source-note">Detailed AGL guide · Match the instructions to your release, image, and board.</div>
+  {% endif %}
+  {{ super() }}
+{% endblock %}

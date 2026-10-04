@@ -1,0 +1,197 @@
+site_name: AGL Documentation
+site_description: Task-oriented guides, concepts, and references for Automotive Grade Linux.
+site_url: !ENV [MKDOCS_SITE_URL, "http://127.0.0.1:8000/"]
+docs_dir: docs
+site_dir: site
+use_directory_urls: true
+theme:
+  name: material
+  language: en
+  custom_dir: overrides
+  logo: assets/source/img/agl.png
+  favicon: assets/source/img/favicon.ico
+  font: false
+  features:
+  - navigation.tabs
+  - navigation.sections
+  - navigation.indexes
+  - navigation.top
+  - search.suggest
+  - search.highlight
+  - content.code.copy
+  palette:
+  - scheme: default
+    primary: custom
+    accent: custom
+    toggle:
+      icon: material/weather-night
+      name: Switch to dark mode
+  - scheme: slate
+    primary: custom
+    accent: custom
+    toggle:
+      icon: material/weather-sunny
+      name: Switch to light mode
+plugins:
+- search:
+    lang:
+    - en
+    separator: '[\s\-_]+'
+- macros:
+    on_error_fail: true
+    j2_comment_start_string: "{##"
+    j2_comment_end_string: "##}"
+hooks:
+- hooks/site.py
+markdown_extensions:
+- admonition
+- attr_list
+- md_in_html
+- toc:
+    permalink: true
+- pymdownx.highlight:
+    anchor_linenums: true
+- pymdownx.superfences
+- pymdownx.details
+- pymdownx.tasklist:
+    custom_checkbox: true
+validation:
+  nav:
+    omitted_files: warn
+    not_found: warn
+  links:
+    not_found: warn
+    anchors: warn
+    unrecognized_links: warn
+extra_css:
+- assets/stylesheets/extra.css
+extra:
+  agl:
+    codename: master
+    full_name: Wacky Walleye
+  yocto:
+    codename: wrynose
+    version: 6.0.x
+  qt_layer_branch: '6.12'
+  artifact_kind: snapshots
+nav:
+- Home: index.md
+- Get started:
+  - Overview: start/index.md
+  - Choose a prebuilt image: start/prebuilt-images.md
+  - QEMU x86-64: start/qemu-x86-64.md
+  - QEMU AArch64: start/qemu-arm64.md
+  - VirtualBox: start/virtualbox.md
+  - x86-64 hardware: start/x86-hardware.md
+  - Raspberry Pi 4: start/raspberry-pi.md
+  - Explore the demos:
+    - Flutter IVI homescreen: start/demos/flutter-homescreen.md
+    - Qt IVI homescreen: start/demos/qt-homescreen.md
+    - Instrument Cluster reference GUI: start/demos/cluster-dashboard.md
+    - Momi Screen: start/demos/momi/screen.md
+    - Momi navigation: start/demos/momi/navigation.md
+    - Momi Weather: start/demos/momi/weather.md
+- Develop:
+  - Overview: develop/index.md
+  - Applications:
+    - Set up a Flutter workspace: develop/apps/flutter-workspace.md
+    - Application development and SDK workflow: develop/apps/sdk-overview.md
+    - Set up the AGL SDK: develop/apps/setup-sdk.md
+    - Build applications with the SDK: develop/apps/build-apps.md
+    - Package and register an AGL application: develop/apps/create-application.md
+    - Qt application development: develop/apps/qt-sdk.md
+  - Platform and images:
+    - AGL image build workflow: develop/platform/build-overview.md
+    - Prepare a build host: develop/platform/prepare-host.md
+    - Download AGL source: develop/platform/download-source.md
+    - Initialize the AGL build environment: develop/platform/initialize-build.md
+    - Build an AGL image: develop/platform/build-image.md
+    - Configure caches and build output: develop/platform/customize-build.md
+    - Customize an AGL image: develop/platform/customize-image.md
+    - Create a custom recipe: develop/platform/custom-recipe.md
+    - Create a service: develop/platform/new-service.md
+  - Hardware:
+    - Build and boot on x86: develop/hardware/x86.md
+    - Build and boot on Raspberry Pi: develop/hardware/raspberry-pi.md
+    - Build and boot on R-Car Gen3: develop/hardware/renesas-rcar-gen3.md
+    - Build and boot on Sparrow Hawk: develop/hardware/sparrow-hawk.md
+    - Build and boot on Rockchip boards: develop/hardware/rockchip.md
+    - Build a virtio guest: develop/hardware/virtio.md
+    - Build and run on AWS EC2: develop/hardware/aws-ec2.md
+    - Build and boot on VisionFive2: develop/hardware/visionfive2.md
+    - Raspberry Pi peripheral setup: develop/hardware/raspberry-pi/devices.md
+    - Raspberry Pi camera setup: develop/hardware/raspberry-pi/camera.md
+    - Raspberry Pi display setup: develop/hardware/raspberry-pi/display.md
+  - Integrated demos:
+    - Instrument Cluster with container isolation: develop/demos/instrument-cluster.md
+    - KVM demo images: develop/demos/kvm.md
+    - Rust and Slint Instrument Cluster demo: develop/demos/slint.md
+  - Tools:
+    - Use a USB CAN adapter: develop/tools/usb-can-adapter.md
+    - AGL Demo Control Panel: develop/tools/demo-control-panel.md
+    - Use CARLA with AGL: develop/tools/carla.md
+    - AGL virtual car: develop/tools/virtual-car.md
+- Understand AGL:
+  - Overview: explanation/index.md
+  - About Automotive Grade Linux: explanation/about-agl.md
+  - AGL system architecture: explanation/architecture.md
+  - Build host, target, image, and SDK: explanation/build-and-runtime.md
+  - How AGL services fit together: explanation/services.md
+  - AGL application framework: explanation/application-framework.md
+  - Application sandboxing: explanation/application-sandboxing.md
+- API & configuration:
+  - Overview: reference/index.md
+  - Choose a board and image: reference/matrix.md
+  - Hardware support levels and boards: reference/hardware.md
+  - AGL image targets: reference/images.md
+  - Hardware image configurations: reference/hardware-images.md
+  - Services:
+    - Service directory: reference/services/index.md
+    - AGL compositor: reference/services/graphics/agl-compositor.md
+    - DRM lease manager: reference/services/graphics/drm-lease-manager.md
+    - PipeWire and WirePlumber: reference/services/audio/pipewire-wireplumber.md
+    - Instrument Cluster sound management: reference/services/audio/instrument-cluster-sound.md
+    - Rule-based arbitrator: reference/services/policies/rule-based-arbitrator.md
+    - Persistent Storage API: reference/services/persistent-storage.md
+    - Voice agent assistant: reference/services/voice-agent.md
+    - Instrument Cluster API specification: reference/services/instrument-cluster-api.md
+    - Instrument Cluster service: reference/services/instrument-cluster-service.md
+    - Container Manager: reference/services/container-manager.md
+    - Unified HMI: reference/services/unified-hmi.md
+    - Original API coverage overview: reference/services/legacy-api-overview.md
+  - Application and container settings:
+    - Application startup and applaunchd: reference/apps/application-startup.md
+    - Container Manager global configuration: reference/config/container/global.md
+    - Container configuration files: reference/config/container/containers.md
+  - Yocto layers:
+    - AGL Yocto layer structure: reference/build/layers/overview.md
+    - meta-agl: reference/build/layers/meta-agl.md
+    - meta-agl-demo: reference/build/layers/meta-agl-demo.md
+    - meta-agl-devel: reference/build/layers/meta-agl-devel.md
+  - Vehicle signals:
+    - Virtual car vehicle signals: reference/vehicle-signals/vehicle.md
+    - Virtual car body signals: reference/vehicle-signals/body.md
+    - Virtual car sensor signals: reference/vehicle-signals/sensors.md
+  - AGL component directory: reference/components.md
+  - AGL glossary: reference/glossary.md
+- Troubleshooting:
+  - Overview: troubleshooting/index.md
+  - Diagnose common problems: troubleshooting/diagnostics.md
+  - Get community help: troubleshooting/getting-help.md
+  - Report a bug: troubleshooting/reporting-bugs.md
+- Releases & migration:
+  - Release guidance: releases/index.md
+- Contribute:
+  - Overview: contributing/index.md
+  - Get a Linux Foundation account: contributing/linux-foundation-account.md
+  - Track work in Jira: contributing/jira.md
+  - Work with Gerrit: contributing/gerrit.md
+  - Submit a change: contributing/submit-changes.md
+  - Review changes: contributing/review-changes.md
+  - Gerrit recommended practices: contributing/gerrit-practices.md
+  - Contribution guidelines: contributing/general-guidelines.md
+  - Code contribution guidelines: contributing/code-guidelines.md
+  - AI coding assistants: contributing/ai-coding-assistants.md
+  - Contribute to the original AGL documentation: contributing/documentation.md
+  - Contribution checklist: contributing/checklist.md
+  - Set up an AGL LAVA lab: contributing/lava-lab.md
