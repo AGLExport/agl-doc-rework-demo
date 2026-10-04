@@ -20,17 +20,9 @@ For a Linux host, start with the [QEMU x86-64 instructions](qemu-x86-64.md). Dow
 
 This route points to the existing instructions. Check that the host requirements, QEMU options, and available artifacts match the version you are using.
 
-### Other environments
+### Hardware: Raspberry Pi 4
 
-Choose a separate guide for your environment:
-
-| Environment | Setup guide |
-| --- | --- |
-| QEMU x86-64 | [Run on QEMU x86-64](qemu-x86-64.md) |
-| QEMU AArch64 | [Run on QEMU AArch64](qemu-arm64.md) |
-| VirtualBox | [Run on VirtualBox](virtualbox.md) |
-| Physical x86-64 system | [Run on x86-64 hardware](x86-hardware.md) |
-| Raspberry Pi 4 | [Run on Raspberry Pi 4](raspberry-pi.md) |
+To evaluate AGL on hardware, follow the [Raspberry Pi 4 instructions](raspberry-pi.md). Prepare a suitable display, a network connection, and a microSD card, then download and flash the image for your version.
 
 Use the [prebuilt image overview](prebuilt-images.md) to compare the environments. For hardware, first check [hardware support](../reference/hardware.md) and [image types](../reference/images.md).
 

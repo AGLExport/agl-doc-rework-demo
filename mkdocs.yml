@@ -80,9 +80,6 @@ nav:
   - Overview: start/index.md
   - Choose a prebuilt image: start/prebuilt-images.md
   - QEMU x86-64: start/qemu-x86-64.md
-  - QEMU AArch64: start/qemu-arm64.md
-  - VirtualBox: start/virtualbox.md
-  - x86-64 hardware: start/x86-hardware.md
   - Raspberry Pi 4: start/raspberry-pi.md
   - Explore the demos:
     - Flutter IVI homescreen: start/demos/flutter-homescreen.md

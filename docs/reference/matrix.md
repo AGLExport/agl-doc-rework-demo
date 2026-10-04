@@ -10,7 +10,7 @@ For a first evaluation on a Linux PC, start with the [QEMU x86-64 quickstart](..
 | Environment | MACHINE | Documented starting point | Guide |
 | --- | --- | --- | --- |
 | QEMU x86-64 | qemux86-64 | Prebuilt Qt IVI demo | [Run the image](../start/qemu-x86-64.md) |
-| QEMU AArch64 | qemuarm64 | Prebuilt Qt IVI demo | [Run the image](../start/qemu-arm64.md) |
+| QEMU AArch64 | qemuarm64 | Hardware and artifact reference | [Hardware reference](hardware.md) |
 | Raspberry Pi 4 | raspberrypi4 | Prebuilt Qt IVI demo or source build | [Prebuilt](../start/raspberry-pi.md) / [Build](../develop/hardware/raspberry-pi.md) |
 | Raspberry Pi 5 | raspberrypi5 | Board and profile-specific source builds | [Build guide](../develop/hardware/raspberry-pi.md) / [IC profile](../develop/demos/instrument-cluster.md) |
 | R-Car Gen3 | h3ulcb and related variants | Board-specific source build | [Build guide](../develop/hardware/renesas-rcar-gen3.md) |

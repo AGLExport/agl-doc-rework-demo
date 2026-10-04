@@ -2,7 +2,7 @@
 
 This directory contains an English documentation site organized around user goals: get started, develop, understand the platform, look up APIs and settings, troubleshoot, follow releases, and contribute. The homepage provides four routes: try AGL, develop an application, build an image, and use real hardware.
 
-The original `../docs/` directory remains unchanged. This site imports all 84 source Markdown articles and 104 source assets into the new structure. The original multi-environment quickstart is divided into five setup guides: QEMU x86-64, VirtualBox, an x86-64 physical system, QEMU AArch64, and Raspberry Pi 4.
+The original `../docs/` directory remains unchanged. This site imports all 84 source Markdown articles and 104 source assets into the new structure. The Get started section provides two prebuilt-image setup guides: QEMU x86-64 and Raspberry Pi 4.
 
 ## Contents
 
@@ -93,6 +93,20 @@ Deployment follows the repository's actual default branch, without a fixed `main
 
 This delivery does not create the root-level workflow copy, publish the site, commit changes, or push to GitHub.
 
+## Troubleshoot Pages configuration errors
+
+If the **Read GitHub Pages configuration** step reports `HttpError: Not Found` or `Get Pages site failed`, the Pages site has not been enabled or the workflow cannot access it. This failure occurs before MkDocs builds the documentation.
+
+1. Open the publishing repository's **Settings > Pages**. For `AGLExport/agl-doc-rework-demo`, use <https://github.com/AGLExport/agl-doc-rework-demo/settings/pages>.
+2. Under **Build and deployment > Source**, select **GitHub Actions**. A repository administrator or maintainer must perform this initial setup. The existing workflow is sufficient; no additional template is needed.
+3. In **Actions**, open the failed run and choose **Re-run all jobs**, or run **Build and deploy AGL documentation** on the default branch.
+
+If GitHub Actions is already selected, check that the repository's plan and organization policy allow Pages and that the build job retains `pages: read`. Keep the deploy job's `pages: write` and `id-token: write` permissions.
+
+The workflow deliberately uses `enablement: false` and the standard `GITHUB_TOKEN`. Adding `enablement: true` alone does not solve initial setup: [the action requires a separate token for automatic enablement](https://github.com/actions/configure-pages/blob/v6.0.0/action.yml). Enabling Pages once through repository settings avoids adding an administrator token to the workflow. See [GitHub's publishing-source instructions](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
+
+When updating an existing parent repository, copy the revised workflow to its root `.github/workflows/pages.yml` before committing it. Updating only the nested workflow does not update the active workflow.
+
 ## Edit and maintain the documentation
 
 Edit articles in `docs/` and adjust the explicit `nav` in `mkdocs.yml` when adding or moving pages. Use descriptive page titles, relative Markdown links, and related-page or next-step links. Update shared release values in `mkdocs.yml` when changing the documented AGL release or artifact channel. Rebuild and validate after changes.
@@ -103,7 +117,7 @@ The importer is a manual migration utility, not part of the normal site build. F
 python scripts/import_docs.py --source ../docs
 ```
 
-**Re-importing overwrites imported articles, copied assets, the five generated quickstart guides, and `source-map.json`.** Preserve local edits before running it. Update the importer's mapping and transformations when a change must survive later imports. Entry pages written separately from imported articles are maintained directly in `docs/`.
+**Re-importing overwrites imported articles, copied assets, the two generated quickstart guides, and `source-map.json`.** Preserve local edits before running it. Update the importer's mapping and transformations when a change must survive later imports. Entry pages written separately from imported articles are maintained directly in `docs/`.
 
 In a separate site repository, `../docs/` will not normally exist. Supply the original AGL documentation directory using `--source` only when deliberately re-importing it.
 
