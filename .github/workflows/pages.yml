@@ -59,6 +59,20 @@ jobs:
         if: github.event_name != 'pull_request'
         id: pages
         uses: actions/configure-pages@v6.0.0
+        with:
+          # Enable Pages once in repository settings before running this workflow.
+          # Automatic enablement needs an administrator token, not GITHUB_TOKEN.
+          enablement: false
+
+      - name: Explain GitHub Pages configuration failure
+        if: failure() && steps.pages.outcome == 'failure'
+        env:
+          PAGES_SETTINGS_URL: ${{ github.server_url }}/${{ github.repository }}/settings/pages
+        run: |
+          echo "::error::GitHub Pages configuration could not be read. Open $PAGES_SETTINGS_URL and select Build and deployment > Source > GitHub Actions, then re-run this workflow."
+          echo "If Pages is already configured, verify repository Pages access and organization policy."
+          echo "Setting enablement to true alone cannot enable Pages with GITHUB_TOKEN; automatic enablement requires a separate administrator token."
+          exit 1
 
       - name: Build documentation
         env:
