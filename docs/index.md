@@ -1,56 +1,41 @@
 ---
-title: AGL Documentation
+title: "Home"
+content_status: authored
 ---
 
-# AGL Documentation
+# Home
 
-Automotive Grade Linux (AGL) is an open source project building a shared Linux-based platform for automotive applications. Use these guides to try AGL, develop applications, build your own image, and find the specifications you need.
+Automotive Grade Linux (AGL) provides a Linux-based platform for automotive software. Choose whether you want to evaluate an IVI demo, develop a standalone distribution, integrate several guest systems, or work on an individual component.
 
 !!! info "Documentation version"
-    This site targets the **{{ agl.full_name }} / `{{ agl.codename }}` development branch**. To use a stable release, check [Releases & migration](releases/index.md) and follow the documentation for that release.
-
-## What would you like to do?
+    This site follows **{{ agl.full_name }} / `{{ agl.codename }}`** and the **{{ artifact_kind }}** artifact channel. Use [Releases & migration](releases/index.md) to select a stable release.
 
 <div class="grid cards" markdown>
 
-- **Try AGL**
+- **Try the Flutter IVI demo**
 
-    Start a demo with a prebuilt image and explore AGL. QEMU x86-64 is the starting point in this guide.
+    Explore the demo, then boot it on QEMU x86-64 or Raspberry Pi 4/5.
 
     [Get started](start/index.md)
 
+- **Build a standalone distribution**
+
+    Prepare a host and choose IVI or Instrument Cluster software.
+
+    [Start building](standalone/build/index.md)
+
 - **Develop an application**
 
-    Set up a Flutter workspace or an SDK, then build and deploy your application.
+    Use Flutter or the AGL SDK and add your application to an image.
 
-    [Start application development](develop/index.md#apps)
+    [Application development](standalone/applications/index.md)
 
-- **Build an image**
+- **Integrate guest systems**
 
-    Prepare a build host, download the source, configure a target, and customize your image.
+    Choose SoDeV, container integration, or KVM integration.
 
-    [Start platform development](develop/index.md#platform)
-
-- **Run on hardware**
-
-    Check the board and image combinations, then choose the instructions for your target.
-
-    [Choose a board and image](reference/matrix.md)
+    [Integrated system development](integrated/index.md)
 
 </div>
 
-New to AGL? Start with the [glossary](reference/glossary.md) and the explanation of [build hosts, targets, images, and SDKs](explanation/build-and-runtime.md).
-
-## Find the information you need
-
-| Goal | Section |
-| --- | --- |
-| Start using AGL or boot a prebuilt image | [Get started](start/index.md) |
-| Develop applications or build images | [Develop](develop/index.md) |
-| Understand the architecture and services | [Understand AGL](explanation/index.md) |
-| Look up APIs, configuration, and target support | [API & configuration](reference/index.md) |
-| Resolve a problem or ask for help | [Troubleshooting](troubleshooting/index.md) |
-| Choose a release or update an environment | [Releases & migration](releases/index.md) |
-| Propose a change or improve the documentation | [Contribute](contributing/index.md) |
-
-For a broader introduction, see the official [About AGL](https://www.automotivelinux.org/about) and [Unified Code Base](https://www.automotivelinux.org/software/unified-code-base) pages.
+New to the platform? Read [What is AGL](home/index.md), the [glossary](home/glossary.md), and [Build host, target, image, and SDK](home/build-and-runtime.md).

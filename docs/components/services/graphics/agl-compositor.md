@@ -1,0 +1,800 @@
+---
+title: "The AGL compositor"
+source_path: "06_Component_Documentation/01_Graphics_Service/01_agl_compositor.md"
+content_status: imported
+---
+
+# The AGL compositor
+
+When the AGL project was started, Weston was chosen as the compositor, which was
+the reference implementation of a Wayland compositor, while for window management
+functionality it relied on *ivi-shell* (In-Vehicle Infotainment) together
+with an extension, called [wayland-ivi-exension](https://github.com/COVESA/wayland-ivi-extension).
+
+The demo platform image of AGL comes with a handful of demo applications, done
+with either the Qt toolkit, or the Flutter SDK, which abstracts the protocol
+communication between the client and the compositor. Additional functionality
+was in place under the form of library, to control and signal back to the
+compositor when applications were started, among other things.
+
+Management of applications, starting, running and stopping them is done in AGL
+with the AppFW [Application Framework Management](../../framework/lifecycle/application-framework.md),
+which is an umbrella name to denote the suite of tools and daemons that handle
+all of that. It is integrated with systemd and with the current security model.
+Applications can use AppFW to hang off data, and to pass it down to
+other services. Together with AppFW, applications could tell the compositor
+which application to activate or to switch to.
+
+
+## Simplifying the graphical stack
+
+Trimming down these abstractions, simplifying the way clients interact with the
+compositor, and avoid using modules that aren't really maintained upstream were
+the reasons behind looking at alternatives to ivi-shell. On the desktop,
+[xdg-shell](https://wayland.app/protocols/xdg-shell)
+is currently de-facto protocol for handling all window management related
+functionality.
+
+### Protocols and other Wayland protocols
+
+Wayland protocol had as well a protocol interface embedded into its protocol
+(called wl_shell), which used to perform window management operations, but it
+has been has deprecated for quite some time. xdg-shell is a protocol that lives
+under [wayland-protocols](https://gitlab.freedesktop.org/wayland/wayland-protocols)
+project.  The whole purpose of wayland-protocols is to enhance the Wayland
+protocol with new functionality and bring new extensions entirely.  Compositors
+are free to implement, modify, enhance, and add new extensions to
+wayland-protocols but they need to do so in consensus.
+
+
+### Additional protocols
+
+Besides the core wayland protocol and extended functionality from
+wayland-protocols, a compositor can provide and implement additional protocol
+extensions (custom to that compositor). By using such private extensions we
+align with the AGL project and its requirements, without compromising specific
+functionality and allows to add or improve the current ones. With that in mind,
+the approach was to create a new compositor, called
+[agl-compositor](https://git.automotivelinux.org/src/agl-compositor)
+and implement dedicated private extensions, rather than trying to modify Weston
+itself, which AGL project would have been required to keep and maintain for
+itself, as a fork.
+
+## A compositor based on libweston
+
+The compositor used currently in AGL, just like Weston, is built on top of
+*libweston* and *libweston-desktop*. The latter, among other things, is required
+as it provides the server side implementation of the xdg-shell protocol which
+underlying toolkits (like Qt/Flutter/Chromium project) makes use of to deliver
+desktop-like functionality. The former is used to provide back-ends and
+rendering support, effectively managing the HW, besides implementing the
+wayland protocol. Later versions of Weston has integrated libweston-deskop
+inside libweston but decided to keep the older name for posterity.
+
+The high-level goal of [libweston](https://wayland.pages.freedesktop.org/weston/toc/libweston.html) is
+to decouple the compositor from the shell implementation.
+
+Traditionally, clients were entirely separated from the window manager, the
+desktop environment and the display server. In Wayland eco-system all these are
+conceptually under the same entity though they are implemented as different
+(UNIX) processes, or as a different namespaces with front and back-end APIs,
+exposed by libraries. The compositor and the shell driving the UI should be
+seen as one and the same, and in practice, this happens on desktop
+environments. For AGL, the shell client can be represented under different
+forms, as well as the fact that the process management has another layer
+baked-in to handle MAC (Mandatory Access Control) labels and use the
+above-mentioned Application Framework. These are all tightly
+integrated and therefore, the AGL compositor will not automatically start the
+shell client, although there's code to handle that.
+
+## Specifying a shell client to be started by the compositor
+
+Nevertheless, one can modify the configuration file, add the shell client path, and the
+compositor will attempt to start it.
+
+```
+[shell-client]
+command=/path/to/your/client/shell
+```
+
+## Private extension and protocols
+
+Compositors can define and implement custom extensions/protocols to further
+control application behaviour. For AGL, we had two private extensions defined.
+One targeted at defining surface roles commonly found in desktop environments
+(like panels, and backgrounds), which a shell client would bind to, and one
+targeted at regular application(s) that might require additional functionality:
+being able to display/activate its own surface or other's application surface,
+implement some kind of split screen management of windows, or
+dialog/pop-ups that exhibit always-on-top property even if the active
+surface has been changed.
+
+![Layers_And_Extensions](../../../assets/source/06_Component_Documentation/01_Graphics_Service/images/agl-compositor/drawing_shell.png)
+
+Clients can make use of these private extensions to define other kind of roles
+for instance dialog/pop-ups or full-screen roles, and split windows vertically or
+horizontally. It includes the ability to activate other applications, assuming
+that the surfaces have been created, and the capability of delaying
+presentation for the client shell. Doing so, all the information is displayed
+at once, rather than waiting for the toolkit to map/show the surface.
+
+Note that second protocol extension was deprecated and removed and is now has
+been superseded by a gRPC API further detailed below.
+
+An application identification mechanism was required to be able to activate
+other clients windows/surfaces. A string-based identifier name was chosen
+which can be used by the client to set an application-based identifier using
+the xdg-shell protocol. While there's nothing stopping the client to avoid
+doing that, specifically, to avoid assigning an application identifier,
+the compositor won't be able to find which surfaces matches to a particular
+client, if one would want to activate/display it at some time in the future.
+
+### agl-shell
+
+Client shells can make use of this protocol to define panels and background
+roles for different surfaces. It includes to ability to activate other
+applications, assuming that those are already running. Activation happens by
+using the app_id, respectively using set_app_id request as defined by the
+xdg-shell protocol. Established client-side implementation of the xdg-shelll
+protocol will have a function exposed which can be used to set an application
+identifier.  Further more, the compositor will not present/display anything to
+the user as long the `ready()` is not requested. So, after creating the surfaces
+assigning them panel and/or background roles, and they're fully loaded,
+the client can then issue `ready()` request and the compositor will start
+presenting.
+
+Please consult the [protocol file](https://git.automotivelinux.org/src/agl-compositor/tree/protocol/agl-shell.xml)
+as that is the authoritative way of getting the latest version.
+
+#### V2 updates
+
+Version 2 of the agl-shell protocol, while it is not obligatory to be
+supported by the shell client, it adds two new events: bound_ok and bound_fail
+events.
+
+It has been observed that in some cases where we do not explicitly have a knob
+in the toolkit to tell whether the application is a regular one (which doesn't
+need to bind to the agl-shell protocol) or a one that needs to implement
+agl-shell protocol might result in terminating the wayland connection.
+
+That happens because we can't have multiple clients bind to the agl-shell
+protocol interface and was particularly visible when using regular
+flutter applications with other shell clients (Qt homescreen, or WAM/chromium),
+basically mashing together different kind of toolkits in the same image. Once
+a client has already bound to the agl-shell protocol interface any other client
+that attempts to do same will get its wayland connection severed and the
+application will be terminated.
+
+These two events provide a race-free method in which the clients can tell if
+they're in charge (of being the shell client) or their just regular
+applications. Explicitly implementing this protocol if you have other means to
+specify which type of application it is running wouldn't be required nor
+necessary. But by using the protocol we can provide the same thing,
+programmatically, without fearing that the wayland connection might be
+severed, and implicitly taking down the application.
+
+#### V3 updates
+
+Version 3 of the agl-shell protocol adds 4 more events to signal out when the
+application state was changed: started, activated, deactivated and terminated.
+
+Version 3 update was mostly prompted by an issue with start-up of applications
+but also is part of the first steps to reduce and simplify a bit more
+activation handling in the compositor.  Specifically with this protocol update,
+we can correctly orchestrate start-up and activation of applications.
+
+At the moment of adding this protocol update, the default compositor behaviour
+is to display/activate applications as soon they're started, a feature which
+we've called activate-by-default (and which is turned on by default).
+But users can choose to disable that in such a way that activation is entirely
+driven the shell client.
+
+Implicitly having this activate-by-default papered over various
+issue when don't have that activation by default turned on. Supporting both
+use-cases (activate-by-default, on and off) turned out to be cluster of
+problems and regression over time. Not only that the amount of complexity in
+the compositor is unwarranted and can simplified by telling the shell client
+handle any window management interaction on its own.
+
+#### V4 updates
+
+Version 4 of the agl-shell protocol brings a new request,
+"set_activate_region". This is a hint for the compositor to use a custom area
+for activation, rather than inferring the activation area from the panels.
+This is a work-around designed for toolkits which can't handle multiple
+surfaces at the same, such that it can this achieve the same functionality as
+having multiple surfaces, but instead have just a single main surface to
+handle. The compositor will place other applications in the designated
+activation region, and will activate/deactivate surfaces only that in region.
+With a custom activation area that leaves portions of the output available to
+the toolkit this means it can achieve a similar graphical outcome as if there
+are panels. All the toolkits, including Qt are now using this approach, with only
+CI using distinct surfaces with panels.
+
+#### V5 updates
+
+Version 5 of the agl-shell protocol brings a new request, "deactivate_app".
+Similar to the activate request, this will hide the current active application.
+Depending on the window role, this request will either display the previously
+active window (or the background in case there's no previously active surface)
+or temporarily (or until a 'activate_app' is called upon) hide the surface.
+
+#### V6 updates
+
+Version 6 of the agl-shell protocol, brings two new request, "set_app_float" and
+"set_app_normal". The first one is a method to change the surface role, either
+on the fly, or at start-up to behave like a dialog/pop-up window, which can be
+positioned anywhere on the output. The later one, is useful to return the main
+original surface role, as maximized.
+
+#### V7 updates
+
+Version 7 of the agl-shell protocol, brings one new request, "set_app_fullscreen".
+This is similar to "set_app_float", but it changes the surface role to fullscreen.
+Going back to the original, maximized role should be with "set_app_normal".
+
+#### V8 updates
+
+Version 8 of the agl-shell protocol, adds a new request, "set_app_output", and
+a new event, "app_on_output". This request/event is useful to migrate
+applications from one output to another and signal out when that happens.
+
+#### V9 updates
+
+Version 9 of the agl-shell protocol, adds a new request, "set_app_position". This
+request only makes sense for float type of surface, which was previously set with
+"set_app_float".
+
+#### V10 updates
+
+Version 10 of the agl-shell protocol, adds a new request, "set_app_scale".
+Similar to the "set_app_position", the surface role must be a floating type,
+before using this request. The app scale request is actually a resize
+hint for the client to change its dimensions to the one specified in the
+request arguments. The client should use [wp_viewporter
+interface](https://wayland.app/protocols/viewporter#wp_viewporter) to perform
+cropping and scaling.
+
+#### V11 updates
+
+Version 11 of the agl-shell protocol, adds a new request "set_app_split".  This
+request only handles a single level of tiling for practical reasons as to keep
+implementation simple and straight forward. Apart from the usual, tile
+horizontally, and vertically, two arguments can be used to customize handling.
+One defines the width of the split window, such that clients can specify, in
+absolute values, the size of the split window. The other is about keeping the
+split window always present when activating other windows.
+
+By default when activating a new windows, the split window roles are destroyed
+and new activated window will be put in front. Making the split window sticky
+would avoid doing that. Obviously trying to activate a window already active,
+which has the sticky role won't be possible (it is already displayed).
+
+#### Activating (other) applications
+
+agl-shell protocol has requests to activate other application based on their
+xdg-shell app_id. In case the application is present/running, it will attempt
+to make the surface backing that application the current activate one, with
+each output having independently active surfaces.
+
+## gRPC proxy for window management
+
+The gRPC proxy is an alternative to allow management of windows,
+without the need for clients to "speak" native Wayland C code.  Most major
+languages have RPC bindings, and in AGL clients do not touch Wayland code
+natively, using most of the time toolkits. It seemed reasonably to use gRPC
+as a way to interact with the compositor. The way this works is that
+there's proxy daemon started by the compositor which translates the gRPC
+calls to Wayland ones, using agl-shell protocol. Events coming from the
+compositor are handled by subscribing to RPC stream events, such that
+clients can act upon as well, so it is not just one way interaction.
+
+With respect to window management: placement, movement, and surface role
+changes all should, and can be done with RPC. Some of the calls, specifically
+background set-up or activation area, are still required to happen prior or
+require wayland primitives which can't be passed between processes, so those
+can't be used with RPC proxy.
+
+In terms of API, the following are available: activation/deactivation,
+role management, and events. All the message arguments are self-explanatory,
+requiring always an app_id, in form of string and possibly an output, in
+form a string as well. Toolkits can set/retrieve this information so refer
+to the respective toolkit. At the wayland level, the app_id is set/get
+with [xdg-shell](https://wayland.app/protocols/xdg-shell#xdg_toplevel:request:set_app_id)
+whereas output from [wl_output interface](https://wayland.app/protocols/wayland#wl_output:event:name)
+
+Activation and deactivation of applications:
+
+```
+rpc ActivateApp(ActivateRequest)         returns (ActivateResponse) {}
+rpc DeactivateApp(DeactivateRequest)     returns (DeactivateResponse) {}
+```
+With the following message arguments:
+
+```
+message ActivateRequest {
+       string app_id = 1;
+       string output_name = 2;
+}
+
+message ActivateResponse {
+};
+
+
+message DeactivateRequest {
+       string app_id = 1;
+};
+
+message DeactivateResponse {
+};
+```
+
+Management of surface roles can be done with these requests:
+
+
+```
+rpc SetAppSplit(SplitRequest)            returns  (SplitResponse) {}
+rpc SetAppFloat(FloatRequest)            returns  (FloatResponse) {}
+rpc SetAppFullscreen(FullscreenRequest)  returns  (FullscreenResponse) {}
+rpc AppStatusState(AppStateRequest)      returns  (stream AppStateResponse) {}
+rpc GetOutputs(OutputRequest)            returns  (ListOutputResponse) {}
+rpc SetAppNormal(NormalRequest)          returns  (NormalResponse) {}
+rpc SetAppOnOutput(AppOnOutputRequest)   returns  (AppOnOutputResponse) {}
+rpc SetAppPosition(AppPositionRequest)   returns  (AppPositionResponse) {}
+rpc SetAppScale(AppScaleRequest)         returns  (AppScaleResponse) {}
+```
+
+Message arguments are:
+
+```
+message SplitRequest {
+       string app_id = 1;
+       int32 tile_orientation = 2;
+       int32 width = 3;
+       int32 sticky = 4;
+       string output_name = 5;
+}
+
+message SplitResponse {
+};
+
+message FloatRequest {
+       string app_id = 1;
+       int32 x_pos = 2;
+       int32 y_pos = 3;
+};
+
+message FloatResponse {
+};
+
+message NormalRequest {
+        string app_id = 1;
+};
+
+message NormalResponse {
+};
+
+message FullscreenRequest {
+        string app_id = 1;
+};
+
+message FullscreenResponse {
+};
+
+message AppOnOutputRequest {
+        string app_id = 1;
+        string output = 2;
+};
+
+message AppOnOutputResponse {
+};
+
+message AppPositionRequest {
+       string app_id = 1;
+       int32 x = 2;
+       int32 y = 3;
+};
+
+message AppPositionResponse {
+};
+
+message AppScaleRequest {
+       string app_id = 1;
+       int32 width = 2;
+       int32 height = 3;
+};
+
+message AppScaleResponse {
+};
+```
+
+Events which clients can subscribe to:
+
+```
+rpc AppStatusState(AppStateRequest) returns (stream AppStateResponse) {}
+```
+
+With the message arguments:
+
+```
+message AppStateRequest {
+};
+
+message AppStateResponse {
+        int32 state = 1;
+        string app_id = 2;
+};
+```
+
+### Demo clients using agl-shell and the gRPC interface
+
+A C++ client implementation the gRPC API can be found in [agl-shell-activator](https://git.automotivelinux.org/src/agl-shell-activator/)
+project or in [window-management-client-grpc](https://git.automotivelinux.org/src/window-management-client-grpc) one.
+
+agl-shell-activator is a simple gRPRC client written to exercise code paths in
+the gRPC proxy server and to illustrate how can window management be
+acompolished with gRPC. It has most of following function available in terms
+window management functionality, like:
+
+- activate/deactivate (show/hide) a certain application
+- change orientation of a certain application window by make it
+  split with other or with the main shell application
+- change window type to float, fullscreen or back to normal in the maximized state
+- change window position by making it a float type of window and move its
+  position to a desired x, y position
+- listen for window state events - the compositor emits window state events which
+  are further relayed to the gRPC proxy server
+- sticky window - keep one window always displayed which switching between
+  different windows
+
+window-management-client-grpc is a Qt demo applications which demonstrates how
+the client can communicate with the gRPC protocol to inform the compositor that
+it wants to position itself to a custom position or be in a different state
+that the normal maximized one. More specifically the following window states
+are available: float, fullscreen, split, independently positioned, on other
+outputs or scaled.
+
+## Explicit output
+
+The activation and setting surface roles requires passing a Wayland output
+(wl_output).  The output is the wayland interface representation of an output
+and is **mandatory** to pass it down to the compositor when activating a surface.
+Clients can retrieve it (the output) if they wish to place the surface on other
+outputs by using the toolkits that expose the Wayland objects.  A human-like
+representation is provided by either the toolkit, or by using other extensions
+implemented by the client, for instance [xdg-output](https://gitlab.freedesktop.org/wayland/wayland-protocols/-/raw/master/unstable/xdg-output/xdg-output-unstable-v1.xml)
+is the one recommended way and provides a mapping between a human
+representation of the output and the wayland one.
+
+One can also choose the output where the application can start, by configuring
+directly the AGL compositor. Under the `[output]` section one can use
+`agl-shell-app-id=appid` restart the AGL compositor unitd systemd service and
+start the application. Currently this *only* applies to regular applications, the
+client shell having to handle it in the code.
+
+## Available toolkits, application conversions and available eco-systems
+
+Users and OEM vendors alike have the possibility, depending on their use-cases,
+to either use some kind of a toolkit (Qt/GTK/Flutter) for writing  application,
+or use plain C and the wayland library to communicate with the compositor
+directly, without any toolkit abstraction.
+
+Currently, the demo applications in AGL use the Flutter embedder/SDK platform
+alonside Qt/QtWayland. It used to also support Chromium/CEF but currently that was
+deprecated and discontinued.  The Qt platform has long been favoured in
+embedded systems so it feels natural why AGL project chose it over other
+alternatives.  For Web applications scene, it also felt natural to add support
+for a runtime that gives that option, which in AGL was achieved with the help
+of the Chromium project. In later years Flutter has gained quite a lot traction,
+with the embedder capable of running under AGL.
+
+For normal applications, not needing the ability to activate or displaying
+other's application surface, would basically mean that it would use what the
+toolkit has to offer, simplifying the application handling even more.  Under
+Qt, the client shell can use QPA (Qt Platform Abstraction) to gain access to
+Wayland primitives, and implicitly is being able use the private extensions.
+
+![Architecture Diagram](../../../assets/source/06_Component_Documentation/01_Graphics_Service/images/agl-compositor/arch_diagram.png)
+
+On the Flutter side of things, that happens indirectly, as Flutter doesn't
+expose the Wayland primitives.  Support for the private extension was done at
+the Flutter embedder level where it handle the display/graphical interaction
+with the lower stack levels.
+
+## How to integrate or incorporate your own UI
+
+The Minimum Viable Product (MV) to be able to switch/change/replace the current
+UI, depending on toolkit is to call `set_background()` and `set_ready()` requests
+from the agl-shell client protocol.
+
+This means that the toolkits need to provides access to Wayland primitives,
+exposing them in a such that they can reach the client code. For instance,
+Qt uses [QPA](https://wiki.qt.io/Qt_Platform_Abstraction), while
+GTK can also expose it through similar ways.
+Chromium/CEF and Flutter platform do not explicitly expose the windowing system
+(and implicitly Wayland) and have that implemented at a lower level.
+
+Further more, depending on the needs, one would also need to either use the
+gRPC proxy API or just agl-shell protocol on its own. For instance for Qt and
+Flutter we now use a combination of both. In Qt, we use QPA and Wayland native
+code to set the [background surface](https://git.automotivelinux.org/apps/homescreen),
+while activation/deactivation and anything else is handled using gRPC API,
+but in the [same application](https://git.automotivelinux.org/apps/homescreen).
+
+In Flutter because we can't reach Wayland code
+from within the client, we handle the Wayland part in the
+[flutter embedder](https://github.com/toyota-connected/ivi-homescreen/blob/agl/shell/wayland/window.cc#L95-L121)
+whereas the activation is handled in [flutter-ics-homescreen](https://git.automotivelinux.org/apps/flutter-ics-homescreen)
+
+Similarly, CEF/Chromium has the same thing, the background and ready to present
+request is handled at the lower levels.
+
+### Simple shell client examples
+
+An alternative to using toolkits is to avoid using any of them and
+instead use native Wayland C code to create a simple shell client. This
+means the client needs to manage everything, including redrawing the
+background surface.
+
+An example of that is
+[native-shell-client](hthttps://git.automotivelinux.org/src/native-shell-client)
+that is being used in the kvm images as a barebone shell client. Because that
+just sets a black background matching the entire output you can have a
+dedicated client that basically displays or mimics being fullscreen
+(although technically it's set to maximized).
+
+## Streaming buffers and receiving events to and from remote outputs
+
+A common feature, in the infotainment market, is the ability to stream
+out buffers/data to remote outputs. For instance, super-imposing the navigation
+application, between the speedometer and tachometer, in the IC (Instrument
+Cluster) of a car is such a scenario.
+
+### Using deprecated plug-ins
+
+Just like Weston, the AGL compositor is capable of loading up libweston modules
+and make use of them. And just like Weston, the AGL compositor loads up the
+remoting-plugin to stream out an output.
+
+The remoting-plugin uses the DRM virtual output API from libweston together
+with gstreamer pipeline to capture (using DMA buffers) the DRM output and to
+stream it remotely to another machine. They can be over the network, or
+locally.
+
+Further more, to cope with situations where the output is just a
+panel/display, without some kind of compositor driving it, the necessity of
+handling input events is an important feature to have, giving the user to
+possibility to manipulate the application/environment as he or she seems fit.
+
+The compositor loads a plug-in that streams out the buffers to an output
+remotely, with another plug-in was used to handle the input events. The events,
+which are sent back from the display to the compositor, are generated with
+the help of wayland-eque protocol that works over the network, called
+[Waltham](https://github.com/waltham/waltham). This solution was deprecated
+and removed a while back, with an alternative in the works to achieve
+the same functionality.
+
+Together, they provide proper means to achieve a seamless integration with
+other display devices in the car cabin.
+
+Note that both the remoting-pluging and the Waltham protocol have long been
+deprecated with plans to remove them entirely. Users should focus instead of
+using dedicated back-ends to achieve the same functionality (see the next
+paragraph).
+
+### Using virtual backends for streaming and screen sharing
+
+More recent versions of Weston added the ability to load multiple backends at
+the same time. This comes with an interesting feature where outputs from a backend
+could be superimposed on outputs from another backends, making this achieve
+screen share functionality avoiding the need to copy data from output to another.
+This also doesn't tie to a particular technology for streaming content.
+One could use either PipeWire, VNC or the RDP backend.  Both RDP and VNC can
+cary input events so one could stream this virtual output with a client using
+it and, in the same time, receive input events to act upon, much like Waltham
+protocol was used to handle.
+
+For a more custom-oriented scenario the PipeWire could be used instead.
+PipeWire doesn't carry input events but allows to customize encoding and
+compression on the video stream as opposed to VNC or RDP. Input events need
+to be handled independently and currently there's no easy way to inject
+these input events back into libweston.  Upstream needs to implement
+[libei library](https://libinput.pages.freedesktop.org/libei/api/index.html) used
+by libinput for testing and validation.
+
+Starting AGL compositor with another backend (besides the native, DRM backend)
+creates automatically an output. You can configure local Wayland clients to
+start on that particular output. On the remote side you develop your
+application to use libraries that would remotely talk this backend,
+something like [neatvnc](https://github.com/any1/neatvnc) or you can actually use
+Wayland clients and position them accordingly to match a custom UI solution.
+For instance for VNC this [VNC client](https://github.com/any1/wlvncc) has no
+client decorations, and would could be used to blend easily between gauges of
+an instrument cluster.
+
+Starting AGL compositor with multiple backends is similar to Weston by using
+`-B` and passing by backend names split by comma.
+
+## Policies and Role Base Arbitration
+
+The compositor contains an API useful for implementing user-defined policies.
+It contains a policy engine, and installs by default an allow-all kind of
+policy. The policy engine controls if the client using the private extensions
+is permitted to perform those calls. Not only that, but with some policies, it
+won't allow the client to bind to the interfaces in the first place. That
+happens with the deny-all policy, which is able to retrieve the client's
+SMACK label and compares it with the ones statically defined.
+
+In the works, there's a new policy model, called [Role Based
+Arbitration](https://git.automotivelinux.org/staging/rba).
+Internally, how it works, should be found at [RBA](../policies/rule-based-arbitrator.md).
+While the other two policies are embedded into the compositor, the RBA policy
+model is an off the-shell policy.  Obviously, vendors and users can hook up
+their own policies, just like RBA did.  These all work towards satisfying
+the driver distraction mitigation requirement for the AGL project, as to avoid
+overwhelming the driver with too much information.
+
+Users wanting  to create their own policy should create a specialized version
+of the callbacks defined in `struct ivi_policy_api`.
+
+As there's no dynamic loading of policies you'll need to recompile the compositor
+with that policy in mind, specifically like the following:
+
+	$ meson -Dprefix=/path/to/install-compositor/ -Dpolicy-default=my_policy build_directory
+
+The default policy found in src/policy-default.c should more than sufficient to
+get started on creating new ones. Users can either re-purpose the default
+policy or create a new one entirely different, based on their needs.
+
+These are hooks in place by the policy engine control the creation, committing
+and activation of surfaces (`ivi_policy_api::surface_create()`,
+`ivi_policy_api::surface_commited()`, `ivi_policy_api::surface_activate()`),
+among other situations.
+
+Users can customize the hooks by using some sort of database to retrieve the
+application name to compare against, or incorporate some kind of policy rule
+engine.  Alternatively, one can use the deny-all policy engine which allows the
+top panel applications to be used/displayed as permitted applications.
+
+### Reactive rules
+
+The policy engine is stateful,  and allows the ability to inject back events,
+such that it allows the user to add custom rules into a policy and, depending
+on the event received by the policy engine, to execute a rule match for that
+event. Further more, the framework allows adding new states and events and the
+default implementation has code for handling events like showing or hiding the
+application specified in the policy rule.  The most common example to exemplify
+this feature is the ability to show a custom application, like displaying the
+rear view camera application, when the automobile has been put in reverse.
+
+For deadling with these kind of rules, `ivi_policy_api::policy_rule_allow_to_add()`
+can be used to control if policy rules could be added or not. Finally, we have
+`ivi_policy_api::policy_rule_try_event()` which is executed for each policy
+rule added, by using the policy API `ivi_policy_add()` function.
+
+By default the policy framework it will add the 'show', and 'hide' events and
+the 'start', 'stop' and 'reverse' states. An special type, assigned by default
+is 'invalid'.  A **state change** has to be propagated to the compositor, which can
+happen by using `ivi_policy_state_change()` function, and which signals the
+compositor the state change took place, in order to apply the policy rules, and
+implicitly to call the event handler `ivi_policy_api::policy_rule_try_event()`.
+
+## Back-ends and specific options for agl-compositor
+
+The compositor has support for the following back-ends:
+
+* **DRM/KMS** - runs a stand-alone back-end, uses Direct Rendering Manager/Kernel
+  Modesetting and evdev, that is utilizes and runs on real or virtualized HW
+  (qemu/Vbox/etc).
+* **Wayland** - runs as a Wayland application, nested in another Wayland compositor
+  instance
+* **X11** - run as a x11 application, nested in a X11 display server instance
+
+### Building and running the compositor on different platforms
+
+The compositor can run on desktop machines as easily as it does on AGL
+platform. It should infer, depending on the environment, if it is being
+compiled with the AGL SDK, or with the host build system.  Running would also
+be inferred from the environment.
+
+The compositor has some additional configuration options like:
+
+* `--debug` - enables the screenshooter interface, useful if one would want to
+  take a screenshot using `agl-screenshooter` client. This might be seen as a
+  security risk to it only be enabled in the AGL platform if built with agl-devel
+  DISTRO FEATURES.
+
+Additional configuration ini options have been added to help with the CI
+integration. Worth mentioning are:
+
+* `activate-by-default=[true]` - if the surface of the client should be
+  displayed when the application started. Present in the `[core]` section.
+  By default set to `true`. Setting it to `false` will not activate,
+  by default, the client's surface when started.
+* `hide-cursor=[false]` - do not advertise pointer/cursor to clients. Present
+  in the `[core]` section.
+
+## Running with software rendering
+
+By default the compositor will attempt to use the GL-renderer, and implicitly
+the GPU. One could instead use the CPU, by making use of the Pixman library. To
+use it in the compositor append `--use-pixman` to the command line. This purely
+software approach has the benefit that would not rely at all on any GL
+implementation or library. In contrast, even if the GL-renderer is used,
+in some situations it won't be able to use the GPU supported implementation
+and fallback to software based one, and for instance that might happen when
+running in virtualized environments.
+
+Both approaches could end up not actually using the GPU, but the latter does
+actually use the GL library and perform the operations in software, while the
+former does not use any GL whatsoever. All back-ends support disabling the
+GL-render to make sure it does not interfere with the composing process.
+
+## Multiple output set-up and touch input devices
+
+There's no deterministic way in which the compositor enables the outputs and
+depending on the input devices, specifically touch input devices, and the way
+the connectors are wired, a touch input device might be associated with a
+different output than the one intended.
+
+A consistent way, that survives a reboot, is to use
+[udev rules](https://man7.org/linux/man-pages/man7/udev.7.html), which
+libweston would be able to use such that a particular output is tied/associated
+to a particular touch input device.
+
+For instance, assuming that you have a set-up consisting of 4 outputs, a 4
+touch input devices, when the outputs are being enabled the compositor
+front-end will associate all 4 touch input device -- if they haven't been
+previously being associated to a particular output, to the first enabled
+output.
+
+In order to avoid that, and associate each touch input device to
+their respective output an udev rule can be installed, for the default
+seat (named `seat0`).
+
+Example of a udev rule:
+
+```
+SUBSYSTEM=="input", ATTRS{idVendor}=="222a", ATTRS{idProduct}=="004a", OWNER="display", ENV{ID_SEAT}="seat0", ENV{WL_OUTPUT}="HDMI-A-1"
+SUBSYSTEM=="input", ATTRS{idVendor}=="222a", ATTRS{idProduct}=="004b", OWNER="display", ENV{ID_SEAT}="seat0", ENV{WL_OUTPUT}="HDMI-A-2"
+SUBSYSTEM=="input", ATTRS{idVendor}=="222a", ATTRS{idProduct}=="004c", OWNER="display", ENV{ID_SEAT}="seat0", ENV{WL_OUTPUT}="HDMI-A-3"
+SUBSYSTEM=="input", ATTRS{idVendor}=="222a", ATTRS{idProduct}=="004d", OWNER="display", ENV{ID_SEAT}="seat0", ENV{WL_OUTPUT}="HDMI-A-4"
+```
+
+Add the following under `/etc/udev/rules.d/91-output.rules` and reload udev
+rules for these changes to take effect:
+
+	$ udevadm control --reload-rules && udevadm trigger
+
+Note that in the above example, we use physical seat, named `seat0` which is
+the default physical seat. You can verify that these changes have been applied by
+checking the compositor logs (under `/run/platform/display/compositor.log` file)
+You should be seeing `CONNECTOR-NO by udev` message like the following:
+
+```
+associating input device event0 with output HDMI-A-1 (HDMI-A-1 by udev)
+```
+
+vs
+
+```
+associating input device event0 with output HDMI-A-2 (none by udev)
+```
+
+where the rules are either incorrect or badly written.
+
+Retrieving device attributes could be done archaically using `lsusb` or `lspci`
+or using `udevadm info -a /dev/input/event*` which can provide with a multitude
+of attributes to use. In our above example we only relied `idVendor` and
+`idProduct` but potentially other attributes might be used.
+
+### Multiple touch devices with same udev attributes
+
+Latest libweston release provides an API which can be used by compositor plugins
+or compositor frontends to be able to bind a touch device to a
+[specific output](https://wayland.pages.freedesktop.org/weston/toc/libweston/compositor.html#_CPPv431weston_touch_device_bind_outputP19weston_touch_deviceP13weston_output).
+
+You can grab a list of available
+[list](https://wayland.pages.freedesktop.org/weston/toc/libweston/compositor.html#_CPPv435weston_compositor_get_touch_devicesP17weston_compositor)
+of touch devices and search for a particular output with a serial string value
+matching a weston head owning that output.

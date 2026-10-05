@@ -1,44 +1,12 @@
 ---
-title: Get started
+title: "Get started"
+content_status: authored
 ---
 
 # Get started
 
-Start by booting a prebuilt image. If you want to build an image from source, follow the [platform development guide](../develop/index.md#platform).
+Start with the [Pre-build image for IVI demo](prebuilt/index.md) chapter. It introduces the complete Flutter IVI demo and offers two boot routes: QEMU x86-64 and Raspberry Pi 4/5.
 
-## 1. Choose a version and an environment
+Choose a version through [Releases & migration](../releases/index.md), then keep the downloaded image and any separate kernel on the same release or build. The configured development channel is **{{ agl.codename }} / {{ artifact_kind }}**.
 
-This site targets the **{{ agl.full_name }} / `{{ agl.codename }}` development branch**. For a stable release, use [Releases & migration](../releases/index.md) to choose a version and find its documentation and artifacts.
-
-For unfamiliar terms, use the [glossary](../reference/glossary.md). Check the [board and image matrix](../reference/matrix.md) for the environment and demo you want to use. Keep a record of the board, image, and source branch; these details will also help during development or when asking for support.
-
-## 2. Boot a prebuilt image
-
-### Starting point: QEMU x86-64
-
-For a Linux host, start with the [QEMU x86-64 instructions](qemu-x86-64.md). Download the image and kernel for your version, prepare QEMU, and follow the launch steps.
-
-This route points to the existing instructions. Check that the host requirements, QEMU options, and available artifacts match the version you are using.
-
-### Hardware: Raspberry Pi 4
-
-To evaluate AGL on hardware, follow the [Raspberry Pi 4 instructions](raspberry-pi.md). Prepare a suitable display, a network connection, and a microSD card, then download and flash the image for your version.
-
-Use the [prebuilt image overview](prebuilt-images.md) to compare the environments. For hardware, first check [hardware support](../reference/hardware.md) and [image types](../reference/images.md).
-
-## 3. Check the result
-
-Confirm that the login prompt or demo screen described in your chosen instructions appears. When running commands, distinguish between the terminal on your host and the console on the AGL target.
-
-If the expected screen does not appear, record the version, downloaded filenames, launch command, and console messages, then use [Diagnose common problems](../troubleshooting/diagnostics.md) for initial checks and log collection.
-
-## Explore the Flutter IVI Demo
-
-Read [Explore the demos](demos/index.md) for an overview of the Flutter IVI Demo, its main features, and the services behind the user interface.
-
-## Next steps
-
-- [Develop an application](../develop/index.md#apps): work with Flutter or an SDK.
-- [Build an image](../develop/index.md#platform): build a configuration of your own.
-- [Understand AGL](../explanation/index.md): learn how applications and services fit together.
-- [API & configuration](../reference/index.md): find the specifications for a feature.
+After the demo starts, use [AGL Reference Applications](../components/applications/index.md) for individual application explanations or [Application development](../standalone/applications/index.md) to begin your own work.

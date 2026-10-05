@@ -7,12 +7,12 @@ Choose the symptom below, then capture enough context to identify the image and 
 
 | Symptom | First checks | Related guide |
 | --- | --- | --- |
-| QEMU does not start | Host virtualization access, installed QEMU version, file paths, matching kernel and root filesystem. | [QEMU x86-64](../start/qemu-x86-64.md) |
-| No display or unexpected resolution | The image's display requirements, selected graphics device, and board/display configuration. | [QEMU x86-64](../start/qemu-x86-64.md), [Raspberry Pi display](../develop/hardware/raspberry-pi/display.md) |
-| SSH connection fails | Target address and network connection. The supplied x86 QEMU command forwards host port 2222 to target port 22. | [Prebuilt environments](../start/prebuilt-images.md) |
-| Source build fails early | Supported host distribution, required tools/packages, free storage, MACHINE, and selected features. | [Prepare a host](../develop/platform/prepare-host.md), [Initialize the build](../develop/platform/initialize-build.md) |
-| An application does not appear in the launcher | Application identifier, matching service unit, and packaging configuration. | [Register an application](../develop/apps/create-application.md), [Application startup](../reference/apps/application-startup.md) |
-| A multi-board demo cannot exchange data | Image variant, expected network addresses, and where the databroker runs. | [Preconfigured images](../reference/images.md#2-preconfigured-demo-images) |
+| QEMU does not start | Host virtualization access, installed QEMU version, file paths, matching kernel and root filesystem. | [QEMU x86-64](../start/prebuilt/qemu-x86-64.md) |
+| No display or unexpected resolution | The image's display requirements, selected graphics device, and board/display configuration. | [QEMU x86-64](../start/prebuilt/qemu-x86-64.md), [Raspberry Pi display](../standalone/build/common/hardware/raspberry-pi/display.md) |
+| SSH connection fails | Target address and network connection. The supplied x86 QEMU command forwards host port 2222 to target port 22. | [Prebuilt environments](../start/prebuilt/index.md) |
+| Source build fails early | Supported host distribution, required tools/packages, free storage, MACHINE, and selected features. | [Prepare a host](../standalone/build/common/prepare-host.md), [Initialize the build](../standalone/build/common/initialize-build.md) |
+| An application does not appear in the launcher | Application identifier, matching service unit, and packaging configuration. | [Register an application](../standalone/applications/create-application.md), [Application startup](../components/framework/lifecycle/application-startup.md) |
+| A multi-board demo cannot exchange data | Image variant, expected network addresses, and where the databroker runs. | [Preconfigured images](../standalone/build/common/reference/images.md#2-preconfigured-demo-images) |
 
 ## Collect target information
 

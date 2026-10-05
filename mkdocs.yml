@@ -74,123 +74,193 @@ extra:
     version: 6.0.x
   qt_layer_branch: '6.12'
   artifact_kind: snapshots
+not_in_nav: |
+  /components/api/source-api-coverage.md
+  /components/extensions/container-settings/containers.md
+  /components/extensions/container-settings/global.md
+  /components/framework/lifecycle/application-startup.md
+  /components/framework/sandboxing.md
+  /components/services/runtime.md
+  /components/services/sound/cluster-sound.md
+  /components/source-directory.md
+  /components/tools/usb-can-adapter.md
+  /components/tools/virtual-car/signals/body.md
+  /components/tools/virtual-car/signals/sensors.md
+  /components/tools/virtual-car/signals/vehicle.md
+  /contributing/ai-coding-assistants.md
+  /contributing/checklist.md
+  /contributing/code-guidelines.md
+  /contributing/documentation.md
+  /contributing/general-guidelines.md
+  /contributing/gerrit-practices.md
+  /contributing/gerrit.md
+  /contributing/jira.md
+  /contributing/lava-lab.md
+  /contributing/linux-foundation-account.md
+  /contributing/review-changes.md
+  /contributing/submit-changes.md
+  /home/about-source.md
+  /home/architecture.md
+  /home/build-and-runtime.md
+  /home/glossary.md
+  /home/reading-guide.md
+  /integrated/containers/build-guide.md
+  /integrated/kvm/images.md
+  /integrated/sodev/virtio-guest.md
+  /standalone/applications/build-apps.md
+  /standalone/applications/create-application.md
+  /standalone/applications/sdk-overview.md
+  /standalone/applications/setup-sdk.md
+  /standalone/build/common/build-image.md
+  /standalone/build/common/build-overview.md
+  /standalone/build/common/download-source.md
+  /standalone/build/common/hardware/aws-ec2.md
+  /standalone/build/common/hardware/raspberry-pi.md
+  /standalone/build/common/hardware/raspberry-pi/camera.md
+  /standalone/build/common/hardware/raspberry-pi/devices.md
+  /standalone/build/common/hardware/raspberry-pi/display.md
+  /standalone/build/common/hardware/renesas-rcar-gen3.md
+  /standalone/build/common/hardware/rockchip.md
+  /standalone/build/common/hardware/sparrow-hawk.md
+  /standalone/build/common/hardware/visionfive2.md
+  /standalone/build/common/hardware/x86.md
+  /standalone/build/common/initialize-build.md
+  /standalone/build/common/layers/meta-agl-demo.md
+  /standalone/build/common/layers/meta-agl-devel.md
+  /standalone/build/common/layers/meta-agl.md
+  /standalone/build/common/layers/overview.md
+  /standalone/build/common/prepare-host.md
+  /standalone/build/common/reference/hardware-images.md
+  /standalone/build/common/reference/hardware.md
+  /standalone/build/common/reference/images.md
+  /standalone/build/common/reference/matrix.md
+  /standalone/customize/build-output.md
+  /troubleshooting/diagnostics.md
+  /troubleshooting/getting-help.md
+  /troubleshooting/reporting-bugs.md
 nav:
-- Home: index.md
+- Home:
+  - index.md
+  - What is AGL:
+    - home/index.md
+    - AGL standalone distribution:
+      - home/standalone/index.md
+      - In-Vehicle Infotainment: home/standalone/ivi.md
+      - Instrument Cluster: home/standalone/cluster.md
+      - Connected Gateway: home/standalone/gateway.md
+    - AGL integrated system:
+      - home/integrated/index.md
+      - SoDeV: home/integrated/sodev.md
+      - Container integration: home/integrated/containers.md
+      - KVM based integration: home/integrated/kvm.md
 - Get started:
-  - Overview: start/index.md
-  - Choose a prebuilt image: start/prebuilt-images.md
-  - QEMU x86-64: start/qemu-x86-64.md
-  - Raspberry Pi 4: start/raspberry-pi.md
-  - Explore the demos: start/demos/index.md
-- Develop:
-  - Overview: develop/index.md
-  - Applications:
-    - Set up a Flutter workspace: develop/apps/flutter-workspace.md
-    - Application development and SDK workflow: develop/apps/sdk-overview.md
-    - Set up the AGL SDK: develop/apps/setup-sdk.md
-    - Build applications with the SDK: develop/apps/build-apps.md
-    - Package and register an AGL application: develop/apps/create-application.md
-    - Qt application development: develop/apps/qt-sdk.md
-  - Platform and images:
-    - AGL image build workflow: develop/platform/build-overview.md
-    - Prepare a build host: develop/platform/prepare-host.md
-    - Download AGL source: develop/platform/download-source.md
-    - Initialize the AGL build environment: develop/platform/initialize-build.md
-    - Build an AGL image: develop/platform/build-image.md
-    - Configure caches and build output: develop/platform/customize-build.md
-    - Customize an AGL image: develop/platform/customize-image.md
-    - Create a custom recipe: develop/platform/custom-recipe.md
-    - Create a service: develop/platform/new-service.md
-  - Hardware:
-    - Build and boot on x86: develop/hardware/x86.md
-    - Build and boot on Raspberry Pi: develop/hardware/raspberry-pi.md
-    - Build and boot on R-Car Gen3: develop/hardware/renesas-rcar-gen3.md
-    - Build and boot on Sparrow Hawk: develop/hardware/sparrow-hawk.md
-    - Build and boot on Rockchip boards: develop/hardware/rockchip.md
-    - Build a virtio guest: develop/hardware/virtio.md
-    - Build and run on AWS EC2: develop/hardware/aws-ec2.md
-    - Build and boot on VisionFive2: develop/hardware/visionfive2.md
-    - Raspberry Pi peripheral setup: develop/hardware/raspberry-pi/devices.md
-    - Raspberry Pi camera setup: develop/hardware/raspberry-pi/camera.md
-    - Raspberry Pi display setup: develop/hardware/raspberry-pi/display.md
-  - Integrated demos:
-    - Instrument Cluster with container isolation: develop/demos/instrument-cluster.md
-    - KVM demo images: develop/demos/kvm.md
-    - Rust and Slint Instrument Cluster demo: develop/demos/slint.md
-  - Tools:
-    - Use a USB CAN adapter: develop/tools/usb-can-adapter.md
-    - AGL Demo Control Panel: develop/tools/demo-control-panel.md
-    - Use CARLA with AGL: develop/tools/carla.md
-    - AGL virtual car: develop/tools/virtual-car.md
-- Understand AGL:
-  - Overview: explanation/index.md
-  - About Automotive Grade Linux: explanation/about-agl.md
-  - AGL system architecture: explanation/architecture.md
-  - Build host, target, image, and SDK: explanation/build-and-runtime.md
-  - How AGL services fit together: explanation/services.md
-  - Applications:
-    - Application explanations: explanation/applications/index.md
-    - Flutter IVI homescreen: explanation/applications/flutter-homescreen.md
-    - Qt IVI homescreen: explanation/applications/qt-homescreen.md
-    - Instrument Cluster reference GUI: explanation/applications/cluster-dashboard.md
-    - Momi Screen: explanation/applications/momi/screen.md
-    - Momi navigation: explanation/applications/momi/navigation.md
-    - Momi Weather: explanation/applications/momi/weather.md
-  - AGL application framework: explanation/application-framework.md
-  - Application sandboxing: explanation/application-sandboxing.md
-- API & configuration:
-  - Overview: reference/index.md
-  - Choose a board and image: reference/matrix.md
-  - Hardware support levels and boards: reference/hardware.md
-  - AGL image targets: reference/images.md
-  - Hardware image configurations: reference/hardware-images.md
-  - Services:
-    - Service directory: reference/services/index.md
-    - AGL compositor: reference/services/graphics/agl-compositor.md
-    - DRM lease manager: reference/services/graphics/drm-lease-manager.md
-    - PipeWire and WirePlumber: reference/services/audio/pipewire-wireplumber.md
-    - Instrument Cluster sound management: reference/services/audio/instrument-cluster-sound.md
-    - Rule-based arbitrator: reference/services/policies/rule-based-arbitrator.md
-    - Persistent Storage API: reference/services/persistent-storage.md
-    - Voice agent assistant: reference/services/voice-agent.md
-    - Instrument Cluster API specification: reference/services/instrument-cluster-api.md
-    - Instrument Cluster service: reference/services/instrument-cluster-service.md
-    - Container Manager: reference/services/container-manager.md
-    - Unified HMI: reference/services/unified-hmi.md
-    - Original API coverage overview: reference/services/legacy-api-overview.md
-  - Application and container settings:
-    - Application startup and applaunchd: reference/apps/application-startup.md
-    - Container Manager global configuration: reference/config/container/global.md
-    - Container configuration files: reference/config/container/containers.md
-  - Yocto layers:
-    - AGL Yocto layer structure: reference/build/layers/overview.md
-    - meta-agl: reference/build/layers/meta-agl.md
-    - meta-agl-demo: reference/build/layers/meta-agl-demo.md
-    - meta-agl-devel: reference/build/layers/meta-agl-devel.md
-  - Vehicle signals:
-    - Virtual car vehicle signals: reference/vehicle-signals/vehicle.md
-    - Virtual car body signals: reference/vehicle-signals/body.md
-    - Virtual car sensor signals: reference/vehicle-signals/sensors.md
-  - AGL component directory: reference/components.md
-  - AGL glossary: reference/glossary.md
-- Troubleshooting:
-  - Overview: troubleshooting/index.md
-  - Diagnose common problems: troubleshooting/diagnostics.md
-  - Get community help: troubleshooting/getting-help.md
-  - Report a bug: troubleshooting/reporting-bugs.md
-- Releases & migration:
-  - Release guidance: releases/index.md
-- Contribute:
-  - Overview: contributing/index.md
-  - Get a Linux Foundation account: contributing/linux-foundation-account.md
-  - Track work in Jira: contributing/jira.md
-  - Work with Gerrit: contributing/gerrit.md
-  - Submit a change: contributing/submit-changes.md
-  - Review changes: contributing/review-changes.md
-  - Gerrit recommended practices: contributing/gerrit-practices.md
-  - Contribution guidelines: contributing/general-guidelines.md
-  - Code contribution guidelines: contributing/code-guidelines.md
-  - AI coding assistants: contributing/ai-coding-assistants.md
-  - Contribute to the original AGL documentation: contributing/documentation.md
-  - Contribution checklist: contributing/checklist.md
-  - Set up an AGL LAVA lab: contributing/lava-lab.md
+  - start/index.md
+  - Pre-build image for IVI demo:
+    - start/prebuilt/index.md
+    - Flutter IVI demo: start/prebuilt/flutter.md
+    - QEMU x86-64: start/prebuilt/qemu-x86-64.md
+    - Raspberry Pi 4/5: start/prebuilt/raspberry-pi.md
+- AGL standalone distribution development:
+  - standalone/index.md
+  - Build:
+    - standalone/build/index.md
+    - Common part: standalone/build/common.md
+    - In-Vehicle Infotainment:
+      - standalone/build/ivi/index.md
+      - Flutter IVI demo: standalone/build/ivi/flutter.md
+      - Qt IVI demo: standalone/build/ivi/qt-ivi-demo.md
+      - IVI based Flutter Cluster: standalone/build/ivi/flutter-cluster.md
+    - Instrument Cluster:
+      - standalone/build/cluster/index.md
+      - Qt based Cluster: standalone/build/cluster/qt.md
+      - Slint based Cluster: standalone/build/cluster/slint.md
+  - Platform Customize:
+    - standalone/customize/index.md
+    - Create/Modify an AGL image: standalone/customize/image.md
+    - Create a custom recipe: standalone/customize/recipe.md
+    - Create a service: standalone/customize/service.md
+  - Application development:
+    - standalone/applications/index.md
+    - Flutter application: standalone/applications/flutter.md
+    - Qt application: standalone/applications/qt.md
+- AGL integrated system development:
+  - integrated/index.md
+  - SoDeV:
+    - integrated/sodev/index.md
+    - Build: integrated/sodev/build.md
+    - SoDeV Customize:
+      - integrated/sodev/customize/index.md
+      - Create and Run Guest VM: integrated/sodev/customize/guest-vm.md
+  - Container integration:
+    - integrated/containers/index.md
+    - Build: integrated/containers/build.md
+    - Container integration Customize:
+      - integrated/containers/customize/index.md
+      - Create and Run Guest Container: integrated/containers/customize/guest-container.md
+  - KVM based integration:
+    - integrated/kvm/index.md
+    - Build: integrated/kvm/build.md
+- AGL Components:
+  - components/index.md
+  - AGL Reference Applications:
+    - components/applications/index.md
+    - Flutter IVI homescreen: components/applications/flutter-homescreen.md
+    - Flutter Cluster: components/applications/flutter-cluster.md
+    - Qt IVI homescreen: components/applications/qt-homescreen.md
+    - Instrument Cluster reference GUI (Qt): components/applications/cluster-dashboard.md
+    - Momi Screen: components/applications/momi-screen.md
+    - Momi navigation: components/applications/momi-navigation.md
+    - Momi Weather: components/applications/momi-weather.md
+    - Momi Player: components/applications/momi-player.md
+  - AGL Services:
+    - components/services/index.md
+    - Graphics:
+      - components/services/graphics/index.md
+      - The AGL compositor: components/services/graphics/agl-compositor.md
+      - DRM lease manager: components/services/graphics/drm-lease-manager.md
+    - Sound:
+      - components/services/sound/index.md
+      - Pipewire & Wireplumber: components/services/sound/pipewire-wireplumber.md
+    - Policies:
+      - components/services/policies/index.md
+      - Rule based arbitrator: components/services/policies/rule-based-arbitrator.md
+    - Misc:
+      - components/services/misc/index.md
+      - Voice agent assistant: components/services/misc/voice-agent.md
+    - Instrument Cluster:
+      - components/services/cluster/index.md
+      - Instrument Cluster service: components/services/cluster/cluster-service.md
+  - IVI Application Framework:
+    - components/framework/index.md
+    - Application Lifecycle and Services:
+      - components/framework/lifecycle/index.md
+      - Application Framework: components/framework/lifecycle/application-framework.md
+  - Platform extension:
+    - components/extensions/index.md
+    - Unified HMI: components/extensions/unified-hmi.md
+    - Container Manager: components/extensions/container-manager.md
+  - Development Tools:
+    - components/tools/index.md
+    - Demo Control:
+      - components/tools/demo-control/index.md
+      - Demo Control Panel: components/tools/demo-control/panel.md
+      - CARLA with AGL: components/tools/demo-control/carla.md
+    - Virtual Car CAN definition:
+      - components/tools/virtual-car/index.md
+      - AGL virtual car: components/tools/virtual-car/virtual-car.md
+  - AGL API:
+    - components/api/index.md
+    - Table for APIs: components/api/table.md
+    - Generic APIs:
+      - components/api/generic/index.md
+      - Redundancy file operation (librefop): components/api/generic/librefop.md
+    - In-Vehicle Infotainment APIs:
+      - components/api/ivi/index.md
+      - Persistent storage API: components/api/ivi/persistent-storage.md
+    - Instrument Cluster APIs:
+      - components/api/cluster/index.md
+      - AGL Instrument Cluster API: components/api/cluster/instrument-cluster-api.md
+    - Gateway APIs: components/api/gateway.md
+- Troubleshooting: troubleshooting/index.md
+- Releases & migration: releases/index.md
+- Contribute: contributing/index.md

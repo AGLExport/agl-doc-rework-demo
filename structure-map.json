@@ -1,0 +1,1215 @@
+{
+  "instructions": "AGENTS.md",
+  "heading_count": 89,
+  "required_pages": [
+    {
+      "breadcrumb": [
+        "Home"
+      ],
+      "heading": "Home",
+      "page": "index.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "What is AGL"
+      ],
+      "heading": "What is AGL",
+      "page": "home/index.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "What is AGL",
+        "AGL standalone distribution"
+      ],
+      "heading": "AGL standalone distribution",
+      "page": "home/standalone/index.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "What is AGL",
+        "AGL standalone distribution",
+        "In-Vehicle Infotainment"
+      ],
+      "heading": "In-Vehicle Infotainment",
+      "page": "home/standalone/ivi.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "What is AGL",
+        "AGL standalone distribution",
+        "Instrument Cluster"
+      ],
+      "heading": "Instrument Cluster",
+      "page": "home/standalone/cluster.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "What is AGL",
+        "AGL standalone distribution",
+        "Connected Gateway"
+      ],
+      "heading": "Connected Gateway",
+      "page": "home/standalone/gateway.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "What is AGL",
+        "AGL integrated system"
+      ],
+      "heading": "AGL integrated system",
+      "page": "home/integrated/index.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "What is AGL",
+        "AGL integrated system",
+        "SoDeV"
+      ],
+      "heading": "SoDeV",
+      "page": "home/integrated/sodev.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "What is AGL",
+        "AGL integrated system",
+        "Container integration"
+      ],
+      "heading": "Container integration",
+      "page": "home/integrated/containers.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "What is AGL",
+        "AGL integrated system",
+        "KVM based integration"
+      ],
+      "heading": "KVM based integration",
+      "page": "home/integrated/kvm.md"
+    },
+    {
+      "breadcrumb": [
+        "Get started"
+      ],
+      "heading": "Get started",
+      "page": "start/index.md"
+    },
+    {
+      "breadcrumb": [
+        "Get started",
+        "Pre-build image for IVI demo"
+      ],
+      "heading": "Pre-build image for IVI demo",
+      "page": "start/prebuilt/index.md"
+    },
+    {
+      "breadcrumb": [
+        "Get started",
+        "Pre-build image for IVI demo",
+        "Flutter IVI demo"
+      ],
+      "heading": "Flutter IVI demo",
+      "page": "start/prebuilt/flutter.md"
+    },
+    {
+      "breadcrumb": [
+        "Get started",
+        "Pre-build image for IVI demo",
+        "QEMU x86-64"
+      ],
+      "heading": "QEMU x86-64",
+      "page": "start/prebuilt/qemu-x86-64.md"
+    },
+    {
+      "breadcrumb": [
+        "Get started",
+        "Pre-build image for IVI demo",
+        "Raspberry Pi 4/5"
+      ],
+      "heading": "Raspberry Pi 4/5",
+      "page": "start/prebuilt/raspberry-pi.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL standalone distribution development"
+      ],
+      "heading": "AGL standalone distribution development",
+      "page": "standalone/index.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL standalone distribution development",
+        "Build"
+      ],
+      "heading": "Build",
+      "page": "standalone/build/index.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL standalone distribution development",
+        "Build",
+        "Common part"
+      ],
+      "heading": "Common part",
+      "page": "standalone/build/common.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL standalone distribution development",
+        "Build",
+        "In-Vehicle Infotainment"
+      ],
+      "heading": "In-Vehicle Infotainment",
+      "page": "standalone/build/ivi/index.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL standalone distribution development",
+        "Build",
+        "In-Vehicle Infotainment",
+        "Flutter IVI demo"
+      ],
+      "heading": "Flutter IVI demo",
+      "page": "standalone/build/ivi/flutter.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL standalone distribution development",
+        "Build",
+        "In-Vehicle Infotainment",
+        "Qt IVI demo"
+      ],
+      "heading": "Qt IVI demo",
+      "page": "standalone/build/ivi/qt-ivi-demo.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL standalone distribution development",
+        "Build",
+        "In-Vehicle Infotainment",
+        "IVI based Flutter Cluster"
+      ],
+      "heading": "IVI based Flutter Cluster",
+      "page": "standalone/build/ivi/flutter-cluster.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL standalone distribution development",
+        "Build",
+        "Instrument Cluster"
+      ],
+      "heading": "Instrument Cluster",
+      "page": "standalone/build/cluster/index.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL standalone distribution development",
+        "Build",
+        "Instrument Cluster",
+        "Qt based Cluster"
+      ],
+      "heading": "Qt based Cluster",
+      "page": "standalone/build/cluster/qt.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL standalone distribution development",
+        "Build",
+        "Instrument Cluster",
+        "Slint based Cluster"
+      ],
+      "heading": "Slint based Cluster",
+      "page": "standalone/build/cluster/slint.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL standalone distribution development",
+        "Platform Customize"
+      ],
+      "heading": "Platform Customize",
+      "page": "standalone/customize/index.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL standalone distribution development",
+        "Platform Customize",
+        "Create/Modify an AGL image"
+      ],
+      "heading": "Create/Modify an AGL image",
+      "page": "standalone/customize/image.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL standalone distribution development",
+        "Platform Customize",
+        "Create a custom recipe"
+      ],
+      "heading": "Create a custom recipe",
+      "page": "standalone/customize/recipe.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL standalone distribution development",
+        "Platform Customize",
+        "Create a service"
+      ],
+      "heading": "Create a service",
+      "page": "standalone/customize/service.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL standalone distribution development",
+        "Application development"
+      ],
+      "heading": "Application development",
+      "page": "standalone/applications/index.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL standalone distribution development",
+        "Application development",
+        "Flutter application"
+      ],
+      "heading": "Flutter application",
+      "page": "standalone/applications/flutter.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL standalone distribution development",
+        "Application development",
+        "Qt application"
+      ],
+      "heading": "Qt application",
+      "page": "standalone/applications/qt.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL integrated system development"
+      ],
+      "heading": "AGL integrated system development",
+      "page": "integrated/index.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL integrated system development",
+        "SoDeV"
+      ],
+      "heading": "SoDeV",
+      "page": "integrated/sodev/index.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL integrated system development",
+        "SoDeV",
+        "Build"
+      ],
+      "heading": "Build",
+      "page": "integrated/sodev/build.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL integrated system development",
+        "SoDeV",
+        "SoDeV Customize"
+      ],
+      "heading": "SoDeV Customize",
+      "page": "integrated/sodev/customize/index.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL integrated system development",
+        "SoDeV",
+        "SoDeV Customize",
+        "Create and Run Guest VM"
+      ],
+      "heading": "Create and Run Guest VM",
+      "page": "integrated/sodev/customize/guest-vm.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL integrated system development",
+        "Container integration"
+      ],
+      "heading": "Container integration",
+      "page": "integrated/containers/index.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL integrated system development",
+        "Container integration",
+        "Build"
+      ],
+      "heading": "Build",
+      "page": "integrated/containers/build.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL integrated system development",
+        "Container integration",
+        "Container integration Customize"
+      ],
+      "heading": "Container integration Customize",
+      "page": "integrated/containers/customize/index.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL integrated system development",
+        "Container integration",
+        "Container integration Customize",
+        "Create and Run Guest Container"
+      ],
+      "heading": "Create and Run Guest Container",
+      "page": "integrated/containers/customize/guest-container.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL integrated system development",
+        "KVM based integration"
+      ],
+      "heading": "KVM based integration",
+      "page": "integrated/kvm/index.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL integrated system development",
+        "KVM based integration",
+        "Build"
+      ],
+      "heading": "Build",
+      "page": "integrated/kvm/build.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components"
+      ],
+      "heading": "AGL Components",
+      "page": "components/index.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "AGL Reference Applications"
+      ],
+      "heading": "AGL Reference Applications",
+      "page": "components/applications/index.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "AGL Reference Applications",
+        "Flutter IVI homescreen"
+      ],
+      "heading": "Flutter IVI homescreen",
+      "page": "components/applications/flutter-homescreen.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "AGL Reference Applications",
+        "Flutter Cluster"
+      ],
+      "heading": "Flutter Cluster",
+      "page": "components/applications/flutter-cluster.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "AGL Reference Applications",
+        "Qt IVI homescreen"
+      ],
+      "heading": "Qt IVI homescreen",
+      "page": "components/applications/qt-homescreen.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "AGL Reference Applications",
+        "Instrument Cluster reference GUI (Qt)"
+      ],
+      "heading": "Instrument Cluster reference GUI (Qt)",
+      "page": "components/applications/cluster-dashboard.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "AGL Reference Applications",
+        "Momi Screen"
+      ],
+      "heading": "Momi Screen",
+      "page": "components/applications/momi-screen.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "AGL Reference Applications",
+        "Momi navigation"
+      ],
+      "heading": "Momi navigation",
+      "page": "components/applications/momi-navigation.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "AGL Reference Applications",
+        "Momi Weather"
+      ],
+      "heading": "Momi Weather",
+      "page": "components/applications/momi-weather.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "AGL Reference Applications",
+        "Momi Player"
+      ],
+      "heading": "Momi Player",
+      "page": "components/applications/momi-player.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "AGL Services"
+      ],
+      "heading": "AGL Services",
+      "page": "components/services/index.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "AGL Services",
+        "Graphics"
+      ],
+      "heading": "Graphics",
+      "page": "components/services/graphics/index.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "AGL Services",
+        "Graphics",
+        "The AGL compositor"
+      ],
+      "heading": "The AGL compositor",
+      "page": "components/services/graphics/agl-compositor.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "AGL Services",
+        "Graphics",
+        "DRM lease manager"
+      ],
+      "heading": "DRM lease manager",
+      "page": "components/services/graphics/drm-lease-manager.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "AGL Services",
+        "Sound"
+      ],
+      "heading": "Sound",
+      "page": "components/services/sound/index.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "AGL Services",
+        "Sound",
+        "Pipewire & Wireplumber"
+      ],
+      "heading": "Pipewire & Wireplumber",
+      "page": "components/services/sound/pipewire-wireplumber.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "AGL Services",
+        "Policies"
+      ],
+      "heading": "Policies",
+      "page": "components/services/policies/index.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "AGL Services",
+        "Policies",
+        "Rule based arbitrator"
+      ],
+      "heading": "Rule based arbitrator",
+      "page": "components/services/policies/rule-based-arbitrator.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "AGL Services",
+        "Misc"
+      ],
+      "heading": "Misc",
+      "page": "components/services/misc/index.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "AGL Services",
+        "Misc",
+        "Voice agent assistant"
+      ],
+      "heading": "Voice agent assistant",
+      "page": "components/services/misc/voice-agent.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "AGL Services",
+        "Instrument Cluster"
+      ],
+      "heading": "Instrument Cluster",
+      "page": "components/services/cluster/index.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "AGL Services",
+        "Instrument Cluster",
+        "Instrument Cluster service"
+      ],
+      "heading": "Instrument Cluster service",
+      "page": "components/services/cluster/cluster-service.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "IVI Application Framework"
+      ],
+      "heading": "IVI Application Framework",
+      "page": "components/framework/index.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "IVI Application Framework",
+        "Application Lifecycle and Services"
+      ],
+      "heading": "Application Lifecycle and Services",
+      "page": "components/framework/lifecycle/index.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "IVI Application Framework",
+        "Application Lifecycle and Services",
+        "Application Framework"
+      ],
+      "heading": "Application Framework",
+      "page": "components/framework/lifecycle/application-framework.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "Platform extension"
+      ],
+      "heading": "Platform extension",
+      "page": "components/extensions/index.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "Platform extension",
+        "Unified HMI"
+      ],
+      "heading": "Unified HMI",
+      "page": "components/extensions/unified-hmi.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "Platform extension",
+        "Container Manager"
+      ],
+      "heading": "Container Manager",
+      "page": "components/extensions/container-manager.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "Development Tools"
+      ],
+      "heading": "Development Tools",
+      "page": "components/tools/index.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "Development Tools",
+        "Demo Control"
+      ],
+      "heading": "Demo Control",
+      "page": "components/tools/demo-control/index.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "Development Tools",
+        "Demo Control",
+        "Demo Control Panel"
+      ],
+      "heading": "Demo Control Panel",
+      "page": "components/tools/demo-control/panel.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "Development Tools",
+        "Demo Control",
+        "CARLA with AGL"
+      ],
+      "heading": "CARLA with AGL",
+      "page": "components/tools/demo-control/carla.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "Development Tools",
+        "Virtual Car CAN definition"
+      ],
+      "heading": "Virtual Car CAN definition",
+      "page": "components/tools/virtual-car/index.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "Development Tools",
+        "Virtual Car CAN definition",
+        "AGL virtual car"
+      ],
+      "heading": "AGL virtual car",
+      "page": "components/tools/virtual-car/virtual-car.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "AGL API"
+      ],
+      "heading": "AGL API",
+      "page": "components/api/index.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "AGL API",
+        "Table for APIs"
+      ],
+      "heading": "Table for APIs",
+      "page": "components/api/table.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "AGL API",
+        "Generic APIs"
+      ],
+      "heading": "Generic APIs",
+      "page": "components/api/generic/index.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "AGL API",
+        "Generic APIs",
+        "Redundancy file operation (librefop)"
+      ],
+      "heading": "Redundancy file operation (librefop)",
+      "page": "components/api/generic/librefop.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "AGL API",
+        "In-Vehicle Infotainment APIs"
+      ],
+      "heading": "In-Vehicle Infotainment APIs",
+      "page": "components/api/ivi/index.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "AGL API",
+        "In-Vehicle Infotainment APIs",
+        "Persistent storage API"
+      ],
+      "heading": "Persistent storage API",
+      "page": "components/api/ivi/persistent-storage.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "AGL API",
+        "Instrument Cluster APIs"
+      ],
+      "heading": "Instrument Cluster APIs",
+      "page": "components/api/cluster/index.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "AGL API",
+        "Instrument Cluster APIs",
+        "AGL Instrument Cluster API"
+      ],
+      "heading": "AGL Instrument Cluster API",
+      "page": "components/api/cluster/instrument-cluster-api.md"
+    },
+    {
+      "breadcrumb": [
+        "AGL Components",
+        "AGL API",
+        "Gateway APIs"
+      ],
+      "heading": "Gateway APIs",
+      "page": "components/api/gateway.md"
+    },
+    {
+      "breadcrumb": [
+        "Troubleshooting"
+      ],
+      "heading": "Troubleshooting",
+      "page": "troubleshooting/index.md"
+    },
+    {
+      "breadcrumb": [
+        "Releases & migration"
+      ],
+      "heading": "Releases & migration",
+      "page": "releases/index.md"
+    },
+    {
+      "breadcrumb": [
+        "Contribute"
+      ],
+      "heading": "Contribute",
+      "page": "contributing/index.md"
+    }
+  ],
+  "moved_pages": [
+    {
+      "old": "develop/index.md",
+      "new": "standalone/index.md",
+      "previous_sha256": "5804197d0cad1cc1181c6a1e24191a5d05583e75b6d6503f37d680a5f5f45f66"
+    },
+    {
+      "old": "explanation/about-agl.md",
+      "new": "home/about-source.md",
+      "previous_sha256": "1f872fe5ebaca1c50f097aa2a73bf2b65d67b415816e4f205c89ff2be8913dd3"
+    },
+    {
+      "old": "explanation/application-framework.md",
+      "new": "components/framework/lifecycle/application-framework.md",
+      "previous_sha256": "743ad83421dfd5a3f646145218a2aee6bb0536987cd6a3eeba870b8f868cf676"
+    },
+    {
+      "old": "explanation/application-sandboxing.md",
+      "new": "components/framework/sandboxing.md",
+      "previous_sha256": "edb976208040ee4a2430c79339fcd48110dabeaa637d41fa18545b8b5a9a17cc"
+    },
+    {
+      "old": "explanation/architecture.md",
+      "new": "home/architecture.md",
+      "previous_sha256": "84199779a00edcaa929865e0b04e80281ac4f9c07f783806bcccfce1994b0686"
+    },
+    {
+      "old": "explanation/build-and-runtime.md",
+      "new": "home/build-and-runtime.md",
+      "previous_sha256": "40e8aedd8c9b3293a6cc976a30eacdfc6e36cf3bd8370359cf0779ca11e30540"
+    },
+    {
+      "old": "explanation/index.md",
+      "new": "home/reading-guide.md",
+      "previous_sha256": "bf6f90326a03cee5febe5d6b5f3fd2d71a8e5d5e95f40945b72f07f9ac7baf48"
+    },
+    {
+      "old": "explanation/services.md",
+      "new": "components/services/runtime.md",
+      "previous_sha256": "ff6a9a0944a49d4b7d92df81355438585f6067c486d8f8b9f7da7ef551cd7951"
+    },
+    {
+      "old": "reference/components.md",
+      "new": "components/source-directory.md",
+      "previous_sha256": "9fe7665b6583e09d402f1ac6452b0838de3532ed72dec44562a54e4c65e7995d"
+    },
+    {
+      "old": "reference/glossary.md",
+      "new": "home/glossary.md",
+      "previous_sha256": "72d0364058d403a04158c80eaf0496830ad29cc30115e16276e31bc6aeef47a7"
+    },
+    {
+      "old": "reference/hardware-images.md",
+      "new": "standalone/build/common/reference/hardware-images.md",
+      "previous_sha256": "e3be7a503853e0e73bebd3928bea2c1229086c44f2d5cc6de58369bcf9fc156e"
+    },
+    {
+      "old": "reference/hardware.md",
+      "new": "standalone/build/common/reference/hardware.md",
+      "previous_sha256": "e556b20d7bd72af0681628556af8cf3dc04c41fcb5192e067c8f6cc21c78a817"
+    },
+    {
+      "old": "reference/images.md",
+      "new": "standalone/build/common/reference/images.md",
+      "previous_sha256": "96400b6dd271996e9463b729a00b392c43b21d017ca89a3b841ee0c2f97db5b8"
+    },
+    {
+      "old": "reference/index.md",
+      "new": "components/index.md",
+      "previous_sha256": "9558a7c901d77eb9b705c96f3624cd852845aaccd3d7d2d4bfa3821ebba2f4e1"
+    },
+    {
+      "old": "reference/matrix.md",
+      "new": "standalone/build/common/reference/matrix.md",
+      "previous_sha256": "51ae4575eef9385cc25320612f8856c2febc3e6ecea63f245f3c6be5ca3a1211"
+    },
+    {
+      "old": "start/prebuilt-images.md",
+      "new": "start/prebuilt/index.md",
+      "previous_sha256": "0d13f262cd85cbc4f6303f30ea206aafddcc9cdf474de9eb5a3601d620c72c2e"
+    },
+    {
+      "old": "start/qemu-x86-64.md",
+      "new": "start/prebuilt/qemu-x86-64.md",
+      "previous_sha256": "855075cfcd0259fcf9d114d4d39a9094a94fa67a0b7ce90f4dbe02610643fe9a"
+    },
+    {
+      "old": "start/raspberry-pi.md",
+      "new": "start/prebuilt/raspberry-pi.md",
+      "previous_sha256": "6b180ad154782de6cfa5d0c5326e15cc7c5e764d52f2d9851f159bb55ac9e775"
+    },
+    {
+      "old": "develop/apps/build-apps.md",
+      "new": "standalone/applications/build-apps.md",
+      "previous_sha256": "66ad31475a5fe91b6b9553654d593be9795de06f9c7b5d6f78702343b73d2407"
+    },
+    {
+      "old": "develop/apps/create-application.md",
+      "new": "standalone/applications/create-application.md",
+      "previous_sha256": "fac5e8225396a5f18d2cea43bed91e23f72b3188fbd532414c49a3cb5a92a243"
+    },
+    {
+      "old": "develop/apps/flutter-workspace.md",
+      "new": "standalone/applications/flutter.md",
+      "previous_sha256": "5aec5283003240b7b60256b1e5b4bdacad3b6a15e39d722a555d09dfbf42a2d1"
+    },
+    {
+      "old": "develop/apps/qt-sdk.md",
+      "new": "standalone/applications/qt.md",
+      "previous_sha256": "e71acbb19f51196424a86140e3337ad2cfea594b109a6eecb15c03adad29ddcd"
+    },
+    {
+      "old": "develop/apps/sdk-overview.md",
+      "new": "standalone/applications/sdk-overview.md",
+      "previous_sha256": "21a6efca442e08a4955d28f70afbd3a0b670045223d14e2e6da0606ed8e00d30"
+    },
+    {
+      "old": "develop/apps/setup-sdk.md",
+      "new": "standalone/applications/setup-sdk.md",
+      "previous_sha256": "f54fdaacb29148d355a4d48953c156ee294a28d2d38670a2052dcee904f38943"
+    },
+    {
+      "old": "develop/demos/instrument-cluster.md",
+      "new": "integrated/containers/build-guide.md",
+      "previous_sha256": "ae0634f84bdbdf476628c0abb8d0dbb3e7d9f305d992d4897747c22f9075eb73"
+    },
+    {
+      "old": "develop/demos/kvm.md",
+      "new": "integrated/kvm/images.md",
+      "previous_sha256": "fb1a6a7f1ae67e6ec0a27603dba12a48e928230e35b35b2ea1ebf51f9da7c37f"
+    },
+    {
+      "old": "develop/demos/slint.md",
+      "new": "standalone/build/cluster/slint.md",
+      "previous_sha256": "359ceb5ece731e28141c187d62983ce020f522d02e069f7f81ea33ad66dc41d2"
+    },
+    {
+      "old": "develop/hardware/aws-ec2.md",
+      "new": "standalone/build/common/hardware/aws-ec2.md",
+      "previous_sha256": "b068a19ae360a3ec86337f4b948cc164b29ff02a698201f53a0c5d35d6efae1f"
+    },
+    {
+      "old": "develop/hardware/raspberry-pi.md",
+      "new": "standalone/build/common/hardware/raspberry-pi.md",
+      "previous_sha256": "d887ed58ca052ff59c7b71f5fe46b15c81c1721ad9bf3588f914614866e9a754"
+    },
+    {
+      "old": "develop/hardware/renesas-rcar-gen3.md",
+      "new": "standalone/build/common/hardware/renesas-rcar-gen3.md",
+      "previous_sha256": "7fe9f7c7ebabd5c0631a52cf8a13444521a4b96520adebc6ad7ea68c4bf313ab"
+    },
+    {
+      "old": "develop/hardware/rockchip.md",
+      "new": "standalone/build/common/hardware/rockchip.md",
+      "previous_sha256": "e19e748b571c9e6a0973de2dd2cfa93758701d3edba3a6157253c5447c049b06"
+    },
+    {
+      "old": "develop/hardware/sparrow-hawk.md",
+      "new": "standalone/build/common/hardware/sparrow-hawk.md",
+      "previous_sha256": "17e367cff6b7ea0ebd962f22db5846648e381e469f09447e86441f8920f330db"
+    },
+    {
+      "old": "develop/hardware/virtio.md",
+      "new": "integrated/sodev/virtio-guest.md",
+      "previous_sha256": "99b980173e569154eb74245f843aa8a668f0414f83b5930ced15bdf4dbe1b51e"
+    },
+    {
+      "old": "develop/hardware/visionfive2.md",
+      "new": "standalone/build/common/hardware/visionfive2.md",
+      "previous_sha256": "71c47f3fbf9261040f0242d5ae657ed452b7f3772814c1957a693c9d1b04794a"
+    },
+    {
+      "old": "develop/hardware/x86.md",
+      "new": "standalone/build/common/hardware/x86.md",
+      "previous_sha256": "33a3f8b83e0f57db42f5eb2644bb9868176a5bc284dfdcaeb603f4abadbc2c88"
+    },
+    {
+      "old": "develop/platform/build-image.md",
+      "new": "standalone/build/common/build-image.md",
+      "previous_sha256": "288eee3b3ddca41c8e88db746ff5d06b12fd5bcb8c3beb7f02c32afa1add422d"
+    },
+    {
+      "old": "develop/platform/build-overview.md",
+      "new": "standalone/build/common/build-overview.md",
+      "previous_sha256": "06a204887aaf43dd420e63ead88567596105c24e250b0097cd3373f90c805493"
+    },
+    {
+      "old": "develop/platform/custom-recipe.md",
+      "new": "standalone/customize/recipe.md",
+      "previous_sha256": "6529970fcca4e078383f0bac9d654b1561342b2e0d111e04cfea60d36765bd21"
+    },
+    {
+      "old": "develop/platform/customize-build.md",
+      "new": "standalone/customize/build-output.md",
+      "previous_sha256": "248abcc170d72519c283a3539952308bad5f4b007150dec8f40e475be9282309"
+    },
+    {
+      "old": "develop/platform/customize-image.md",
+      "new": "standalone/customize/image.md",
+      "previous_sha256": "269682c193d14b7deceb8cc3c7ef5e5a59522259d6eaffce1aacae02b22ae554"
+    },
+    {
+      "old": "develop/platform/download-source.md",
+      "new": "standalone/build/common/download-source.md",
+      "previous_sha256": "2b83874b09611119d463d94ec28ada157dab0b7657c2db9d01735cfbd417f55b"
+    },
+    {
+      "old": "develop/platform/initialize-build.md",
+      "new": "standalone/build/common/initialize-build.md",
+      "previous_sha256": "6c4be8df67f1309fe9534d820f75f0242409eb3b92d2383f17d90818dda511c1"
+    },
+    {
+      "old": "develop/platform/new-service.md",
+      "new": "standalone/customize/service.md",
+      "previous_sha256": "52c66165998e449d0255c99d922c3d0940faa400062f642529a7beeb66340d4b"
+    },
+    {
+      "old": "develop/platform/prepare-host.md",
+      "new": "standalone/build/common/prepare-host.md",
+      "previous_sha256": "fbd9c6ca9f3b105d102bb328a5e4a4394b03d45c979296707b1e6e422be3b7c0"
+    },
+    {
+      "old": "develop/tools/carla.md",
+      "new": "components/tools/demo-control/carla.md",
+      "previous_sha256": "8a2ed419b508fea6578b8ffd7c6380b4b9933801185c56217700f90148d81304"
+    },
+    {
+      "old": "develop/tools/demo-control-panel.md",
+      "new": "components/tools/demo-control/panel.md",
+      "previous_sha256": "ecfaf551584b3102d88ab89ab7ba5d442f2282bc7e60b84e6b19d3edefa4c688"
+    },
+    {
+      "old": "develop/tools/usb-can-adapter.md",
+      "new": "components/tools/usb-can-adapter.md",
+      "previous_sha256": "db49709ee20cca7046441081592cf3dce5115aedbbb0640610d99b5b23f30c9d"
+    },
+    {
+      "old": "develop/tools/virtual-car.md",
+      "new": "components/tools/virtual-car/virtual-car.md",
+      "previous_sha256": "5dd9c5cdef09fe9f49cdb91b1715fea68b05e30df82494c6c4a872299f7e416b"
+    },
+    {
+      "old": "develop/hardware/raspberry-pi/camera.md",
+      "new": "standalone/build/common/hardware/raspberry-pi/camera.md",
+      "previous_sha256": "6bca43965d1c0b3546d7e267cc3059d6d44cd8555e53789f538a216b00c16010"
+    },
+    {
+      "old": "develop/hardware/raspberry-pi/devices.md",
+      "new": "standalone/build/common/hardware/raspberry-pi/devices.md",
+      "previous_sha256": "4f9dee72b5cd2077354c4cfddf63155a1e69f51fb98891b8dd86e54a79f06671"
+    },
+    {
+      "old": "develop/hardware/raspberry-pi/display.md",
+      "new": "standalone/build/common/hardware/raspberry-pi/display.md",
+      "previous_sha256": "be85c8ec021196b8f01f94c25a43986ab3dd8cab49b46539fa3584170c2afc70"
+    },
+    {
+      "old": "explanation/applications/cluster-dashboard.md",
+      "new": "components/applications/cluster-dashboard.md",
+      "previous_sha256": "fdbccec25722474cefc53b47dde4865d003dcb9652be2d1576a3b71a9a3ec8a4"
+    },
+    {
+      "old": "explanation/applications/flutter-homescreen.md",
+      "new": "components/applications/flutter-homescreen.md",
+      "previous_sha256": "6b31f8243dad14dfaa373b28cef6541e8a6f3e1b7c7a048c2bc68c4c8b8c1aa2"
+    },
+    {
+      "old": "explanation/applications/index.md",
+      "new": "components/applications/index.md",
+      "previous_sha256": "c7a308cbaf0a2e6b3213a45b892b9e94912f5398b7330efabc3f02813db4f8f4"
+    },
+    {
+      "old": "explanation/applications/qt-homescreen.md",
+      "new": "components/applications/qt-homescreen.md",
+      "previous_sha256": "54572551a67087c0a0628d9e25afdb6cd008a2720b20c6b585ecc13de1879bd8"
+    },
+    {
+      "old": "explanation/applications/momi/navigation.md",
+      "new": "components/applications/momi-navigation.md",
+      "previous_sha256": "08352b816c561eb12d5c67d8cdf4b53cf955b47db2af3b3e860452aa13bc78c2"
+    },
+    {
+      "old": "explanation/applications/momi/screen.md",
+      "new": "components/applications/momi-screen.md",
+      "previous_sha256": "e81aa5cab9c8f59931ec39179a81eee45d3ed1c153edfc49f9f033faab1246d8"
+    },
+    {
+      "old": "explanation/applications/momi/weather.md",
+      "new": "components/applications/momi-weather.md",
+      "previous_sha256": "a05f281f22fcb603e57e67079487f0c8c5692d032e038da54a92828e4bf8b0b6"
+    },
+    {
+      "old": "reference/apps/application-startup.md",
+      "new": "components/framework/lifecycle/application-startup.md",
+      "previous_sha256": "bda1b95f00b39b8ab0523f697b589cd457762925b37730a3e1c3571838589d99"
+    },
+    {
+      "old": "reference/services/container-manager.md",
+      "new": "components/extensions/container-manager.md",
+      "previous_sha256": "1957cc30154d1acd8b9b019d9631ab55717557c02cbaf473bad44c274e0dae47"
+    },
+    {
+      "old": "reference/services/index.md",
+      "new": "components/services/index.md",
+      "previous_sha256": "d83729b82a0817551c3a11650fa35d9e18edf07bb7a16f7880b91e25cbab73c7"
+    },
+    {
+      "old": "reference/services/instrument-cluster-api.md",
+      "new": "components/api/cluster/instrument-cluster-api.md",
+      "previous_sha256": "c145ad3c954b742b02f10c761c05d9192f42137c144ab2af1c48bc6d21a5c406"
+    },
+    {
+      "old": "reference/services/instrument-cluster-service.md",
+      "new": "components/services/cluster/cluster-service.md",
+      "previous_sha256": "252332d51bb6b001382bd896e0bb63f257f9992020ed4a46b252f6c2e42a8a83"
+    },
+    {
+      "old": "reference/services/legacy-api-overview.md",
+      "new": "components/api/source-api-coverage.md",
+      "previous_sha256": "7061b614e64899c51e960fbc40c292b6a801b8c123f5c2d820177424b4ba5ffe"
+    },
+    {
+      "old": "reference/services/persistent-storage.md",
+      "new": "components/api/ivi/persistent-storage.md",
+      "previous_sha256": "522b181ee1981c7b5c826e92b9a09a18af12c68b7db5ad52d24f238d716b96cb"
+    },
+    {
+      "old": "reference/services/unified-hmi.md",
+      "new": "components/extensions/unified-hmi.md",
+      "previous_sha256": "b482392f48bfde31409a2aef61e78270446a60af89c76f8567ce8092251feff6"
+    },
+    {
+      "old": "reference/services/voice-agent.md",
+      "new": "components/services/misc/voice-agent.md",
+      "previous_sha256": "ad75c36c76359b6549e10854b39cb3099d86587a2e966290d7aad8c4c62a32c6"
+    },
+    {
+      "old": "reference/vehicle-signals/body.md",
+      "new": "components/tools/virtual-car/signals/body.md",
+      "previous_sha256": "bd5b13517aca8af52dae94d38b8ca95dc989ea5f02adbe859388b4400715e904"
+    },
+    {
+      "old": "reference/vehicle-signals/sensors.md",
+      "new": "components/tools/virtual-car/signals/sensors.md",
+      "previous_sha256": "17e515318c85074ba310631e1c026ea3ad7b27d189da39ad3c6e2fa2ccf2e975"
+    },
+    {
+      "old": "reference/vehicle-signals/vehicle.md",
+      "new": "components/tools/virtual-car/signals/vehicle.md",
+      "previous_sha256": "3655f606f20084e39cf08ac522e6cc07f576f35ead68e487540393e84eda6d0e"
+    },
+    {
+      "old": "reference/build/layers/meta-agl-demo.md",
+      "new": "standalone/build/common/layers/meta-agl-demo.md",
+      "previous_sha256": "81faca0d09e4169d004cfac52ffedbaccdb2b337c827ece29be30c8c821da274"
+    },
+    {
+      "old": "reference/build/layers/meta-agl-devel.md",
+      "new": "standalone/build/common/layers/meta-agl-devel.md",
+      "previous_sha256": "72322815085e404b2911b2538e8ecd5dac5b26fade96081e0a3a6ba47062a393"
+    },
+    {
+      "old": "reference/build/layers/meta-agl.md",
+      "new": "standalone/build/common/layers/meta-agl.md",
+      "previous_sha256": "a4031b9e90af3d9edf3e53a9b2bc9325ab4c255c35d2b4c80c14569cfdf1c729"
+    },
+    {
+      "old": "reference/build/layers/overview.md",
+      "new": "standalone/build/common/layers/overview.md",
+      "previous_sha256": "e4b26c63128da58dc950f14ef159f7ac021774935116e8e54af50c0dcf4338b3"
+    },
+    {
+      "old": "reference/config/container/containers.md",
+      "new": "components/extensions/container-settings/containers.md",
+      "previous_sha256": "ca20ab9111c0583dae7293b4091f7fd0abed7c7c8bb93e466f2c2999ba23b221"
+    },
+    {
+      "old": "reference/config/container/global.md",
+      "new": "components/extensions/container-settings/global.md",
+      "previous_sha256": "87b76507afc01757247f7d7c8fe5b545711a182406de8b14799f158c906b340b"
+    },
+    {
+      "old": "reference/services/audio/instrument-cluster-sound.md",
+      "new": "components/services/sound/cluster-sound.md",
+      "previous_sha256": "f01a510c1a65ec5255cb9b2e7a36990f246657eabb265847d60472557529f742"
+    },
+    {
+      "old": "reference/services/audio/pipewire-wireplumber.md",
+      "new": "components/services/sound/pipewire-wireplumber.md",
+      "previous_sha256": "14d8d02a2af743721ec2b185262f64850f43d52b6f6830d70b21f0ae2993bf12"
+    },
+    {
+      "old": "reference/services/graphics/agl-compositor.md",
+      "new": "components/services/graphics/agl-compositor.md",
+      "previous_sha256": "3f80f34beb7669613f60b15560aebd9d95ed5c29199a3130b45b812f70cece20"
+    },
+    {
+      "old": "reference/services/graphics/drm-lease-manager.md",
+      "new": "components/services/graphics/drm-lease-manager.md",
+      "previous_sha256": "75495ba2045a67bc220eacf0cca4fc9a8d004301f6f61d4033bdea2a68f2bff3"
+    },
+    {
+      "old": "reference/services/policies/rule-based-arbitrator.md",
+      "new": "components/services/policies/rule-based-arbitrator.md",
+      "previous_sha256": "4713917c8e3537c05e02fd48dad22f61cd34c46d71cc26384c49f12d8be9ee97"
+    },
+    {
+      "old": "start/demos/index.md",
+      "new": "start/prebuilt/flutter.md",
+      "previous_sha256": "c7ac68145e75877ca231b5464211a3b97ee68c3bae481b0eb8e402b5790d3b09"
+    }
+  ]
+}

@@ -55,6 +55,11 @@ jobs:
           DOCS_ROOT: ${{ steps.docs.outputs.root }}
         run: python -m pip install -r "$DOCS_ROOT/requirements.txt"
 
+      - name: Validate required documentation structure
+        env:
+          DOCS_ROOT: ${{ steps.docs.outputs.root }}
+        run: python "$DOCS_ROOT/scripts/validate_structure.py" "$DOCS_ROOT"
+
       - name: Read GitHub Pages configuration
         if: github.event_name != 'pull_request'
         id: pages

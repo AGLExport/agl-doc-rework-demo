@@ -1,0 +1,18 @@
+---
+title: "AGL API"
+content_status: authored
+---
+
+# AGL API
+
+Start with the API table and select a generic, IVI, cluster, or gateway interface. Consult the implementation and release for argument/configuration details.
+
+- [Table for APIs](table.md)
+- [Generic APIs](generic/index.md)
+- [In-Vehicle Infotainment APIs](ivi/index.md)
+- [Instrument Cluster APIs](cluster/index.md)
+- [Gateway APIs](gateway.md)
+
+## Further reading
+
+- [Original API coverage overview](source-api-coverage.md)

@@ -13,8 +13,10 @@ import re
 import shutil
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
+from import_transforms import adapt_page, render_quickstarts, normalize_page
 
 PROJECT = Path(__file__).resolve().parents[1]
+REQUIRED_TITLES = {p["page"]: p["heading"] for p in json.loads((PROJECT / "structure-map.json").read_text(encoding="utf-8"))["required_pages"]}
 MAPPING: dict[str, str] = {}
 TITLES: dict[str, str] = {}
 
@@ -26,88 +28,88 @@ def group(prefix: str, rows: str) -> None:
             TITLES[target] = title[0]
 
 group("", """
-index.md|explanation/about-agl.md|About Automotive Grade Linux
+index.md|home/about-source.md|About Automotive Grade Linux
 """)
 group("01_Getting_Started/", """
-01_Quickstart/01_Using_Ready_Made_Images.md|start/prebuilt-images.md|Choose a prebuilt image
-02_Building_AGL_Image/01_Build_Process_Overview.md|develop/platform/build-overview.md|AGL image build workflow
-02_Building_AGL_Image/02_Preparing_Your_Build_Host.md|develop/platform/prepare-host.md|Prepare a build host
-02_Building_AGL_Image/03_Downloading_AGL_Software.md|develop/platform/download-source.md|Download AGL source
-02_Building_AGL_Image/04_Initializing_Your_Build_Environment.md|develop/platform/initialize-build.md|Initialize the AGL build environment
-02_Building_AGL_Image/05_Customizing_Your_Build.md|develop/platform/customize-build.md|Configure caches and build output
-02_Building_AGL_Image/06_Building_the_AGL_Image/01_Building_the_AGL_Image.md|develop/platform/build-image.md|Build an AGL image
-02_Building_AGL_Image/06_Building_the_AGL_Image/02_Building_for_x86_(Emulation_and_Hardware).md|develop/hardware/x86.md|Build and boot on x86
-02_Building_AGL_Image/06_Building_the_AGL_Image/03_Building_for_Raspberry_Pi_x.md|develop/hardware/raspberry-pi.md|Build and boot on Raspberry Pi
-02_Building_AGL_Image/06_Building_the_AGL_Image/04_01_Building_for_Renesas_RCar_Gen3_Boards.md|develop/hardware/renesas-rcar-gen3.md|Build and boot on R-Car Gen3
-02_Building_AGL_Image/06_Building_the_AGL_Image/04_Building_for_Retronix_Sparrow_Hawk_Board.md|develop/hardware/sparrow-hawk.md|Build and boot on Sparrow Hawk
-02_Building_AGL_Image/06_Building_the_AGL_Image/05_Building_for_Supported_Rockchip_Boards.md|develop/hardware/rockchip.md|Build and boot on Rockchip boards
-02_Building_AGL_Image/06_Building_the_AGL_Image/06_Building_for_Virtio.md|develop/hardware/virtio.md|Build a virtio guest
-02_Building_AGL_Image/06_Building_the_AGL_Image/07_Building_for_EC2_arm64_and_x86-64.md|develop/hardware/aws-ec2.md|Build and run on AWS EC2
-02_Building_AGL_Image/06_Building_the_AGL_Image/08_Building_for_VisionFive2_Boards.md|develop/hardware/visionfive2.md|Build and boot on VisionFive2
-02_Building_AGL_Image/07_Available_Demo_Images.md|reference/images.md|AGL image targets
-03_Build_and_Boot_guide_Profile/01_Instrument_Cluster_(IC-IVI_with_Container_isolation).md|develop/demos/instrument-cluster.md|Instrument Cluster with container isolation
-03_Build_and_Boot_guide_Profile/02_KVM_Demo_Images.md|develop/demos/kvm.md|KVM demo images
-03_Build_and_Boot_guide_Profile/03_Slint_Demo_Image.md|develop/demos/slint.md|Rust and Slint Instrument Cluster demo
+01_Quickstart/01_Using_Ready_Made_Images.md|start/prebuilt/index.md|Choose a prebuilt image
+02_Building_AGL_Image/01_Build_Process_Overview.md|standalone/build/common/build-overview.md|AGL image build workflow
+02_Building_AGL_Image/02_Preparing_Your_Build_Host.md|standalone/build/common/prepare-host.md|Prepare a build host
+02_Building_AGL_Image/03_Downloading_AGL_Software.md|standalone/build/common/download-source.md|Download AGL source
+02_Building_AGL_Image/04_Initializing_Your_Build_Environment.md|standalone/build/common/initialize-build.md|Initialize the AGL build environment
+02_Building_AGL_Image/05_Customizing_Your_Build.md|standalone/customize/build-output.md|Configure caches and build output
+02_Building_AGL_Image/06_Building_the_AGL_Image/01_Building_the_AGL_Image.md|standalone/build/common/build-image.md|Build an AGL image
+02_Building_AGL_Image/06_Building_the_AGL_Image/02_Building_for_x86_(Emulation_and_Hardware).md|standalone/build/common/hardware/x86.md|Build and boot on x86
+02_Building_AGL_Image/06_Building_the_AGL_Image/03_Building_for_Raspberry_Pi_x.md|standalone/build/common/hardware/raspberry-pi.md|Build and boot on Raspberry Pi
+02_Building_AGL_Image/06_Building_the_AGL_Image/04_01_Building_for_Renesas_RCar_Gen3_Boards.md|standalone/build/common/hardware/renesas-rcar-gen3.md|Build and boot on R-Car Gen3
+02_Building_AGL_Image/06_Building_the_AGL_Image/04_Building_for_Retronix_Sparrow_Hawk_Board.md|standalone/build/common/hardware/sparrow-hawk.md|Build and boot on Sparrow Hawk
+02_Building_AGL_Image/06_Building_the_AGL_Image/05_Building_for_Supported_Rockchip_Boards.md|standalone/build/common/hardware/rockchip.md|Build and boot on Rockchip boards
+02_Building_AGL_Image/06_Building_the_AGL_Image/06_Building_for_Virtio.md|integrated/sodev/virtio-guest.md|Build a virtio guest
+02_Building_AGL_Image/06_Building_the_AGL_Image/07_Building_for_EC2_arm64_and_x86-64.md|standalone/build/common/hardware/aws-ec2.md|Build and run on AWS EC2
+02_Building_AGL_Image/06_Building_the_AGL_Image/08_Building_for_VisionFive2_Boards.md|standalone/build/common/hardware/visionfive2.md|Build and boot on VisionFive2
+02_Building_AGL_Image/07_Available_Demo_Images.md|standalone/build/common/reference/images.md|AGL image targets
+03_Build_and_Boot_guide_Profile/01_Instrument_Cluster_(IC-IVI_with_Container_isolation).md|integrated/containers/build-guide.md|Instrument Cluster with container isolation
+03_Build_and_Boot_guide_Profile/02_KVM_Demo_Images.md|integrated/kvm/images.md|KVM demo images
+03_Build_and_Boot_guide_Profile/03_Slint_Demo_Image.md|standalone/build/cluster/slint.md|Rust and Slint Instrument Cluster demo
 """)
 group("02_Hardware_Support/", """
-01_Supported_Hardware_Overview.md|reference/hardware.md|Hardware support levels and boards
-02_Supported_Hardware_Images.md|reference/hardware-images.md|Hardware image configurations
+01_Supported_Hardware_Overview.md|standalone/build/common/reference/hardware.md|Hardware support levels and boards
+02_Supported_Hardware_Images.md|standalone/build/common/reference/hardware-images.md|Hardware image configurations
 """)
 group("03_Architecture_Guides/01_Introduction/", """
-01_Overview.md|explanation/architecture.md|AGL system architecture
+01_Overview.md|home/architecture.md|AGL system architecture
 """)
 group("04_Developer_Guides/", """
-01_Basic/01_Overview.md|develop/apps/sdk-overview.md|Application development and SDK workflow
-01_Basic/02_Setting_Up_AGL_SDK.md|develop/apps/setup-sdk.md|Set up the AGL SDK
-01_Basic/03_How_to_Build.md|develop/apps/build-apps.md|Build applications with the SDK
-02_AGL_Platform_Development/01_AGL_Yocto_Layers/01_Overview.md|reference/build/layers/overview.md|AGL Yocto layer structure
-02_AGL_Platform_Development/01_AGL_Yocto_Layers/02_meta_agl.md|reference/build/layers/meta-agl.md
-02_AGL_Platform_Development/01_AGL_Yocto_Layers/03_meta_agl_demo.md|reference/build/layers/meta-agl-demo.md
-02_AGL_Platform_Development/01_AGL_Yocto_Layers/04_meta_agl_devel.md|reference/build/layers/meta-agl-devel.md
-02_AGL_Platform_Development/02_Modify_AGL_by_Yourself/01_Customizing_AGL_Image.md|develop/platform/customize-image.md|Customize an AGL image
-02_AGL_Platform_Development/02_Modify_AGL_by_Yourself/02_Creating_a_New_Service.md|develop/platform/new-service.md|Create a service
-02_AGL_Platform_Development/02_Modify_AGL_by_Yourself/03_Creating_a_custom_recipe.md|develop/platform/custom-recipe.md|Create a custom recipe
-03_AGL_Application_Development/Develop_using_Qt/01_AGL-SDK_for_Qt.md|develop/apps/qt-sdk.md|Qt application development
-03_AGL_Application_Development/Develop_using_Flutter/01_Flutter_Workspace.md|develop/apps/flutter-workspace.md|Set up a Flutter workspace
-10_Board_Specific_Guide/04_Raspberry_Pi/01_Generic_devices_setup.md|develop/hardware/raspberry-pi/devices.md|Raspberry Pi peripheral setup
-10_Board_Specific_Guide/04_Raspberry_Pi/02_Camera_setup.md|develop/hardware/raspberry-pi/camera.md|Raspberry Pi camera setup
-10_Board_Specific_Guide/04_Raspberry_Pi/03_Display_Setup.md|develop/hardware/raspberry-pi/display.md|Raspberry Pi display setup
-20_Tools_Guide/01_CAN/01_USB_CAN_Adaptor.md|develop/tools/usb-can-adapter.md|Use a USB CAN adapter
+01_Basic/01_Overview.md|standalone/applications/sdk-overview.md|Application development and SDK workflow
+01_Basic/02_Setting_Up_AGL_SDK.md|standalone/applications/setup-sdk.md|Set up the AGL SDK
+01_Basic/03_How_to_Build.md|standalone/applications/build-apps.md|Build applications with the SDK
+02_AGL_Platform_Development/01_AGL_Yocto_Layers/01_Overview.md|standalone/build/common/layers/overview.md|AGL Yocto layer structure
+02_AGL_Platform_Development/01_AGL_Yocto_Layers/02_meta_agl.md|standalone/build/common/layers/meta-agl.md
+02_AGL_Platform_Development/01_AGL_Yocto_Layers/03_meta_agl_demo.md|standalone/build/common/layers/meta-agl-demo.md
+02_AGL_Platform_Development/01_AGL_Yocto_Layers/04_meta_agl_devel.md|standalone/build/common/layers/meta-agl-devel.md
+02_AGL_Platform_Development/02_Modify_AGL_by_Yourself/01_Customizing_AGL_Image.md|standalone/customize/image.md|Customize an AGL image
+02_AGL_Platform_Development/02_Modify_AGL_by_Yourself/02_Creating_a_New_Service.md|standalone/customize/service.md|Create a service
+02_AGL_Platform_Development/02_Modify_AGL_by_Yourself/03_Creating_a_custom_recipe.md|standalone/customize/recipe.md|Create a custom recipe
+03_AGL_Application_Development/Develop_using_Qt/01_AGL-SDK_for_Qt.md|standalone/applications/qt.md|Qt application development
+03_AGL_Application_Development/Develop_using_Flutter/01_Flutter_Workspace.md|standalone/applications/flutter.md|Set up a Flutter workspace
+10_Board_Specific_Guide/04_Raspberry_Pi/01_Generic_devices_setup.md|standalone/build/common/hardware/raspberry-pi/devices.md|Raspberry Pi peripheral setup
+10_Board_Specific_Guide/04_Raspberry_Pi/02_Camera_setup.md|standalone/build/common/hardware/raspberry-pi/camera.md|Raspberry Pi camera setup
+10_Board_Specific_Guide/04_Raspberry_Pi/03_Display_Setup.md|standalone/build/common/hardware/raspberry-pi/display.md|Raspberry Pi display setup
+20_Tools_Guide/01_CAN/01_USB_CAN_Adaptor.md|components/tools/usb-can-adapter.md|Use a USB CAN adapter
 """)
 group("05_APIs_and_Services/", """
-01_Introduction.md|reference/services/legacy-api-overview.md|Original API coverage overview
-instrument-cluster/AGL-Instrument-Cluster-API-en.md|reference/services/instrument-cluster-api.md|Instrument Cluster API specification
+01_Introduction.md|components/api/source-api-coverage.md|Original API coverage overview
+instrument-cluster/AGL-Instrument-Cluster-API-en.md|components/api/cluster/instrument-cluster-api.md|Instrument Cluster API specification
 """)
 group("06_Component_Documentation/", """
-00_AGL_components.md|reference/components.md|AGL component directory
-01_Graphics_Service/01_agl_compositor.md|reference/services/graphics/agl-compositor.md|AGL compositor
-01_Graphics_Service/02_drm_lease_manager.md|reference/services/graphics/drm-lease-manager.md|DRM lease manager
-02_Sound_Service/01_pipewire_wireplumber.md|reference/services/audio/pipewire-wireplumber.md|PipeWire and WirePlumber
-02_Sound_Service/02_Instrument_Cluster_Sound_Management.md|reference/services/audio/instrument-cluster-sound.md|Instrument Cluster sound management
-03_Policies_Service/01_Rule_Based_Arbitrator.md|reference/services/policies/rule-based-arbitrator.md|Rule-based arbitrator
-04_Misc_Service/01_AGL_Persistent_Storage_API.md|reference/services/persistent-storage.md|Persistent Storage API
-04_Misc_Service/02_agl_voice_agent_assistant.md|reference/services/voice-agent.md|Voice agent assistant
-10_IC_Service/01_Instrument_Cluster_Service.md|reference/services/instrument-cluster-service.md|Instrument Cluster service
-20_IVI_Application_Framework/01_Introduction.md|explanation/application-framework.md|AGL application framework
-20_IVI_Application_Framework/02_Application_Startup.md|reference/apps/application-startup.md|Application startup and applaunchd
-20_IVI_Application_Framework/03_Creating_a_New_Application.md|develop/apps/create-application.md|Package and register an AGL application
-20_IVI_Application_Framework/04_Application_Sandboxing.md|explanation/application-sandboxing.md|Application sandboxing
-40_Demo_Application/01_Flutter_Demo_IVI/01_Flutter_Homescreen.md|explanation/applications/flutter-homescreen.md|Flutter IVI homescreen
-40_Demo_Application/02_Qt_Demo_IVI/01_Qt_Homescreen.md|explanation/applications/qt-homescreen.md|Qt IVI homescreen
-40_Demo_Application/03_Instrument_Cluster/01_Cluster_Ref_GUI.md|explanation/applications/cluster-dashboard.md|Instrument Cluster reference GUI
-40_Demo_Application/04_Momi_IVI_Demo/01_Momi_Screen.md|explanation/applications/momi/screen.md|Momi Screen
-40_Demo_Application/04_Momi_IVI_Demo/02_Momi_Navi.md|explanation/applications/momi/navigation.md|Momi navigation
-40_Demo_Application/04_Momi_IVI_Demo/04_Momi_Weather.md|explanation/applications/momi/weather.md|Momi Weather
-60_Unified_HMI/01_Unified_HMI.md|reference/services/unified-hmi.md|Unified HMI
-61_Container/01_Container_Manager.md|reference/services/container-manager.md|Container Manager
-61_Container/01_Container_Manager/01_Container_manager_global_config.md|reference/config/container/global.md|Container Manager global configuration
-61_Container/01_Container_Manager/02_Container_configuration_files.md|reference/config/container/containers.md|Container configuration files
-80_DevTools/01_AGL_Demo_Control_Panel.md|develop/tools/demo-control-panel.md|AGL Demo Control Panel
-80_DevTools/02_CARLA_with_AGL.md|develop/tools/carla.md|Use CARLA with AGL
-80_DevTools/03_AGL_Virtual_Car_CAN/01_agl-vcar.md|develop/tools/virtual-car.md|AGL virtual car
-80_DevTools/03_AGL_Virtual_Car_CAN/02_vehicle_signal.md|reference/vehicle-signals/vehicle.md|Virtual car vehicle signals
-80_DevTools/03_AGL_Virtual_Car_CAN/03_body.md|reference/vehicle-signals/body.md|Virtual car body signals
-80_DevTools/03_AGL_Virtual_Car_CAN/04_sensor.md|reference/vehicle-signals/sensors.md|Virtual car sensor signals
+00_AGL_components.md|components/source-directory.md|AGL component directory
+01_Graphics_Service/01_agl_compositor.md|components/services/graphics/agl-compositor.md|AGL compositor
+01_Graphics_Service/02_drm_lease_manager.md|components/services/graphics/drm-lease-manager.md|DRM lease manager
+02_Sound_Service/01_pipewire_wireplumber.md|components/services/sound/pipewire-wireplumber.md|PipeWire and WirePlumber
+02_Sound_Service/02_Instrument_Cluster_Sound_Management.md|components/services/sound/cluster-sound.md|Instrument Cluster sound management
+03_Policies_Service/01_Rule_Based_Arbitrator.md|components/services/policies/rule-based-arbitrator.md|Rule-based arbitrator
+04_Misc_Service/01_AGL_Persistent_Storage_API.md|components/api/ivi/persistent-storage.md|Persistent Storage API
+04_Misc_Service/02_agl_voice_agent_assistant.md|components/services/misc/voice-agent.md|Voice agent assistant
+10_IC_Service/01_Instrument_Cluster_Service.md|components/services/cluster/cluster-service.md|Instrument Cluster service
+20_IVI_Application_Framework/01_Introduction.md|components/framework/lifecycle/application-framework.md|AGL application framework
+20_IVI_Application_Framework/02_Application_Startup.md|components/framework/lifecycle/application-startup.md|Application startup and applaunchd
+20_IVI_Application_Framework/03_Creating_a_New_Application.md|standalone/applications/create-application.md|Package and register an AGL application
+20_IVI_Application_Framework/04_Application_Sandboxing.md|components/framework/sandboxing.md|Application sandboxing
+40_Demo_Application/01_Flutter_Demo_IVI/01_Flutter_Homescreen.md|components/applications/flutter-homescreen.md|Flutter IVI homescreen
+40_Demo_Application/02_Qt_Demo_IVI/01_Qt_Homescreen.md|components/applications/qt-homescreen.md|Qt IVI homescreen
+40_Demo_Application/03_Instrument_Cluster/01_Cluster_Ref_GUI.md|components/applications/cluster-dashboard.md|Instrument Cluster reference GUI
+40_Demo_Application/04_Momi_IVI_Demo/01_Momi_Screen.md|components/applications/momi-screen.md|Momi Screen
+40_Demo_Application/04_Momi_IVI_Demo/02_Momi_Navi.md|components/applications/momi-navigation.md|Momi navigation
+40_Demo_Application/04_Momi_IVI_Demo/04_Momi_Weather.md|components/applications/momi-weather.md|Momi Weather
+60_Unified_HMI/01_Unified_HMI.md|components/extensions/unified-hmi.md|Unified HMI
+61_Container/01_Container_Manager.md|components/extensions/container-manager.md|Container Manager
+61_Container/01_Container_Manager/01_Container_manager_global_config.md|components/extensions/container-settings/global.md|Container Manager global configuration
+61_Container/01_Container_Manager/02_Container_configuration_files.md|components/extensions/container-settings/containers.md|Container configuration files
+80_DevTools/01_AGL_Demo_Control_Panel.md|components/tools/demo-control/panel.md|AGL Demo Control Panel
+80_DevTools/02_CARLA_with_AGL.md|components/tools/demo-control/carla.md|Use CARLA with AGL
+80_DevTools/03_AGL_Virtual_Car_CAN/01_agl-vcar.md|components/tools/virtual-car/virtual-car.md|AGL virtual car
+80_DevTools/03_AGL_Virtual_Car_CAN/02_vehicle_signal.md|components/tools/virtual-car/signals/vehicle.md|Virtual car vehicle signals
+80_DevTools/03_AGL_Virtual_Car_CAN/03_body.md|components/tools/virtual-car/signals/body.md|Virtual car body signals
+80_DevTools/03_AGL_Virtual_Car_CAN/04_sensor.md|components/tools/virtual-car/signals/sensors.md|Virtual car sensor signals
 """)
 group("07_How_To_Contribute/", """
 01_Getting_Linux_Foundation_account.md|contributing/linux-foundation-account.md|Get a Linux Foundation account
@@ -154,7 +156,7 @@ def import_all(source_root: Path) -> None:
                 if fragment in ("_top", ""):
                     fragment = ""
                 if fragment in ("3-r-car-h3sk-h3ulcb-board",):
-                    canonical = next(k for k, v in MAPPING.items() if v == "develop/hardware/renesas-rcar-gen3.md")
+                    canonical = next(k for k, v in MAPPING.items() if v == "standalone/build/common/hardware/renesas-rcar-gen3.md")
                     fragment = ""
                 if fragment == "2-raspberry-pi-4":
                     fragment = "raspberry-pi-4"
@@ -218,11 +220,11 @@ def import_all(source_root: Path) -> None:
         def attr(match: re.Match[str]) -> str:
             original = match.group(2)
             converted = destination(original, old, new)
-            if converted != original and not re.match(r"^[a-zA-Z][\\w+.-]*:", converted):
+            if converted != original and not re.match(r"^[a-zA-Z][\w+.-]*:", converted):
                 if not new.endswith("/index.md") and new != "index.md":
                     converted = "../" + converted
-                converted = re.sub(r"index\\.md(?=[?#]|$)", "", converted)
-                converted = re.sub(r"\\.md(?=[?#]|$)", "/", converted)
+                converted = re.sub(r"index\.md(?=[?#]|$)", "", converted)
+                converted = re.sub(r"\.md(?=[?#]|$)", "/", converted)
             return match.group(1) + converted + match.group(3)
         return re.sub(r"""((?:href|src)\s*=\s*["'])([^"']+)(["'])""", attr, text)
 
@@ -241,63 +243,36 @@ def import_all(source_root: Path) -> None:
         title = TITLES.get(new) or (existing_title.group(1).strip("\"'") if existing_title else heading.group(1) if heading else Path(new).stem)
         TITLES[new] = title
         body = rewrite(body, old, new)
-        if new == "develop/platform/prepare-host.md":
+        if new == "standalone/build/common/prepare-host.md":
             body = body.replace("Tar 1.27 or greater", "Tar 1.28 or greater").replace("Python 3.4.0 or greater", "Python 3.9.0 or greater")
             body = body.replace("- Python 3.9.0 or greater", "- Python 3.9.0 or greater\n      - GNU make 4.0 or greater\n      - GCC 10.1 or greater")
-        if new == "develop/apps/qt-sdk.md":
-            body = '!!! info "Qt-specific guide is not yet available"\n    The source page is a placeholder. Use the [SDK workflow](sdk-overview.md), [SDK setup](setup-sdk.md), and [Qt demo](../../explanation/applications/qt-homescreen.md) as starting points.\n\n' + body
         target = docs_root / new
         target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_text(frontmatter(title, old) + body, encoding="utf-8")
+        page = frontmatter(title, old) + adapt_page(body, new)
+        if new in REQUIRED_TITLES:
+            page = normalize_page(page, REQUIRED_TITLES[new])
+        target.write_text(page, encoding="utf-8")
         manifest.append({"source": old, "destination": new, "source_sha256": hashlib.sha256(files[old].read_bytes()).hexdigest()})
 
-    # Keep the prebuilt quickstart focused on QEMU x86-64 and Raspberry Pi 4.
-    overview = docs_root / "start/prebuilt-images.md"
-    imported = overview.read_text(encoding="utf-8")
-    routes = [
-        ("QEMU x86-64", "qemu-x86-64", "Linux host with QEMU, KVM access, and a VNC client."),
-        ("Raspberry Pi 4", "raspberry-pi", "A Raspberry Pi 4, a suitable display, a network connection, and a microSD card."),
-    ]
-    source = next(old for old, new in MAPPING.items() if new == "start/prebuilt-images.md")
-    blocks = []
-    for heading, slug, requirements in routes:
-        match = re.search(r"^### " + re.escape(heading) + r"\s*\n(.*?)(?=^#{2,3} |\Z)", imported, re.M | re.S)
-        if not match:
-            raise SystemExit("Quickstart section not found: " + heading)
-        body = match.group(1).strip()
-        path = "start/" + slug + ".md"
-        title = "Run AGL on " + heading
-        page = frontmatter(title, source)
-        page += "# " + title + "\n\n## Before you start\n\n" + requirements + "\n\n"
-        page += "Use artifacts from the same AGL build. The configured channel is **{{ agl.codename }} / {{ artifact_kind }}**.\n\n"
-        page += "## Start AGL\n\n" + body + "\n\n## Confirm the result\n\n"
-        page += "Confirm that the AGL console or demo UI starts. Check the image and kernel names if boot fails, and record the build identifier before reporting a problem.\n\n"
-        page += "## Next steps\n\n- [Troubleshooting](../troubleshooting/index.md)\n- [Develop an application](../develop/index.md#apps)\n- [Choose another environment](prebuilt-images.md)\n"
-        (docs_root / path).write_text(page, encoding="utf-8")
-        TITLES[path] = title
-        blocks.append("## " + heading + "\n\n" + requirements + "\n\n[Open the setup guide](" + slug + ".md)\n")
-    body = frontmatter("Choose a prebuilt image", source) + "# Choose a prebuilt image\n\n"
-    body += "Use a prebuilt image to evaluate AGL before setting up a full source build. Choose QEMU x86-64 on a Linux host or Raspberry Pi 4 on hardware, then follow its guide.\n\n"
-    body += "For hardware support and build options, see the [board and image guide](../reference/matrix.md).\n\n" + "\n".join(blocks)
-    overview.write_text(body, encoding="utf-8")
-    # Remove only retired or relocated pages generated by earlier imports.
-    for relative in (
-        "start/qemu-arm64.md",
-        "start/virtualbox.md",
-        "start/x86-hardware.md",
-        "start/demos/flutter-homescreen.md",
-        "start/demos/qt-homescreen.md",
-        "start/demos/cluster-dashboard.md",
-        "start/demos/momi/screen.md",
-        "start/demos/momi/navigation.md",
-        "start/demos/momi/weather.md",
-    ):
+    # Generate the Flutter prebuilt routes and preserve the authored demo overview.
+    overview = docs_root / "start/prebuilt/index.md"
+    source = next(old for old, new in MAPPING.items() if new == "start/prebuilt/index.md")
+    pages = render_quickstarts(overview.read_text(encoding="utf-8"), source)
+    for relative, page in pages.items():
+        target = docs_root / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(page, encoding="utf-8")
+    structure = json.loads((Path(__file__).resolve().parents[1] / "structure-map.json").read_text(encoding="utf-8"))
+    retired_paths = {p["old"] for p in structure["moved_pages"]}
+    retired_paths.update({"start/qemu-arm64.md", "start/virtualbox.md", "start/x86-hardware.md"})
+    current_paths = set(MAPPING.values()) | set(pages) | {p["page"] for p in structure["required_pages"]}
+    for relative in retired_paths - current_paths:
         retired = (docs_root / relative).resolve()
         if not retired.is_relative_to(docs_root.resolve()):
             raise ValueError("Retired page path is outside the documentation directory")
         retired.unlink(missing_ok=True)
     (PROJECT / "source-map.json").write_text(json.dumps({"source_markdown_count": len(manifest), "source_asset_count": len(assets), "pages": manifest}, indent=2) + "\n", encoding="utf-8")
-    print(f"Imported {len(manifest)} Markdown pages and {len(assets)} assets; created {len(routes)} environment-specific quickstarts.")
+    print(f"Imported {len(manifest)} Markdown pages and {len(assets)} assets; created 2 Flutter prebuilt quickstarts.")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)

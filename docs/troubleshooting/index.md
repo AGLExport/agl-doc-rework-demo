@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting
+title: "Troubleshooting"
 ---
 
 # Troubleshooting
@@ -10,12 +10,12 @@ Start with [Diagnose common problems](diagnostics.md) for symptom checks and com
 
 | Problem | Information to check first |
 | --- | --- |
-| An image is missing or a target is unclear | [Version selection](../releases/index.md), [board and image matrix](../reference/matrix.md), [image types](../reference/images.md) |
-| QEMU or hardware does not boot | [Prebuilt image guide](../start/prebuilt-images.md), [hardware support](../reference/hardware.md) |
-| Required build tools are missing | [Prepare your build host](../develop/platform/prepare-host.md) |
-| Source checkout or build initialization fails | [Download AGL source](../develop/platform/download-source.md), [initialize the build environment](../develop/platform/initialize-build.md) |
-| An application does not build or run | [SDK setup](../develop/apps/setup-sdk.md), [build applications](../develop/apps/build-apps.md), [create a new application](../develop/apps/create-application.md) |
-| An API's usage is unclear | [API and service catalog](../reference/services/index.md) |
+| An image is missing or a target is unclear | [Version selection](../releases/index.md), [board and image matrix](../standalone/build/common/reference/matrix.md), [image types](../standalone/build/common/reference/images.md) |
+| QEMU or hardware does not boot | [Prebuilt image guide](../start/prebuilt/index.md), [hardware support](../standalone/build/common/reference/hardware.md) |
+| Required build tools are missing | [Prepare your build host](../standalone/build/common/prepare-host.md) |
+| Source checkout or build initialization fails | [Download AGL source](../standalone/build/common/download-source.md), [initialize the build environment](../standalone/build/common/initialize-build.md) |
+| An application does not build or run | [SDK setup](../standalone/applications/setup-sdk.md), [build applications](../standalone/applications/build-apps.md), [create a new application](../standalone/applications/create-application.md) |
+| An API's usage is unclear | [API and service catalog](../components/services/index.md) |
 
 Also check the [official release notes](https://wiki.automotivelinux.org/agl-distro/release-notes) for known issues and limitations in your version.
 
@@ -36,3 +36,9 @@ Record whether the problem reproduces under the same conditions and which steps 
 For usage questions or help diagnosing a problem, read [Getting help](getting-help.md). For a reproducible defect, follow [Reporting bugs](reporting-bugs.md).
 
 To fix an error or fill a gap in these guides, see [Contribute to the documentation](../contributing/documentation.md).
+
+## Further reading
+
+- [Diagnose common problems](diagnostics.md)
+- [Get community help](getting-help.md)
+- [Report a bug](reporting-bugs.md)

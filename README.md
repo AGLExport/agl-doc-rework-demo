@@ -1,10 +1,10 @@
 # AGL documentation for GitHub Pages
 
-This directory contains an English documentation site organized around user goals: get started, develop, understand the platform, look up APIs and settings, troubleshoot, follow releases, and contribute. The homepage provides four routes: try AGL, develop an application, build an image, and use real hardware.
+This English documentation site follows the exact headings, order, and hierarchy in [AGENTS.md](AGENTS.md). Its eight main sections are Home, Get started, AGL standalone distribution development, AGL integrated system development, AGL Components, Troubleshooting, Releases & migration, and Contribute.
 
-The original `../docs/` directory remains unchanged. This site imports all 84 source Markdown articles and 104 source assets into the new structure. The Get started section provides two prebuilt-image setup guides: QEMU x86-64 and Raspberry Pi 4.
+The navigation contains 89 required headings. All 152 articles are reachable through those chapters, including 63 supporting articles linked from the relevant chapter rather than added to the required navigation. The original `../docs/` directory remains unchanged; all 84 source Markdown articles and 104 source assets are retained in the reconstructed site.
 
-Get started > Explore the demos introduces the Flutter IVI Demo as a whole, with links to official web sources. The six original individual application pages are under Understand AGL > Applications. The importer preserves the authored demo overview and application landing page.
+Get started introduces the Flutter IVI demo as a complete system and provides prebuilt-image guides for QEMU x86-64 and Raspberry Pi 4/5. Individual application explanations are under AGL Components > AGL Reference Applications. Standalone builds and application development are separate from SoDeV, container, and KVM integration. New material cites official project documentation and source repositories, and identifies gaps where a complete procedure or API specification is unavailable.
 
 ## Contents
 
@@ -12,8 +12,12 @@ Get started > Explore the demos introduces the Flutter IVI Demo as a whole, with
 | --- | --- |
 | `mkdocs.yml` | Navigation, theme, release variables, and build configuration |
 | `docs/` | Documentation articles, task-oriented entry pages, and copied assets |
+| `AGENTS.md` | Required documentation headings and hierarchy |
+| `structure-map.json` | Required heading-to-page mapping and previous page locations |
 | `source-map.json` | Source-to-destination mapping and SHA-256 hashes for the 84 imported articles |
 | `scripts/import_docs.py` | Re-import the original articles and assets |
+| `scripts/import_transforms.py` | Preserve required titles, adapted introductions, and Flutter quickstarts on re-import |
+| `scripts/validate_structure.py` | Check the exact required hierarchy, article reachability, and source mappings |
 | `scripts/validate_site.py` | Check generated local links, assets, and anchors |
 | `requirements.txt` | Pinned Python build dependencies |
 | `.github/workflows/pages.yml` | GitHub Actions build, validation, and deployment workflow |
@@ -53,6 +57,7 @@ PowerShell:
 
 ```powershell
 $env:MKDOCS_SITE_URL = 'http://127.0.0.1:8000/'
+.\.venv\Scripts\python.exe scripts\validate_structure.py
 .\.venv\Scripts\python.exe -m mkdocs build --strict --config-file mkdocs.yml
 .\.venv\Scripts\python.exe scripts\validate_site.py site --site-url "$env:MKDOCS_SITE_URL"
 ```
@@ -61,11 +66,12 @@ Linux or macOS:
 
 ```bash
 export MKDOCS_SITE_URL=http://127.0.0.1:8000/
+.venv/bin/python scripts/validate_structure.py
 .venv/bin/python -m mkdocs build --strict --config-file mkdocs.yml
 .venv/bin/python scripts/validate_site.py site --site-url "$MKDOCS_SITE_URL"
 ```
 
-The build checks MkDocs configuration and document references. The validator checks generated local page links, images and other assets, and fragment anchors. External URLs are not checked. The workflow repeats these checks before deployment.
+The structure validator checks the navigation against AGENTS.md, first-level page titles, supporting-page declarations, article reachability, and source mappings. The build checks MkDocs configuration and document references. The validator checks generated local page links, images and other assets, and fragment anchors. External URLs are not checked. The workflow repeats these checks before deployment.
 
 ## Publish on GitHub Pages
 
@@ -111,7 +117,7 @@ When updating an existing parent repository, copy the revised workflow to its ro
 
 ## Edit and maintain the documentation
 
-Edit articles in `docs/` and adjust the explicit `nav` in `mkdocs.yml` when adding or moving pages. Use descriptive page titles, relative Markdown links, and related-page or next-step links. Update shared release values in `mkdocs.yml` when changing the documented AGL release or artifact channel. Rebuild and validate after changes.
+Edit articles in `docs/` while preserving the required navigation in AGENTS.md. Do not omit, rename, duplicate, or reorder its headings. Each required page uses its required heading as its first H1. Add supporting articles through relative Markdown links from the appropriate chapter and declare their paths in `not_in_nav` in `mkdocs.yml`; they remain available in search. Update `structure-map.json` when changing required page locations, and keep the importer mapping consistent. Update shared release values in `mkdocs.yml` when changing the documented AGL release or artifact channel. Rebuild and run both validators after changes.
 
 The importer is a manual migration utility, not part of the normal site build. From this directory inside the original repository:
 
@@ -119,7 +125,7 @@ The importer is a manual migration utility, not part of the normal site build. F
 python scripts/import_docs.py --source ../docs
 ```
 
-**Re-importing overwrites imported articles, copied assets, the two generated quickstart guides, and `source-map.json`.** Preserve local edits before running it. Update the importer's mapping and transformations when a change must survive later imports. Entry pages written separately from imported articles are maintained directly in `docs/`.
+**Re-importing overwrites imported articles, copied assets, the prebuilt-image landing page, its two generated quickstart guides, and `source-map.json`.** Preserve local edits before running it. Update the importer's mapping and transformations when a change must survive later imports. Authored chapters and the Flutter IVI demo overview are maintained directly in `docs/` and preserved by the importer. The importer removes retired page locations listed in `structure-map.json` so obsolete headings do not reappear.
 
 In a separate site repository, `../docs/` will not normally exist. Supply the original AGL documentation directory using `--source` only when deliberately re-importing it.
 

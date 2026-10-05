@@ -1,5 +1,5 @@
 ---
-title: Releases & migration
+title: "Releases & migration"
 ---
 
 # Releases & migration
@@ -27,8 +27,8 @@ Use a prebuilt image, source branch, SDK, and documentation for the same version
 
 1. Record your current AGL version, source revision, board, image, selected features, and SDK.
 2. Check the destination release notes for supported boards, changes, and known issues.
-3. Use the destination version's instructions to check [host requirements](../develop/platform/prepare-host.md) and SDK requirements.
-4. Check the APIs and settings you use against the [API and service catalog](../reference/services/index.md) and the destination version's documentation.
+3. Use the destination version's instructions to check [host requirements](../standalone/build/common/prepare-host.md) and SDK requirements.
+4. Check the APIs and settings you use against the [API and service catalog](../components/services/index.md) and the destination version's documentation.
 5. In the new environment, verify boot, application execution, and the services your application uses.
 
 These steps provide a general checking sequence. For version-specific changes and compatibility information, use the official release notes and documentation for each version.
@@ -36,5 +36,5 @@ These steps provide a general checking sequence. For version-specific changes an
 ## Next steps
 
 - To explore a prebuilt image: [Get started](../start/index.md).
-- To build from source: [Platform development](../develop/index.md#platform).
+- To build from source: [Platform development](../standalone/index.md#platform).
 - To investigate a problem after updating: [Diagnose common problems](../troubleshooting/diagnostics.md), then use [Troubleshooting](../troubleshooting/index.md) to ask for help.
