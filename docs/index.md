@@ -5,37 +5,22 @@ content_status: authored
 
 # Home
 
-Automotive Grade Linux (AGL) provides a Linux-based platform for automotive software. Choose whether you want to evaluate an IVI demo, develop a standalone distribution, integrate several guest systems, or work on an individual component.
+Automotive Grade Linux (AGL) is a collaborative open source project hosted by the Linux Foundation. Automakers, suppliers, and technology companies work together to develop a shared Linux-based software platform for automotive applications. By sharing common infrastructure, the project supports software reuse and reduces fragmentation across the industry.
 
-!!! info "Documentation version"
-    This site follows **{{ agl.full_name }} / `{{ agl.codename }}`** and the **{{ artifact_kind }}** artifact channel. Use [Releases & migration](releases/index.md) to select a stable release.
+AGL provides a base distribution, services, and reference applications for automotive software. These can be used as a standalone distribution or combined with other workloads in an integrated system.
 
 <div class="grid cards" markdown>
 
-- **Try the Flutter IVI demo**
+- **AGL standalone distribution**
 
-    Explore the demo, then boot it on QEMU x86-64 or Raspberry Pi 4/5.
+    A standalone distribution provides a software environment for a selected vehicle role: In-Vehicle Infotainment, Instrument Cluster, or Connected Gateway. It brings together the operating system, services, and applications for that role.
 
-    [Get started](start/index.md)
+    [Explore the standalone distribution](home/standalone/index.md)
 
-- **Build a standalone distribution**
+- **AGL integrated system**
 
-    Prepare a host and choose IVI or Instrument Cluster software.
+    An integrated system brings multiple automotive workloads together using guest environments. AGL documents SoDeV, container integration, and KVM based integration, covering different ways to organize and isolate workloads within a system.
 
-    [Start building](standalone/build/index.md)
-
-- **Develop an application**
-
-    Use Flutter or the AGL SDK and add your application to an image.
-
-    [Application development](standalone/applications/index.md)
-
-- **Integrate guest systems**
-
-    Choose SoDeV, container integration, or KVM integration.
-
-    [Integrated system development](integrated/index.md)
+    [Explore the integrated system](home/integrated/index.md)
 
 </div>
-
-New to the platform? Read [What is AGL](home/index.md), the [glossary](home/glossary.md), and [Build host, target, image, and SDK](home/build-and-runtime.md).
