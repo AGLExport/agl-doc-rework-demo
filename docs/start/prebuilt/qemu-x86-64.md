@@ -6,78 +6,76 @@ content_status: adapted
 
 # QEMU x86-64
 
-Use a Linux host with QEMU, KVM access, and a VNC client. This guide boots the Flutter IVI demo. Keep its image and kernel on the same release/build.
+Use an x86-64 Linux host with QEMU 7.1 or newer, access to `/dev/kvm`, and a VNC client. This guide boots the Flutter IVI demo directly from its kernel and ext4 filesystem. Keep both files on the same release/build.
+
+## Prepare the host and image
+
+On Debian or Ubuntu, install the host tools:
+
+```sh
+sudo apt install qemu-system-x86 xz-utils tigervnc-viewer
+```
+
+For other host distributions, install the equivalent packages. The launch command uses QEMU's PulseAudio backend; a PulseAudio server or PipeWire's PulseAudio compatibility service must be running for sound. See the [QEMU audio options](https://www.qemu.org/docs/master/system/qemu-manpage.html) for available backends.
+
+Download these two files from the [same artifact directory]({{ agl_download_base }}/latest/qemux86-64/deploy/images/qemux86-64/):
+
+- [Compressed Flutter filesystem]({{ agl_download_base }}/latest/qemux86-64/deploy/images/qemux86-64/agl-ivi-demo-flutter-qemux86-64.ext4.xz)
+- [Kernel (`bzImage`)]({{ agl_download_base }}/latest/qemux86-64/deploy/images/qemux86-64/bzImage)
+
+`latest` moves as new builds are published. For repeatable evaluation, record the timestamped image filename and build directory, and download the matching kernel before that directory changes.
+
+Copy the downloaded files into a boot directory, then decompress the filesystem:
+
+```sh
+mkdir -p ~/agl-demo
+cp ~/Downloads/agl-ivi-demo-flutter-qemux86-64.ext4.xz ~/agl-demo/
+cp ~/Downloads/bzImage ~/agl-demo/
+cd ~/agl-demo
+xz -dk agl-ivi-demo-flutter-qemux86-64.ext4.xz
+```
+
+The launch command needs the extracted `.ext4` file. The separately provided `.wic.zst` image contains a partitioned disk and uses a different boot procedure; see [Build and boot on x86](../../standalone/build/common/hardware/x86.md).
 
 ## Start AGL
 
-1. Download the [compressed prebuilt image]({{ agl_download_base }}/latest/qemux86-64/deploy/images/qemux86-64/agl-ivi-demo-flutter-qemux86-64.ext4.xz).
+Run QEMU from `~/agl-demo`:
 
-2. Download the [compressed kernel image]({{ agl_download_base }}/latest/qemux86-64/deploy/images/qemux86-64/bzImage).
+```sh
+qemu-system-x86_64 \
+  -machine q35 -enable-kvm -cpu host -m 2048 \
+  -drive file=agl-ivi-demo-flutter-qemux86-64.ext4,if=virtio,format=raw \
+  -device virtio-net-pci,netdev=net0,mac=52:54:00:12:35:02 \
+  -netdev user,id=net0,hostfwd=tcp:127.0.0.1:2222-:22 \
+  -device qemu-xhci -device usb-tablet -device virtio-rng-pci \
+  -vga virtio -vnc 127.0.0.1:0 \
+  -audiodev pa,id=audio0 -device ich9-intel-hda -device hda-duplex,audiodev=audio0 \
+  -snapshot -serial mon:stdio \
+  -kernel bzImage \
+  -append 'root=/dev/vda rw console=tty0 console=ttyS0,115200n8 ip=dhcp'
+```
 
-3. Install [QEMU](https://www.qemu.org/download/) :
+Open the graphical display from another host terminal:
 
-    ```sh
-    $ apt-get install qemu
-    ```
+```sh
+vncviewer 127.0.0.1:0
+```
 
-4. Install [vinagre](https://wiki.gnome.org/Apps/Vinagre) :
+Another VNC client can connect to `127.0.0.1`, TCP port `5900`. QEMU's VNC display is local to the host.
 
-    ```sh
-    $ sudo apt install vinagre
-    ```
+The `-snapshot` option discards guest disk changes when QEMU exits. Remove it to save changes. If host audio is unavailable, replace `-audiodev pa,id=audio0` with `-audiodev none,id=audio0` to boot without sound. The explicit HDA device options replace `-soundhw`, which [QEMU removed in 7.1](https://www.qemu.org/docs/master/about/removed-features.html#creating-sound-card-devices-using-soundhw-removed-in-7-1).
 
-5. Create boot directory and copy compressed images (prebuilt & kernel) into them :
-
-    ```sh
-    $ mkdir ~/agl-demo/
-    $ cp ~/Downloads/agl-ivi-demo-flutter-qemux86-64.ext4.xz ~/agl-demo/
-    $ cp ~/Downloads/bzImage ~/agl-demo/
-    $ cd ~/agl-demo
-    $ sync
-    ```
-
-6. Extract prebuilt compressed image :
-
-    ```sh
-    $ xz -v -d agl-ivi-demo-flutter-qemux86-64.ext4.xz
-    ```
-
-7. Launch QEMU with vinagre (for scaling), remove `- snapshot \` if you want to save changes to the image files :
-
-  ```sh
-    $ ( sleep 5 && vinagre --vnc-scale localhost ) > /tmp/vinagre.log 2>&1 &
-    $ qemu-system-x86_64 -device virtio-net-pci,netdev=net0,mac=52:54:00:12:35:02 -netdev user,id=net0,hostfwd=tcp::2222-:22 \
-      -drive file=agl-ivi-demo-flutter-qemux86-64.ext4,if=virtio,format=raw -show-cursor -usb -usbdevice tablet -device virtio-rng-pci \
-      -snapshot -vga virtio \
-      -vnc :0 -soundhw hda -machine q35 -cpu kvm64 -cpu qemu64,+ssse3,+sse4.1,+sse4.2,+popcnt -enable-kvm \
-      -m 2048 -serial mon:vc -serial mon:stdio -serial null -kernel bzImage \
-      -append 'root=/dev/vda rw console=tty0 mem=2048M ip=dhcp oprofile.timer=1 console=ttyS0,115200n8 verbose fstab=no'
-  ```
-
-  - Login into AGL :
-
-    ```sh
-    Automotive Grade Linux xx.x.x qemux86-64 ttyS1
-
-    qemux86-64 login: root
-    ```
-
-
-  - Shutdown QEMU : `$ poweroff`, otherwise QEMU will run in the background.
-  - To use vnc-viewer instead of vinagre :
-    ```sh
-    $ ( sleep 5 && vncviewer ) &
-       qemu-system-x86_64 -device virtio-net-pci,netdev=net0,mac=52:54:00:12:35:02 -netdev user,id=net0,hostfwd=tcp::2222-:22 \
-       -drive file=agl-ivi-demo-flutter-qemux86-64.ext4,if=virtio,format=raw -show-cursor -usb -usbdevice tablet -device virtio-rng-pci \
-       -snapshot -vga virtio \
-       -vnc :0 -soundhw hda -machine q35 -cpu kvm64 -cpu qemu64,+ssse3,+sse4.1,+sse4.2,+popcnt -enable-kvm \
-       -m 2048 -serial mon:vc -serial mon:stdio -serial null -kernel bzImage \
-       -append 'root=/dev/vda rw console=tty0 mem=2048M ip=dhcp oprofile.timer=1 console=ttyS0,115200n8 verbose fstab=no'
-    ```
+If KVM is unavailable, remove `-enable-kvm` and replace `-cpu host` with `-cpu qemu64,+ssse3,+sse4.1,+sse4.2,+popcnt`. Software emulation is slower. If KVM exists but access fails, check the host's `/dev/kvm` permissions and virtualization configuration.
 
 ## Confirm the result
 
-Confirm that the console or Flutter demo UI starts. Record the build identifier and launch command if it fails.
+Confirm that the Flutter demo UI and serial login prompt appear. Use the image's configured account; development demo images normally permit `root` login. If SSH is enabled, the forwarded port can be used from the host:
+
+```sh
+ssh -p 2222 root@127.0.0.1
+```
+
+To stop the guest, run `poweroff` at its console. For a launch failure, record the build identifier, host QEMU version (`qemu-system-x86_64 --version`), full command, and error output.
 
 ## Next steps
 

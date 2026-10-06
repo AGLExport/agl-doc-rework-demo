@@ -129,7 +129,7 @@ def local_document_links(body, page):
 
 
 # The Home content rule retains this historical name after the navigation rename.
-SECTION_ALIASES = {'AGL Coverage': 'AGL Assets'}
+SECTION_ALIASES = {'AGL Coverage': 'AGL Artifact'}
 
 
 def section_paths(section, pages, structure):
@@ -138,7 +138,7 @@ def section_paths(section, pages, structure):
         section = SECTION_ALIASES.get(section, section)
     paths = [path for title, path in pages if title == section]
     if len(paths) > 1:
-        overview_paths = {entry['page'] for entry in structure['required_pages'] if entry['heading'] == section and any(title in entry['breadcrumb'] for title in ('AGL Assets', 'AGL Coverage'))}
+        overview_paths = {entry['page'] for entry in structure['required_pages'] if entry['heading'] == section and any(title in entry['breadcrumb'] for title in ('AGL Artifact',))}
         paths = [path for path in paths if path in overview_paths]
     return paths
 

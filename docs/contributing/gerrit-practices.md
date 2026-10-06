@@ -1,265 +1,210 @@
 ---
 title: "Gerrit recommended practices"
 source_path: "07_How_To_Contribute/06_Gerrit_Recommended_Practices.md"
-content_status: imported
+content_status: adapted
 ---
 
-This document presents some best practices to help you use Gerrit more
-effectively. The intent is to show how content can be submitted easily. Use the
-recommended practices to reduce your troubleshooting time and improve
-participation in the community.
+Use these practices to prepare changes, download patch sets, and update reviews.
+The Bash examples use a remote named `origin` and a target branch named `master`;
+replace these with the remote and branch used by your project. Run the commands
+from the cloned repository. See [Work with Gerrit](gerrit.md) for account and hook setup.
 
 ## Commit Messages
 
-Gerrit follows the Git commit message format. Ensure the headers are at the
-bottom and don't contain blank lines between one another. The following example
-shows the format and content expected in a commit message:
+Use a short subject, followed by a blank line and a description of the problem,
+the change, and its validation. Keep the trailers together in the final paragraph:
 
-Brief (no more than 50 chars) one line description.
+```text
+Explain the change in a short subject
 
-Elaborate summary of the changes made referencing why (motivation), what was
-changed and how it was tested. Note also any changes to documentation made to
-remain consistent with the code changes, wrapping text at 72 chars/line.
+Describe why the change is needed, how it works, and what was tested.
+Include any related documentation changes. Wrap the text at 72 columns.
 
-```sh
-Bug-AGL: SPEC-<JIRA-ID>
-
-Change-Id: LONGHEXHASH
-Signed-off-by: Your Name your.email\@example.org
+Bug-AGL: SPEC-1234
+Change-Id: I0123456789abcdef0123456789abcdef01234567
+Signed-off-by: Your Name <your.email@example.org>
 ```
 
-The Gerrit server provides a precommit hook to autogenerate the Change-Id which
-is one time use.
-
-**Recommended reading:** [How to Write a Git Commit
-Message](http://chris.beams.io/posts/git-commit/).
+Use the actual issue number and let the Gerrit `commit-msg` hook generate the
+`Change-Id`. Preserve that identifier when amending or rebasing an existing
+review; it identifies the same change across patch sets. See the official
+[commit-msg hook documentation](https://gerrit-review.googlesource.com/Documentation/cmd-hook-commit-msg.html)
+and the [AGL submission guidelines](submit-changes.md).
 
 ## Avoid Pushing Untested Work to a Gerrit Server
 
-To avoid pushing untested work to Gerrit.
-
-Check your work at least three times before pushing your change to Gerrit. Be
-mindful of what information you are publishing.
+Run the project's required checks before uploading a change. Inspect the diff
+and commit message, and explain the validation and any remaining limitations.
 
 ## Keeping Track of Changes
 
--  Set Gerrit to send you emails:
+- Configure notifications in your Gerrit account's email preferences.
+- Watch the projects you work on for new changes, patch sets, comments, and submissions.
+- Use the review page and your dashboard to follow feedback on individual changes.
 
--  Gerrit will add you to the email distribution list for a change if a
-   developer adds you as a reviewer, or if you comment on a specific Patch Set.
-
--  Opening a change in Gerrit's review interface is a quick way to follow that
-   change.
-
--  Watch projects in the Gerrit projects section at ``Gerrit``, select at least
-   *New Changes, New Patch Sets, All Comments* and *Submitted Changes*.
-
-Always track the projects you are working on; also see the feedback/comments
-[mailing list](https://lists.automotivelinux.org/g/agl-dev-community) to learn
-and help others ramp up.
+Also follow the [AGL development mailing list](https://lists.automotivelinux.org/g/agl-dev-community).
 
 ## Topic branches
 
-Topic branches are temporary branches that you push to commit a set of
-logically-grouped dependent commits:
-
-To push changes from ``REMOTE/master`` tree to Gerrit for being reviewed as a
-topic in **TopicName** use the following command as an example:
+Create local feature branches for logically related work. A Gerrit topic is a
+label that groups changes; pushing a topic does not create a corresponding Git
+branch on the server. Upload a set of dependent commits with a topic as follows:
 
 ```sh
-$ git push REMOTE HEAD:refs/for/master/TopicName
+git push origin HEAD:refs/for/master%topic=TopicName
 ```
 
-The topic will show up in the review ``UI`` and in the ``Open Changes List``.
-Topic branches will disappear from the master tree when its content is merged.
+Replace `master` with the target branch and `TopicName` with your topic.
+The topic is shown in Gerrit's change list and review interface. See
+[Gerrit's topic upload options](https://gerrit-review.googlesource.com/Documentation/user-upload.html#topic).
 
 ## Finding Available Topics
 
+Set `LFID` to your Gerrit SSH username, then query open changes:
+
 ```sh
-$ ssh -p 29418 <LFID>@gerrit.automotivelinux.org gerrit query \ status:open branch:master| grep topic: | sort -u
+LFID=your-gerrit-username
+ssh -p 29418 "$LFID@gerrit.automotivelinux.org" \
+    gerrit query status:open branch:master | grep 'topic:' | sort -u
 ```
 
--  [gerrit.automotivelinux.org](https://gerrit.automotivelinux.org) is the
-   current URL where the project is hosted.
--  *status* : Indicates the topic's current status: open , merged, abandoned,
-   draft, merge conflict.
--  *project* : Refers to the current name of the project, in this case fabric.
--  *branch* : The topic is searched at this branch.
--  *topic* : The name of an specific topic, leave it blank to include them all.
--  *sort* : Sorts the found topics, in this case by update (-u).
+The query filters by change status and target branch; `sort -u` removes duplicate
+topic lines. Add `project:PROJECT_NAME` or `topic:TOPIC_NAME` to narrow the query.
+For query syntax, see the [Gerrit query command](https://gerrit-review.googlesource.com/Documentation/cmd-query.html).
 
 ## Downloading or Checking Out a Change
 
-In the review UI, on the top right corner, the **Download** link provides a list
-of commands and hyperlinks to checkout or download diffs or files.
+Copy the fetch or checkout command from the change's **Download** menu to select
+the correct repository, change number, and patch set.
 
-We recommend the use of the *git review* plugin. The steps to install git review
-are beyond the scope of this document. Refer to the [git review
-documentation](https://wiki.openstack.org/wiki/Documentation/HowTo/FirstTimers)
-for the installation process.
-
-To check out a specific change using Git, the following command usually works:
+With `git-review`, download change 2464, patch set 4:
 
 ```sh
-$ git review -d CHANGEID
+git review -d 2464,4
 ```
 
-If you don't have Git-review installed, the following commands will do the same
-thing:
+Without `git-review`, fetch the patch set and create a local branch:
 
 ```sh
-$ git fetch REMOTE refs/changes/NN/CHANGEIDNN/VERSION \ && git checkout FETCH_HEAD
+git fetch origin refs/changes/64/2464/4
+git checkout -b review-2464-4 FETCH_HEAD
 ```
 
-For example, for the 4th version of change 2464, NN is the first two digits
-(24):
-
-```sh
-$ git fetch REMOTE refs/changes/24/2464/4 \ && git checkout FETCH_HEAD
-```
+The reference format is `refs/changes/NN/CHANGE_NUMBER/PATCH_SET`, where
+`NN` is the last two digits of the change number, padded to two digits.
+For change 2464, those digits are `64`. See Gerrit's
+[refs/for and refs/changes documentation](https://gerrit-review.googlesource.com/Documentation/concept-refs-for-namespace.html).
+Download commands and patch-set selection are also described in the
+[git-review usage guide](https://docs.opendev.org/opendev/git-review/latest/usage.html).
 
 ## Using Sandbox Branches
 
-You can create your own branches to develop features. The branches are pushed to
-the ``refs/heads/sandbox/USERNAME/BRANCHNAME`` location.
+Some AGL repositories allow personal branches under
+`refs/heads/sandbox/USERNAME/BRANCHNAME`. Check the repository's permissions
+before using this workflow.
 
-These commands ensure the branch is created in Gerrit's server.
-
-```sh
-$ git checkout -b sandbox/USERNAME/BRANCHNAME
-$ git push --set-upstream REMOTE HEAD:refs/heads/sandbox/USERNAME/BRANCHNAME
-```
-
-Usually, the process to create content is:
-
--  develop the code,
--  break the information into small commits,
--  submit changes,
--  apply feedback,
--  rebase.
-
-The next command pushes forcibly without review:
+Create a local sandbox branch and push it directly:
 
 ```sh
-$ git push REMOTE sandbox/USERNAME/BRANCHNAME
+git checkout -b sandbox/USERNAME/BRANCHNAME
+git push --set-upstream origin HEAD:refs/heads/sandbox/USERNAME/BRANCHNAME
 ```
 
-You can also push forcibly with review:
+Replace `USERNAME` and `BRANCHNAME` with your username and branch name.
+This bypasses code review and requires push permission. Later fast-forward
+updates can use:
 
 ```sh
-$ git push REMOTE HEAD:ref/for/sandbox/USERNAME/BRANCHNAME
+git push origin HEAD:refs/heads/sandbox/USERNAME/BRANCHNAME
 ```
+
+To request review against an existing sandbox branch instead, use:
+
+```sh
+git push origin HEAD:refs/for/sandbox/USERNAME/BRANCHNAME
+```
+
+These commands do not force an update. The distinction between direct pushes
+and review uploads is explained in
+[Gerrit's refs/for documentation](https://gerrit-review.googlesource.com/Documentation/concept-refs-for-namespace.html).
 
 ## Updating the Version of a Change
 
-During the review process, you might be asked to update your change. It is
-possible to submit multiple versions of the same change. Each version of the
-change is called a patch set.
-
-Always maintain the **Change-Id** that was assigned. For example, there is a
-list of commits, **c0...c7**, which were submitted as a topic branch:
+Each version of a reviewed change is a patch set. For a change at the tip of
+your branch, stage the corrected files and amend its commit:
 
 ```sh
-
-$ git log REMOTE/master..master
-
-  c0
-  ...
-  c7
-
-$ git push REMOTE HEAD:refs/for/master/SOMETOPIC
+git add path/to/changed-file
+git commit --amend --signoff
+git push origin HEAD:refs/for/master%topic=TopicName
 ```
 
-After you get reviewers' feedback, there are changes in **c3** and **c4** that
-must be fixed. If the fix requires rebasing, rebasing changes the commit Ids,
-see the [rebasing](http://git-scm.com/book/en/v2/Git-Branching-Rebasing) section
-for more information. However, you must keep the same Change-Id and push the
-changes again:
+Keep the existing `Change-Id`. Gerrit matches that identifier, the repository,
+and the target branch to update the same change. For changes earlier in a
+dependent series, edit their commits with interactive rebase, preserve each
+commit's `Change-Id`, rerun validation, and upload the series again.
 
-```sh
-$ git push REMOTE HEAD:refs/for/master/SOMETOPIC
-```
-
-This new push creates a patches revision, your local history is then cleared.
-However you can still access the history of your changes in Gerrit on the
-``review UI`` section, for each change.
-
-It is also permitted to add more commits when pushing new versions.
+The upload retains your local Git history. Gerrit keeps earlier patch sets
+available in the review interface. New commits with new identifiers create
+additional changes. See the official
+[patch-set update workflow](https://gerrit-review.googlesource.com/Documentation/intro-user.html#upload-a-new-patch-set).
 
 ### Rebasing
 
-Rebasing is usually the last step before pushing changes to Gerrit; this allows
-you to make the necessary *Change-Ids*. The *Change-Ids* must be kept the same.
+Rebase only when needed, such as resolving a conflict with the target branch.
+Do not rebase commits already merged into a shared branch.
 
--  **squash:** mixes two or more commits into a single one.
--  **reword:** changes the commit message.
--  **edit:** changes the commit content.
--  **reorder:** allows you to interchange the order of the commits.
--  **rebase:** stacks the commits on top of the master.
+Interactive rebase can edit a series:
+
+```sh
+git fetch origin
+git rebase -i origin/master
+```
+
+- `squash` combines commits; retain the identifier of the review you intend to keep.
+- `reword` changes a commit message.
+- `edit` stops so that you can amend a commit.
+- Reordering the lines changes the commit order.
+
+Resolve any conflicts, stage the resolved files, and run `git rebase --continue`.
+Preserve the `Change-Id` of each change that remains in the series.
 
 ## Rebasing During a Pull
 
-Before pushing a rebase to your master, ensure that the history has a
-consecutive order.
-
-For example, your ``REMOTE/master`` has the list of commits from **a0** to
-**a4**; Then, your changes **c0...c7** are on top of **a4**; thus:
+Suppose the target branch ends at commit `a4` and your branch contains changes
+`c0` through `c7` on top of it. The following command lists only your local
+changes, in chronological order:
 
 ```sh
-$ git log --oneline REMOTE/master..master
-
-  a0
-  a1
-  a2
-  a3
-  a4
-  c0
-  c1
-  ...
-  c7
+git log --reverse --oneline origin/master..HEAD
 ```
 
-If ``REMOTE/master`` receives commits **a5**, **a6** and **a7**. Pull with a
-rebase as follows:
+If the target branch advances to `a7`, update your branch with:
 
 ```sh
-$ git pull --rebase REMOTE master
+git pull --rebase origin master
 ```
 
-This pulls **a5-a7** and re-apply **c0-c7** on top of them:
+This fetches the target branch and reapplies `c0` through `c7` on top of
+`a7`. Their commit hashes may change, but their `Change-Id` trailers must
+remain. The same log range still lists only `c0` through `c7`, since
+`origin/master` now includes `a0` through `a7`.
 
-```sh
-$ git log --oneline REMOTE/master..master
-a0
-...
-a7
-c0
-c1
-...
-c7
-```
+Rerun the project's checks before uploading the resulting patch sets. See the
+[Gerrit rebase workflow](https://gerrit-review.googlesource.com/Documentation/intro-user.html#rebase-a-change)
+and [Git rebase documentation](https://git-scm.com/docs/git-rebase).
 
 ## Getting Better Logs from Git
 
-Use these commands to change the configuration of Git in order to produce better
-logs:
+Configure abbreviated hashes and a one-line default format for this repository:
 
 ```sh
-$ git config log.abbrevCommit true
+git config log.abbrevCommit true
+git config core.abbrev 7
+git config format.pretty oneline
 ```
 
-The command above sets the log to abbreviate the commits' hash.
-
-```sh
-$ git config log.abbrev 5
-```
-
-The command above sets the abbreviation length to the last 5 characters of the
-hash.
-
-```sh
-$ git config format.pretty oneline
-```
-
-The command above avoids the insertion of an unnecessary line before the Author
-line.
+`core.abbrev` sets the preferred abbreviation length; Git may use more
+characters to distinguish objects. `format.pretty` selects the default log
+format. For a single command without changing configuration, use
+`git log --oneline`. See the [Git configuration reference](https://git-scm.com/docs/git-config).

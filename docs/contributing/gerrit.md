@@ -1,155 +1,144 @@
 ---
 title: "Work with Gerrit"
 source_path: "07_How_To_Contribute/03_Working_with_Gerrit.md"
-content_status: imported
+content_status: adapted
 ---
 
-Follow these instructions to collaborate on AGL through the Gerrit review
-system.
+Follow these instructions to collaborate on AGL projects through the Gerrit review
+system. For changes to this GitHub Pages site, first follow
+[Contribute to the documentation](documentation.md) to select its repository and submission route.
 
-Please be sure that you are subscribed to the [mailing
-list](https://lists.automotivelinux.org/g/agl-dev-community) and of course, you
-can reach out on IRC at the #automotive channel on irc.libera.chat
+Subscribe to the [AGL development mailing list](https://lists.automotivelinux.org/g/agl-dev-community).
+You can also reach the community on IRC at the #automotive channel on irc.libera.chat.
 
 Gerrit assigns the following roles to users:
 
--  **Submitters**: May submit changes for consideration, review other code
-   changes, and make recommendations for acceptance or rejection by voting +1 or
-   -1, respectively.
--  **Maintainers**: May approve or reject changes based upon feedback from
-   reviewers voting +2 or -2, respectively.
+- **Submitters**: Upload changes for consideration, review other changes, and vote +1 or -1.
+- **Maintainers**: Approve or reject changes after review, with +2 or -2 votes.
+
+The project configuration determines the labels and permissions needed to submit a change.
 
 ## Getting deeper into Gerrit
 
-A comprehensive walk-through of Gerrit is beyond the scope of this document.
-There are plenty of resources available on the Internet. A good summary can be
-found [here](https://www.mediawiki.org/wiki/Gerrit/Tutorial) and [Basic Gerrit
-Walkthrough for GitHub
-Users](https://gerrit-review.googlesource.com/Documentation/intro-gerrit-walkthrough-github.html).
+Read the official [Gerrit user guide](https://gerrit-review.googlesource.com/Documentation/intro-user.html)
+and [Gerrit walkthrough for GitHub users](https://gerrit-review.googlesource.com/Documentation/intro-gerrit-walkthrough-github.html).
 
 ## Working with a local clone of the repository
 
-To work on something, whether a new feature or a bugfix:
-
-1. Open the Gerrit [repo
-   page](https://gerrit.automotivelinux.org/gerrit/admin/repos/).
-
+1. Open the [AGL Gerrit repository list](https://gerrit.automotivelinux.org/gerrit/admin/repos/).
 2. Select the repository you wish to work on.
-
-3. Open a terminal window and clone the project locally using the ``Clone with
-   git hook`` URL. Be sure that ``ssh`` is also selected, as this will make
-   authentication much simpler. For example, for `documentation` repository:
+3. Copy the SSH clone URL from Gerrit. The following Bash example clones the original
+   AGL documentation repository and installs its commit message hook. Set `LFID` to
+   your Linux Foundation account's Gerrit SSH username before running it:
 
     ```sh
-    $ git clone "ssh://<LFID>@gerrit.automotivelinux.org:29418/AGL/documentation" && scp -p -P
-    29418 <LFID>@gerrit.automotivelinux.org:hooks/commit-msg "documentation/.git/hooks/"
+    LFID=your-gerrit-username
+    git clone "ssh://$LFID@gerrit.automotivelinux.org:29418/AGL/documentation"
+    cd documentation
+    curl --fail --location --output .git/hooks/commit-msg \
+        https://gerrit.automotivelinux.org/gerrit/tools/hooks/commit-msg
+    chmod u+x .git/hooks/commit-msg
     ```
 
-4. Setup `user` and `email` for git config
+    The [commit-msg hook](https://gerrit-review.googlesource.com/Documentation/cmd-hook-commit-msg.html)
+    inserts a `Change-Id` in new commit messages and preserves it when an existing commit is amended.
+
+4. Configure the identity for this repository:
 
     ```sh
-     $ cd documentation
-     $ git config --global user.name "Your Full Name"
-     $ git config --global user.email "your@email.com"
+    git config user.name "Your Full Name"
+    git config user.email "your@email.com"
     ```
 
-      **NOTE:** To only configure for a particular repository :
+    Add `--global` if these values should apply to all your Git repositories.
+
+5. Fetch the target branch and create a descriptively named branch. Select the
+   appropriate target branch for the project; `master` is an example, not an AGL release codename:
 
     ```sh
-     $ cd documentation
-     $ git config user.name "Your Full Name"
-     $ git config user.email "your@email.com"
-    ```
-
-5. Create a descriptively-named branch off of your cloned repository
-
-    ```sh
-     $ git checkout -b issue-nname
+    TARGET_BRANCH=master
+    git fetch origin
+    git checkout -b issue-name "origin/$TARGET_BRANCH"
     ```
 
 ## Using git review
 
-There's a **very** useful tool for working with Gerrit called
-[git-review](https://www.mediawiki.org/wiki/Gerrit/git-review). This
-command-line tool can automate most of the ensuing sections for you. Ofcourse,
-reading the information below is also highly recommended so that you understand
-what's going on behind the scenes.
+[git-review](https://docs.opendev.org/opendev/git-review/latest/) automates the
+Gerrit upload and download workflow. Follow its installation instructions and then run:
 
 ```sh
-# for first time use only
-$ git review -s
+# First-time setup, from the cloned repository
+git review -s
 ```
-If `.gitreview` is missing, add the following section to ``.git/config``, and
-replace ``<LFID>`` with your LFID id.
+
+The repository's `.gitreview` file identifies the Gerrit host, project, and
+default branch. If it is absent, confirm these values with the project maintainer
+and configure a Gerrit remote; for the original AGL documentation repository:
 
 ```sh
-[remote "gerrit"]
-   url = ssh://<LFID>@gerrit.automotivelinux.org:29418/AGL/documentation.git
-   fetch = +refs/heads/*:refs/remotes/gerrit/*
+git remote add gerrit "ssh://$LFID@gerrit.automotivelinux.org:29418/AGL/documentation"
+git review -s
 ```
 
-Then submit your change with ``git review``.
+If the `gerrit` remote already exists, inspect `git remote -v` and use
+`git remote set-url gerrit <SSH-clone-URL>` to correct its URL.
+
+Upload a committed change to the chosen target branch:
 
 ```sh
-$ cd documentation
-$ git review
+git review "$TARGET_BRANCH"
 ```
 
-When you update your patch, you can commit with ``git commit --amend``, and then
-repeat the ``git review`` command.
+When updating a patch, stage the changes, use `git commit --amend --signoff`,
+keep the existing `Change-Id`, and repeat the same `git review` command.
 
 ## Typical Review Workflow
 
-   - New Fresh Change
+### New change
 
-      ```sh
-      $ cd documentation                              # Working Repository
-      $ git remote -v update                          # Updating wrt remote
-      $ git checkout -b mytopicbranch origin/{{ agl.codename }}   # Creating new branch
-      ### CODE the CHANGES
-      $ git add  <file>                               # Track the changed files
-      $ git commit -s                                 # Signed Commit Message
-      $ git review                                    # Submit Changes to review
-      ```
+Run these commands from the repository root. Set `TARGET_BRANCH` to the branch
+that will receive the change:
 
-   - Updating existing Gerrit Review
+```sh
+TARGET_BRANCH=master
+git fetch origin
+git checkout -b mytopicbranch "origin/$TARGET_BRANCH"
+# Edit the files and run the project's required checks.
+git add path/to/changed-file
+git commit --signoff
+git review "$TARGET_BRANCH"
+```
 
-      ```sh
-      $ cd documentation                              # Working Repository
-      $ git review -d 25678                           # Download review, 25678 is change number
-      ### CODE the CHANGES
-      $ git add  <file>                               # Track the changed files
-      $ git commit -s                                 # Signed Commit Message
-      $ git review                                    # Submit Changes to review
-      $ git checkout {{ agl.codename }}                           # Return to {{ agl.codename }} branch
-      ```
+### Updating an existing Gerrit review
+
+Replace `25678` with the change number and select that change's target branch:
+
+```sh
+TARGET_BRANCH=master
+git review -d 25678
+# Apply the review feedback and rerun the required checks.
+git add path/to/changed-file
+git commit --amend --signoff
+git review "$TARGET_BRANCH"
+git checkout -
+```
+
+Amending the existing commit preserves its `Change-Id` and lets Gerrit create
+a new patch set for the same project and target branch. See
+[Gerrit's patch set workflow](https://gerrit-review.googlesource.com/Documentation/intro-user.html#upload-a-new-patch-set).
 
 ## Reviewing Using Gerrit
 
--  **Add**: This button allows the change submitter to manually add names of
-   people who should review a change; start typing a name and the system will
-   auto-complete based on the list of people registered and with access to the
-   system. They will be notified by email that you are requesting their input.
+- **Add reviewer**: A change owner can select registered users to request a review.
+  Gerrit sends those users a review notification.
+- **Abandon**: A change can be abandoned when it should no longer be considered.
+  Availability depends on change ownership and project permissions.
+- **Change-Id**: Gerrit uses this commit-message footer, together with the project
+  and target branch, to associate updated commits with an existing change.
+- **Status and votes**: Reviewers and maintainers use the project's review labels
+  to record feedback and approval. Required verification and submit rules are
+  visible on the change page.
 
--  **Abandon**: This button is available to the submitter only; it allows a
-   committer to abandon a change and remove it from the merge queue.
-
--  **Change-ID**: This ID is generated by Gerrit (or system). It becomes useful
-   when the review process determines that your commit(s) have to be amended.
-   You may submit a new version; and if the same Change-ID header (and value)
-   are present, Gerrit will remember it and present it as another version of the
-   same change.
-
--  **Status**: Currently, the example change is in review status, as indicated
-   by “Needs Verified” in the upper-left corner. The list of Reviewers will all
-   emit their opinion, voting +1 if they agree to the merge, -1 if they
-   disagree. Gerrit users with a Maintainer role can agree to the merge or
-   refuse it by voting +2 or -2 respectively.
-
-Notifications are sent to the email address in your commit message's
-Signed-off-by line. Visit your [Gerrit
-dashboard](https://gerrit.automotivelinux.org/gerrit/dashboard/self), to check
-the progress of your requests.
-
-The history tab in Gerrit will show you the in-line comments and the author of
-the review.
+Check the email preferences in your Gerrit account and your
+[Gerrit dashboard](https://gerrit.automotivelinux.org/gerrit/dashboard/self) to
+follow changes. The change's history shows patch sets, comments, and votes.

@@ -1,153 +1,110 @@
 ---
 title: "Build a virtio guest"
 source_path: "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/06_Building_for_Virtio.md"
-content_status: imported
+content_status: adapted
 ---
 
-Virtio is a standardized interface for implementing virtual I/O devices:
+# Build a virtio guest
 
-* Russell, Rusty. "virtio: towards a de-facto standard for virtual I/O devices." ACM SIGOPS Operating Systems Review 42.5 (2008): 95-103.
+The `virtio-aarch64` AGL machine builds an AArch64 guest for virtual hardware that provides virtio devices. This guide builds a guest, runs it with Yocto's QEMU wrapper, and shows a serial-console launch on an AArch64 AGL host. Hypervisor, graphics, and device availability must match the chosen host. For the complete integrated demo, use the [KVM build guide](../kvm/build.md).
 
-This section describes the steps you need to take to build the AGL demo image
-for virtio "platform". Later, the same image can be run on various emulators or
-hypervisors that provide virtio devices, for example, QEMU aarch64 emulation on
-PC, QEMU/KVM aarch64 virtualization on AGL Reference Hardware, etc.
+## 1. Initialize the guest build
 
-Below, AGL minimal image and Qt based IVI demo are used as example, but
-similarly one can run HTML5 based demos, cluster demo, or other AGL images.
-
-## 1. Making Sure Your Build Environment is Correct
-
-The
-"[Initializing Your Build Environment](../../standalone/build/common/initialize-build.md)"
-section presented generic information for setting up your build environment
-using the `aglsetup.sh` script.
-If you are building the AGL demo image for virtio platform, you need to specify
-some specific options when you run the script:
+Complete [host preparation](../../standalone/build/common/prepare-host.md) and [source download](../../standalone/build/common/download-source.md). The latter defines `AGL_SOURCE` as the source checkout containing `meta-agl`.
 
 ```sh
-$ source meta-agl/scripts/aglsetup.sh -m virtio-aarch64 -b build-virtio-aarch64 agl-demo
+cd "$AGL_SOURCE"
+source meta-agl/scripts/aglsetup.sh -m virtio-aarch64 -b build-virtio-aarch64 agl-demo
 ```
 
-The "-m" option specifies the "virtio-aarch64" machine.
+The `-m` option selects the setup template, and `-b` selects a separate build directory. Add `-f` only when intentionally replacing existing configuration. See [build initialization](../../standalone/build/common/initialize-build.md).
 
-The "-b" option sets custom build directory instead of default "build".
+## 2. Build a guest image
 
-The "-f" option might be added to override previously available configuration.
-By default, if there were already configuration files in build directory, they
-will not be overridden, as a result, aglsetup.sh might not have desired effect.
-
-## 2. Using BitBake
-
-This section shows the `bitbake` command used to build the AGL image.
-
-Start the build using the `bitbake` command.
-
-**AGL minimal image :**
-The target is `agl-image-minimal`.
+For a minimal guest:
 
 ```sh
-$ bitbake agl-image-minimal
+bitbake agl-image-minimal
 ```
 
-**Qt Based IVI demo :**
-The target is `agl-ivi-demo-qt`.
+For a Qt IVI guest instead:
 
 ```sh
-$ bitbake agl-ivi-demo-qt
+bitbake agl-ivi-demo-qt
 ```
 
-## 3. Deploying the AGL Demo Image
-
-This subsection describes AGL virtio-aarch64 image deployment under virtio
-platform provided by QEMU aarch64 emulator on PC, or QEMU/KVM hypervisor on AGL
-Reference Hardware board.
-
-**3.1 QEMU on PC**
-
-If shell from which AGL was built is closed, or new shell is opened, then it is
-needed to re-initialize build environment:
+Keep the guest's kernel and root filesystem from the same build. Inspect the actual deploy directory and formats rather than relying on a hard-coded recipe work directory:
 
 ```sh
-$ source $AGL_TOP/build-virtio-aarch64/agl-init-build-env
+bitbake-getvar -r agl-image-minimal DEPLOY_DIR_IMAGE
+bitbake-getvar -r agl-image-minimal IMAGE_FSTYPES
 ```
 
-And further use `runqemu` to boot the image :
+Substitute `agl-ivi-demo-qt` if that is your guest. The build's deploy directory contains its `Image` kernel, root filesystem, and generated QEMU configuration. See [Yocto's variable inspection guide](https://docs.yoctoproject.org/{{ yocto.codename }}/dev-manual/debugging.html#viewing-variable-values).
+
+## 3. Run the guest on a Linux PC
+
+Restore the guest build environment if using a new shell:
 
 ```sh
-$ runqemu
+source "$AGL_SOURCE/build-virtio-aarch64/agl-init-build-env"
+runqemu virtio-aarch64 agl-image-minimal nographic slirp
 ```
 
-**3.2 QEMU/KVM on AGL Reference Hardware**
+Use the minimal image for a serial-console evaluation. For a graphical Qt guest, select that image and allow a graphical display:
 
-Follow these steps to run virtual AGL on bare-metal AGL (AGL-in-AGL) on AGL Reference Hardware board:
-
-  1. Partition eMMC or SD-Card to have two partitions, at least 1 GiB each.
-    Actually, can be less but just rounded up to have a nice number.
-
-  2. Flash AGL minimal image root file system to the second partition on SD-Card
-    or eMMC.
-
-  3. Build AGL minimal image for AGL Reference Hardware.
-
-    ```sh
-    source meta-agl/scripts/aglsetup.sh -m h3ulcb -b build-h3ulcb agl-refhw-h3
-    ```
-
-    In `build-h3ulcb/conf/local.conf` add
-
-    ```
-    AGL_DEFAULT_IMAGE_FSTYPES = "ext4"
-    IMAGE_INSTALL_append = "qemu"
-    ```
-
-    CAUTION: Calling aglsetup.sh with "-f" flag will remove above modification
-    in "local.conf", so they will be needed to be re-applied.
-
-    Build image:
-
-    ```sh
-    bitbake agl-image-minimal
-    ```
-
-    Add virtio kernel to the AGL Reference Hardware Linux rootfs:
-
-    ```sh
-    cp build-virtio-aarch64/tmp/deploy/images/virtio-aarch64/Image build-h3ulcb/tmp/work/h3ulcb-agl-linux/agl-image-minimal/1.0-r0/rootfs/linux2
-    bitbake agl-image-minimal -c image_ext4 -f
-    bitbake agl-image-minimal -c image_complete
-    ```
-
-    Flash root file system to the first partition on SD-Card or eMMC.
-
-  4. Boot AGL Reference Hardware board using Linux located on the first partition of SD-Card or eMMC.
-
-  5. Run QEMU from Linux 1 command line
-
-    ```sh
-    qemu-system-aarch64 \
-      -machine virt \
-      -cpu cortex-a57 \
-      -m 2048 \
-      -serial mon:stdio \
-      -global virtio-mmio.force-legacy=false \
-      -drive id=disk0,file=/dev/mmcblk0p2,if=none,format=raw \
-      -device virtio-blk-device,drive=disk0 \
-      -object rng-random,filename=/dev/urandom,id=rng0 \
-      -device virtio-rng-device,rng=rng0 \
-      -nographic \
-      -kernel /linux2
-      -append 'root=/dev/vda rw mem=2048M'
-    ```
-
-    NOTE: mmcblk0p2 above is used for when root file system is flashed on eMMC.
-    In case of SD-Card, mmcblk1p2 has to be used.
-
-  6. It is possible to exit from QEMU using monitor commands. Enter "Ctrl+a h" for help.
-
-Known issue: to enable hardware virtualization using KVM, option `-enable-kvm`
-could be added to QEMU command line, but it fails with:
-
+```sh
+runqemu virtio-aarch64 agl-ivi-demo-qt slirp
 ```
-qemu-system-aarch64: kvm_init_vcpu failed: Invalid argument
+
+The generated `.qemuboot.conf` selects the guest kernel, filesystem, and devices. An x86-64 PC uses software emulation for an AArch64 guest. See [Yocto's QEMU guide](https://docs.yoctoproject.org/{{ yocto.codename }}/dev-manual/qemu.html#running-qemu) for host dependencies and display options.
+
+## 4. Run a minimal guest on an AArch64 AGL host
+
+Build and boot the host separately with its board-specific instructions, for example the [R-Car Gen3 guide](../../standalone/build/common/hardware/renesas-rcar-gen3.md). If the host image does not include QEMU, add this to that host build's `conf/local.conf` and rebuild:
+
+```bitbake
+IMAGE_INSTALL:append = " qemu"
 ```
+
+For the guest, ensure its build generates an ext4 filesystem. If needed, add the following to the **guest** build's `conf/local.conf`, then rebuild `agl-image-minimal`:
+
+```bitbake
+IMAGE_FSTYPES:append = " ext4"
+```
+
+Copy the guest `Image` kernel and uncompressed `.ext4` filesystem from the guest deploy directory to the running host. Decompress `.ext4.xz` with `xz -dk` on the build host first if that is the supplied format. The example below assumes you have placed them at `/var/lib/agl-guests/minimal/Image` and `/var/lib/agl-guests/minimal/rootfs.ext4` on the AGL host. Use the matching files from your build and ensure adequate free storage.
+
+On the **AGL host**, confirm QEMU is installed:
+
+```sh
+command -v qemu-system-aarch64
+ls -lh /var/lib/agl-guests/minimal/Image /var/lib/agl-guests/minimal/rootfs.ext4
+```
+
+Start a serial-console guest using the filesystem as a virtual disk file:
+
+```sh
+qemu-system-aarch64 \
+  -machine virt \
+  -cpu cortex-a57 -m 2048 \
+  -global virtio-mmio.force-legacy=false \
+  -drive id=disk0,file=/var/lib/agl-guests/minimal/rootfs.ext4,if=none,format=raw \
+  -device virtio-blk-device,drive=disk0 \
+  -netdev user,id=net0 -device virtio-net-device,netdev=net0 \
+  -object rng-random,filename=/dev/urandom,id=rng0 \
+  -device virtio-rng-device,rng=rng0 \
+  -nographic \
+  -kernel /var/lib/agl-guests/minimal/Image \
+  -append 'root=/dev/vda rw console=ttyAMA0 ip=dhcp'
+```
+
+This command uses software emulation and writes changes to the guest filesystem file. It does not require repartitioning the host's boot medium or modifying files inside BitBake's temporary rootfs directory. To discard guest disk changes on exit, add `-snapshot`.
+
+For hardware acceleration on an AArch64 host with KVM enabled in the kernel and access to `/dev/kvm`, replace `-machine virt` with `-machine virt,accel=kvm` and replace `-cpu cortex-a57` with `-cpu host`. A KVM failure must be diagnosed against that host's kernel and QEMU version; the software-emulation command remains the starting point. The [QEMU Arm virt documentation](https://www.qemu.org/docs/master/system/arm/virt.html) describes CPU and accelerator support.
+
+Log in using the guest image's configured account. Shut down from the guest with `poweroff`, or press `Ctrl+A`, then `X` to exit QEMU's `-nographic` session. For graphics and additional devices, use the generated QEMU configuration or the integrated KVM profile rather than assuming the minimal serial-console command supplies an IVI display.
+
+## 5. Verify and record the result
+
+Check the guest console, network, and required virtio devices. Record the guest build identifier, host board and kernel, QEMU version, complete command, and observed result. These commands have not been validated on target hardware as part of this documentation correction. See [Troubleshooting](../../troubleshooting/index.md).

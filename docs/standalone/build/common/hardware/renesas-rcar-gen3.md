@@ -1,8 +1,10 @@
 ---
 title: "Build and boot on R-Car Gen3"
 source_path: "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/04_01_Building_for_Renesas_RCar_Gen3_Boards.md"
-content_status: imported
+content_status: adapted
 ---
+
+Complete [host preparation](../prepare-host.md) and [source download](../download-source.md) first. These steps define `AGL_TOP` as the parent workspace and `AGL_SOURCE` as the source checkout. Run each setup command from `$AGL_SOURCE`; `aglsetup.sh` then enters its build directory. Use `-f` only when intentionally replacing existing configuration.
 
 AGL supports building for several automotive
 [Renesas](https://www.renesas.com/us/en/solutions/automotive.html) board kits.
@@ -43,15 +45,15 @@ Follow these steps to download the drivers you need:
 
 1. **Determine the Files You Need:**
 
-    Run the ``setup_mm_packages.sh`` script as follows to
-    display the list of ZIP files containing the drivers you need.
+    Inspect the ZIP filename declarations in `setup_mm_packages.sh` to
+    identify the driver archives required by your checkout.
     Following is an example:
 
     ```sh
-    grep -rn ZIP_.= $AGL_TOP/meta-agl/meta-agl-bsp/meta-rcar-gen3/scripts/setup_mm_packages.sh
+    grep -n 'ZIP_.*=' "$AGL_SOURCE/meta-agl/meta-agl-bsp/meta-rcar-gen3/scripts/setup_mm_packages.sh"
     ```
 
-    The script's output identifies the files you need to download from the page.
+    The matching declarations identify the files you need to download from the page.
 
 2. **Get Your Board Support Package (BSP) Version:**
 
@@ -181,7 +183,7 @@ you need to take steps to make sure your build host is set up correctly.
 Use the following commands to run the AGL Setup script:
 
 ```sh
-cd $AGL_TOP
+cd "$AGL_SOURCE"
 source meta-agl/scripts/aglsetup.sh -m $MACHINE -b build agl-devel agl-demo
 ```
 
@@ -201,36 +203,34 @@ If building for the AGL Reference Hardware (with `MACHINE` set to "h3ulcb" or
 "h3ulcb-nogfx"), add `agl-refhw-h3`, for example:
 
 ```sh
-cd $AGL_TOP
+cd "$AGL_SOURCE"
 source meta-agl/scripts/aglsetup.sh -m $MACHINE -b build agl-devel agl-demo agl-refhw-h3
 ```
 
-**HTML5 based IVI demo :**
+**Flutter based IVI demo :**
 
-For HTML5 based IVI demo the feature "agl-profile-graphical-html5" is needed.
-
-```sh
-$ source meta-agl/scripts/aglsetup.sh -f -m $MACHINE -b $MACHINE agl-demo agl-devel agl-profile-graphical-html5
-```
-
-**Instrument Cluster with Container isolation demo :**
+The `agl-demo` setup also provides the Flutter IVI demo.
 
 ```sh
-$ source meta-agl/scripts/aglsetup.sh -f -m $MACHINE -b $MACHINE agl-lxc
+$ cd "$AGL_SOURCE"
+$ source meta-agl/scripts/aglsetup.sh -m $MACHINE -b build agl-demo agl-devel
 ```
+
+**Instrument Cluster with Container isolation demo:**
+
+Use the [Container integration build guide](../../../../integrated/containers/build-guide.md) for current supported boards, setup features, and image targets.
 
 **NOTE:**
 You can check if your logs match what is expected in the [troubleshooting section](#4-troubleshooting).
 
 Running the `aglsetup.sh` script automatically places you in the
-working directory (i.e. `$AGL_TOP/build`).
-You can change this default behavior by adding the "-f" option to the
-script's command line.
+working directory (i.e. `$AGL_SOURCE/build`).
+Select a different build directory with `-b`; `-f` replaces existing configuration.
 
 In the previous command, the "-m" option sets your machine to the previously
 defined `MACHINE` variable.
 The "-b" option defines your Build Directory, which is the
-default `$AGL_TOP/build`.
+default `$AGL_SOURCE/build`.
 Finally, the AGL features are provided to support building the AGL Demo image
 for the Renesas board.
 
@@ -259,24 +259,21 @@ For this example, the target is "agl-ivi-demo-qt":
 bitbake agl-ivi-demo-qt
 ```
 
-**HTML5 based IVI demo :**
-The target is `agl-ivi-demo-html5`.
+**Flutter based IVI demo :**
+The target is `agl-ivi-demo-flutter`.
 
 ```sh
-$ time bitbake agl-ivi-demo-html5
+$ time bitbake agl-ivi-demo-flutter
 ```
 
-**Instrument Cluster with Container isolation demo :**
-The target is `lxc-host-image-demo`.
+**Instrument Cluster with Container isolation demo:**
+
+Follow the profile-specific targets in the [Container integration build guide](../../../../integrated/containers/build-guide.md).
+
+Read the resolved output directory from the initialized build shell (substitute the Flutter target when appropriate):
 
 ```sh
-$ time bitbake lxc-host-image-demo
-```
-
-The build process puts the resulting image in the Build Directory:
-
-```sh
-<build_directory>/tmp/deploy/images/$MACHINE
+bitbake-getvar -r agl-ivi-demo-qt DEPLOY_DIR_IMAGE
 ```
 
 ## 3. Deploying the AGL Demo Image
@@ -350,16 +347,20 @@ card with a new image.
     Following are example commands that write the image to the MicroSD card:
 
     ```sh
-    cd $AGL_TOP/build/tmp/deploy/images/$MACHINE
-    bmaptool copy ./agl-ivi-demo-qt-$MACHINE.rootfs.wic.zst <boot_device_name>
+    IMAGE_TARGET=agl-ivi-demo-qt  # use agl-ivi-demo-flutter for the Flutter demo
+    DEPLOY_DIR=$(bitbake-getvar --value -r "$IMAGE_TARGET" DEPLOY_DIR_IMAGE)
+    IMAGE_BASE=$(bitbake-getvar --value -r "$IMAGE_TARGET" IMAGE_LINK_NAME)
+    IMAGE_SUFFIX=$(bitbake-getvar --value -r "$IMAGE_TARGET" IMAGE_NAME_SUFFIX)
+    IMAGE_FILE="$DEPLOY_DIR/$IMAGE_BASE$IMAGE_SUFFIX.wic.zst"
+    ls -lh "$IMAGE_FILE"
+    SD_DEVICE=/dev/sdX  # replace with the verified whole microSD device
+    sudo bmaptool copy "$IMAGE_FILE" "$SD_DEVICE"
     ```
 
-    Alternatively, you can leave the image in an uncompressed state and write it
-    to the MicroSD card:
+    Unmount the card's mounted partitions before either write. Alternatively, decompress the same WIC image into the device with `dd`:
 
     ```sh
-    sudo umount <boot_device_name>
-    zstdcat -d ./agl-ivi-demo-qt-$MACHINE.rootfs.wic.zst | sudo dd of=<boot_device_name> bs=4M
+    zstd -dc "$IMAGE_FILE" | sudo dd of="$SD_DEVICE" bs=4M conv=fsync status=progress
     sync
     ```
 
@@ -517,7 +518,7 @@ enter `printenv` to check if you have correct parameters for booting your board:
 
     Here is an example using the **h3ulcb** board:
 
-    ```sh
+    ```text
     => printenv
     baudrate=115200
     bootargs=console=ttySC0,115200 root=/dev/mmcblk1p1 rootwait ro rootfstype=ext4
@@ -585,7 +586,7 @@ running the `aglsetup.sh` script, you can ensure your build's configuration
 is just how you want it by examining the `local.conf` configuration file.
 
 You can find this configuration file in the Build Directory (e.g.
-`$TOP_DIR/build/conf/local.conf`).
+`$AGL_SOURCE/build/conf/local.conf`).
 
 In general, the defaults along with the configuration fragments the
 `aglsetup.sh` script applies in the `local.conf` file are good enough.
@@ -602,7 +603,7 @@ A quick way to see if you have the `$MACHINE` variable set correctly
 is to use the following command:
 
 ```sh
-grep -w -e "^MACHINE =" $AGL_TOP/build/conf/local.conf
+grep -w -e "^MACHINE =" $AGL_SOURCE/build/conf/local.conf
 ```
 
 Depending on the Renesas board you are using, you should see output
@@ -626,8 +627,8 @@ MACHINE = "h3-salvator-x"
 
 If you ran the `aglsetup.sh` script as described in the
 "[Making Sure Your Build Environment is Correct](#14-making-sure-your-build-environment-is-correct)"
-section earlier, the "agl-devel", "agl-demo", "agl-netboot", "agl-appfw-smack", and
-"agl-localdev" AGL features will be in effect.
+section earlier, `agl-devel` and `agl-demo` are enabled, together with their
+selected dependencies. Check `aglsetup.manifest` for the exact feature set.
 These features provide the following:
 
 * A debugger (gdb)
@@ -673,7 +674,7 @@ Generating setup file: /home/working/workspace_agl_master/build_gen3/agl-init-bu
 ```
 
 If you encounter this issue, or any other unwanted behavior, you can fix the error
-mentioned, remove the `$AGL_TOP/build` directory, and then re-launch the
+mentioned, remove the `$AGL_SOURCE/build` directory, and then re-launch the
 `aglsetup.sh` again.
 
 Here is another example that indicates the driver files could not be extracted from the downloads directory:
@@ -728,7 +729,7 @@ Follow these steps to update the firmware:
     You can find these files in the following directory:
 
     ```sh
-    $AGL_TOP/build/tmp/deploy/images/$MACHINE
+    $AGL_SOURCE/build/tmp/deploy/images/$MACHINE
     ```
 
     **NOTE:** The Salvator-X firmware update process is not documented on eLinux.

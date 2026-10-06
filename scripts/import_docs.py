@@ -1,8 +1,8 @@
 """Import the local AGL documentation into the GitHub Pages information structure.
 
 Run from any directory with Python 3.12. Only the destination project is written.
-Imported pages are overwritten when this script is run again; authored landing
-pages and configuration are not touched.
+Unadapted imported pages are refreshed. Locally adapted pages are preserved unless
+--overwrite-adapted is supplied; authored landing pages and configuration are not touched.
 """
 from __future__ import annotations
 import argparse
@@ -131,7 +131,24 @@ group("07_How_To_Contribute/", """
 def frontmatter(title: str, source: str) -> str:
     return "---\ntitle: " + json.dumps(title, ensure_ascii=False) + "\nsource_path: " + json.dumps(source) + "\ncontent_status: imported\n---\n\n"
 
-def import_all(source_root: Path) -> None:
+def write_imported_page(target: Path, page: str, source: str, overwrite_adapted: bool = False) -> bool:
+    """Preserve a curated adaptation of the same source; return whether it was written."""
+    if target.is_file() and not overwrite_adapted:
+        existing = target.read_text(encoding="utf-8-sig")
+        match = re.match(r"\A---\s*\n(.*?)\n---\s*\n", existing, re.S)
+        metadata = match.group(1) if match else ""
+        status = re.search(r"^content_status:\s*(.+)$", metadata, re.M)
+        origin = re.search(r"^source_path:\s*(.+)$", metadata, re.M)
+        if status and status.group(1).strip("\"'") in {"adapted", "authored"}:
+            if not origin or origin.group(1).strip("\"'") != source:
+                raise ValueError("Adapted page has a different or missing source_path: " + str(target))
+            return False
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(page, encoding="utf-8")
+    return True
+
+
+def import_all(source_root: Path, overwrite_adapted: bool = False) -> None:
     files = {p.relative_to(source_root).as_posix(): p for p in source_root.rglob("*") if p.is_file()}
     markdown = {name for name in files if name.endswith(".md")}
     if markdown != set(MAPPING):
@@ -233,6 +250,8 @@ def import_all(source_root: Path) -> None:
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(files[old], target)
     manifest = []
+    preserved = set()
+    quickstart_input = None
     for old, new in MAPPING.items():
         original = files[old].read_text(encoding="utf-8-sig")
         match = re.match(r"\A---\s*\n(.*?)\n---\s*\n", original, re.S)
@@ -251,18 +270,24 @@ def import_all(source_root: Path) -> None:
         page = frontmatter(title, old) + adapt_page(body, new)
         if new in REQUIRED_TITLES:
             page = normalize_page(page, REQUIRED_TITLES[new])
-        target.write_text(page, encoding="utf-8")
+        if new == "start/prebuilt/index.md":
+            quickstart_input = page
+        if not write_imported_page(target, page, old, overwrite_adapted):
+            preserved.add(new)
         manifest.append({"source": old, "destination": new, "source_sha256": hashlib.sha256(files[old].read_bytes()).hexdigest()})
 
     # Generate the Flutter prebuilt routes and preserve the authored demo overview.
     overview = docs_root / "start/prebuilt/index.md"
     source = next(old for old, new in MAPPING.items() if new == "start/prebuilt/index.md")
-    pages = render_quickstarts(overview.read_text(encoding="utf-8"), source)
+    if quickstart_input is None:
+        raise ValueError("Prebuilt quickstart source is missing")
+    pages = render_quickstarts(quickstart_input, source)
     for relative, page in pages.items():
         target = docs_root / relative
         target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_text(page, encoding="utf-8")
-    structure = json.loads((Path(__file__).resolve().parents[1] / "structure-map.json").read_text(encoding="utf-8"))
+        if not write_imported_page(target, page, source, overwrite_adapted):
+            preserved.add(relative)
+    structure = json.loads((PROJECT / "structure-map.json").read_text(encoding="utf-8"))
     retired_paths = {p["old"] for p in structure["moved_pages"]}
     retired_paths.update({"start/qemu-arm64.md", "start/virtualbox.md", "start/x86-hardware.md"})
     current_paths = set(MAPPING.values()) | set(pages) | {p["page"] for p in structure["required_pages"]}
@@ -272,10 +297,11 @@ def import_all(source_root: Path) -> None:
             raise ValueError("Retired page path is outside the documentation directory")
         retired.unlink(missing_ok=True)
     (PROJECT / "source-map.json").write_text(json.dumps({"source_markdown_count": len(manifest), "source_asset_count": len(assets), "pages": manifest}, indent=2) + "\n", encoding="utf-8")
-    print(f"Imported {len(manifest)} Markdown pages and {len(assets)} assets; created 2 Flutter prebuilt quickstarts.")
+    print(f"Mapped {len(manifest)} Markdown pages and copied {len(assets)} assets; preserved {len(preserved)} adapted pages.")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source", type=Path, default=PROJECT.parent / "docs", help="Original AGL docs directory")
+    parser.add_argument("--overwrite-adapted", action="store_true", help="Replace locally adapted pages with freshly imported source; review source compatibility first")
     args = parser.parse_args()
-    import_all(args.source.resolve())
+    import_all(args.source.resolve(), overwrite_adapted=args.overwrite_adapted)

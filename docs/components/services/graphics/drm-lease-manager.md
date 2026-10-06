@@ -1,7 +1,7 @@
 ---
 title: "DRM lease manager"
 source_path: "06_Component_Documentation/01_Graphics_Service/02_drm_lease_manager.md"
-content_status: imported
+content_status: adapted
 ---
 
 # DRM lease manager
@@ -30,8 +30,10 @@ kmscube is not included in the image by default. To add the package to the
 image, add the following to your local.conf
 
 ```
-IMAGE_INSTALL_append = " kmscube"
+IMAGE_INSTALL:append = " kmscube"
 ```
+
+The leading space separates the added package from the existing list. Use the colon override syntax required since Yocto 3.4; see the [Yocto override migration guide](https://docs.yoctoproject.org/migration-guides/migration-3.4.html#override-syntax-changes).
 
 ### Starting the DRM lease manager
 

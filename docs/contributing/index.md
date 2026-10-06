@@ -14,7 +14,7 @@ Identify the version your change targets and use the [contribution checklist](ch
 
 ## Improve the documentation
 
-Use [Contribute to the documentation](documentation.md) for the editing and submission workflow.
+Use [Contribute to the documentation](documentation.md) to edit this GitHub Pages site, preview it with MkDocs and Material, run the structure and link validators, and submit a pull request. For changes intended for the original AGL documentation, follow the [upstream Gerrit workflow](documentation.md#contribute-to-the-original-agl-documentation).
 
 When improving a procedure, include its version and environment, prerequisites, a way to check the result, and a link to the next task. These details help readers complete their work.
 
@@ -33,7 +33,7 @@ Depending on your task, refer to [Develop](../standalone/index.md), [API & confi
 - [AI coding assistants](ai-coding-assistants.md)
 - [Contribution checklist](checklist.md)
 - [Code contribution guidelines](code-guidelines.md)
-- [Contribute to the original AGL documentation](documentation.md)
+- [Contribute to the documentation](documentation.md)
 - [Contribution guidelines](general-guidelines.md)
 - [Gerrit recommended practices](gerrit-practices.md)
 - [Work with Gerrit](gerrit.md)

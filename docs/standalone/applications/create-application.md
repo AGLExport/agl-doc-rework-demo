@@ -1,7 +1,7 @@
 ---
 title: "Package and register an AGL application"
 source_path: "06_Component_Documentation/20_IVI_Application_Framework/03_Creating_a_New_Application.md"
-content_status: imported
+content_status: adapted
 ---
 
 In the context of AGL, "applications" are usually considered to be standalone
@@ -32,7 +32,33 @@ The requirements on the unit file contents are:
   the application as a non-privileged user. In the AGL demonstration images, the
   `agl-driver` user is used.
 
-Blah blah icon...
+Install an icon whose filename matches the application ID, for example
+`/usr/share/icons/hicolor/scalable/foo.svg` for application ID `foo`.
+The supplied `applaunchd.service` sets `XDG_DATA_DIRS=/usr/share`; its icon
+lookup searches the `icons/<theme>/<size>/` hierarchy under those data
+directories. The gRPC `ListApplications` response returns the discovered
+filename in `AppInfo.icon_path`. An icon is optional: an empty path leaves
+the launcher UI responsible for its fallback image. See the
+[upstream lookup implementation](https://git.automotivelinux.org/src/applaunchd/tree/src/utils.c).
+
+For a generic Qt/C++ recipe, install the SVG explicitly in `do_install`;
+for example, when `foo.svg` is included with `file://foo.svg` in `SRC_URI`:
+
+```bitbake
+do_install:append() {
+    install -d ${D}${datadir}/icons/hicolor/scalable
+    install -m 0644 ${UNPACKDIR}/foo.svg ${D}${datadir}/icons/hicolor/scalable/
+}
+```
+
+The `agl-app` class includes `${datadir}/icons` in the package files. Its
+Flutter template can instead install `${S}/package/${AGL_APP_ID}.svg`
+automatically. These behaviors are defined in the
+[upstream agl-app class](https://git.automotivelinux.org/AGL/meta-agl/tree/meta-app-framework/classes/agl-app.bbclass).
+After adding an application to a running development image, run
+`systemctl daemon-reload` and reboot so `applaunchd` and the homescreen
+reload their application lists. The [Qt example](qt.md#deploy-and-register)
+shows the complete target-side registration flow.
 
 # Graphical Application Requirements
 
@@ -98,7 +124,7 @@ PV = "1.0+git${SRCREV}"
 SRC_URI = "git://git.automotivelinux.org/apps/foo;protocol=https;branch=master"
 SRCREV = "abcdef012"
 
-S = "${WORKDIR}/git"
+S = "${UNPACKDIR}/git"
 
 inherit agl-app
 
@@ -158,7 +184,7 @@ PV = "1.0+git${SRCREV}"
 SRC_URI = "git://git.automotivelinux.org/apps/flutter-foo;protocol=https;branch=master"
 SRCREV = "abcdef012"
 
-S = "${WORKDIR}/git"
+S = "${UNPACKDIR}/git"
 
 inherit flutter-app agl-app
 
@@ -190,7 +216,7 @@ Web Application Manager (WAM) service.  It makes the following assumptions by de
 - The application `Description` will be the application identifier.
 - The application should run as the `agl-driver` user.
 
-If using the `agl-app` class in a recipe (with `inherit agl-app`), the use of the Flutter
+If using the `agl-app` class in a recipe (with `inherit agl-app`), the use of the web
 template can be triggered by setting the variable `AGL_APP_TEMPLATE` to `agl-app-web`,
 and the above defaults can be changed via the variables:
 
@@ -221,7 +247,7 @@ PV = "1.0+git${SRCREV}"
 SRC_URI = "git://git.automotivelinux.org/apps/web-foo;protocol=https;branch=master"
 SRCREV = "abcdef012"
 
-S = "${WORKDIR}/git"
+S = "${UNPACKDIR}/git"
 
 inherit agl-app
 

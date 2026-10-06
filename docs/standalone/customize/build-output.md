@@ -1,152 +1,89 @@
 ---
 title: "Configure caches and build output"
 source_path: "01_Getting_Started/02_Building_AGL_Image/05_Customizing_Your_Build.md"
-content_status: imported
+content_status: adapted
 ---
 
-Because the build process is based on BitBake and the Yocto Project,
-build customizations are driven through configuration files used during
-the build.
+# Configure caches and build output
 
-Lots of configuration files exist that define a build.
-However, the primary one that acts as a global configuration mechanism is the
-`local.conf` file, which is found in the Build Directory in a folder named "conf".
-
-Before you start your build process, you should open up the `local.conf` file
-and look through it to be sure the general configurations are correct.
-The file is well commented so you should be able to understand what the
-various variables accomplish.
-
-To view and customize the `local.conf` file, use any text editor:
-
-```sh
-$ vim $AGL_TOP/<release-branch-name>/<build-dir>/conf/local.conf
-```
-
-As mentioned in the "[Initializing Your Build Environment](../build/common/initialize-build.md)" section,
-the `local.conf` file gets augmented with AGL configuration fragments based on
-how you execute the `aglsetup.sh` script.
-You can see those fragments at the end of the configuration file.
-
-Even though your build should work fine after running the `aglsetup.sh` script,
-you might consider editing your `local.conf` file to use one or more of the
-following configurations.
+Build settings belong in the initialized build directory's `conf/local.conf`, or in `conf/site.conf` for shared local settings. [Download AGL source](../build/common/download-source.md) defines `AGL_TOP` as the parent workspace and `AGL_SOURCE` as the selected checkout. See [Initialize the build environment](../build/common/initialize-build.md) for configuration fragments.
 
 ## Capturing Build History
 
-You can enable build history to help maintain the quality of your build output.
-You can use it to highlight unexpected and possibly unwanted changes in the build output.
-Basically, with build history enabled, you get a record of information about the contents
-of each package and image.
-That information is committed to a local Git repository where you can examine it.
+Add these BitBake assignments to `conf/local.conf`:
 
-To enable build history, make sure the following two lines are in your
-`local.conf` file:
-
-```sh
+```conf
 INHERIT += "buildhistory"
 BUILDHISTORY_COMMIT = "1"
 ```
 
-See the
-"[Maintaining Build Output Quality](https://docs.yoctoproject.org/{{ yocto.codename }}/dev-manual/build-quality.html#maintaining-build-output-quality)"
-section in the Yocto Project Reference Manual for a complete discussion on
-build history.
+Build history records changes to packages and images. See [Maintaining Build Output Quality](https://docs.yoctoproject.org/{{ yocto.codename }}/dev-manual/build-quality.html#maintaining-build-output-quality).
 
 ## Deleting Temporary Workspace
 
-During a build, the build system uses a lot of disk space to store temporary files.
-You can ease the burden on your system and speed up the build by configuring the build
-to remove temporary workspace.
+To remove temporary task work directories after successful builds:
 
-You need to inherit the `rm_work` class by using this statement in the `local.conf` file:
-
-```sh
+```conf
 INHERIT += "rm_work"
 ```
 
-You can read about the class in the
-"[rm_work.bbclass](https://docs.yoctoproject.org/{{ yocto.codename }}/dev-manual/disk-space.html#conserving-disk-space-during-builds)"
-section of the Yocto Project Reference Manual for more information.
+Keep work directories for recipes you are debugging with `RM_WORK_EXCLUDE`. See [Conserving Disk Space](https://docs.yoctoproject.org/{{ yocto.codename }}/dev-manual/disk-space.html#conserving-disk-space-during-builds).
 
-##  Pointing at Shared State Cache Locations
+## Pointing at Shared State Cache Locations
 
-The build system creates everything from scratch unless BitBake can determine that parts do not need to be rebuilt. Fundamentally, building from scratch is attractive as it means all parts are built fresh and there is no possibility of stale data causing problems.
-When developers hit problems, they typically default back to building from scratch so they know the state
-of things from the start.
+Set an absolute cache path in BitBake configuration; replace `/home/you` with your actual home directory:
 
-The build process uses Shared State Cache (sstate) to speed up subsequent builds.
-This cache retains artifacts that can be re-used once it is determined that they
-would not be different as compared to a re-built module.
-
-For the AGL build, you can specify the location for sstate files by including the
-following in the `local.conf` file:
-
-```sh
-SSTATE_DIR = "${AGL_TOP}/sstate-cache"
+```conf
+SSTATE_DIR = "/home/you/AGL/sstate-cache"
 ```
 
-Also, in the `local.conf` file, you can specify additional directories in which the build
-system can look for shared state information.
-Use the following form in your file to list out the directories you want the build
-process to look at for sstate information:
+A shell's `AGL_TOP` is not automatically available as a BitBake variable. The shared `site.conf` example below expands shell paths before writing the configuration.
 
-```sh
-SSTATE_MIRRORS ?= "\
-    file://.* http://someserver.tld/share/sstate/PATH;downloadfilename=PATH \n \
-    file://.* file:///some/local/dir/sstate/PATH"
+For an existing mirror, replace these example locations with your own:
+
+```conf
+SSTATE_MIRRORS ?= "file://.* https://sstate.example.org/PATH;downloadfilename=PATH \n file://.* file:///srv/sstate/PATH"
 ```
 
-If you want to know more about the Yocto Project sstate mechanism, see the
-"[Shared State Cache](https://docs.yoctoproject.org/{{ yocto.codename }}/overview-manual/concepts.html#shared-state-cache)"
-section in the Yocto Project Reference Manual.
+Only configure a mirror you operate or have verified for your release. See [Shared State Cache](https://docs.yoctoproject.org/{{ yocto.codename }}/overview-manual/concepts.html#shared-state-cache).
 
 ## Preserving the Download Directory
 
-During the initial build, the system downloads many different source code tarballs
-from various upstream projects.
-Downloading these files can take a while, particularly if your network
-connection is slow.
-The process downloads files into a
-"[download directory](https://docs.yoctoproject.org/{{ yocto.codename }}/ref-manual/variables.html#term-DL_DIR)".
-The `DL_DIR` variable defines the download directory.
-For subsequent builds, you can preserve this directory to speed up the download
-part of a build.
+Set a shared directory for downloaded source archives:
 
-The default download directory is in a folder named "downloads".
-For the AGL build you can set the download directory by adding the following to your
-`local.conf` file:
-
-```sh
-DL_DIR = "${AGL_TOP}/downloads"
+```conf
+DL_DIR = "/home/you/AGL/downloads"
 ```
 
-## Using a Shared State (sstate) Mirror
+This avoids downloading the same sources for each build directory. See [DL_DIR](https://docs.yoctoproject.org/{{ yocto.codename }}/ref-manual/variables.html#term-DL_DIR).
 
-The underlying Yocto Project build system uses Shared State Mirrors to cache
-artifacts from previous builds.
-You can significantly speed up builds and guard against fetcher failures by
-using mirrors.
-To use mirrors, add this line to your `local.conf` file in the Build directory:
+## Using a Shared State Mirror
 
-```sh
-SSTATE_MIRRORS_append = " file://.* https://download.automotivelinux.org/sstate-mirror/{{ agl.codename }}/${DEFAULTTUNE}/PATH \n "
+If your release provides the AGL mirror, add its matching branch and target tune using current override syntax:
+
+```conf
+SSTATE_MIRRORS:append = " file://.* https://download.automotivelinux.org/sstate-mirror/{{ agl.codename }}/${DEFAULTTUNE}/PATH \n "
 ```
 
-You can learn more about shared state and how it is used in the
-"[Shared State Cache](https://docs.yoctoproject.org/{{ yocto.codename }}/overview-manual/concepts.html#shared-state-cache)"
-section of the Yocto Project Reference Manual.
+Use a mirror for the selected release and configuration. A mirror improves reuse when matching artifacts exist; it does not guarantee that every task is cached.
 
 ## Common Settings using Symbolic Link with site.conf
 
-```sh
-$ echo "# reuse download directories" >> $AGL_TOP/site.conf
-$ echo "DL_DIR = \"$HOME/downloads/\"" >> $AGL_TOP/site.conf
-$ echo "SSTATE_DIR = \"$AGL_TOP/sstate-cache/\"" >> $AGL_TOP/site.conf
-$ cd $AGL_TOP/{{ agl.codename }}/qemux86-64/
-$ ln -sf $AGL_TOP/site.conf conf/
+Run these commands from an initialized build shell. `BUILDDIR` points to that build directory:
 
-In General;
-$ cd $AGL_TOP/<release-branch-name>/<build-dir>/
-$ ln -sf $AGL_TOP/site.conf conf/
+```sh
+mkdir -p "$AGL_TOP/downloads" "$AGL_TOP/sstate-cache"
+if [ ! -e "$AGL_TOP/site.conf" ] && [ ! -L "$AGL_TOP/site.conf" ]; then
+    cat > "$AGL_TOP/site.conf" <<EOF
+DL_DIR = "$AGL_TOP/downloads"
+SSTATE_DIR = "$AGL_TOP/sstate-cache"
+EOF
+fi
+if [ ! -e "$BUILDDIR/conf/site.conf" ] && [ ! -L "$BUILDDIR/conf/site.conf" ]; then
+    ln -s "$AGL_TOP/site.conf" "$BUILDDIR/conf/site.conf"
+else
+    printf '%s\n' "Keeping existing $BUILDDIR/conf/site.conf; review and merge shared settings manually."
+fi
 ```
+
+This creates the shared configuration file when it is absent and links it into the selected build directory when the build-local path is absent. Existing files and symbolic links are retained, including broken links. Review an existing build-local configuration and merge settings manually before deciding whether to replace it with the shared link. Use separate settings when builds require different local configuration.

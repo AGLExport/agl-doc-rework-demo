@@ -12,15 +12,15 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL Assets"
+        "AGL Artifact"
       ],
-      "heading": "AGL Assets",
+      "heading": "AGL Artifact",
       "page": "home/index.md"
     },
     {
       "breadcrumb": [
         "Home",
-        "AGL Assets",
+        "AGL Artifact",
         "Linux Distribution"
       ],
       "heading": "Linux Distribution",
@@ -29,7 +29,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL Assets",
+        "AGL Artifact",
         "Linux Distribution",
         "In-Vehicle Infotainment"
       ],
@@ -39,7 +39,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL Assets",
+        "AGL Artifact",
         "Linux Distribution",
         "Instrument Cluster"
       ],
@@ -49,7 +49,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL Assets",
+        "AGL Artifact",
         "Linux Distribution",
         "Connected Gateway"
       ],
@@ -59,7 +59,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL Assets",
+        "AGL Artifact",
         "Base platform for integrated system"
       ],
       "heading": "Base platform for integrated system",
@@ -68,7 +68,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL Assets",
+        "AGL Artifact",
         "Base platform for integrated system",
         "SoDeV"
       ],
@@ -78,7 +78,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL Assets",
+        "AGL Artifact",
         "Base platform for integrated system",
         "Container integration"
       ],
@@ -88,7 +88,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL Assets",
+        "AGL Artifact",
         "Base platform for integrated system",
         "KVM based integration"
       ],

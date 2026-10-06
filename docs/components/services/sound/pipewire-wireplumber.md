@@ -1,7 +1,7 @@
 ---
 title: "Pipewire & Wireplumber"
 source_path: "06_Component_Documentation/02_Sound_Service/01_pipewire_wireplumber.md"
-content_status: imported
+content_status: adapted
 ---
 
 # Pipewire & Wireplumber
@@ -44,14 +44,14 @@ elements are called *pipewiresrc* and *pipewiresink*
 Example:
 
 ```shell
-> gst-launch-1.0 audiotestsrc ! pipewiresink
+gst-launch-1.0 audiotestsrc ! pipewiresink
 ```
 
 Through these elements, it is possible to specify the application role by setting it in the
 *stream-properties* property of the element, as shown below:
 
 ```shell
-> gst-launch-1.0 audiotestsrc ! pipewiresink stream-properties="p,media.role=Multimedia""
+gst-launch-1.0 audiotestsrc ! pipewiresink stream-properties="p,media.role=Multimedia"
 ```
 
 or, in the C API:
@@ -74,15 +74,15 @@ a device in your ALSA client application, audio will go through PipeWire instead
 Example:
 
 ```shell
-> aplay sound.wav  # the default device is 'pipewire'
-> aplay -D pipewire sound.wav
+aplay sound.wav  # the default device is 'pipewire'
+aplay -D pipewire sound.wav
 ```
 
 In order to specify the application role while using the ALSA compatibility device, pass the role
 as a device parameter like this:
 
 ```shell
-> aplay -D pipewire:ROLE=Navigation turnleft.wav
+aplay -D pipewire:ROLE=Navigation turnleft.wav
 ```
 
 ### Audiomixer service
@@ -132,8 +132,8 @@ If you wish to manually stop or restart both services, you can do so by using *s
 operating on the *.socket* unit:
 
 ```shell
-> systemctl restart pipewire.socket
-> systemctl stop pipewire.socket
+systemctl restart pipewire.socket
+systemctl stop pipewire.socket
 ```
 
 ## Debugging

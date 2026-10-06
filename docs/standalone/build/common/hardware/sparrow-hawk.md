@@ -1,8 +1,10 @@
 ---
 title: "Build and boot on Sparrow Hawk"
 source_path: "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/04_Building_for_Retronix_Sparrow_Hawk_Board.md"
-content_status: imported
+content_status: adapted
 ---
+
+Complete [host preparation](../prepare-host.md) and [source download](../download-source.md) first. These steps define `AGL_TOP` as the parent workspace and `AGL_SOURCE` as the source checkout. Run each setup command from `$AGL_SOURCE`; `aglsetup.sh` then enters its build directory. Use `-f` only when intentionally replacing existing configuration.
 
 The Retronix Sparrow Hawk is a compact and highly expandable edge AI development board
 powered by the Renesas R-Car V4H System-on-Chip. This board targets robotics, industrial
@@ -26,20 +28,20 @@ script.
 Use the following command to run the AGL Setup script:
 
 ```sh
-cd $AGL_TOP
+cd "$AGL_SOURCE"
 source meta-agl/scripts/aglsetup.sh -m sparrow-hawk -b build agl-devel agl-demo
 ```
 
 * `-m`: Set the board name (sparrow-hawk)
 * `-b`: Set your build directory
-* `-f` (optional): Overwrite existing configuration. Use when rebuilding in
-the same directory.
+* `-f` (optional): Overwrite existing configuration. Use only when intentionally replacing
+the configuration in the same directory.
 * `agl-devel agl-demo`: AGL features to enable in this build. See all supported features in
 [Initializing Your Build Environment](../initialize-build.md)
 or by running `source meta-agl/scripts/aglsetup.sh --help`
 
 After running the `aglsetup.sh` script, you are automatically placed in the working directory
-(i.e., `$AGL_TOP/build`).
+(i.e., `$AGL_SOURCE/build`).
 
 **NOTE:**
 To avoid unnecessary downloads and rebuilds, you can set the DL_DIR and SSTATE_DIR variables to a shared
@@ -109,12 +111,18 @@ $ dmesg | tail -4
 [ 1971.463870]  sdc: sdc1 sdc2
 ```
 
-The log shows that the MicroSD card is attached to device `/dev/sdc`. Write the image
-to it:
+The log shows an example card at `/dev/sdc`. Identify your actual card with `lsblk`, unmount its mounted partitions, and write the image:
 
 ```sh
-sudo umount /dev/<sd-card-device>
-zstdcat -d ./agl-ivi-demo-qt-sparrow-hawk.rootfs.wic.zst | sudo dd of=/dev/<sd-card-device> bs=4M
+# Run from the initialized build shell; use agl-cluster-demo-flutter if that is your image.
+IMAGE_TARGET=agl-ivi-demo-qt
+DEPLOY_DIR=$(bitbake-getvar --value -r "$IMAGE_TARGET" DEPLOY_DIR_IMAGE)
+IMAGE_BASE=$(bitbake-getvar --value -r "$IMAGE_TARGET" IMAGE_LINK_NAME)
+IMAGE_SUFFIX=$(bitbake-getvar --value -r "$IMAGE_TARGET" IMAGE_NAME_SUFFIX)
+IMAGE_FILE="$DEPLOY_DIR/$IMAGE_BASE$IMAGE_SUFFIX.wic.zst"
+ls -lh "$IMAGE_FILE"
+SD_DEVICE=/dev/sdX  # replace with the verified whole microSD device
+zstd -dc "$IMAGE_FILE" | sudo dd of="$SD_DEVICE" bs=4M conv=fsync status=progress
 sync
 ```
 
@@ -190,3 +198,5 @@ cable.
 On the serial console, log in with the "root" account (no password required).
 
 ## 3. Troubleshooting
+
+Check the serial boot log, power supply, cooling, and display connection. Record the image build identifier and firmware version. Use [Troubleshooting](../../../../troubleshooting/index.md) for log collection and issue reporting.

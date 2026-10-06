@@ -1,4 +1,4 @@
-﻿"""Content adaptations retained when source articles are re-imported."""
+"""Content adaptations retained when source articles are re-imported."""
 import json
 import re
 
@@ -24,6 +24,10 @@ Read [Application Framework](../framework/lifecycle/application-framework.md) fo
 For the reference UI and image, see [Qt IVI homescreen](../../components/applications/qt-homescreen.md) and [Qt IVI demo build](../build/ivi/qt-ivi-demo.md). The supplied Qt-specific source page is incomplete; the SDK guides provide the documented preparation and deployment route.
 
 '''}
+    body = body.replace('IMAGE_INSTALL_append', 'IMAGE_INSTALL:append')
+    body = body.replace('SSTATE_MIRRORS_append', 'SSTATE_MIRRORS:append')
+    body = body.replace('devtool update-recipce', 'devtool update-recipe')
+    body = body.replace('stream-properties="p,media.role=Multimedia""', 'stream-properties="p,media.role=Multimedia"')
     return prefixes.get(path, '')+body
 
 

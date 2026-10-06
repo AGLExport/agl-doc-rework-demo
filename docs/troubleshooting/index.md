@@ -35,7 +35,7 @@ Record whether the problem reproduces under the same conditions and which steps 
 
 For usage questions or help diagnosing a problem, read [Getting help](getting-help.md). For a reproducible defect, follow [Reporting bugs](reporting-bugs.md).
 
-To fix an error or fill a gap in these guides, see [Contribute to the documentation](../contributing/documentation.md).
+To fix an error or fill a gap in this GitHub Pages site, follow [Contribute to the documentation](../contributing/documentation.md) for local editing, validation, and pull request submission. That guide also identifies the separate Gerrit route for changes to the original AGL documentation.
 
 ## Further reading
 

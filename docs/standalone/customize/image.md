@@ -1,140 +1,75 @@
 ---
 title: "Create/Modify an AGL image"
 source_path: "04_Developer_Guides/02_AGL_Platform_Development/02_Modify_AGL_by_Yourself/01_Customizing_AGL_Image.md"
-content_status: imported
+content_status: adapted
 ---
 
 # Create/Modify an AGL image
 
-## Customizing agl-image-weston with AGL
+Start from an initialized [AGL build environment](../build/common/initialize-build.md). This example customizes `agl-image-weston`; choose the image and graphics profile appropriate to your product. Run the commands from the build shell created by `aglsetup.sh`.
 
-This guide provides step-by-step instructions for customizing the AGL `agl-image-weston` image using Yocto. We cover two common customization tasks: adding packages like glmark2 and resizing the image.
+## Add a package for a local evaluation
 
-### Prerequisites
+To include the `glmark2` benchmark, add the following to `conf/local.conf`:
 
-- AGL build environment set up and initialized following [01_Getting_Started/02_Building_AGL_Image](../build/common/build-overview.md)
-- Your build directory is 'build-agl' that setups by aglsetup.sh
-- Yocto knowledge and familiarity with bitbake and layer concepts
+```conf
+IMAGE_INSTALL:append = " glmark2"
+```
 
----
+The leading space separates the new package from the existing package list. Check that its recipe is available in your selected layers and build the image:
 
-### 1. Adding glmark2 to core-image-weston
+```sh
+bitbake-layers show-recipes glmark2
+bitbake agl-image-weston
+```
 
-glmark2 is a benchmarking tool available in `meta-openembedded/meta-oe/recipes-benchmark/glmark2`. There are multiple ways to add it to your image.
+## Retain the change in a custom layer
 
-#### Method 1: Using local.conf (Quickest)
+Use a `.bbappend` to modify an existing image recipe. A `.bbappend` keeps the existing image target; a new `.bb` defines a separate image target.
 
-The simplest approach is to add glmark2 directly to your `local.conf` file.
+```sh
+bitbake-layers create-layer "$AGL_SOURCE/meta-custom-agl"
+bitbake-layers add-layer "$AGL_SOURCE/meta-custom-agl"
+mkdir -p "$AGL_SOURCE/meta-custom-agl/recipes-core/images"
+```
 
-1. Navigate to your build directory:
-   ```bash
-   cd build-agl
-   ```
+Create `meta-custom-agl/recipes-core/images/agl-image-weston.bbappend` with:
 
-2. Open the `conf/local.conf` file in your preferred editor:
-   ```bash
-   vim conf/local.conf
-   ```
+```bb
+IMAGE_INSTALL:append = " glmark2"
+```
 
-3. Add the following line at the end of the file:
-   ```conf
-   IMAGE_INSTALL:append = " glmark2"
-   ```
+Confirm that BitBake discovers the append, then build:
 
-4. Save and close the file.
+```sh
+bitbake-layers show-appends
+bitbake agl-image-weston
+```
 
-5. Build the image:
-   ```bash
-   bitbake agl-image-weston
-   ```
+If the base image recipe is versioned, match its filename or use a suitable `%` pattern. Include the custom layer in your manifest and version control so another developer can reproduce the configuration.
 
-The glmark2 package will now be included in your image.
+## Reserve 2 GiB of additional root filesystem space
 
-#### Method 2: Creating a Custom Image Recipe
+Yocto expresses these root filesystem size values in KiB. `2 GiB = 2,097,152 KiB`. To reserve this additional space on top of the estimated root filesystem contents, add the following to the image's `.bbappend`, or to `conf/local.conf` for a local evaluation:
 
-For more control and reusability, create a custom image recipe.
+```bb
+IMAGE_ROOTFS_EXTRA_SPACE = "2097152"
+```
 
-1. Create a custom layer in your AGL workspace (if not already present):
-   ```bash
-   bitbake-layers create-layer meta-custom-agl
-   ```
+This sets the extra-space allowance to 2 GiB. It does not promise that the complete disk image grows by exactly 2 GiB: filesystem overhead, `IMAGE_OVERHEAD_FACTOR`, alignment, minimum-size settings, and the WIC partition layout also affect the result. In `local.conf`, the assignment applies to image builds using that configuration; an image-specific `.bbappend` scopes it to that image.
 
-2. Create a new image recipe in the custom layer:
-   ```bash
-   mkdir -p meta-custom-agl/recipes-core/images
-   touch meta-custom-agl/recipes-core/images/agl-image-weston.bbappend
-   ```
+`IMAGE_ROOTFS_SIZE` sets a minimum root filesystem size instead. If you deliberately need a minimum of 400 MiB plus 2 GiB, the calculation is `409600 + 2097152 = 2506752 KiB`:
 
-3. Edit the new recipe file and add the following content:
-   ```bb
-   IMAGE_INSTALL:append = " glmark2"
-   ```
+```bb
+IMAGE_ROOTFS_SIZE = "2506752"
+```
 
-4. Add your custom layer to the build configuration:
-   ```bash
-   bitbake-layers add-layer meta-custom-agl
-   ```
+Use the variable matching your goal. Rebuild without deleting the shared state cache:
 
-5. Build your custom image:
-   ```bash
-   bitbake agl-image-weston
-   ```
+```sh
+bitbake agl-image-weston
+```
 
----
+Inspect the generated image in `tmp/deploy/images/<machine>/`. For WIC images, inspect the selected `.wks` file for partition sizes and fixed-size limits; adjust it when the root filesystem cannot fit. Confirm the available capacity on the booted target with `df -h /`.
 
-### 2. Resizing the Image by 2 GB
-
-By default, `agl-image-weston` has a predefined size. To increase the image size by 2 GB, you need to adjust the `IMAGE_ROOTFS_SIZE` variable.
-
-#### Calculating the Size Increase
-
-- 1 GB = 1024 MB = 1,048,576 KB
-- 2 GB = 2048 MB = 2,097,152 KB
-
-#### Method 1: Via local.conf
-
-1. Open your `conf/local.conf` file:
-   ```bash
-   vim conf/local.conf
-   ```
-
-2. Find or add the `IMAGE_ROOTFS_SIZE` variable. If it doesn't exist, add it:
-   ```conf
-   IMAGE_ROOTFS_SIZE = "409600"
-   ```
-
-   This example sets the base size to 400 MB. Adjust the value as needed for your use case.
-
-3. To increase by 2 GB, modify the value:
-   ```conf
-   # Original: 400 MB (409600 KB)
-   # Increase by 2 GB (2097152 KB)
-   # New value: 2400 MB (2457600 KB) or 2.4 GB
-   IMAGE_ROOTFS_SIZE = "2457600"
-   ```
-
-4. Save the file and rebuild:
-   ```bash
-   bitbake -c cleansstate agl-image-weston
-   bitbake agl-image-weston
-   ```
-
-#### Method 2: Via Custom Image Recipe
-
-Prerequire: You already created agl-image-weston.bbappend followed as 'Method 2: Creating a Custom Image Recipe' steps.
-
-1. Add to your agl-image-weston.bbappend recipe:
-   ```bb
-   IMAGE_ROOTFS_SIZE = "2457600"
-   ```
-
-2. Rebuild the image:
-   ```bash
-   bitbake agl-image-weston
-   ```
-
----
-
-### Additional Resources
-
-- [Yocto Mega Manual - IMAGE_ROOTFS_SIZE](https://docs.yoctoproject.org/{{ yocto.codename }}/ref-manual/variables.html#term-IMAGE_ROOTFS_SIZE)
+Read the official [IMAGE_ROOTFS_EXTRA_SPACE](https://docs.yoctoproject.org/{{ yocto.codename }}/ref-manual/variables.html#term-IMAGE_ROOTFS_EXTRA_SPACE), [IMAGE_ROOTFS_SIZE](https://docs.yoctoproject.org/{{ yocto.codename }}/ref-manual/variables.html#term-IMAGE_ROOTFS_SIZE), and [image customization guide](https://docs.yoctoproject.org/{{ yocto.codename }}/dev-manual/customizing-images.html) for the sizing rules.

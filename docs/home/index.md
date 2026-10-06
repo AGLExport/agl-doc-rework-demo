@@ -1,11 +1,11 @@
 ---
-title: "AGL Assets"
+title: "AGL Artifact"
 content_status: authored
 ---
 
-# AGL Assets
+# AGL Artifact
 
-AGL assets include a Linux distribution for individual vehicle roles and a base platform for integrating several workloads. The vehicle E/E architectures below explain the relationship between distributed deployments and integrated systems.
+AGL artifacts include a Linux distribution for individual vehicle roles and a base platform for integrating several workloads. The vehicle E/E architectures below explain the relationship between distributed deployments and integrated systems.
 
 ## Vehicle EE architectures.
 

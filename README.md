@@ -1,6 +1,6 @@
 # AGL documentation for GitHub Pages
 
-This English documentation site follows the exact headings, order, and hierarchy in [AGENTS.md](AGENTS.md). Home is the navigation root. Its seven child sections are AGL Assets, AGL distributed system distribution, AGL integrated system development, AGL Components, Troubleshooting, Releases & migration, and Contribute. Quick start is inside AGL distributed system distribution, alongside Build Platform, Platform Customize, and Application development. Build chapters for integrated systems are also named Build Platform. Home explains AGL, the Unified Code Base, and its community, and directs readers to AGL Assets for architecture and system details. AGL Assets introduces Linux Distribution and Base platform for integrated system. It groups traditional distributed, domain, and central/zone designs under Vehicle EE architectures, with three original SVG figures. The SoDeV overview includes the unchanged official AGL architecture diagram with attribution. It introduces AGL as a base distribution for distributed ECUs and an integrated platform for domain or central/zone architectures, with links to their subsections.
+This English documentation site follows the exact headings, order, and hierarchy in [AGENTS.md](AGENTS.md). Home is the navigation root. Its seven child sections are AGL Artifact, AGL distributed system distribution, AGL integrated system development, AGL Components, Troubleshooting, Releases & migration, and Contribute. Quick start is inside AGL distributed system distribution, alongside Build Platform, Platform Customize, and Application development. Build chapters for integrated systems are also named Build Platform. Home explains AGL, the Unified Code Base, and its community, and directs readers to AGL Artifact for architecture and system details. AGL Artifact introduces Linux Distribution and Base platform for integrated system. It groups traditional distributed, domain, and central/zone designs under Vehicle EE architectures, with three original SVG figures. The SoDeV overview includes the unchanged official AGL architecture diagram with attribution. It introduces AGL as a base distribution for distributed ECUs and an integrated platform for domain or central/zone architectures, with links to their subsections.
 
 The navigation contains 89 required headings. All 152 articles are reachable through those chapters, including 63 supporting articles linked from the relevant chapter rather than added to the required navigation. The original `../docs/` directory remains unchanged; all 84 source Markdown articles and 104 source assets are retained in the reconstructed site.
 
@@ -19,6 +19,7 @@ Quick start introduces the Flutter IVI demo as a complete system and provides pr
 | `source-map.json` | Source-to-destination mapping and SHA-256 hashes for the 84 imported articles |
 | `scripts/import_docs.py` | Re-import the original articles and assets |
 | `scripts/import_transforms.py` | Preserve required titles, adapted introductions, and Flutter quickstarts on re-import |
+| `scripts/test_documentation_tools.py` | Regression checks for section resolution and import preservation |
 | `scripts/validate_structure.py` | Check the exact required hierarchy, article reachability, and source mappings |
 | `scripts/validate_site.py` | Check generated local links, assets, and anchors |
 | `requirements.txt` | Pinned Python build dependencies |
@@ -59,6 +60,7 @@ PowerShell:
 
 ```powershell
 $env:MKDOCS_SITE_URL = 'http://127.0.0.1:8000/'
+.\.venv\Scripts\python.exe scripts\test_documentation_tools.py
 .\.venv\Scripts\python.exe scripts\validate_structure.py
 .\.venv\Scripts\python.exe -m mkdocs build --strict --config-file mkdocs.yml
 .\.venv\Scripts\python.exe scripts\validate_site.py site --site-url "$env:MKDOCS_SITE_URL"
@@ -68,6 +70,7 @@ Linux or macOS:
 
 ```bash
 export MKDOCS_SITE_URL=http://127.0.0.1:8000/
+.venv/bin/python scripts/test_documentation_tools.py
 .venv/bin/python scripts/validate_structure.py
 .venv/bin/python -m mkdocs build --strict --config-file mkdocs.yml
 .venv/bin/python scripts/validate_site.py site --site-url "$MKDOCS_SITE_URL"
@@ -119,7 +122,7 @@ When updating an existing parent repository, copy the revised workflow to its ro
 
 ## Edit and maintain the documentation
 
-Edit articles in `docs/` while preserving the required navigation in AGENTS.md. Do not omit, rename, duplicate, or reorder its headings. Each required page uses its required heading as its first H1. Preserve the Home and AGL Assets content specified in the Required Contents at Section rules, including the architecture figures and subsection links. The historical AGL Coverage reference in the Home rule resolves to the renamed AGL Assets section. Add supporting articles through relative Markdown links from the appropriate chapter and declare their paths in `not_in_nav` in `mkdocs.yml`; they remain available in search. Update `structure-map.json` when changing required page locations, and keep the importer mapping consistent. Update shared release values in `mkdocs.yml` when changing the documented AGL release or artifact channel. Rebuild and run both validators after changes.
+Edit articles in `docs/` while preserving the required navigation in AGENTS.md. Do not omit, rename, duplicate, or reorder its headings. Each required page uses its required heading as its first H1. Preserve the Home and AGL Artifact content specified in the Required Contents at Section rules, including the architecture figures and subsection links. The historical AGL Coverage reference in the Home content rule resolves to the required AGL Artifact section; it is not an additional navigation heading. Add supporting articles through relative Markdown links from the appropriate chapter and declare their paths in `not_in_nav` in `mkdocs.yml`; they remain available in search. Update `structure-map.json` when changing required page locations, and keep the importer mapping consistent. Update shared release values in `mkdocs.yml` when changing the documented AGL release or artifact channel. Rebuild and run both validators after changes.
 
 The importer is a manual migration utility, not part of the normal site build. From this directory inside the original repository:
 
@@ -127,7 +130,7 @@ The importer is a manual migration utility, not part of the normal site build. F
 python scripts/import_docs.py --source ../docs
 ```
 
-**Re-importing overwrites imported articles, copied assets, the prebuilt-image landing page, its two generated quickstart guides, and `source-map.json`.** Preserve local edits before running it. Update the importer's mapping and transformations when a change must survive later imports. Authored chapters and the Flutter IVI demo overview are maintained directly in `docs/` and preserved by the importer. The importer removes retired page locations listed in `structure-map.json` so obsolete headings do not reappear.
+Re-importing refreshes unadapted articles (`content_status: imported`), copied assets, and `source-map.json`. Articles marked `content_status: adapted` retain their local corrections and must keep a matching `source_path`; this includes the corrected prebuilt guides and SDK, Qt, board, and contribution procedures. Mark an imported article as adapted when maintaining local changes. Authored chapters and the Flutter IVI demo overview are maintained directly in `docs/`. Use `--overwrite-adapted` only when deliberately replacing curated pages with reviewed upstream material, then reapply any remaining local adaptations and run all checks. The importer removes retired page locations listed in `structure-map.json` so obsolete headings do not reappear.
 
 In a separate site repository, `../docs/` will not normally exist. Supply the original AGL documentation directory using `--source` only when deliberately re-importing it.
 

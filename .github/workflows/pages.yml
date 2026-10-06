@@ -55,6 +55,11 @@ jobs:
           DOCS_ROOT: ${{ steps.docs.outputs.root }}
         run: python -m pip install -r "$DOCS_ROOT/requirements.txt"
 
+      - name: Check documentation tooling regressions
+        env:
+          DOCS_ROOT: ${{ steps.docs.outputs.root }}
+        run: python "$DOCS_ROOT/scripts/test_documentation_tools.py"
+
       - name: Validate required documentation structure
         env:
           DOCS_ROOT: ${{ steps.docs.outputs.root }}

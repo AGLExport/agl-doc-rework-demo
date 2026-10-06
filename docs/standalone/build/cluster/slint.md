@@ -1,7 +1,7 @@
 ---
 title: "Slint based Cluster"
 source_path: "01_Getting_Started/03_Build_and_Boot_guide_Profile/03_Slint_Demo_Image.md"
-content_status: imported
+content_status: adapted
 ---
 
 # Slint based Cluster
@@ -22,7 +22,7 @@ Rust based Instrument Cluster Demo Images is available on table 1 boards.
 
 ## 2. Setup build environment
 
-Build environment for Rust based Instrument Cluster Demo is same as AGL other profile build environment. 
+Build environment for Rust based Instrument Cluster Demo is same as AGL other profile build environment.
 
 ### 1st step:
 Please read [[Build Process Overview]](../common/build-overview.md) in AGL doc.
@@ -30,7 +30,9 @@ Please read [[Build Process Overview]](../common/build-overview.md) in AGL doc.
 ### 2nd step:
 Please read [[Preparing Your Build Host]](../common/prepare-host.md) in AGL doc.
 
-### 3rd step: 
+Use the directory definitions in [Download AGL source](../common/download-source.md): `AGL_TOP` is the parent directory and `AGL_SOURCE` is the checkout root.
+
+### 3rd step:
 Define Your Top-Level Directory.
 
 ```bash
@@ -54,28 +56,28 @@ $ chmod a+x $HOME/bin/repo
 If your environment already setup user information for git, please skip this step.
 
 ```bash
-$ git config \--global user.email "you@example.com"
-$ git config \--global user.name "Your Name"
+$ git config --global user.email "you@example.com"
+$ git config --global user.name "Your Name"
 ```
 
 ### 6th step: Download the AGL Source Files
 
 ```bash
 $ cd $AGL_TOP
-$ mkdir master
-$ export AGL_TOP=$HOME/AGL/master
-$ cd $AGL_TOP
-$ repo init -b master -u https://gerrit.automotivelinux.org/gerrit/AGL/AGL-repo
+$ mkdir -p {{ agl.codename }}
+$ export AGL_SOURCE="$AGL_TOP/{{ agl.codename }}"
+$ cd "$AGL_SOURCE"
+$ repo init -b {{ agl.codename }} -u https://gerrit.automotivelinux.org/gerrit/AGL/AGL-repo
 $ repo sync
 ```
 
 
 ## 3. Configure to target board and build.
 
-### 1st step:  Run the aglsetup.sh Script.
+### 1st step:  Run the aglsetup.sh Script.
 
 ```bash
-$ cd $AGL_TOP
+$ cd "$AGL_SOURCE"
 ```
 
 When your board is NanoPC T6
@@ -104,7 +106,7 @@ $ bitbake  agl-instrument-cluster-standalone-demo-slint
 
 The image is constructed by wic image, that include partition table and each partition data into one image file.
 
-In default setting, that wic image is compressed zstd.  When that wic
+In default setting, that wic image is compressed zstd.  When that wic
 image to the SD card, you need to use zstdcat and dd commands on your
 build PC.
 
@@ -117,7 +119,7 @@ SSD/HDD data break (only logical, not physical).**
 
 For example;
 
-A /dev/sda is SSD for your PC.  A /dev/sdb is SD card.  You should use
+A /dev/sda is SSD for your PC.  A /dev/sdb is SD card.  You should use
 /dev/sdb, must not use /dev/sda.
 
 When your PC has direct SD card interface not a use card reader, your SD

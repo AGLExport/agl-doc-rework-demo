@@ -1,7 +1,7 @@
 ---
 title: "Application sandboxing"
 source_path: "06_Component_Documentation/20_IVI_Application_Framework/04_Application_Sandboxing.md"
-content_status: imported
+content_status: adapted
 ---
 
 One of the motivations for leveraging systemd in `applaunchd` was to allow the use of its
@@ -31,21 +31,21 @@ inherit agl-app
 
 AGL_APP_NAME = "Foo"
 
-do_install() {
+do_install:append() {
     # Enable systemd sandboxing override as a demonstration
     install -d ${D}${systemd_system_unitdir}/agl-app@${AGL_APP_ID}.service.d/
     ln -sf ${systemd_system_unitdir}/sandboxing/no-network.conf ${D}${systemd_system_unitdir}/agl-app@${AGL_APP_ID}.service.d/
 }
 
-FILES:${PN} = " \
-    ${sysconfdir}/systemd/system/agl-app@${AGL_APP_ID}.service.d \
+FILES:${PN} += " \
+    ${systemd_system_unitdir}/agl-app@${AGL_APP_ID}.service.d \
 "
 
 ...
 ```
 
 This results in a `/usr/lib/systemd/system/agl-app@foo.service.d/no-network.conf` symlink being created
-in the `foo` packaging, disabling network access when `foo` is started by `applaunchd` or directly via
+in the `foo` package. The `FILES:${PN} +=` assignment adds the installed drop-in directory while preserving the recipe's existing package contents; see the [Yocto FILES reference](https://docs.yoctoproject.org/6.0/ref-manual/variables.html#term-FILES). The `do_install:append()` task preserves the application's existing installation steps. This disables network access when `foo` is started by `applaunchd` or directly via
 `systemctl` on the command line.
 
 ## Private Temporary Directories

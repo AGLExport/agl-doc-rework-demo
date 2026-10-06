@@ -1,8 +1,10 @@
 ---
 title: "Build and boot on Rockchip boards"
 source_path: "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/05_Building_for_Supported_Rockchip_Boards.md"
-content_status: imported
+content_status: adapted
 ---
+
+Complete [host preparation](../prepare-host.md) and [source download](../download-source.md) first. These steps define `AGL_TOP` as the parent workspace and `AGL_SOURCE` as the source checkout. Run each setup command from `$AGL_SOURCE`; `aglsetup.sh` then enters its build directory. Use `-f` only when intentionally replacing existing configuration.
 
 AGL supported some Rockchip [RK3588](https://www.rock-chips.com/a/en/products/RK35_Series/2022/0926/1660.html) boards.
 [NanoPC T6](https://wiki.friendlyelec.com/wiki/index.php/NanoPC-T6) board is one of the RK3588 based board.  That is manufactured by [friendlyelec](https://www.friendlyelec.com).
@@ -22,7 +24,8 @@ specific options when you run the script :
 **Basic IVI demo :**
 
   ```sh
-  $ source meta-agl/scripts/aglsetup.sh -f -m nanopc-t6 -b build-nanopc-t6 agl-demo
+  $ cd "$AGL_SOURCE"
+  $ source meta-agl/scripts/aglsetup.sh -m nanopc-t6 -b build-nanopc-t6 agl-demo
   $ echo "# reuse download directories" >> $AGL_TOP/site.conf
   $ echo "DL_DIR = \"$HOME/downloads/\"" >> $AGL_TOP/site.conf
   $ echo "SSTATE_DIR = \"$AGL_TOP/sstate-cache/\"" >> $AGL_TOP/site.conf
@@ -35,52 +38,33 @@ the AGL demo image suited for NanoPC T6.
 ## 2. Configuring the Build
 
 Before launching the build, it is good to be sure your build
-configuration is set up correctly (`/build/conf/local.conf` file).
+configuration is set up correctly (`conf/local.conf` in the initialized build directory).
 The "[Customizing Your Build](../../../customize/build-output.md)"
 section highlights some common configurations that are useful when
 building any AGL image.
 
 ## 3. Using BitBake
 
-This section shows the `bitbake` command used to build the AGL image.
-
-Start the build using the `bitbake` command.
-
-**NOTE:** An initial build can take many hours depending on your
-CPU and Internet connection speeds.
-The build also takes approximately 200G-bytes of free disk space.
-
-**Flutter Based IVI demo :**
-The target is `agl-ivi-demo-flutter`.
+Select a demo target and build it from the initialized build shell:
 
 ```sh
-$ time bitbake agl-ivi-demo-flutter
+IMAGE_TARGET=agl-ivi-demo-flutter  # use agl-ivi-demo-qt for the Qt IVI demo
+bitbake "$IMAGE_TARGET"
 ```
 
-By default, the build process puts the resulting image in the Build Directory and further exporting that as `$IMAGE_NAME`.
-Here is example for the NanoPC T6 board for Flutter Based demo:
+An initial build can take several hours. Check the [host requirements](../prepare-host.md) for resource planning.
+
+Read the resolved output names from your checkout. The BSP MACHINE name and image suffix can differ from the AGL setup-template name or earlier releases:
 
 ```sh
-<build_dir>/tmp/deploy/images/rockchip-rk3588-nanopc-t6/agl-ivi-demo-flutter-rockchip-rk3588-nanopc-t6.rootfs.wic.zst
-
-$ export IMAGE_NAME=agl-ivi-demo-flutter-rockchip-rk3588-nanopc-t6.rootfs.wic.zst
+DEPLOY_DIR=$(bitbake-getvar --value -r "$IMAGE_TARGET" DEPLOY_DIR_IMAGE)
+IMAGE_BASE=$(bitbake-getvar --value -r "$IMAGE_TARGET" IMAGE_LINK_NAME)
+IMAGE_SUFFIX=$(bitbake-getvar --value -r "$IMAGE_TARGET" IMAGE_NAME_SUFFIX)
+IMAGE_FILE="$DEPLOY_DIR/$IMAGE_BASE$IMAGE_SUFFIX.wic.zst"
+ls -lh "$IMAGE_FILE"
 ```
 
-**Qt Based IVI demo :**
-The target is `agl-ivi-demo-qt`.
-
-```sh
-$ time bitbake agl-ivi-demo-qt
-```
-
-By default, the build process puts the resulting image in the Build Directory and further exporting that as `$IMAGE_NAME`.
-Here is example for the NanoPC T6 board for Qt Based demo:
-
-```sh
-<build_dir>/tmp/deploy/images/rockchip-rk3588-nanopc-t6/agl-ivi-demo-qt-rockchip-rk3588-nanopc-t6.rootfs.wic.zst
-
-$ export IMAGE_NAME=agl-ivi-demo-qt-rockchip-rk3588-nanopc-t6.rootfs.wic.zst
-```
+Use the actual generated WIC image and compression if your configuration differs. Confirm them with `bitbake-getvar -r "$IMAGE_TARGET" IMAGE_FSTYPES`. See [Yocto's variable inspection guide](https://docs.yoctoproject.org/{{ yocto.codename }}/dev-manual/debugging.html#viewing-variable-values).
 
 ## 4. Deploying the AGL Demo Image
 
@@ -90,18 +74,17 @@ plugging the card into the NanoPC T6 board, and then booting the board.
 Follow these steps to copy the image to a MicroSD card and boot
 the image on the NanoPC T6 board:
 
-  1. Plug your MicroSD card into your Build Host (i.e. the system that has your build output).
+  1. Plug your MicroSD card into your Build Host (i.e. the system that has your build output), and unmount its mounted partitions before writing.
 
   2. Extract the image into the SD card of NanoPC T6 :
+    Use the absolute `IMAGE_FILE` path obtained from the build shell above.
 
-    **NOTE:** For NanoPC T6, the image is at `<build-dir>/tmp/deploy/images/rockchip-rk3588-nanopc-t6/${IMAGE_NAME}`.
-
-      Be sure you are root, provide the actual device name for *sdcard_device_name*, and the actual image name for *image_name*.
+      Be sure you are root, provide the actual device name for *sdcard_device_name*, and the resolved `IMAGE_FILE` path from the build.
 
       ```sh
       $ lsblk
-      $ sudo umount <sdcard_device_name>
-      $ zstdcat -d ${IMAGE_NAME} | sudo dd of=<sdcard_device_name> bs=4M
+      $ SD_DEVICE=/dev/sdX  # replace with the verified whole microSD device
+      $ zstd -dc "$IMAGE_FILE" | sudo dd of="$SD_DEVICE" bs=4M conv=fsync status=progress
       $ sync
       ```
 

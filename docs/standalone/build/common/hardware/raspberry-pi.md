@@ -1,190 +1,107 @@
 ---
 title: "Build and boot on Raspberry Pi"
 source_path: "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/03_Building_for_Raspberry_Pi_x.md"
-content_status: imported
+content_status: adapted
 ---
 
-The
-[Raspberry Pi](https://www.raspberrypi.org/help/what-%20is-a-raspberry-pi/) is a small computer that is ideal for learning computing and computer languages.
-The AGL Project supports building images for the
-[Raspberry Pi 5](https://www.raspberrypi.com/products/raspberry-pi-5/) board and
-[Raspberry Pi 4](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/) board.
-These boards come in a variety of models.
-See the
-[Raspberry Pi Product Page](https://www.raspberrypi.org/products/) for more information.
+# Build and boot on Raspberry Pi
 
-This section describes the steps you need to take to build the
-AGL demo image for the Raspberry Pi 4 board.
+This guide builds a Flutter or Qt IVI demo for Raspberry Pi 4 or 5. Use the image for the exact board. For a first evaluation without a source build, use the [Raspberry Pi 4/5 quickstart](../../../../start/prebuilt/raspberry-pi.md).
 
-## 1. Making Sure Your Build Environment is Correct
+## 1. Initialize the build environment
 
-The
-"[Initializing Your Build Environment](../initialize-build.md)"
-section presented generic information for setting up your build environment
-using the `aglsetup.sh` script.
-If you are building the AGL demo image for a Raspberry Pi 5/4 board, you need to specify some
-specific options when you run the script :
+Complete [host preparation](../prepare-host.md) and [source download](../download-source.md). Those steps define `AGL_SOURCE` as the selected source checkout. Run one of the following setups from that directory.
 
-**Raspberry Pi5 :**
-
-  ```sh
-  $ source meta-agl/scripts/aglsetup.sh -f -m raspberrypi5 -b raspberrypi5 agl-demo agl-devel
-  $ echo "# reuse download directories" >> $AGL_TOP/site.conf
-  $ echo "DL_DIR = \"$HOME/downloads/\"" >> $AGL_TOP/site.conf
-  $ echo "SSTATE_DIR = \"$AGL_TOP/sstate-cache/\"" >> $AGL_TOP/site.conf
-  $ ln -sf $AGL_TOP/site.conf conf/
-  ```
-
-**Raspberry Pi4 :**
-
-  ```sh
-  $ source meta-agl/scripts/aglsetup.sh -f -m raspberrypi4 -b raspberrypi4 agl-demo agl-devel
-  $ echo "# reuse download directories" >> $AGL_TOP/site.conf
-  $ echo "DL_DIR = \"$HOME/downloads/\"" >> $AGL_TOP/site.conf
-  $ echo "SSTATE_DIR = \"$AGL_TOP/sstate-cache/\"" >> $AGL_TOP/site.conf
-  $ ln -sf $AGL_TOP/site.conf conf/
-  ```
-
-## 2. Configuring the Build to Include Packages Under a Commercial License
-
-Before launching the build, it is good to be sure your build
-configuration is set up correctly (`/build/conf/local.conf` file).
-The "[Customizing Your Build](../../../customize/build-output.md)"
-section highlights some common configurations that are useful when
-building any AGL image.
-
-For the Raspberry Pi platforms, you need to take an additional
-configuration step if you want to include any packages under a
-commercial license.
-
-For example, suppose you want to include an implementation of the
-[OpenMAX](https://www.khronos.org/openmax/) Integration Library
-(`libomxil`) under a commercial license as part of your AGL image.
-If so, you must include the following two lines in your
-`/build/conf/local.conf` file:
+For Raspberry Pi 5:
 
 ```sh
-# For libomxil
-LICENSE_FLAGS_WHITELIST = "commercial"
-IMAGE_INSTALL_append = "libomxil"
+cd "$AGL_SOURCE"
+source meta-agl/scripts/aglsetup.sh -m raspberrypi5 -b raspberrypi5 agl-demo agl-devel
 ```
 
-## 3. Using BitBake
-
-This section shows the `bitbake` command used to build the AGL image.
-
-Start the build using the `bitbake` command.
-
-**NOTE:** An initial build can take many hours depending on your
-CPU and Internet connection speeds.
-The build also takes approximately 100G-bytes of free disk space.
-
-**Flutter Based IVI demo :**
-The target is `agl-ivi-demo-flutter`.
+For Raspberry Pi 4:
 
 ```sh
-$ time bitbake agl-ivi-demo-flutter
+cd "$AGL_SOURCE"
+source meta-agl/scripts/aglsetup.sh -m raspberrypi4 -b raspberrypi4 agl-demo agl-devel
 ```
 
-By default, the build process puts the resulting image in the Build Directory and further exporting that as `$IMAGE_NAME`.
-Here is example for the Raspberry Pi 5 board for Flutter Based demo:
+The Pi 4 AGL setup template selects the 64-bit BSP MACHINE `raspberrypi4-64`; its deploy directory and image filenames use that name. `raspberrypi4` is the name passed to `aglsetup.sh`, and the build directory above is also named `raspberrypi4`.
+
+`agl-demo` supplies the demo layers, and `agl-devel` enables development facilities. The script enters the chosen build directory. Add `-f` only when intentionally replacing an existing configuration. See [build initialization](../initialize-build.md) for other options.
+
+## 2. Configure the build
+
+Edit `conf/local.conf` in the initialized build directory. See [Customizing Your Build](../../../customize/build-output.md) for shared downloads, cache locations, and image settings.
+
+If a selected recipe has restricted license flags, review its license and accept only the required flags through `LICENSE_FLAGS_ACCEPTED`. For example, `LICENSE_FLAGS_ACCEPTED:append = " commercial_<recipe-name>"` uses a placeholder that must be replaced with the recipe's actual flag. This accepts a build flag; it does not install a package. See [Yocto's license flag documentation](https://docs.yoctoproject.org/{{ yocto.codename }}/dev-manual/licenses.html#enabling-commercially-licensed-recipes).
+
+The legacy `LICENSE_FLAGS_WHITELIST` variable has been replaced by `LICENSE_FLAGS_ACCEPTED`. Package additions use the current override syntax, such as `IMAGE_INSTALL:append = " package-name"`, with a leading space. Select packages that actually support the chosen board and checkout.
+
+## 3. Build and locate the image
+
+Choose the Flutter IVI demo:
 
 ```sh
-<build_dir>/tmp/deploy/images/raspberrypi5/agl-ivi-demo-flutter-raspberrypi5.rootfs.wic.zst
-
-$ export IMAGE_NAME=agl-ivi-demo-flutter-raspberrypi5.rootfs.wic.zst
+bitbake agl-ivi-demo-flutter
 ```
 
-**Qt Based IVI demo :**
-The target is `agl-ivi-demo-qt`.
+Or build the Qt IVI demo:
 
 ```sh
-$ time bitbake agl-ivi-demo-qt
+bitbake agl-ivi-demo-qt
 ```
 
-By default, the build process puts the resulting image in the Build Directory and further exporting that as `$IMAGE_NAME`.
-Here is example for the Raspberry Pi 4 board for Qt Based demo:
+The first build can take several hours; check the [host requirements](../prepare-host.md) before starting. The stable WIC filenames in the [Pi 4 artifact directory]({{ agl_download_base }}/latest/raspberrypi4/deploy/images/raspberrypi4-64/) and [Pi 5 artifact directory]({{ agl_download_base }}/latest/raspberrypi5/deploy/images/raspberrypi5/) are:
+
+| Board | Build output directory | Flutter image | Qt image |
+| --- | --- | --- | --- |
+| Pi 4 | `$AGL_SOURCE/raspberrypi4/tmp/deploy/images/raspberrypi4-64/` | `agl-ivi-demo-flutter-raspberrypi4-64.wic.zst` | `agl-ivi-demo-qt-raspberrypi4-64.wic.zst` |
+| Pi 5 | `$AGL_SOURCE/raspberrypi5/tmp/deploy/images/raspberrypi5/` | `agl-ivi-demo-flutter-raspberrypi5.wic.zst` | `agl-ivi-demo-qt-raspberrypi5.wic.zst` |
+
+Use the actual filenames from your build; release-specific configuration can change image suffixes or compression. To inspect the resolved output directory and formats from the initialized build shell:
 
 ```sh
-<build_dir>/tmp/deploy/images/raspberrypi4/agl-ivi-demo-qt-raspberrypi4.rootfs.wic.zst
-
-$ export IMAGE_NAME=agl-ivi-demo-qt-raspberrypi4.rootfs.wic.zst
+bitbake-getvar -r agl-ivi-demo-flutter DEPLOY_DIR_IMAGE
+bitbake-getvar -r agl-ivi-demo-flutter IMAGE_FSTYPES
 ```
 
-## 4. Deploying the AGL Demo Image
+Substitute `agl-ivi-demo-qt` for the Qt build. See [Yocto's variable inspection guide](https://docs.yoctoproject.org/{{ yocto.codename }}/dev-manual/debugging.html#viewing-variable-values).
 
-Deploying the AGL demo image consists of copying the image on a MicroSD card,
-plugging the card into the Raspberry Pi board, and then booting the board.
+## 4. Write the microSD card and boot
 
-Follow these steps to copy the image to a MicroSD card and boot
-the image on the Raspberry Pi 5/4 board:
+Insert a microSD card with capacity greater than the uncompressed WIC disk size. On the build host, identify the whole removable device with `lsblk`, then unmount its mounted partitions.
 
-  1. Plug your MicroSD card into your Build Host (i.e. the system that has your build output).
+```sh
+lsblk
+```
 
-  2. Extract the image into the SD card of Raspberry Pi 4 :
+Confirm the device before every write. The following example replaces the selected device's contents. Use the Pi 5 directory and filename for a Pi 5, or the matching Qt filename for Qt:
 
-    **NOTE:** For Raspberry Pi 5, the image is at `<build-dir>/tmp/deploy/images/raspberrypi5/${IMAGE_NAME}`.
+```sh
+cd "$AGL_SOURCE/raspberrypi4/tmp/deploy/images/raspberrypi4-64"
+IMAGE=agl-ivi-demo-flutter-raspberrypi4-64.wic.zst
+SD_DEVICE=/dev/sdX  # replace after checking lsblk
+zstd -dc "$IMAGE" | sudo dd of="$SD_DEVICE" bs=4M conv=fsync status=progress
+sync
+```
 
-      Be sure you are root, provide the actual device name for *sdcard_device_name*, and the actual image name for *image_name*.
+Insert the card into the board, connect its display and network, and power on. Check that the selected demo starts. When the board has a network address and the image permits root SSH login:
 
-      ```sh
-      $ lsblk
-      $ sudo umount <sdcard_device_name>
-      $ zstdcat -d ${IMAGE_NAME} | sudo dd of=<sdcard_device_name> bs=4M
-      $ sync
-      ```
+```sh
+ssh root@<Raspberry-Pi-ip-address>
+```
 
-    **IMPORTANT NOTE:** Before re-writing any device on your Build Host, you need to
-        be sure you are actually writing to the removable MicroSD card and not some other
-        device.
-        Each computer is different and removable devices can change from time to time.
-        Consequently, you should repeat the previous operation with the MicroSD card to
-        confirm the device name every time you write to the card.
+See the [display guide](raspberry-pi/display.md), [camera guide](raspberry-pi/camera.md), and [device guide](raspberry-pi/devices.md) for peripheral configuration. Verify those settings for the exact board and release.
 
-    To summarize this example so far, we have the following:
-        The first SATA drive is `/dev/sda` and `/dev/sdc` corresponds to the MicroSD card, and is also marked as a removable device.You can see this in the output of the `lsblk` command where "1" appears in the "RM" column for that device.
+## 5. Collect a serial boot log
 
-  3. SSH into Raspberry Pi :
-    - Connect Raspberry Pi to network : `Homescreen > Settings`, IP address mentioned here.
-    - SSH :
+Use a 3.3 V UART adapter and the connector/pinout for the specific board. Raspberry Pi 4 and 5 have different UART arrangements; follow the [official UART documentation](https://www.raspberrypi.com/documentation/computers/configuration.html#configuring-uarts). Identify wires by the adapter's TX, RX, and GND labels, since wire colors are vendor-specific.
 
-      ```sh
-      $ ssh root@<Raspberry-Pi-ip-address>
-      ```
+Check the AGL image's console device and baud rate in its generated kernel command line. Connect adapter RX to board TX, adapter TX to board RX, and GND to GND. Open the corresponding host serial device at that baud rate; for a 115200-baud console, for example:
 
-  4. Serial Debugging :
+```sh
+sudo screen /dev/ttyUSB0 115200
+```
 
-    When things go wrong, you can take steps to debug your Raspberry Pi.
-    For debugging, you need a 3.3 Volt USB Serial cable to facilitate
-    communication between your Raspberry Pi board and your build host.
-
-    You can reference the following diagram for information on the following steps:
-
-    ![](../../../../assets/source/01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/images/RaspberryPi2-ModelB-debug-serial-cable.png)
-
-    1. Connect the TTL cable to the Universal Asynchronous Receiver-Transmitter
-      (UART) connection on your Raspberry Pi board.
-      Do not connect the USB side of the cable to your build host at this time.
-
-          **CAUTION:** No warranty is provided using the following procedure.
-          Pay particular attention to the colors of your cable as they could
-          vary depending on the vendor.
-
-    2. Connect the cable's BLUE wire to pin 6 (i.e. Ground) of the UART.
-
-    3. Connect the cable's GREEN RX line to pin 8 (i.e. the TXD line) of
-      the UART.
-
-    4. Connect the cable's RED TX line to pin 10 (i.e. the RXD line) of
-      the UART.
-
-    5. Plug the USB connector of the cable into your build host's USB port.
-
-    6. Use your favorite tool for serial communication between your build host
-      and your Raspberry Pi.
-      For example, if your build host is a native Linux machine (e.g. Ubuntu)
-      you could use `screen` as follows from a terminal on the build host:
-
-      ```sh
-      $ sudo screen /dev/ttyUSB0 115200
-      ```
+Record the board model, image build identifier, and complete boot log when diagnosing a failure. See [Troubleshooting](../../../../troubleshooting/index.md).

@@ -1,8 +1,10 @@
 ---
 title: "Initialize the AGL build environment"
 source_path: "01_Getting_Started/02_Building_AGL_Image/04_Initializing_Your_Build_Environment.md"
-content_status: imported
+content_status: adapted
 ---
+
+First complete [Download AGL source](download-source.md), which defines `AGL_TOP` as the parent workspace and `AGL_SOURCE` as the selected source directory.
 
 Part of the downloaded AGL software is a setup script that you must
 run to initialize the build environment.
@@ -12,7 +14,7 @@ run to initialize the build environment.
 You can find this script here:
 
 ```sh
-$AGL_TOP/{{ agl.codename }}/meta-agl/scripts/aglsetup.sh
+$AGL_SOURCE/meta-agl/scripts/aglsetup.sh
 ```
 
 The script accepts many options that allow you to define build parameters such
@@ -20,7 +22,7 @@ as the target hardware (i.e. the machine), build directory, and so forth.
 Use the following commands to see the available options and script syntax:
 
 ```sh
-$ cd $AGL_TOP/{{ agl.codename }}
+$ cd $AGL_SOURCE
 $ source meta-agl/scripts/aglsetup.sh -h
 ```
 
@@ -80,7 +82,7 @@ which they reside.
 
 Following is a list of the available features:
 
-```sh
+```text
 Available features:
    [meta-agl]                                    # CORE layer
        Refer: https://git.automotivelinux.org/AGL/meta-agl/tree/templates/feature
@@ -160,7 +162,13 @@ for the machine, and chooses the "agl-demo" feature, which also includes the "ag
 , "agl-app-framework", "agl-selinux", "agl-kuksa-val" and "agl-flutter" features:
 
 ```sh
-$ source meta-agl/scripts/aglsetup.sh -m qemux86-64 -b qemux86-64 agl-demo
+cd "$AGL_SOURCE"
+source meta-agl/scripts/aglsetup.sh -m qemux86-64 -b qemux86-64 agl-demo
+```
+
+Example output:
+
+```text
 ------------ aglsetup.sh: Starting
 Generating configuration files:
    Build dir: /agl/{{ agl.codename }}/tree/qemux86-64
@@ -216,7 +224,7 @@ https://docs.automotivelinux.org/en/{{ agl.codename }}/#01_Getting_Started/02_Bu
 
 Running the script creates the Build Directory if it does not already exist.
 The default Build Directory is `$AGL_TOP/<release-branch-name>/build`, and the nomenclature to be used throughout this doc is going to be `$AGL_TOP/<release-branch-name>/<build-dir>`
-For this example, the Build Directory is `$AGL_TOP/{{ agl.codename }}/qemux86-64`.
+For this example, the Build Directory is `$AGL_SOURCE/qemux86-64`.
 
 The script's output also indicates the machine and AGL features selected for the build.
 

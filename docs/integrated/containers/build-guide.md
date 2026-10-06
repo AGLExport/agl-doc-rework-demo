@@ -1,7 +1,7 @@
 ---
 title: "Instrument Cluster with container isolation"
 source_path: "01_Getting_Started/03_Build_and_Boot_guide_Profile/01_Instrument_Cluster_(IC-IVI_with_Container_isolation).md"
-content_status: imported
+content_status: adapted
 ---
 
 # Build and Boot AGL Instrument Cluster demo image (IC-IVI with Container isolation)
@@ -12,8 +12,8 @@ container integration.
 
 ## 1. Select Image type and target board
 
-AGL IC container integration has various type.  Developer need to choose
-which integration type.  Those types are shown in table 1. 
+AGL IC container integration has various type.  Developer need to choose
+which integration type.  Those types are shown in table 1.
 
 **Table 1. Integration type.**
 
@@ -24,7 +24,7 @@ which integration type.  Those types are shown in table 1. 
 | 2b | Instrument cluster with AGL demo IVI install to one by one partition. | This integration aim to get full demo integration with AGL demo IVI.  This integration is extend from 2a integration.  This integration support instrument cluster guest and four IVI guest (momi, qt, flutter).   This integration aim to use AGL demonstration in each event by developer. | 16GByte | 2a+6h | 600GByte | ![](../../assets/source/01_Getting_Started/03_Build_and_Boot_guide_Profile/images/image2.png) |
 
 
-AGL IC container integration supported two board.  Those boards are shown in
+AGL IC container integration supported two board.  Those boards are shown in
 table 2.
 
 **Table2. Supported board.**
@@ -37,12 +37,12 @@ table 2.
 
 We recommend choosing Sparrow Hawk or Raspberry Pi5 (4G or 8G) or NanoPC-T6 (4G or 8G or 16G).
 
-**Typical Hardware Set is shown in Appendix.1. **
+**Typical Hardware Set is shown in Appendix.1. **
 
 ## 2. Setup build environment
 
 Build environment for AGL IC container integration is same as AGL other
-profile build environment. 
+profile build environment.
 
 ### 1st step:
 Please read [[Build Process Overview]](../../standalone/build/common/build-overview.md) in AGL doc.
@@ -50,7 +50,9 @@ Please read [[Build Process Overview]](../../standalone/build/common/build-overv
 ### 2nd step:
 Please read [[Preparing Your Build Host]](../../standalone/build/common/prepare-host.md) in AGL doc.
 
-### 3rd step: 
+Use the directory definitions in [Download AGL source](../../standalone/build/common/download-source.md): `AGL_TOP` is the parent directory and `AGL_SOURCE` is the checkout root.
+
+### 3rd step:
 Define Your Top-Level Directory.
 
 ```bash
@@ -74,17 +76,17 @@ $ chmod a+x $HOME/bin/repo
 If your environment already setup user information for git, please skip this step.
 
 ```bash
-$ git config \--global user.email "you@example.com"
-$ git config \--global user.name "Your Name"
+$ git config --global user.email "you@example.com"
+$ git config --global user.name "Your Name"
 ```
 
 ### 6th step: Download the AGL Source Files
 
 ```bash
 $ cd $AGL_TOP
-$ mkdir {{ agl.codename }}
-$ export AGL_TOP=$HOME/AGL/{{ agl.codename }}
-$ cd $AGL_TOP
+$ mkdir -p {{ agl.codename }}
+$ export AGL_SOURCE="$AGL_TOP/{{ agl.codename }}"
+$ cd "$AGL_SOURCE"
 $ repo init -b {{ agl.codename }} -u https://gerrit.automotivelinux.org/gerrit/AGL/AGL-repo
 $ repo sync
 ```
@@ -92,10 +94,10 @@ $ repo sync
 
 ## 3. Configure to target board and build.
 
-### 1st step:  Run the aglsetup.sh Script.
+### 1st step:  Run the aglsetup.sh Script.
 
 ```bash
-$ cd $AGL_TOP
+$ cd "$AGL_SOURCE"
 ```
 
 When your board is R-Car V4H SBC "Sparrow Hawk".
@@ -122,7 +124,7 @@ $ source meta-agl/scripts/aglsetup.sh -f -m raspberrypi5 -b build-ic-rpi5 agl-ic
 
 ### 2nd step: Build target image.
 
-In this time, you can build 1 and 2a.  If you want to build 2b,
+In this time, you can build 1 and 2a.  If you want to build 2b,
 please do extra step in next section.
 
 When you choose integration type 1.
@@ -139,11 +141,11 @@ $ bitbake agl-instrument-cluster-container-demo
 
 ## 4. Extra step for type 2b build.
 
-This extra step can select 4.1 or 4.2.  When you want to build AGL demo
-IVI container guest yourself, please select the 4.1 workflow.  When you
+This extra step can select 4.1 or 4.2.  When you want to build AGL demo
+IVI container guest yourself, please select the 4.1 workflow.  When you
 want to create AGL IC container demo quickly, please select 4.2 workflow.
 
-Typically 4.1 step requires long build time about 6h.  When you want to
+Typically 4.1 step requires long build time about 6h.  When you want to
 build AGL Ref HW/ SK+ Kingfisher software, you can't use the 4.2
 work flow due to Renesas proprietary license limitation.
 
@@ -154,8 +156,9 @@ work flow due to Renesas proprietary license limitation.
 We recommend to open new terminal to do this extra section.
 
 ```bash
-$ export AGL_TOP=$HOME/AGL/{{ agl.codename }}
-$ cd $AGL_TOP
+$ export AGL_TOP="$HOME/AGL"
+$ export AGL_SOURCE="$AGL_TOP/{{ agl.codename }}"
+$ cd "$AGL_SOURCE"
 ```
 
 When your board is R-Car V4H SBC "Sparrow Hawk".
@@ -191,10 +194,10 @@ $ bitbake agl-ivi-demo-flutter
 
 #### 3rd step: Set deploy path of AGL IVI Demo to IC side config.
 
-Type 2b integration refer to IVI pre build image.  Please set IVI side
+Type 2b integration refer to IVI pre build image.  Please set IVI side
 deploy directory in ic side local.conf (or site.conf).
 
-At $AGL_TOP/build-ic-XXXX/conf/local.conf
+At $AGL_SOURCE/build-ic-XXXX/conf/local.conf
 
 Add to
 ```bash
@@ -238,7 +241,7 @@ $ bitbake agl-instrument-cluster-container-demo
 The 2a and 2b image is constructed by wic image, that include partition
 table and each partition data into one image file.
 
-In default setting, that wic image is compressed zstd.  When that wic
+In default setting, that wic image is compressed zstd.  When that wic
 image to the SD card, you need to use zstdcat and dd commands on your
 build PC.
 
@@ -251,7 +254,7 @@ SSD/HDD data break (only logical, not physical).**
 
 For example;
 
-A /dev/sda is SSD for your PC.  A /dev/sdb is SD card.  You should use
+A /dev/sda is SSD for your PC.  A /dev/sdb is SD card.  You should use
 /dev/sdb, must not use /dev/sda.
 
 When your PC has direct SD card interface not a use card reader, your SD
@@ -275,7 +278,12 @@ IC container integration has three method for container exchange.
 The cmcontrol is a command line interface for the container manager.  It supports container listing, shutdown, reboot, force reboot, and active guest change.
 
 ```bash
-$ cmcontrol
+cmcontrol --help
+```
+
+Example help output:
+
+```text
 usage: [options]
 
  --help                   print help strings.
@@ -330,7 +338,7 @@ $ cmcontrol --force-reboot-guest-role=ivi
 | Why not show map in default screen of Momi IVI. | When you want to show the map, you need an extra step.  Please follow [this page](../../components/applications/momi-navigation.md).|
 
 
-## Appendix.1.  Typical Hardware set.
+## Appendix.1.  Typical Hardware set.
 
 ### NanoPC-T6
 
@@ -374,12 +382,12 @@ $ cmcontrol --force-reboot-guest-role=ivi
 
 ## Appendix 3. How to use Web UI (Momi Web).
 
-The Momi web is a web interface for container exchange.  When you want
+The Momi web is a web interface for container exchange.  When you want
 to use Momi web, you must connect network between board and
 PC/Tablet/Phone.
 
 **The Momi web is completely demo feature, that open many security hole.
- You shall not use out of standalone demo.**
+ You shall not use out of standalone demo.**
 
 ### 1st step: Check IP address in your board.
 
@@ -387,16 +395,16 @@ After booting, you check IP address in your board.
 
 ```bash
 root@raspberrypi4-64:\~# ifconfig\
-eth0      Link encap:Ethernet  HWaddr E4:XX:YY:ZZ:WW:VV\
-           inet addr:192.168.10.128  Bcast:192.168.10.255
-  Mask:255.255.255.0
+eth0      Link encap:Ethernet  HWaddr E4:XX:YY:ZZ:WW:VV\
+           inet addr:192.168.10.128  Bcast:192.168.10.255
+  Mask:255.255.255.0
 ```
 
 In this case, this board set IP address by 192.168.10.128.
 
 ### 2nd step: Connect to board using web browser.
 
-Open "[http://a.b.c.d:8080](http://a.b.c.d:8080)".  When
+Open "[http://a.b.c.d:8080](http://a.b.c.d:8080)".  When
 a board is set IP address 192.168.10.128, you open
 "[http://192.168.10.128:8080](http://192.168.10.128:8080)".
 
@@ -417,10 +425,10 @@ UI.
 ### How to get configuration tool.
 
 This description is targeting to [this type of special
-keyboard](https://amzn.asia/d/dUxGK5Q). 
+keyboard](https://amzn.asia/d/dUxGK5Q).
 
 The usb-12key-kbd-prog is unofficial community tool of this key board
-that is possible to use linux.  Official windows tool is possible to get
+that is possible to use linux.  Official windows tool is possible to get
 official site.
 
 Usage of usb-12key-kbd-prog is please refer to upstream site.

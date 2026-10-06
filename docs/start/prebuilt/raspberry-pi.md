@@ -10,7 +10,7 @@ Use a Raspberry Pi 4 or 5, a suitable display, network access, and a microSD car
 
 ## Download the Flutter IVI image
 
-The configured channel is **{{ agl.codename }} / {{ artifact_kind }}**. The following artifact directories were checked on 5 October 2026; select matching files from your chosen release/build.
+The configured channel is **{{ agl.codename }} / {{ artifact_kind }}**. The following artifact directories were checked on 7 October 2026; select matching files from your chosen release/build.
 
 | Board | Artifact directory | Image |
 | --- | --- | --- |

@@ -1,60 +1,57 @@
 ---
 title: "Set up the AGL SDK"
 source_path: "04_Developer_Guides/01_Basic/02_Setting_Up_AGL_SDK.md"
-content_status: imported
+content_status: adapted
 ---
 
-AGL provides a pre-built ready-made Software Development Kit (SDK) to help
-quickstart the service and application development process.
+# Set up the AGL SDK
 
-1. Download the prebuilt SDK :
+Install an SDK that matches your target's machine, AGL release, image variant, and build. The SDK contains a host compiler and target sysroot; it does not update the target image. In particular, use the Qt IVI SDK for [Qt application development](qt.md).
 
-    Please open the link below and download .sh file for desired machine.
+## Choose the matching installer
 
-    **Note:** The links provided are for the {{ agl.codename }} branch. If you want SDK for a specific branch then change the name from {{ agl.codename }} to the specific branch.
+The development-branch SDK directories are:
 
-      - **x86** : [qemux86-64]({{ agl_download_base }}/latest/qemux86-64/deploy/sdk/)
+- [qemux86-64 SDKs]({{ agl_download_base }}/latest/qemux86-64/deploy/sdk/)
+- [qemuarm64 SDKs]({{ agl_download_base }}/latest/qemuarm64/deploy/sdk/)
 
-        **Note:** .sh file will be with name 	"poky-agl-glibc-x86_64-agl-ivi-demo-qt-crosssdk-corei7-64-qemux86-64-toolchain-$(version number).sh" where version number is regularly updated on the site.
+For a released image, select its release/build directory in the [AGL downloads](https://download.automotivelinux.org/AGL/) instead of taking a different build from `latest`. The latter changes as snapshots are published. For another board, use that board's SDK directory or generate its SDK from your source build.
 
-      - **AARCH64 - ARM 64bit** : [qemuarm64]({{ agl_download_base }}/latest/qemuarm64/deploy/sdk/)
+Choose the `.sh` installer for the **Qt** image and your target architecture. The current development artifacts use names such as `agl-glibc-x86_64-agl-ivi-demo-qt-corei7-64-qemux86-64-toolchain-<version>.sh` and `agl-glibc-x86_64-agl-ivi-demo-qt-aarch64-qemuarm64-toolchain-<version>.sh`. Older releases and locally built cross-SDK images can use a `poky-` prefix or `-crosssdk` in the filename. Copy the exact filename from your selected directory rather than assuming either naming scheme.
 
-        **Note:** .sh file will be with name 	"	poky-agl-glibc-x86_64-agl-ivi-demo-qt-crosssdk-aarch64-qemuarm64-toolchain-$(version number).sh" where version number is regularly updated on the site.
+The `x86_64` before the image name describes the Linux SDK host. The later `corei7-64` or `aarch64` identifies the target tune. Keep the installer's companion manifests and the target image's build information to document this pairing.
 
+## Install and activate
 
-        *Henceforth,* **qemux86-64** *is used in these guides, unless specified
-        otherwise. We also use the 'agl-ivi-demo-qt-crosssdk' as example.*
+Download the selected installer to `~/Downloads`. Replace the example path below with its exact filename; do not use a wildcard that could select several releases:
 
-2. Create application development directory and copy SDK into them :
+```sh
+mkdir -p "$HOME/agl-app"
+export AGL_SDK_INSTALLER="$HOME/Downloads/agl-glibc-x86_64-agl-ivi-demo-qt-corei7-64-qemux86-64-toolchain-<version>.sh"
+test -f "$AGL_SDK_INSTALLER"
+chmod u+x "$AGL_SDK_INSTALLER"
+"$AGL_SDK_INSTALLER" -d "$HOME/agl-app/agl-sdk"
+```
 
-    **Note:** In the copy command below change the file name with name of your downloaded .sh file. In the example below file name is based on x86
+Use a new installation directory when changing SDK versions. The installer prints the environment setup filename at completion. Source that exact file in every shell used for application builds. For the qemux86-64 example:
 
-    ```sh
-    $ mkdir ~/agl-app
-    $ cp ~/Downloads/poky-agl-glibc-x86_64-agl-ivi-demo-qt-crosssdk-*.sh ~/agl-app/
-    $ cd ~/agl-app
-    ```
+```sh
+source "$HOME/agl-app/agl-sdk/environment-setup-corei7-64-agl-linux"
+printf 'Target sysroot: %s\n' "$SDKTARGETSYSROOT"
+printf 'CMake toolchain: %s\n' "$OE_CMAKE_TOOLCHAIN_FILE"
+test -d "$SDKTARGETSYSROOT"
+test -f "$OE_CMAKE_TOOLCHAIN_FILE"
+```
 
-3. Install the downloaded SDK :
+For an Arm SDK, use its printed environment setup filename instead. Do not activate two SDKs or a BitBake build environment in the same shell. Continue with [Qt application](qt.md) for a complete create/build/deploy/run example, or [Build applications with the SDK](build-apps.md) for C and Autotools applications.
 
-    **Note:** In commands below again change the file name based on your downloaded .sh file
+## Generate an SDK from your build
 
+When using a custom image or a board without a matching prebuilt SDK, generate one from the same checkout and build configuration as the target. In the initialized Qt IVI BitBake shell:
 
-    ```sh
-    $ chmod 777 poky-agl-glibc-x86_64-agl-ivi-demo-qt-crosssdk-*.sh
-    $ mkdir agl-sdk/
-    $ ./poky-agl-glibc-x86_64-agl-ivi-demo-qt-crosssdk-*.sh
-    ```
-    Select target directory for SDK : `~/agl-app/agl-sdk`
+```sh
+bitbake agl-ivi-demo-qt-crosssdk
+ls tmp/deploy/sdk/*.sh
+```
 
-    ```sh
-    Automotive Grade Linux SDK installer version 14.0.0
-    =============================================================
-    Enter target directory for SDK (default: /opt/agl-sdk/10.90.0+snapshot-corei7-64): ~/agl-app/agl-sdk
-    You are about to install the SDK to "/home/boron/agl-app/agl-sdk". Proceed [Y/n]? Y
-    Extracting SDK..........................................................................................................................................done
-    Setting it up...done
-    SDK has been successfully set up and is ready to be used.
-    Each time you wish to use the SDK in a new shell session, you need to source the environment setup script e.g.
-    $ . /home/boron/agl-app/agl-sdk/environment-setup-corei7-64-agl-linux
-    ```
+The [cross-SDK image recipe](https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-platform/images/agl-ivi-demo-qt-crosssdk.bb) inherits the Qt 6 SDK support and includes development headers and libraries from the Qt IVI image. To generate an SDK for another image that supports this task, use `bitbake <image-name> -c populate_sdk` and ensure its SDK configuration includes the Qt modules your application needs. See [Yocto's standard SDK workflow](https://docs.yoctoproject.org/{{ yocto.codename }}/sdk-manual/using.html).

@@ -9,10 +9,10 @@ For a first evaluation on a Linux PC, start with the [QEMU x86-64 quickstart](..
 
 | Environment | MACHINE | Documented starting point | Guide |
 | --- | --- | --- | --- |
-| QEMU x86-64 | qemux86-64 | Prebuilt Qt IVI demo | [Run the image](../../../../start/prebuilt/qemu-x86-64.md) |
+| QEMU x86-64 | qemux86-64 | Prebuilt Flutter IVI demo | [Run the image](../../../../start/prebuilt/qemu-x86-64.md) |
 | QEMU AArch64 | qemuarm64 | Hardware and artifact reference | [Hardware reference](hardware.md) |
-| Raspberry Pi 4 | raspberrypi4 | Prebuilt Qt IVI demo or source build | [Prebuilt](../../../../start/prebuilt/raspberry-pi.md) / [Build](../hardware/raspberry-pi.md) |
-| Raspberry Pi 5 | raspberrypi5 | Board and profile-specific source builds | [Build guide](../hardware/raspberry-pi.md) / [IC profile](../../../../integrated/containers/build-guide.md) |
+| Raspberry Pi 4 | `raspberrypi4-64` (AGL setup: `raspberrypi4`) | Prebuilt Flutter IVI demo or source build | [Prebuilt](../../../../start/prebuilt/raspberry-pi.md) / [Build](../hardware/raspberry-pi.md) |
+| Raspberry Pi 5 | raspberrypi5 | Prebuilt Flutter IVI demo or profile-specific source build | [Prebuilt](../../../../start/prebuilt/raspberry-pi.md) / [Build guide](../hardware/raspberry-pi.md) / [IC profile](../../../../integrated/containers/build-guide.md) |
 | R-Car Gen3 | h3ulcb and related variants | Board-specific source build | [Build guide](../hardware/renesas-rcar-gen3.md) |
 | Sparrow Hawk | sparrow-hawk | Board-specific build and IC container profile | [Build guide](../hardware/sparrow-hawk.md) / [IC profile](../../../../integrated/containers/build-guide.md) |
 | NanoPC-T6 | nanopc-t6 | Rockchip and IC profile guides | [Build guide](../hardware/rockchip.md) / [IC profile](../../../../integrated/containers/build-guide.md) |

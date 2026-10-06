@@ -1,7 +1,7 @@
 ---
 title: "Unified HMI"
 source_path: "06_Component_Documentation/60_Unified_HMI/01_Unified_HMI.md"
-content_status: imported
+content_status: adapted
 ---
 
 # Unified HMI
@@ -79,7 +79,7 @@ Follow the [AGL documentation](../../standalone/build/common/build-overview.md) 
 
 For example:
 ```
-$ cd $AGL_TOP/{{ agl.codename }}
+$ cd $AGL_SOURCE
 $ source ./meta-agl/scripts/aglsetup.sh -m qemux86-64 -b qemux86-64 agl-demo agl-devel agl-uhmi
 ```
 

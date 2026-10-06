@@ -67,7 +67,7 @@ extra_css:
 extra:
   agl:
     codename: master
-    full_name: Wacky Walleye
+    full_name: Vibrant Vimba
   yocto:
     codename: wrynose
     version: 6.0.x
@@ -140,7 +140,7 @@ not_in_nav: |
 nav:
 - Home:
   - index.md
-  - AGL Assets:
+  - AGL Artifact:
     - home/index.md
     - Linux Distribution:
       - home/standalone/index.md
