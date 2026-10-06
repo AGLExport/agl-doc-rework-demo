@@ -87,7 +87,7 @@ def content_requirements(instructions):
         if declaration:
             current = declaration[1]
             topic = None
-            requirements[current] = {'headings': [], 'figures': [], 'subsection_links': False}
+            requirements[current] = {'headings': [], 'figures': [], 'subsection_links': False, 'section_references': {}}
         elif current is not None and bullet:
             title = bullet[2]
             figure = title.endswith(' with figure.')
@@ -102,11 +102,23 @@ def content_requirements(instructions):
         elif current is not None and topic is not None and line[:1].isspace() and line.strip():
             if line.strip().casefold().startswith('figure out for ') and topic not in requirements[current]['figures']:
                 requirements[current]['figures'].append(topic)
+            reference = re.search(r'should refer to (.+?) section\.', line)
+            if reference:
+                requirements[current]['section_references'][topic] = reference[1]
         elif current is not None and line.strip() == 'These contents should link to sub-sections.':
             requirements[current]['subsection_links'] = True
         elif line.strip():
             current, topic = None, None
     return requirements
+
+
+def local_document_links(body, page):
+    targets = set()
+    for url in re.findall(r'(?<!!)\[[^\]]*\]\(([^\s)]+)', body):
+        parsed = urlsplit(url.strip('<>'))
+        if not parsed.scheme and not parsed.netloc and parsed.path:
+            targets.add(posixpath.normpath(posixpath.join(posixpath.dirname(page), unquote(parsed.path))))
+    return targets
 
 
 def validate(project):
@@ -143,15 +155,15 @@ def validate(project):
         for title in rules['figures']:
             if not re.search(r'!\[[^\]]*\]\(|<img\b', by_title[title]):
                 raise ValueError('Required architecture figure is missing: ' + title)
+        for topic, referenced_section in rules['section_references'].items():
+            referenced_paths = [p for title, p in pages if title == referenced_section]
+            if len(referenced_paths) != 1 or referenced_paths[0] not in local_document_links(by_title[topic], path):
+                raise ValueError('Required section reference is missing: ' + topic + ' -> ' + referenced_section)
         if rules['subsection_links']:
             for index, (level, title) in enumerate(required):
                 if index + 1 < len(required) and required[index + 1][0] > level:
                     continue
-                targets = set()
-                for url in re.findall(r'(?<!!)\[[^\]]*\]\(([^\s)]+)', by_title[title]):
-                    parsed = urlsplit(url.strip('<>'))
-                    if not parsed.scheme and not parsed.netloc and parsed.path:
-                        targets.add(posixpath.normpath(posixpath.join(posixpath.dirname(path), unquote(parsed.path))))
+                targets = local_document_links(by_title[title], path)
                 descendants = {p for p in nav_paths if p != path and p.startswith(posixpath.dirname(path) + '/')}
                 if not targets & descendants:
                     raise ValueError('Required subsection link is missing: ' + title)
