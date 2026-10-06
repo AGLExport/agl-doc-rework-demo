@@ -105,14 +105,15 @@ Do not omit, rename, duplicate, or reorder these headings.
 ## Required Contents at Section
 
 Home section must be include these contents:
-* What is AGL
+* What is AGL.
+* AGL Community information.
+
+AGL Coverage section must be include these contents:
 * Background
-  * Traditional distributed architecture.
-  * Domain architecture.
-  * Central/Zone architecture.
-* AGL distributed system overview.
-* AGL integrated system overview.
-
-
-
+  * Traditional distributed architecture with figure.
+  * Domain architecture with figure.
+  * Central/Zone architecture with figure.
+* AGL distributed system overview. It's a base distribution for distributed architecture.
+* AGL integrated system overview. It's a base platform for Domain or Central/Zone architecture.
+These contents should link to sub-sections.
 
