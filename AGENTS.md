@@ -106,7 +106,10 @@ Do not omit, rename, duplicate, or reorder these headings.
 
 Home section must be include these contents:
 * What is AGL.
+  More detail, should refer to AGL Coverage section.
+
 * AGL Community information.
+
 
 AGL Coverage section must be include these contents:
 * Vehicle EE architectures.
