@@ -11,7 +11,7 @@ This document must be describe English.
 Each document must be followed document structure as a follow.
 
 - Home
-  - AGL Assets
+  - AGL Artifact
     - Linux Distribution
       - In-Vehicle Infotainment
       - Instrument Cluster
@@ -116,7 +116,7 @@ Home section must be include the following content:
 * AGL Community information.
 
 
-AGL Assets section must be include the following content:
+AGL Artifact section must be include the following content:
 * Vehicle EE architectures.
   * Traditional distributed architecture.
     Figure out for distributed architecture.
