@@ -11,12 +11,12 @@ This document must be describe English.
 Each document must be followed document structure as a follow.
 
 - Home
-  - AGL Coverage
-    - AGL distributed system
+  - AGL Assets
+    - Linux Distribution
       - In-Vehicle Infotainment
       - Instrument Cluster
       - Connected Gateway
-    - AGL integrated system
+    - Base platform for integrated system
       - SoDeV
       - Container integration
       - KVM based integration
@@ -109,14 +109,14 @@ Do not omit, rename, duplicate, or reorder these headings.
 
 ## Required Contents at Section
 
-Home section must be include these contents:
+Home section must be include the following content:
 * What is AGL.
   More detail, should refer to AGL Coverage section.
 
 * AGL Community information.
 
 
-AGL Coverage section must be include these contents:
+AGL Assets section must be include the following content:
 * Vehicle EE architectures.
   * Traditional distributed architecture.
     Figure out for distributed architecture.
@@ -134,4 +134,41 @@ AGL Coverage section must be include these contents:
   Overview. It's a base platform for Domain or Central/Zone architecture.
 
 These contents should link to sub-sections.
+
+
+Linux Distribution section must be include the following content:
+  AGL develops and provides a Linux distribution for automotive systems.  It focuses on a standalone system built on a single Linux Kernel and userland.
+
+
+In-Vehicle Infotainment section must be include the following content:
+  AGL provides a platform for IVI with demo software. This characteristic supports multiple GUI toolkit support. Flutter is the current mainstream GUI toolkit for AGL IVI. Qt6 is supported as well.
+
+
+Instrument Cluster section must be include the following content:
+  AGL provides a platform for an Instrument Cluster with demo software.
+  The Flutter-based Instrument Cluster is built on the IVI platform. It's an example of an Instrument Cluster built on COVESA VSS.
+  Qt-based Instrument Cluster is built on minimal userland that is starting point of small foot print userland.
+  Slint-based Instrument Cluster is an early example of a Rust language-based Instrument Cluster.
+
+
+Connected Gateway section must be include the following content:
+  AGL provides a platform for Connected Gateway. More details are TBD.
+
+
+Base platform for integrated system section must be include the following content:
+  AGL develops and provides a base platform for automotive integrated systems. It focuses on a multi feature on one integrated system.
+  This base platform integrates one or more AGL Linux distributions and/or other platforms.
+  
+
+SoDeV section must be include the following content:
+  SoDeV details shall import from https://www.automotivelinux.org/announcements/automotive-grade-linux-releases-open-source-sodev-reference-platform-for-software-defined-vehicles-and-welcomes-five-new-members/.
+  Must be include official architecture diagram.
+
+
+Container integration section must be include the following content:
+  AGL Container integration realize light weight integrated system built on Linux.
+
+
+KVM based integration section must be include the following content:
+  KVM based integration is another example for SoDeV.
 
