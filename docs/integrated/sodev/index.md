@@ -7,7 +7,7 @@ content_status: authored
 
 Use a published SoDeV workspace for your board, preserve source pins, and build a complete system before changing guest composition.
 
-- [Build](build.md)
+- [Build Platform](build.md)
 - [SoDeV Customize](customize/index.md)
 
 ## Further reading

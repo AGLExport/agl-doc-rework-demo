@@ -1,9 +1,9 @@
 ---
-title: "Get started"
+title: "Quick start"
 content_status: authored
 ---
 
-# Get started
+# Quick start
 
 Start with the [Pre-build image for IVI demo](prebuilt/index.md) chapter. It introduces the complete Flutter IVI demo and offers two boot routes: QEMU x86-64 and Raspberry Pi 4/5.
 

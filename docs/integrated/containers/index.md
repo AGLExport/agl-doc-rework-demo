@@ -7,7 +7,7 @@ content_status: authored
 
 The container profile combines cluster and IVI guests under a shared host kernel. Build the profile before customizing guest registration and resources.
 
-- [Build](build.md)
+- [Build Platform](build.md)
 - [Container integration Customize](customize/index.md)
 
 ## Further reading

@@ -30,7 +30,7 @@ For individual feature specifications, use the [API and service catalog](../comp
 
 | Next goal | Guide |
 | --- | --- |
-| Explore a running environment | [Get started](../start/index.md) |
+| Explore a running environment | [Quick start](../start/index.md) |
 | Develop your own application | [Application development](../standalone/index.md#apps) |
 | Build an image with your own configuration | [Platform development](../standalone/index.md#platform) |
 | Look up an API or a setting | [API & configuration](../components/index.md) |

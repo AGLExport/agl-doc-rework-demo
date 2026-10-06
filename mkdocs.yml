@@ -142,7 +142,7 @@ nav:
   - index.md
   - AGL Coverage:
     - home/index.md
-    - AGL distributed system.:
+    - AGL distributed system:
       - home/standalone/index.md
       - In-Vehicle Infotainment: home/standalone/ivi.md
       - Instrument Cluster: home/standalone/cluster.md
@@ -152,16 +152,16 @@ nav:
       - SoDeV: home/integrated/sodev.md
       - Container integration: home/integrated/containers.md
       - KVM based integration: home/integrated/kvm.md
-  - Get started:
-    - start/index.md
-    - Pre-build image for IVI demo:
-      - start/prebuilt/index.md
-      - Flutter IVI demo: start/prebuilt/flutter.md
-      - QEMU x86-64: start/prebuilt/qemu-x86-64.md
-      - Raspberry Pi 4/5: start/prebuilt/raspberry-pi.md
-  - AGL standalone distribution development:
+  - AGL distributed system distribution:
     - standalone/index.md
-    - Build:
+    - Quick start:
+      - start/index.md
+      - Pre-build image for IVI demo:
+        - start/prebuilt/index.md
+        - Flutter IVI demo: start/prebuilt/flutter.md
+        - QEMU x86-64: start/prebuilt/qemu-x86-64.md
+        - Raspberry Pi 4/5: start/prebuilt/raspberry-pi.md
+    - Build Platform:
       - standalone/build/index.md
       - Common part: standalone/build/common.md
       - In-Vehicle Infotainment:
@@ -186,19 +186,19 @@ nav:
     - integrated/index.md
     - SoDeV:
       - integrated/sodev/index.md
-      - Build: integrated/sodev/build.md
+      - Build Platform: integrated/sodev/build.md
       - SoDeV Customize:
         - integrated/sodev/customize/index.md
         - Create and Run Guest VM: integrated/sodev/customize/guest-vm.md
     - Container integration:
       - integrated/containers/index.md
-      - Build: integrated/containers/build.md
+      - Build Platform: integrated/containers/build.md
       - Container integration Customize:
         - integrated/containers/customize/index.md
         - Create and Run Guest Container: integrated/containers/customize/guest-container.md
     - KVM based integration:
       - integrated/kvm/index.md
-      - Build: integrated/kvm/build.md
+      - Build Platform: integrated/kvm/build.md
   - AGL Components:
     - components/index.md
     - AGL Reference Applications:

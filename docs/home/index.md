@@ -19,7 +19,7 @@ In a traditional distributed design, individual electronic control units (ECUs) 
 
 *Figure 1. Functions run on separate ECUs that communicate over the vehicle network.*
 
-[AGL distributed system.](standalone/index.md) introduces the use of standalone AGL environments for individual vehicle roles.
+[AGL distributed system](standalone/index.md) introduces the use of standalone AGL environments for individual vehicle roles.
 
 ### Domain architecture.
 
@@ -45,7 +45,7 @@ A central/zone design combines central computing with controllers organized by p
 
 AGL provides a base distribution for distributed ECUs. A standalone AGL environment supplies the operating system, services, and applications for a selected role. Separate deployments can communicate through vehicle data interfaces while retaining their own software environments.
 
-The [AGL distributed system.](standalone/index.md) section introduces these roles:
+The [AGL distributed system](standalone/index.md) section introduces these roles:
 
 - [In-Vehicle Infotainment](standalone/ivi.md) supplies the cabin user experience.
 - [Instrument Cluster](standalone/cluster.md) presents driving information.

@@ -1,16 +1,19 @@
 ---
-title: "AGL standalone distribution development"
+title: "AGL distributed system distribution"
 content_status: authored
 ---
 
-# AGL standalone distribution development
+# AGL distributed system distribution
 
-Develop the standalone distribution in three stages: build a profile, customize its image and recipes, then develop or package applications. Integrated systems have a separate chapter.
+Use this section to evaluate and develop standalone AGL environments for distributed ECUs. Start with a prebuilt Flutter IVI demo in Quick start. To create your own platform, prepare a build host, select an IVI or Instrument Cluster profile, and customize its image, recipes, and services. Application development covers Flutter and Qt workflows.
+
+For guest systems and shared computing resources, see [AGL integrated system development](../integrated/index.md).
 
 <span id="platform"></span>
 <span id="apps"></span>
 <span id="hardware"></span>
 
-- [Build](build/index.md)
+- [Quick start](../start/index.md)
+- [Build Platform](build/index.md)
 - [Platform Customize](customize/index.md)
 - [Application development](applications/index.md)

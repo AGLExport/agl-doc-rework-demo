@@ -1,9 +1,9 @@
 ---
-title: "Build"
+title: "Build Platform"
 content_status: authored
 ---
 
-# Build
+# Build Platform
 
 Select a published SoDeV workspace for your board before building. SoDeV workspaces have their own orchestration and pinned dependencies; the standalone distribution's `master` examples do not replace those pins.
 

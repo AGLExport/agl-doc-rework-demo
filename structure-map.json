@@ -21,16 +21,16 @@
       "breadcrumb": [
         "Home",
         "AGL Coverage",
-        "AGL distributed system."
+        "AGL distributed system"
       ],
-      "heading": "AGL distributed system.",
+      "heading": "AGL distributed system",
       "page": "home/standalone/index.md"
     },
     {
       "breadcrumb": [
         "Home",
         "AGL Coverage",
-        "AGL distributed system.",
+        "AGL distributed system",
         "In-Vehicle Infotainment"
       ],
       "heading": "In-Vehicle Infotainment",
@@ -40,7 +40,7 @@
       "breadcrumb": [
         "Home",
         "AGL Coverage",
-        "AGL distributed system.",
+        "AGL distributed system",
         "Instrument Cluster"
       ],
       "heading": "Instrument Cluster",
@@ -50,7 +50,7 @@
       "breadcrumb": [
         "Home",
         "AGL Coverage",
-        "AGL distributed system.",
+        "AGL distributed system",
         "Connected Gateway"
       ],
       "heading": "Connected Gateway",
@@ -98,15 +98,25 @@
     {
       "breadcrumb": [
         "Home",
-        "Get started"
+        "AGL distributed system distribution"
       ],
-      "heading": "Get started",
+      "heading": "AGL distributed system distribution",
+      "page": "standalone/index.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL distributed system distribution",
+        "Quick start"
+      ],
+      "heading": "Quick start",
       "page": "start/index.md"
     },
     {
       "breadcrumb": [
         "Home",
-        "Get started",
+        "AGL distributed system distribution",
+        "Quick start",
         "Pre-build image for IVI demo"
       ],
       "heading": "Pre-build image for IVI demo",
@@ -115,7 +125,8 @@
     {
       "breadcrumb": [
         "Home",
-        "Get started",
+        "AGL distributed system distribution",
+        "Quick start",
         "Pre-build image for IVI demo",
         "Flutter IVI demo"
       ],
@@ -125,7 +136,8 @@
     {
       "breadcrumb": [
         "Home",
-        "Get started",
+        "AGL distributed system distribution",
+        "Quick start",
         "Pre-build image for IVI demo",
         "QEMU x86-64"
       ],
@@ -135,7 +147,8 @@
     {
       "breadcrumb": [
         "Home",
-        "Get started",
+        "AGL distributed system distribution",
+        "Quick start",
         "Pre-build image for IVI demo",
         "Raspberry Pi 4/5"
       ],
@@ -145,25 +158,17 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL standalone distribution development"
+        "AGL distributed system distribution",
+        "Build Platform"
       ],
-      "heading": "AGL standalone distribution development",
-      "page": "standalone/index.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL standalone distribution development",
-        "Build"
-      ],
-      "heading": "Build",
+      "heading": "Build Platform",
       "page": "standalone/build/index.md"
     },
     {
       "breadcrumb": [
         "Home",
-        "AGL standalone distribution development",
-        "Build",
+        "AGL distributed system distribution",
+        "Build Platform",
         "Common part"
       ],
       "heading": "Common part",
@@ -172,8 +177,8 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL standalone distribution development",
-        "Build",
+        "AGL distributed system distribution",
+        "Build Platform",
         "In-Vehicle Infotainment"
       ],
       "heading": "In-Vehicle Infotainment",
@@ -182,8 +187,8 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL standalone distribution development",
-        "Build",
+        "AGL distributed system distribution",
+        "Build Platform",
         "In-Vehicle Infotainment",
         "Flutter IVI demo"
       ],
@@ -193,8 +198,8 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL standalone distribution development",
-        "Build",
+        "AGL distributed system distribution",
+        "Build Platform",
         "In-Vehicle Infotainment",
         "Qt IVI demo"
       ],
@@ -204,8 +209,8 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL standalone distribution development",
-        "Build",
+        "AGL distributed system distribution",
+        "Build Platform",
         "In-Vehicle Infotainment",
         "IVI based Flutter Cluster"
       ],
@@ -215,8 +220,8 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL standalone distribution development",
-        "Build",
+        "AGL distributed system distribution",
+        "Build Platform",
         "Instrument Cluster"
       ],
       "heading": "Instrument Cluster",
@@ -225,8 +230,8 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL standalone distribution development",
-        "Build",
+        "AGL distributed system distribution",
+        "Build Platform",
         "Instrument Cluster",
         "Qt based Cluster"
       ],
@@ -236,8 +241,8 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL standalone distribution development",
-        "Build",
+        "AGL distributed system distribution",
+        "Build Platform",
         "Instrument Cluster",
         "Slint based Cluster"
       ],
@@ -247,7 +252,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL standalone distribution development",
+        "AGL distributed system distribution",
         "Platform Customize"
       ],
       "heading": "Platform Customize",
@@ -256,7 +261,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL standalone distribution development",
+        "AGL distributed system distribution",
         "Platform Customize",
         "Create/Modify an AGL image"
       ],
@@ -266,7 +271,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL standalone distribution development",
+        "AGL distributed system distribution",
         "Platform Customize",
         "Create a custom recipe"
       ],
@@ -276,7 +281,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL standalone distribution development",
+        "AGL distributed system distribution",
         "Platform Customize",
         "Create a service"
       ],
@@ -286,7 +291,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL standalone distribution development",
+        "AGL distributed system distribution",
         "Application development"
       ],
       "heading": "Application development",
@@ -295,7 +300,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL standalone distribution development",
+        "AGL distributed system distribution",
         "Application development",
         "Flutter application"
       ],
@@ -305,7 +310,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL standalone distribution development",
+        "AGL distributed system distribution",
         "Application development",
         "Qt application"
       ],
@@ -334,9 +339,9 @@
         "Home",
         "AGL integrated system development",
         "SoDeV",
-        "Build"
+        "Build Platform"
       ],
-      "heading": "Build",
+      "heading": "Build Platform",
       "page": "integrated/sodev/build.md"
     },
     {
@@ -374,9 +379,9 @@
         "Home",
         "AGL integrated system development",
         "Container integration",
-        "Build"
+        "Build Platform"
       ],
-      "heading": "Build",
+      "heading": "Build Platform",
       "page": "integrated/containers/build.md"
     },
     {
@@ -414,9 +419,9 @@
         "Home",
         "AGL integrated system development",
         "KVM based integration",
-        "Build"
+        "Build Platform"
       ],
-      "heading": "Build",
+      "heading": "Build Platform",
       "page": "integrated/kvm/build.md"
     },
     {

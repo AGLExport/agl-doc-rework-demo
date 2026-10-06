@@ -1,9 +1,9 @@
 ---
-title: "Build"
+title: "Build Platform"
 content_status: authored
 ---
 
-# Build
+# Build Platform
 
 Build the host and guests as one selected integration profile. The [detailed guide](build-guide.md) covers Sparrow Hawk, NanoPC-T6, and Raspberry Pi 4/5 and describes variants and storage layouts.
 

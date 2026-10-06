@@ -1,9 +1,9 @@
 ---
-title: "Build"
+title: "Build Platform"
 content_status: authored
 ---
 
-# Build
+# Build Platform
 
 Use the [KVM image catalog](images.md) to select a complete host/guest configuration. The supplied catalog targets Renesas H3ULCB hardware and documents hard-coded networking and input-device assumptions.
 
