@@ -109,11 +109,21 @@ Home section must be include these contents:
 * AGL Community information.
 
 AGL Coverage section must be include these contents:
-* Background
-  * Traditional distributed architecture with figure.
-  * Domain architecture with figure.
-  * Central/Zone architecture with figure.
-* AGL distributed system overview. It's a base distribution for distributed architecture.
-* AGL integrated system overview. It's a base platform for Domain or Central/Zone architecture.
+* Vehicle EE architectures.
+  * Traditional distributed architecture.
+    Figure out for distributed architecture.
+
+  * Domain architecture.
+    Figure out for Domain architecture.
+
+  * Central/Zone architecture.
+    Figure out for Central/Zone architecture.
+
+* AGL distributed system.
+  Overview. It's a base distribution for distributed ECUs.
+
+* AGL integrated system.
+  Overview. It's a base platform for Domain or Central/Zone architecture.
+
 These contents should link to sub-sections.
 
