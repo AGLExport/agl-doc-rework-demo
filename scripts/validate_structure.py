@@ -1,6 +1,7 @@
 ﻿"""Check the documentation hierarchy, titles, and article reachability against AGENTS.md."""
 from __future__ import annotations
 import argparse
+import hashlib
 import json
 import posixpath
 import re
@@ -82,12 +83,12 @@ def content_requirements(instructions):
     section = instructions.split('## Required Contents at Section', 1)[1].split('\n## ', 1)[0]
     requirements, current, topic = {}, None, None
     for line in section.splitlines():
-        declaration = re.match(r'^(.+?) section must .*contents:\s*$', line)
+        declaration = re.match(r'^(.+?) section must .*contents?:\s*$', line)
         bullet = re.match(r'^( *)(?:[*-] )(.+?)\s*$', line)
         if declaration:
             current = declaration[1]
             topic = None
-            requirements[current] = {'headings': [], 'figures': [], 'subsection_links': False, 'section_references': {}}
+            requirements[current] = {'headings': [], 'figures': [], 'subsection_links': False, 'section_references': {}, 'paragraphs': [], 'source_links': [], 'official_figure': False}
         elif current is not None and bullet:
             title = bullet[2]
             figure = title.endswith(' with figure.')
@@ -99,12 +100,18 @@ def content_requirements(instructions):
             requirements[current]['headings'].append((2 + len(bullet[1]) // 2, title))
             if figure:
                 requirements[current]['figures'].append(title)
-        elif current is not None and topic is not None and line[:1].isspace() and line.strip():
-            if line.strip().casefold().startswith('figure out for ') and topic not in requirements[current]['figures']:
+        elif current is not None and line[:1].isspace() and line.strip():
+            description = line.strip()
+            requirements[current]['paragraphs'].append(description)
+            if topic is not None and description.casefold().startswith('figure out for ') and topic not in requirements[current]['figures']:
                 requirements[current]['figures'].append(topic)
-            reference = re.search(r'should refer to (.+?) section\.', line)
-            if reference:
+            reference = re.search(r'should refer to (.+?) section\.', description)
+            if reference and topic is not None:
                 requirements[current]['section_references'][topic] = reference[1]
+            if 'official architecture diagram' in description.casefold():
+                requirements[current]['official_figure'] = True
+            if 'shall import from ' in description:
+                requirements[current]['source_links'].extend(url.rstrip('.') for url in re.findall(r'https?://\S+', description))
         elif current is not None and line.strip() == 'These contents should link to sub-sections.':
             requirements[current]['subsection_links'] = True
         elif line.strip():
@@ -119,6 +126,42 @@ def local_document_links(body, page):
         if not parsed.scheme and not parsed.netloc and parsed.path:
             targets.add(posixpath.normpath(posixpath.join(posixpath.dirname(page), unquote(parsed.path))))
     return targets
+
+
+# The Home content rule retains this historical name after the navigation rename.
+SECTION_ALIASES = {'AGL Coverage': 'AGL Assets'}
+
+
+def section_paths(section, pages, structure):
+    titles = {title for title, _ in pages}
+    if section not in titles:
+        section = SECTION_ALIASES.get(section, section)
+    paths = [path for title, path in pages if title == section]
+    if len(paths) > 1:
+        overview_paths = {entry['page'] for entry in structure['required_pages'] if entry['heading'] == section and any(title in entry['breadcrumb'] for title in ('AGL Assets', 'AGL Coverage'))}
+        paths = [path for path in paths if path in overview_paths]
+    return paths
+
+
+def validate_official_figure(project, docs, page, text):
+    manifest = project / 'asset-sources.json'
+    if not manifest.is_file():
+        raise ValueError('Official architecture asset source manifest is missing')
+    entries = json.loads(manifest.read_text(encoding='utf-8'))['assets']
+    images = set()
+    for url in re.findall(r'!\[[^\]]*\]\(([^)]+)\)', text):
+        parsed = urlsplit(url)
+        if not parsed.scheme and not parsed.netloc:
+            images.add(posixpath.normpath(posixpath.join(posixpath.dirname(page), unquote(parsed.path))))
+    for entry in entries:
+        if entry['path'] in images and entry.get('publisher') == 'Automotive Grade Linux' and entry.get('source_url') and entry.get('source_page'):
+            image = (docs / entry['path']).resolve()
+            if not image.is_relative_to(docs.resolve()) or not image.is_file():
+                raise ValueError('Official architecture asset is missing: ' + entry['path'])
+            if hashlib.sha256(image.read_bytes()).hexdigest() != entry['sha256']:
+                raise ValueError('Official architecture asset differs from its recorded source: ' + entry['path'])
+            return
+    raise ValueError('Required official architecture diagram is missing: ' + page)
 
 
 def validate(project):
@@ -140,10 +183,11 @@ def validate(project):
             raise ValueError('Required document is missing: '+path)
         if first_heading(text_by_path[path]) != title:
             raise ValueError('Required page heading differs: '+path)
+    structure = json.loads((project/'structure-map.json').read_text(encoding='utf-8'))
     for section, rules in content_requirements(instructions).items():
-        paths = [path for title, path in pages if title == section]
+        paths = section_paths(section, pages, structure)
         required = rules['headings']
-        if len(paths) != 1 or not required:
+        if len(paths) != 1 or not (required or rules['paragraphs']):
             raise ValueError('Required content section is missing or ambiguous: ' + section)
         path = paths[0]
         required_titles = {title for _, title in required}
@@ -151,12 +195,19 @@ def validate(project):
         actual_content = [(level, title) for level, title, _ in blocks if title in required_titles]
         if actual_content != required:
             raise ValueError('Required section content differs: ' + section + ' (headings, order, or levels changed)')
+        if rules['paragraphs'] and not any(len(line.split()) >= 5 and not line.lstrip().startswith(('#', '!', '[', '-', '*', '<', '|', '```')) for _, _, body in blocks for line in body.splitlines()):
+            raise ValueError('Required narrative content is missing: ' + section)
+        for source_url in rules['source_links']:
+            if source_url not in text_by_path[path]:
+                raise ValueError('Required source attribution is missing: ' + section)
+        if rules['official_figure']:
+            validate_official_figure(project, docs, path, text_by_path[path])
         by_title = {title: body for _, title, body in blocks}
         for title in rules['figures']:
             if not re.search(r'!\[[^\]]*\]\(|<img\b', by_title[title]):
                 raise ValueError('Required architecture figure is missing: ' + title)
         for topic, referenced_section in rules['section_references'].items():
-            referenced_paths = [p for title, p in pages if title == referenced_section]
+            referenced_paths = section_paths(referenced_section, pages, structure)
             if len(referenced_paths) != 1 or referenced_paths[0] not in local_document_links(by_title[topic], path):
                 raise ValueError('Required section reference is missing: ' + topic + ' -> ' + referenced_section)
         if rules['subsection_links']:
@@ -191,7 +242,6 @@ def validate(project):
     destinations = [p['destination'] for p in manifest['pages']]
     if len(set(destinations)) != len(destinations) or not set(destinations).issubset(text_by_path):
         raise ValueError('Source article mappings are missing or duplicated')
-    structure = json.loads((project/'structure-map.json').read_text(encoding='utf-8'))
     if [(p['heading'],p['page']) for p in structure['required_pages']] != pages:
         raise ValueError('Structure map differs from navigation')
     print(f'Validated {len(pages)} required headings, {len(text_by_path)} reachable articles, and {len(destinations)} source mappings.')

@@ -1,0 +1,12 @@
+{
+  "assets": [
+    {
+      "path": "assets/diagrams/sodev-official-architecture.png",
+      "source_url": "https://www.automotivelinux.org/wp-content/uploads/sites/61/2025/12/image.png",
+      "source_page": "https://www.automotivelinux.org/announcements/sodev/",
+      "publisher": "Automotive Grade Linux",
+      "description": "Official SoDeV reference architecture, reproduced unchanged",
+      "sha256": "a9cbec55b10055c40c05083ed076a4cc18214cb07e7e336162814cc6f8e4d9c9"
+    }
+  ]
+}

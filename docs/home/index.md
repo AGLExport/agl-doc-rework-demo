@@ -1,11 +1,11 @@
 ---
-title: "AGL Coverage"
+title: "AGL Assets"
 content_status: authored
 ---
 
-# AGL Coverage
+# AGL Assets
 
-AGL provides software for individual vehicle roles and platforms for integrating several workloads. The vehicle E/E architectures below explain the relationship between distributed deployments and integrated systems.
+AGL assets include a Linux distribution for individual vehicle roles and a base platform for integrating several workloads. The vehicle E/E architectures below explain the relationship between distributed deployments and integrated systems.
 
 ## Vehicle EE architectures.
 
@@ -19,7 +19,7 @@ In a traditional distributed design, individual electronic control units (ECUs) 
 
 *Figure 1. Functions run on separate ECUs that communicate over the vehicle network.*
 
-[AGL distributed system](standalone/index.md) introduces the use of standalone AGL environments for individual vehicle roles.
+[Linux Distribution](standalone/index.md) introduces the use of standalone AGL environments for individual vehicle roles.
 
 ### Domain architecture.
 
@@ -29,7 +29,7 @@ A domain design groups related functions, such as cockpit, body control, or powe
 
 *Figure 2. Functions are grouped into logical domains with their own controllers.*
 
-[AGL integrated system](integrated/index.md) introduces platforms for bringing several workloads together on shared computing resources.
+[Base platform for integrated system](integrated/index.md) introduces platforms for bringing several workloads together on shared computing resources.
 
 ### Central/Zone architecture.
 
@@ -45,7 +45,7 @@ A central/zone design combines central computing with controllers organized by p
 
 AGL provides a base distribution for distributed ECUs. A standalone AGL environment supplies the operating system, services, and applications for a selected role. Separate deployments can communicate through vehicle data interfaces while retaining their own software environments.
 
-The [AGL distributed system](standalone/index.md) section introduces these roles:
+The [Linux Distribution](standalone/index.md) section introduces these roles:
 
 - [In-Vehicle Infotainment](standalone/ivi.md) supplies the cabin user experience.
 - [Instrument Cluster](standalone/cluster.md) presents driving information.
@@ -55,7 +55,7 @@ The [AGL distributed system](standalone/index.md) section introduces these roles
 
 AGL integrated systems provide a base platform for domain or central/zone architecture by bringing several automotive workloads together through guest environments and shared platform resources. This relationship describes their role in system design; the chosen integration determines workload placement, resource allocation, and communication.
 
-The [AGL integrated system](integrated/index.md) section covers three approaches:
+The [Base platform for integrated system](integrated/index.md) section covers three approaches:
 
 - [SoDeV](integrated/sodev.md) provides a reference platform for software-defined vehicles. See the [official SoDeV announcement](https://www.automotivelinux.org/announcements/automotive-grade-linux-releases-open-source-sodev-reference-platform-for-software-defined-vehicles-and-welcomes-five-new-members/).
 - [Container integration](integrated/containers.md) separates guest environments that share a host kernel.

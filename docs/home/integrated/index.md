@@ -1,12 +1,16 @@
 ---
-title: "AGL integrated system"
+title: "Base platform for integrated system"
 content_status: authored
 ---
 
-# AGL integrated system
+# Base platform for integrated system
 
-An integrated system combines workloads that can use different guest environments. Compare SoDeV, shared-kernel containers, and KVM virtual machines before following a build procedure.
+AGL develops and provides a base platform for automotive integrated systems. It brings multiple functions into one system by integrating one or more AGL Linux distributions and/or other platforms.
 
-- [SoDeV](sodev.md)
-- [Container integration](containers.md)
-- [KVM based integration](kvm.md)
+The integration defines how workloads share computing resources, access devices, exchange data, and start or stop. A system can use containers with a shared host kernel or virtual machines with separate guest kernels, depending on its integration approach.
+
+- [SoDeV](sodev.md) provides the software-defined vehicle reference platform and its official architecture.
+- [Container integration](containers.md) provides lightweight Linux-based integration using isolated guest userlands.
+- [KVM based integration](kvm.md) provides another example of the SoDeV approach using Linux virtual machines.
+
+Continue with [AGL integrated system development](../../integrated/index.md) for platform builds and guest customization.

@@ -12,25 +12,25 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL Coverage"
+        "AGL Assets"
       ],
-      "heading": "AGL Coverage",
+      "heading": "AGL Assets",
       "page": "home/index.md"
     },
     {
       "breadcrumb": [
         "Home",
-        "AGL Coverage",
-        "AGL distributed system"
+        "AGL Assets",
+        "Linux Distribution"
       ],
-      "heading": "AGL distributed system",
+      "heading": "Linux Distribution",
       "page": "home/standalone/index.md"
     },
     {
       "breadcrumb": [
         "Home",
-        "AGL Coverage",
-        "AGL distributed system",
+        "AGL Assets",
+        "Linux Distribution",
         "In-Vehicle Infotainment"
       ],
       "heading": "In-Vehicle Infotainment",
@@ -39,8 +39,8 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL Coverage",
-        "AGL distributed system",
+        "AGL Assets",
+        "Linux Distribution",
         "Instrument Cluster"
       ],
       "heading": "Instrument Cluster",
@@ -49,8 +49,8 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL Coverage",
-        "AGL distributed system",
+        "AGL Assets",
+        "Linux Distribution",
         "Connected Gateway"
       ],
       "heading": "Connected Gateway",
@@ -59,17 +59,17 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL Coverage",
-        "AGL integrated system"
+        "AGL Assets",
+        "Base platform for integrated system"
       ],
-      "heading": "AGL integrated system",
+      "heading": "Base platform for integrated system",
       "page": "home/integrated/index.md"
     },
     {
       "breadcrumb": [
         "Home",
-        "AGL Coverage",
-        "AGL integrated system",
+        "AGL Assets",
+        "Base platform for integrated system",
         "SoDeV"
       ],
       "heading": "SoDeV",
@@ -78,8 +78,8 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL Coverage",
-        "AGL integrated system",
+        "AGL Assets",
+        "Base platform for integrated system",
         "Container integration"
       ],
       "heading": "Container integration",
@@ -88,8 +88,8 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL Coverage",
-        "AGL integrated system",
+        "AGL Assets",
+        "Base platform for integrated system",
         "KVM based integration"
       ],
       "heading": "KVM based integration",

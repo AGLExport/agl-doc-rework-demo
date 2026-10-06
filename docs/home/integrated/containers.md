@@ -5,6 +5,8 @@ content_status: authored
 
 # Container integration
 
-Container integration runs multiple guest user spaces on a shared host kernel. The supplied AGL cluster profile combines an Instrument Cluster guest with an IVI guest and uses Container Manager for guest lifecycle management.
+AGL Container integration provides a lightweight integrated system built on Linux. Multiple guest userlands run on a shared host kernel, allowing automotive functions to use isolated software environments without separate guest kernels.
 
-The [integration build guide](../../integrated/containers/build-guide.md) explains the supported boards, host images, guest images, storage layout, and demo configurations. Continue with [Container integration development](../../integrated/containers/index.md). When customizing a guest, check its display, sound, device, mount, and role configuration as well as its root filesystem.
+The supplied AGL demo combines Instrument Cluster and IVI guests. Container Manager controls guest lifecycle and configuration, including device access, mounts, graphics, and sound.
+
+The [integration build guide](../../integrated/containers/build-guide.md) explains the host and guest images, supported boards, storage layout, and demo configurations. Continue with [Container integration development](../../integrated/containers/index.md), [Build Platform](../../integrated/containers/build.md), or [Create and Run Guest Container](../../integrated/containers/customize/guest-container.md).

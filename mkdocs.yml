@@ -140,14 +140,14 @@ not_in_nav: |
 nav:
 - Home:
   - index.md
-  - AGL Coverage:
+  - AGL Assets:
     - home/index.md
-    - AGL distributed system:
+    - Linux Distribution:
       - home/standalone/index.md
       - In-Vehicle Infotainment: home/standalone/ivi.md
       - Instrument Cluster: home/standalone/cluster.md
       - Connected Gateway: home/standalone/gateway.md
-    - AGL integrated system:
+    - Base platform for integrated system:
       - home/integrated/index.md
       - SoDeV: home/integrated/sodev.md
       - Container integration: home/integrated/containers.md

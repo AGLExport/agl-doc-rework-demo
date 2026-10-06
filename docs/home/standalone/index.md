@@ -1,14 +1,16 @@
 ---
-title: "AGL distributed system"
+title: "Linux Distribution"
 content_status: authored
 ---
 
-# AGL distributed system
+# Linux Distribution
 
-An AGL distributed system uses distinct deployments for vehicle roles. Each standalone distribution supplies the operating system, services, and applications for a selected role. The roles covered here are In-Vehicle Infotainment, Instrument Cluster, and Connected Gateway. They can exchange vehicle data while keeping their deployment boundaries.
+AGL develops and provides a Linux distribution for automotive systems. A standalone AGL system runs a single Linux kernel and its userland: the services, libraries, and applications that support a selected vehicle role.
 
-Choose the role before selecting an image and board. The [AGL distributed system distribution](../../standalone/index.md) section describes the build and customization workflow.
+The same distribution provides a common foundation for different profiles. Select an In-Vehicle Infotainment, Instrument Cluster, or Connected Gateway profile, then configure its applications and services for the target hardware.
 
-- [In-Vehicle Infotainment](ivi.md)
-- [Instrument Cluster](cluster.md)
-- [Connected Gateway](gateway.md)
+- [In-Vehicle Infotainment](ivi.md) provides a platform and demo software for the cabin user experience.
+- [Instrument Cluster](cluster.md) provides Flutter, Qt, and Slint demo implementations with different platform requirements.
+- [Connected Gateway](gateway.md) provides a platform for gateway use cases; its detailed overview is still to be defined.
+
+Use [AGL distributed system distribution](../../standalone/index.md) for Quick start, platform builds, customization, and application development.

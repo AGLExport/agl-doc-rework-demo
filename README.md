@@ -1,6 +1,6 @@
 # AGL documentation for GitHub Pages
 
-This English documentation site follows the exact headings, order, and hierarchy in [AGENTS.md](AGENTS.md). Home is the navigation root. Its seven child sections are AGL Coverage, AGL distributed system distribution, AGL integrated system development, AGL Components, Troubleshooting, Releases & migration, and Contribute. Quick start is inside AGL distributed system distribution, alongside Build Platform, Platform Customize, and Application development. Build chapters for integrated systems are also named Build Platform. Home explains AGL, the Unified Code Base, and its community, and directs readers to AGL Coverage for architecture and system details. AGL Coverage groups traditional distributed, domain, and central/zone designs under Vehicle EE architectures, with three original SVG figures. It introduces AGL as a base distribution for distributed ECUs and an integrated platform for domain or central/zone architectures, with links to their subsections.
+This English documentation site follows the exact headings, order, and hierarchy in [AGENTS.md](AGENTS.md). Home is the navigation root. Its seven child sections are AGL Assets, AGL distributed system distribution, AGL integrated system development, AGL Components, Troubleshooting, Releases & migration, and Contribute. Quick start is inside AGL distributed system distribution, alongside Build Platform, Platform Customize, and Application development. Build chapters for integrated systems are also named Build Platform. Home explains AGL, the Unified Code Base, and its community, and directs readers to AGL Assets for architecture and system details. AGL Assets introduces Linux Distribution and Base platform for integrated system. It groups traditional distributed, domain, and central/zone designs under Vehicle EE architectures, with three original SVG figures. The SoDeV overview includes the unchanged official AGL architecture diagram with attribution. It introduces AGL as a base distribution for distributed ECUs and an integrated platform for domain or central/zone architectures, with links to their subsections.
 
 The navigation contains 89 required headings. All 152 articles are reachable through those chapters, including 63 supporting articles linked from the relevant chapter rather than added to the required navigation. The original `../docs/` directory remains unchanged; all 84 source Markdown articles and 104 source assets are retained in the reconstructed site.
 
@@ -12,7 +12,8 @@ Quick start introduces the Flutter IVI demo as a complete system and provides pr
 | --- | --- |
 | `mkdocs.yml` | Navigation, theme, release variables, and build configuration |
 | `docs/` | Documentation articles, task-oriented entry pages, and copied assets |
-| `docs/assets/diagrams/` | Original SVG diagrams of distributed, domain, and central/zone architectures |
+| `docs/assets/diagrams/` | Original vehicle-architecture SVGs and the official SoDeV architecture image |
+| `asset-sources.json` | Source attribution and SHA-256 for the official SoDeV image |
 | `AGENTS.md` | Required documentation headings, hierarchy, language, and section content |
 | `structure-map.json` | Required heading-to-page mapping and previous page locations |
 | `source-map.json` | Source-to-destination mapping and SHA-256 hashes for the 84 imported articles |
@@ -118,7 +119,7 @@ When updating an existing parent repository, copy the revised workflow to its ro
 
 ## Edit and maintain the documentation
 
-Edit articles in `docs/` while preserving the required navigation in AGENTS.md. Do not omit, rename, duplicate, or reorder its headings. Each required page uses its required heading as its first H1. Preserve the Home and AGL Coverage content specified in the Required Contents at Section rules, including the architecture figures and subsection links. Add supporting articles through relative Markdown links from the appropriate chapter and declare their paths in `not_in_nav` in `mkdocs.yml`; they remain available in search. Update `structure-map.json` when changing required page locations, and keep the importer mapping consistent. Update shared release values in `mkdocs.yml` when changing the documented AGL release or artifact channel. Rebuild and run both validators after changes.
+Edit articles in `docs/` while preserving the required navigation in AGENTS.md. Do not omit, rename, duplicate, or reorder its headings. Each required page uses its required heading as its first H1. Preserve the Home and AGL Assets content specified in the Required Contents at Section rules, including the architecture figures and subsection links. The historical AGL Coverage reference in the Home rule resolves to the renamed AGL Assets section. Add supporting articles through relative Markdown links from the appropriate chapter and declare their paths in `not_in_nav` in `mkdocs.yml`; they remain available in search. Update `structure-map.json` when changing required page locations, and keep the importer mapping consistent. Update shared release values in `mkdocs.yml` when changing the documented AGL release or artifact channel. Rebuild and run both validators after changes.
 
 The importer is a manual migration utility, not part of the normal site build. From this directory inside the original repository:
 

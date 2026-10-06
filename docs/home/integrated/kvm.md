@@ -5,8 +5,8 @@ content_status: authored
 
 # KVM based integration
 
-The AGL KVM demo combines IVI and cluster virtual machines on a host using KVM and QEMU. Guest images have their own kernels, while host configuration controls virtual devices, display/input access, and networking.
+KVM based integration provides another example of the SoDeV approach to consolidating automotive functions. The AGL KVM demo combines IVI and Instrument Cluster virtual machines on a Linux host using KVM and QEMU.
 
-The imported [KVM image catalog](../../integrated/kvm/images.md) documents reference-hardware assumptions and internal demo addresses. Standard and preconfigured variants place services and the databroker differently.
+Guest images have their own kernels and userlands. Host configuration controls virtual devices, display and input access, and networking. The imported [KVM image catalog](../../integrated/kvm/images.md) describes reference-hardware assumptions and the demo's internal network addresses; standard and preconfigured variants place services differently.
 
-Continue with [KVM based integration](../../integrated/kvm/index.md). Select a host/guest combination from the same release; standalone and guest images have different integration requirements.
+Continue with [KVM based integration development](../../integrated/kvm/index.md) and [Build Platform](../../integrated/kvm/build.md). Select a compatible host and guest set from the same release.
