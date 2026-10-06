@@ -1,6 +1,6 @@
 # AGL documentation for GitHub Pages
 
-This English documentation site follows the exact headings, order, and hierarchy in [AGENTS.md](AGENTS.md). Home is the navigation root. Its eight child sections are AGL Coverage, Get started, AGL standalone distribution development, AGL integrated system development, AGL Components, Troubleshooting, Releases & migration, and Contribute. Home introduces AGL and its community. AGL Coverage explains traditional distributed, domain, and central/zone vehicle architectures with three original SVG figures, summarizes AGL distributed and integrated systems, and links to their subsections.
+This English documentation site follows the exact headings, order, and hierarchy in [AGENTS.md](AGENTS.md). Home is the navigation root. Its eight child sections are AGL Coverage, Get started, AGL standalone distribution development, AGL integrated system development, AGL Components, Troubleshooting, Releases & migration, and Contribute. Home introduces AGL and its community. AGL Coverage groups traditional distributed, domain, and central/zone designs under Vehicle EE architectures, with three original SVG figures. It introduces AGL as a base distribution for distributed ECUs and an integrated platform for domain or central/zone architectures, with links to their subsections.
 
 The navigation contains 89 required headings. All 152 articles are reachable through those chapters, including 63 supporting articles linked from the relevant chapter rather than added to the required navigation. The original `../docs/` directory remains unchanged; all 84 source Markdown articles and 104 source assets are retained in the reconstructed site.
 
@@ -72,7 +72,7 @@ export MKDOCS_SITE_URL=http://127.0.0.1:8000/
 .venv/bin/python scripts/validate_site.py site --site-url "$MKDOCS_SITE_URL"
 ```
 
-The structure validator checks the navigation against AGENTS.md, first-level page titles, required section contents, architecture figures, and subsection links, supporting-page declarations, article reachability, and source mappings. The build checks MkDocs configuration and document references. The validator checks generated local page links, images and other assets, and fragment anchors. External URLs are not checked. The workflow repeats these checks before deployment.
+The structure validator checks the navigation against AGENTS.md, first-level page titles, required section contents, architecture figures, subsection links, supporting-page declarations, article reachability, and source mappings. The build checks MkDocs configuration and document references. The validator checks generated local page links, images and other assets, and fragment anchors. External URLs are not checked. The workflow repeats these checks before deployment.
 
 ## Publish on GitHub Pages
 

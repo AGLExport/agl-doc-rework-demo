@@ -5,9 +5,9 @@ content_status: authored
 
 # AGL Coverage
 
-AGL provides software for individual vehicle roles and platforms for integrating several workloads. The architecture background below explains the relationship between distributed deployments and integrated systems.
+AGL provides software for individual vehicle roles and platforms for integrating several workloads. The vehicle E/E architectures below explain the relationship between distributed deployments and integrated systems.
 
-## Background
+## Vehicle EE architectures.
 
 Vehicle electrical/electronic (E/E) architecture determines where software runs and how controllers communicate. The figures illustrate three ways to organize vehicle computing. Controller placement and network choices vary by vehicle. Select a figure to open a larger view.
 
@@ -41,9 +41,9 @@ A central/zone design combines central computing with controllers organized by p
 
 [SoDeV](integrated/sodev.md), [Container integration](integrated/containers.md), and [KVM based integration](integrated/kvm.md) describe the integration approaches covered by AGL.
 
-## AGL distributed system overview.
+## AGL distributed system.
 
-AGL provides a base distribution for distributed architecture. A standalone AGL environment supplies the operating system, services, and applications for a selected role. Separate deployments can communicate through vehicle data interfaces while retaining their own software environments.
+AGL provides a base distribution for distributed ECUs. A standalone AGL environment supplies the operating system, services, and applications for a selected role. Separate deployments can communicate through vehicle data interfaces while retaining their own software environments.
 
 The [AGL distributed system.](standalone/index.md) section introduces these roles:
 
@@ -51,7 +51,7 @@ The [AGL distributed system.](standalone/index.md) section introduces these role
 - [Instrument Cluster](standalone/cluster.md) presents driving information.
 - [Connected Gateway](standalone/gateway.md) connects vehicle data and external services.
 
-## AGL integrated system overview.
+## AGL integrated system.
 
 AGL integrated systems provide a base platform for domain or central/zone architecture by bringing several automotive workloads together through guest environments and shared platform resources. This relationship describes their role in system design; the chosen integration determines workload placement, resource allocation, and communication.
 

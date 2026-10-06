@@ -76,16 +76,17 @@ def first_heading(text):
 
 
 def content_requirements(instructions):
-    """Interpret content topics separately from their figure and explanatory requirements."""
+    """Interpret content topics, including indented figure and overview descriptions."""
     if '## Required Contents at Section' not in instructions:
         return {}
     section = instructions.split('## Required Contents at Section', 1)[1].split('\n## ', 1)[0]
-    requirements, current = {}, None
+    requirements, current, topic = {}, None, None
     for line in section.splitlines():
         declaration = re.match(r'^(.+?) section must .*contents:\s*$', line)
         bullet = re.match(r'^( *)(?:[*-] )(.+?)\s*$', line)
         if declaration:
             current = declaration[1]
+            topic = None
             requirements[current] = {'headings': [], 'figures': [], 'subsection_links': False}
         elif current is not None and bullet:
             title = bullet[2]
@@ -94,13 +95,17 @@ def content_requirements(instructions):
                 title = title.removesuffix(' with figure.') + '.'
             if ". It's " in title:
                 title = title.split(". It's ", 1)[0] + '.'
+            topic = title
             requirements[current]['headings'].append((2 + len(bullet[1]) // 2, title))
             if figure:
                 requirements[current]['figures'].append(title)
+        elif current is not None and topic is not None and line[:1].isspace() and line.strip():
+            if line.strip().casefold().startswith('figure out for ') and topic not in requirements[current]['figures']:
+                requirements[current]['figures'].append(topic)
         elif current is not None and line.strip() == 'These contents should link to sub-sections.':
             requirements[current]['subsection_links'] = True
         elif line.strip():
-            current = None
+            current, topic = None, None
     return requirements
 
 
