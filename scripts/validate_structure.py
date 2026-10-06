@@ -50,9 +50,10 @@ def navigation_tree(items, pages):
     return result
 
 
-def markdown_headings(text):
+def markdown_sections(text):
+    lines = text.splitlines()
     headings, fence = [], None
-    for line in text.splitlines():
+    for index, line in enumerate(lines):
         marker = re.match(r'^\s*(`{3,}|~{3,})', line)
         if marker:
             if fence is None:
@@ -62,8 +63,12 @@ def markdown_headings(text):
         elif fence is None:
             heading = re.match(r'^(#{1,6})\s+(.+?)\s*$', line)
             if heading:
-                headings.append((len(heading[1]), heading[2]))
-    return headings
+                headings.append((len(heading[1]), heading[2], index))
+    return [(level, title, '\n'.join(lines[start + 1:headings[i + 1][2] if i + 1 < len(headings) else len(lines)])) for i, (level, title, start) in enumerate(headings)]
+
+
+def markdown_headings(text):
+    return [(level, title) for level, title, _ in markdown_sections(text)]
 
 
 def first_heading(text):
@@ -71,6 +76,7 @@ def first_heading(text):
 
 
 def content_requirements(instructions):
+    """Interpret content topics separately from their figure and explanatory requirements."""
     if '## Required Contents at Section' not in instructions:
         return {}
     section = instructions.split('## Required Contents at Section', 1)[1].split('\n## ', 1)[0]
@@ -80,9 +86,19 @@ def content_requirements(instructions):
         bullet = re.match(r'^( *)(?:[*-] )(.+?)\s*$', line)
         if declaration:
             current = declaration[1]
-            requirements[current] = []
+            requirements[current] = {'headings': [], 'figures': [], 'subsection_links': False}
         elif current is not None and bullet:
-            requirements[current].append((2 + len(bullet[1]) // 2, bullet[2]))
+            title = bullet[2]
+            figure = title.endswith(' with figure.')
+            if figure:
+                title = title.removesuffix(' with figure.') + '.'
+            if ". It's " in title:
+                title = title.split(". It's ", 1)[0] + '.'
+            requirements[current]['headings'].append((2 + len(bullet[1]) // 2, title))
+            if figure:
+                requirements[current]['figures'].append(title)
+        elif current is not None and line.strip() == 'These contents should link to sub-sections.':
+            requirements[current]['subsection_links'] = True
         elif line.strip():
             current = None
     return requirements
@@ -107,14 +123,33 @@ def validate(project):
             raise ValueError('Required document is missing: '+path)
         if first_heading(text_by_path[path]) != title:
             raise ValueError('Required page heading differs: '+path)
-    for section, required in content_requirements(instructions).items():
+    for section, rules in content_requirements(instructions).items():
         paths = [path for title, path in pages if title == section]
+        required = rules['headings']
         if len(paths) != 1 or not required:
             raise ValueError('Required content section is missing or ambiguous: ' + section)
+        path = paths[0]
         required_titles = {title for _, title in required}
-        actual_content = [(level, title) for level, title in markdown_headings(text_by_path[paths[0]]) if title in required_titles]
+        blocks = markdown_sections(text_by_path[path])
+        actual_content = [(level, title) for level, title, _ in blocks if title in required_titles]
         if actual_content != required:
             raise ValueError('Required section content differs: ' + section + ' (headings, order, or levels changed)')
+        by_title = {title: body for _, title, body in blocks}
+        for title in rules['figures']:
+            if not re.search(r'!\[[^\]]*\]\(|<img\b', by_title[title]):
+                raise ValueError('Required architecture figure is missing: ' + title)
+        if rules['subsection_links']:
+            for index, (level, title) in enumerate(required):
+                if index + 1 < len(required) and required[index + 1][0] > level:
+                    continue
+                targets = set()
+                for url in re.findall(r'(?<!!)\[[^\]]*\]\(([^\s)]+)', by_title[title]):
+                    parsed = urlsplit(url.strip('<>'))
+                    if not parsed.scheme and not parsed.netloc and parsed.path:
+                        targets.add(posixpath.normpath(posixpath.join(posixpath.dirname(path), unquote(parsed.path))))
+                descendants = {p for p in nav_paths if p != path and p.startswith(posixpath.dirname(path) + '/')}
+                if not targets & descendants:
+                    raise ValueError('Required subsection link is missing: ' + title)
     secondary = set(text_by_path)-set(nav_paths)
     declared = {line.strip().removeprefix('/') for line in config.get('not_in_nav','').splitlines() if line.strip()}
     if secondary != declared:
