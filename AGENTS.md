@@ -12,7 +12,7 @@ Each document must be followed document structure as a follow.
 
 - Home
   - AGL Coverage
-    - AGL distributed system.
+    - AGL distributed system
       - In-Vehicle Infotainment
       - Instrument Cluster
       - Connected Gateway
@@ -20,13 +20,15 @@ Each document must be followed document structure as a follow.
       - SoDeV
       - Container integration
       - KVM based integration
-  - Get started
-    - Pre-build image for IVI demo
-      - Flutter IVI demo
-      - QEMU x86-64
-      - Raspberry Pi 4/5
-  - AGL standalone distribution development
-    - Build
+  
+  - AGL distributed system distribution
+    - Quick start
+      - Pre-build image for IVI demo
+        - Flutter IVI demo
+        - QEMU x86-64
+        - Raspberry Pi 4/5
+
+    - Build Platform
       - Common part
       - In-Vehicle Infotainment
         - Flutter IVI demo
@@ -35,6 +37,7 @@ Each document must be followed document structure as a follow.
       - Instrument Cluster
         - Qt based Cluster
         - Slint based Cluster
+
     - Platform Customize
       - Create/Modify an AGL image
       - Create a custom recipe
@@ -42,17 +45,19 @@ Each document must be followed document structure as a follow.
     - Application development
       - Flutter application
       - Qt application
+
   - AGL integrated system development
     - SoDeV
-      - Build
+      - Build Platform
       - SoDeV Customize
         - Create and Run Guest VM
     - Container integration
-      - Build
+      - Build Platform
       - Container integration Customize
         - Create and Run Guest Container
     - KVM based integration
-      - Build
+      - Build Platform
+
   - AGL Components
     - AGL Reference Applications
       - Flutter IVI homescreen
