@@ -12,7 +12,6 @@ theme:
   favicon: assets/source/img/favicon.ico
   font: false
   features:
-  - navigation.tabs
   - navigation.sections
   - navigation.indexes
   - navigation.top
@@ -141,9 +140,9 @@ not_in_nav: |
 nav:
 - Home:
   - index.md
-  - What is AGL:
+  - AGL Coverage:
     - home/index.md
-    - AGL standalone distribution:
+    - AGL distributed system.:
       - home/standalone/index.md
       - In-Vehicle Infotainment: home/standalone/ivi.md
       - Instrument Cluster: home/standalone/cluster.md
@@ -153,114 +152,114 @@ nav:
       - SoDeV: home/integrated/sodev.md
       - Container integration: home/integrated/containers.md
       - KVM based integration: home/integrated/kvm.md
-- Get started:
-  - start/index.md
-  - Pre-build image for IVI demo:
-    - start/prebuilt/index.md
-    - Flutter IVI demo: start/prebuilt/flutter.md
-    - QEMU x86-64: start/prebuilt/qemu-x86-64.md
-    - Raspberry Pi 4/5: start/prebuilt/raspberry-pi.md
-- AGL standalone distribution development:
-  - standalone/index.md
-  - Build:
-    - standalone/build/index.md
-    - Common part: standalone/build/common.md
-    - In-Vehicle Infotainment:
-      - standalone/build/ivi/index.md
-      - Flutter IVI demo: standalone/build/ivi/flutter.md
-      - Qt IVI demo: standalone/build/ivi/qt-ivi-demo.md
-      - IVI based Flutter Cluster: standalone/build/ivi/flutter-cluster.md
-    - Instrument Cluster:
-      - standalone/build/cluster/index.md
-      - Qt based Cluster: standalone/build/cluster/qt.md
-      - Slint based Cluster: standalone/build/cluster/slint.md
-  - Platform Customize:
-    - standalone/customize/index.md
-    - Create/Modify an AGL image: standalone/customize/image.md
-    - Create a custom recipe: standalone/customize/recipe.md
-    - Create a service: standalone/customize/service.md
-  - Application development:
-    - standalone/applications/index.md
-    - Flutter application: standalone/applications/flutter.md
-    - Qt application: standalone/applications/qt.md
-- AGL integrated system development:
-  - integrated/index.md
-  - SoDeV:
-    - integrated/sodev/index.md
-    - Build: integrated/sodev/build.md
-    - SoDeV Customize:
-      - integrated/sodev/customize/index.md
-      - Create and Run Guest VM: integrated/sodev/customize/guest-vm.md
-  - Container integration:
-    - integrated/containers/index.md
-    - Build: integrated/containers/build.md
-    - Container integration Customize:
-      - integrated/containers/customize/index.md
-      - Create and Run Guest Container: integrated/containers/customize/guest-container.md
-  - KVM based integration:
-    - integrated/kvm/index.md
-    - Build: integrated/kvm/build.md
-- AGL Components:
-  - components/index.md
-  - AGL Reference Applications:
-    - components/applications/index.md
-    - Flutter IVI homescreen: components/applications/flutter-homescreen.md
-    - Flutter Cluster: components/applications/flutter-cluster.md
-    - Qt IVI homescreen: components/applications/qt-homescreen.md
-    - Instrument Cluster reference GUI (Qt): components/applications/cluster-dashboard.md
-    - Momi Screen: components/applications/momi-screen.md
-    - Momi navigation: components/applications/momi-navigation.md
-    - Momi Weather: components/applications/momi-weather.md
-    - Momi Player: components/applications/momi-player.md
-  - AGL Services:
-    - components/services/index.md
-    - Graphics:
-      - components/services/graphics/index.md
-      - The AGL compositor: components/services/graphics/agl-compositor.md
-      - DRM lease manager: components/services/graphics/drm-lease-manager.md
-    - Sound:
-      - components/services/sound/index.md
-      - Pipewire & Wireplumber: components/services/sound/pipewire-wireplumber.md
-    - Policies:
-      - components/services/policies/index.md
-      - Rule based arbitrator: components/services/policies/rule-based-arbitrator.md
-    - Misc:
-      - components/services/misc/index.md
-      - Voice agent assistant: components/services/misc/voice-agent.md
-    - Instrument Cluster:
-      - components/services/cluster/index.md
-      - Instrument Cluster service: components/services/cluster/cluster-service.md
-  - IVI Application Framework:
-    - components/framework/index.md
-    - Application Lifecycle and Services:
-      - components/framework/lifecycle/index.md
-      - Application Framework: components/framework/lifecycle/application-framework.md
-  - Platform extension:
-    - components/extensions/index.md
-    - Unified HMI: components/extensions/unified-hmi.md
-    - Container Manager: components/extensions/container-manager.md
-  - Development Tools:
-    - components/tools/index.md
-    - Demo Control:
-      - components/tools/demo-control/index.md
-      - Demo Control Panel: components/tools/demo-control/panel.md
-      - CARLA with AGL: components/tools/demo-control/carla.md
-    - Virtual Car CAN definition:
-      - components/tools/virtual-car/index.md
-      - AGL virtual car: components/tools/virtual-car/virtual-car.md
-  - AGL API:
-    - components/api/index.md
-    - Table for APIs: components/api/table.md
-    - Generic APIs:
-      - components/api/generic/index.md
-      - Redundancy file operation (librefop): components/api/generic/librefop.md
-    - In-Vehicle Infotainment APIs:
-      - components/api/ivi/index.md
-      - Persistent storage API: components/api/ivi/persistent-storage.md
-    - Instrument Cluster APIs:
-      - components/api/cluster/index.md
-      - AGL Instrument Cluster API: components/api/cluster/instrument-cluster-api.md
-    - Gateway APIs: components/api/gateway.md
-- Troubleshooting: troubleshooting/index.md
-- Releases & migration: releases/index.md
-- Contribute: contributing/index.md
+  - Get started:
+    - start/index.md
+    - Pre-build image for IVI demo:
+      - start/prebuilt/index.md
+      - Flutter IVI demo: start/prebuilt/flutter.md
+      - QEMU x86-64: start/prebuilt/qemu-x86-64.md
+      - Raspberry Pi 4/5: start/prebuilt/raspberry-pi.md
+  - AGL standalone distribution development:
+    - standalone/index.md
+    - Build:
+      - standalone/build/index.md
+      - Common part: standalone/build/common.md
+      - In-Vehicle Infotainment:
+        - standalone/build/ivi/index.md
+        - Flutter IVI demo: standalone/build/ivi/flutter.md
+        - Qt IVI demo: standalone/build/ivi/qt-ivi-demo.md
+        - IVI based Flutter Cluster: standalone/build/ivi/flutter-cluster.md
+      - Instrument Cluster:
+        - standalone/build/cluster/index.md
+        - Qt based Cluster: standalone/build/cluster/qt.md
+        - Slint based Cluster: standalone/build/cluster/slint.md
+    - Platform Customize:
+      - standalone/customize/index.md
+      - Create/Modify an AGL image: standalone/customize/image.md
+      - Create a custom recipe: standalone/customize/recipe.md
+      - Create a service: standalone/customize/service.md
+    - Application development:
+      - standalone/applications/index.md
+      - Flutter application: standalone/applications/flutter.md
+      - Qt application: standalone/applications/qt.md
+  - AGL integrated system development:
+    - integrated/index.md
+    - SoDeV:
+      - integrated/sodev/index.md
+      - Build: integrated/sodev/build.md
+      - SoDeV Customize:
+        - integrated/sodev/customize/index.md
+        - Create and Run Guest VM: integrated/sodev/customize/guest-vm.md
+    - Container integration:
+      - integrated/containers/index.md
+      - Build: integrated/containers/build.md
+      - Container integration Customize:
+        - integrated/containers/customize/index.md
+        - Create and Run Guest Container: integrated/containers/customize/guest-container.md
+    - KVM based integration:
+      - integrated/kvm/index.md
+      - Build: integrated/kvm/build.md
+  - AGL Components:
+    - components/index.md
+    - AGL Reference Applications:
+      - components/applications/index.md
+      - Flutter IVI homescreen: components/applications/flutter-homescreen.md
+      - Flutter Cluster: components/applications/flutter-cluster.md
+      - Qt IVI homescreen: components/applications/qt-homescreen.md
+      - Instrument Cluster reference GUI (Qt): components/applications/cluster-dashboard.md
+      - Momi Screen: components/applications/momi-screen.md
+      - Momi navigation: components/applications/momi-navigation.md
+      - Momi Weather: components/applications/momi-weather.md
+      - Momi Player: components/applications/momi-player.md
+    - AGL Services:
+      - components/services/index.md
+      - Graphics:
+        - components/services/graphics/index.md
+        - The AGL compositor: components/services/graphics/agl-compositor.md
+        - DRM lease manager: components/services/graphics/drm-lease-manager.md
+      - Sound:
+        - components/services/sound/index.md
+        - Pipewire & Wireplumber: components/services/sound/pipewire-wireplumber.md
+      - Policies:
+        - components/services/policies/index.md
+        - Rule based arbitrator: components/services/policies/rule-based-arbitrator.md
+      - Misc:
+        - components/services/misc/index.md
+        - Voice agent assistant: components/services/misc/voice-agent.md
+      - Instrument Cluster:
+        - components/services/cluster/index.md
+        - Instrument Cluster service: components/services/cluster/cluster-service.md
+    - IVI Application Framework:
+      - components/framework/index.md
+      - Application Lifecycle and Services:
+        - components/framework/lifecycle/index.md
+        - Application Framework: components/framework/lifecycle/application-framework.md
+    - Platform extension:
+      - components/extensions/index.md
+      - Unified HMI: components/extensions/unified-hmi.md
+      - Container Manager: components/extensions/container-manager.md
+    - Development Tools:
+      - components/tools/index.md
+      - Demo Control:
+        - components/tools/demo-control/index.md
+        - Demo Control Panel: components/tools/demo-control/panel.md
+        - CARLA with AGL: components/tools/demo-control/carla.md
+      - Virtual Car CAN definition:
+        - components/tools/virtual-car/index.md
+        - AGL virtual car: components/tools/virtual-car/virtual-car.md
+    - AGL API:
+      - components/api/index.md
+      - Table for APIs: components/api/table.md
+      - Generic APIs:
+        - components/api/generic/index.md
+        - Redundancy file operation (librefop): components/api/generic/librefop.md
+      - In-Vehicle Infotainment APIs:
+        - components/api/ivi/index.md
+        - Persistent storage API: components/api/ivi/persistent-storage.md
+      - Instrument Cluster APIs:
+        - components/api/cluster/index.md
+        - AGL Instrument Cluster API: components/api/cluster/instrument-cluster-api.md
+      - Gateway APIs: components/api/gateway.md
+  - Troubleshooting: troubleshooting/index.md
+  - Releases & migration: releases/index.md
+  - Contribute: contributing/index.md

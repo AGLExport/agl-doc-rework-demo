@@ -12,25 +12,25 @@
     {
       "breadcrumb": [
         "Home",
-        "What is AGL"
+        "AGL Coverage"
       ],
-      "heading": "What is AGL",
+      "heading": "AGL Coverage",
       "page": "home/index.md"
     },
     {
       "breadcrumb": [
         "Home",
-        "What is AGL",
-        "AGL standalone distribution"
+        "AGL Coverage",
+        "AGL distributed system."
       ],
-      "heading": "AGL standalone distribution",
+      "heading": "AGL distributed system.",
       "page": "home/standalone/index.md"
     },
     {
       "breadcrumb": [
         "Home",
-        "What is AGL",
-        "AGL standalone distribution",
+        "AGL Coverage",
+        "AGL distributed system.",
         "In-Vehicle Infotainment"
       ],
       "heading": "In-Vehicle Infotainment",
@@ -39,8 +39,8 @@
     {
       "breadcrumb": [
         "Home",
-        "What is AGL",
-        "AGL standalone distribution",
+        "AGL Coverage",
+        "AGL distributed system.",
         "Instrument Cluster"
       ],
       "heading": "Instrument Cluster",
@@ -49,8 +49,8 @@
     {
       "breadcrumb": [
         "Home",
-        "What is AGL",
-        "AGL standalone distribution",
+        "AGL Coverage",
+        "AGL distributed system.",
         "Connected Gateway"
       ],
       "heading": "Connected Gateway",
@@ -59,7 +59,7 @@
     {
       "breadcrumb": [
         "Home",
-        "What is AGL",
+        "AGL Coverage",
         "AGL integrated system"
       ],
       "heading": "AGL integrated system",
@@ -68,7 +68,7 @@
     {
       "breadcrumb": [
         "Home",
-        "What is AGL",
+        "AGL Coverage",
         "AGL integrated system",
         "SoDeV"
       ],
@@ -78,7 +78,7 @@
     {
       "breadcrumb": [
         "Home",
-        "What is AGL",
+        "AGL Coverage",
         "AGL integrated system",
         "Container integration"
       ],
@@ -88,7 +88,7 @@
     {
       "breadcrumb": [
         "Home",
-        "What is AGL",
+        "AGL Coverage",
         "AGL integrated system",
         "KVM based integration"
       ],
@@ -97,6 +97,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "Get started"
       ],
       "heading": "Get started",
@@ -104,6 +105,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "Get started",
         "Pre-build image for IVI demo"
       ],
@@ -112,6 +114,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "Get started",
         "Pre-build image for IVI demo",
         "Flutter IVI demo"
@@ -121,6 +124,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "Get started",
         "Pre-build image for IVI demo",
         "QEMU x86-64"
@@ -130,6 +134,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "Get started",
         "Pre-build image for IVI demo",
         "Raspberry Pi 4/5"
@@ -139,6 +144,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL standalone distribution development"
       ],
       "heading": "AGL standalone distribution development",
@@ -146,6 +152,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL standalone distribution development",
         "Build"
       ],
@@ -154,6 +161,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL standalone distribution development",
         "Build",
         "Common part"
@@ -163,6 +171,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL standalone distribution development",
         "Build",
         "In-Vehicle Infotainment"
@@ -172,6 +181,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL standalone distribution development",
         "Build",
         "In-Vehicle Infotainment",
@@ -182,6 +192,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL standalone distribution development",
         "Build",
         "In-Vehicle Infotainment",
@@ -192,6 +203,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL standalone distribution development",
         "Build",
         "In-Vehicle Infotainment",
@@ -202,6 +214,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL standalone distribution development",
         "Build",
         "Instrument Cluster"
@@ -211,6 +224,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL standalone distribution development",
         "Build",
         "Instrument Cluster",
@@ -221,6 +235,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL standalone distribution development",
         "Build",
         "Instrument Cluster",
@@ -231,6 +246,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL standalone distribution development",
         "Platform Customize"
       ],
@@ -239,6 +255,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL standalone distribution development",
         "Platform Customize",
         "Create/Modify an AGL image"
@@ -248,6 +265,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL standalone distribution development",
         "Platform Customize",
         "Create a custom recipe"
@@ -257,6 +275,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL standalone distribution development",
         "Platform Customize",
         "Create a service"
@@ -266,6 +285,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL standalone distribution development",
         "Application development"
       ],
@@ -274,6 +294,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL standalone distribution development",
         "Application development",
         "Flutter application"
@@ -283,6 +304,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL standalone distribution development",
         "Application development",
         "Qt application"
@@ -292,6 +314,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL integrated system development"
       ],
       "heading": "AGL integrated system development",
@@ -299,6 +322,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL integrated system development",
         "SoDeV"
       ],
@@ -307,6 +331,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL integrated system development",
         "SoDeV",
         "Build"
@@ -316,6 +341,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL integrated system development",
         "SoDeV",
         "SoDeV Customize"
@@ -325,6 +351,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL integrated system development",
         "SoDeV",
         "SoDeV Customize",
@@ -335,6 +362,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL integrated system development",
         "Container integration"
       ],
@@ -343,6 +371,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL integrated system development",
         "Container integration",
         "Build"
@@ -352,6 +381,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL integrated system development",
         "Container integration",
         "Container integration Customize"
@@ -361,6 +391,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL integrated system development",
         "Container integration",
         "Container integration Customize",
@@ -371,6 +402,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL integrated system development",
         "KVM based integration"
       ],
@@ -379,6 +411,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL integrated system development",
         "KVM based integration",
         "Build"
@@ -388,6 +421,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components"
       ],
       "heading": "AGL Components",
@@ -395,6 +429,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "AGL Reference Applications"
       ],
@@ -403,6 +438,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "AGL Reference Applications",
         "Flutter IVI homescreen"
@@ -412,6 +448,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "AGL Reference Applications",
         "Flutter Cluster"
@@ -421,6 +458,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "AGL Reference Applications",
         "Qt IVI homescreen"
@@ -430,6 +468,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "AGL Reference Applications",
         "Instrument Cluster reference GUI (Qt)"
@@ -439,6 +478,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "AGL Reference Applications",
         "Momi Screen"
@@ -448,6 +488,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "AGL Reference Applications",
         "Momi navigation"
@@ -457,6 +498,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "AGL Reference Applications",
         "Momi Weather"
@@ -466,6 +508,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "AGL Reference Applications",
         "Momi Player"
@@ -475,6 +518,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "AGL Services"
       ],
@@ -483,6 +527,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "AGL Services",
         "Graphics"
@@ -492,6 +537,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "AGL Services",
         "Graphics",
@@ -502,6 +548,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "AGL Services",
         "Graphics",
@@ -512,6 +559,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "AGL Services",
         "Sound"
@@ -521,6 +569,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "AGL Services",
         "Sound",
@@ -531,6 +580,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "AGL Services",
         "Policies"
@@ -540,6 +590,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "AGL Services",
         "Policies",
@@ -550,6 +601,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "AGL Services",
         "Misc"
@@ -559,6 +611,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "AGL Services",
         "Misc",
@@ -569,6 +622,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "AGL Services",
         "Instrument Cluster"
@@ -578,6 +632,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "AGL Services",
         "Instrument Cluster",
@@ -588,6 +643,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "IVI Application Framework"
       ],
@@ -596,6 +652,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "IVI Application Framework",
         "Application Lifecycle and Services"
@@ -605,6 +662,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "IVI Application Framework",
         "Application Lifecycle and Services",
@@ -615,6 +673,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "Platform extension"
       ],
@@ -623,6 +682,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "Platform extension",
         "Unified HMI"
@@ -632,6 +692,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "Platform extension",
         "Container Manager"
@@ -641,6 +702,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "Development Tools"
       ],
@@ -649,6 +711,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "Development Tools",
         "Demo Control"
@@ -658,6 +721,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "Development Tools",
         "Demo Control",
@@ -668,6 +732,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "Development Tools",
         "Demo Control",
@@ -678,6 +743,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "Development Tools",
         "Virtual Car CAN definition"
@@ -687,6 +753,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "Development Tools",
         "Virtual Car CAN definition",
@@ -697,6 +764,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "AGL API"
       ],
@@ -705,6 +773,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "AGL API",
         "Table for APIs"
@@ -714,6 +783,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "AGL API",
         "Generic APIs"
@@ -723,6 +793,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "AGL API",
         "Generic APIs",
@@ -733,6 +804,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "AGL API",
         "In-Vehicle Infotainment APIs"
@@ -742,6 +814,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "AGL API",
         "In-Vehicle Infotainment APIs",
@@ -752,6 +825,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "AGL API",
         "Instrument Cluster APIs"
@@ -761,6 +835,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "AGL API",
         "Instrument Cluster APIs",
@@ -771,6 +846,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "AGL Components",
         "AGL API",
         "Gateway APIs"
@@ -780,6 +856,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "Troubleshooting"
       ],
       "heading": "Troubleshooting",
@@ -787,6 +864,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "Releases & migration"
       ],
       "heading": "Releases & migration",
@@ -794,6 +872,7 @@
     },
     {
       "breadcrumb": [
+        "Home",
         "Contribute"
       ],
       "heading": "Contribute",

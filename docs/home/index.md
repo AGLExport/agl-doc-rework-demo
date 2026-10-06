@@ -1,13 +1,13 @@
 ---
-title: "What is AGL"
+title: "AGL Coverage"
 content_status: authored
 ---
 
-# What is AGL
+# AGL Coverage
 
-AGL separates the base distribution, applications and services, and system integration. Start with the architecture and choose a standalone role or an integrated-system design.
+AGL covers software for individual vehicle roles and integration of several workloads into a system. A distributed deployment uses standalone AGL environments for selected roles; an integrated deployment combines guest environments and shared resources. Explore the two approaches below.
 
-- [AGL standalone distribution](standalone/index.md)
+- [AGL distributed system.](standalone/index.md)
 - [AGL integrated system](integrated/index.md)
 
 ## Further reading

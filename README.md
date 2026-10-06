@@ -1,6 +1,6 @@
 # AGL documentation for GitHub Pages
 
-This English documentation site follows the exact headings, order, and hierarchy in [AGENTS.md](AGENTS.md). Its eight main sections are Home, Get started, AGL standalone distribution development, AGL integrated system development, AGL Components, Troubleshooting, Releases & migration, and Contribute.
+This English documentation site follows the exact headings, order, and hierarchy in [AGENTS.md](AGENTS.md). Home is the navigation root. Its eight child sections are AGL Coverage, Get started, AGL standalone distribution development, AGL integrated system development, AGL Components, Troubleshooting, Releases & migration, and Contribute. Home introduces AGL, explains traditional distributed, domain, and central/zone vehicle architectures, and summarizes AGL distributed and integrated systems.
 
 The navigation contains 89 required headings. All 152 articles are reachable through those chapters, including 63 supporting articles linked from the relevant chapter rather than added to the required navigation. The original `../docs/` directory remains unchanged; all 84 source Markdown articles and 104 source assets are retained in the reconstructed site.
 
@@ -12,7 +12,7 @@ Get started introduces the Flutter IVI demo as a complete system and provides pr
 | --- | --- |
 | `mkdocs.yml` | Navigation, theme, release variables, and build configuration |
 | `docs/` | Documentation articles, task-oriented entry pages, and copied assets |
-| `AGENTS.md` | Required documentation headings and hierarchy |
+| `AGENTS.md` | Required documentation headings, hierarchy, language, and Home content |
 | `structure-map.json` | Required heading-to-page mapping and previous page locations |
 | `source-map.json` | Source-to-destination mapping and SHA-256 hashes for the 84 imported articles |
 | `scripts/import_docs.py` | Re-import the original articles and assets |
@@ -71,7 +71,7 @@ export MKDOCS_SITE_URL=http://127.0.0.1:8000/
 .venv/bin/python scripts/validate_site.py site --site-url "$MKDOCS_SITE_URL"
 ```
 
-The structure validator checks the navigation against AGENTS.md, first-level page titles, supporting-page declarations, article reachability, and source mappings. The build checks MkDocs configuration and document references. The validator checks generated local page links, images and other assets, and fragment anchors. External URLs are not checked. The workflow repeats these checks before deployment.
+The structure validator checks the navigation against AGENTS.md, first-level page titles, required Home content headings, supporting-page declarations, article reachability, and source mappings. The build checks MkDocs configuration and document references. The validator checks generated local page links, images and other assets, and fragment anchors. External URLs are not checked. The workflow repeats these checks before deployment.
 
 ## Publish on GitHub Pages
 
@@ -117,7 +117,7 @@ When updating an existing parent repository, copy the revised workflow to its ro
 
 ## Edit and maintain the documentation
 
-Edit articles in `docs/` while preserving the required navigation in AGENTS.md. Do not omit, rename, duplicate, or reorder its headings. Each required page uses its required heading as its first H1. Add supporting articles through relative Markdown links from the appropriate chapter and declare their paths in `not_in_nav` in `mkdocs.yml`; they remain available in search. Update `structure-map.json` when changing required page locations, and keep the importer mapping consistent. Update shared release values in `mkdocs.yml` when changing the documented AGL release or artifact channel. Rebuild and run both validators after changes.
+Edit articles in `docs/` while preserving the required navigation in AGENTS.md. Do not omit, rename, duplicate, or reorder its headings. Each required page uses its required heading as its first H1. Preserve the Home content headings specified in the Required Contents at Section rules as well. Add supporting articles through relative Markdown links from the appropriate chapter and declare their paths in `not_in_nav` in `mkdocs.yml`; they remain available in search. Update `structure-map.json` when changing required page locations, and keep the importer mapping consistent. Update shared release values in `mkdocs.yml` when changing the documented AGL release or artifact channel. Rebuild and run both validators after changes.
 
 The importer is a manual migration utility, not part of the normal site build. From this directory inside the original repository:
 

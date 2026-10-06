@@ -10,7 +10,7 @@ import yaml
 
 
 def required_tree(text):
-    section = text.split('## Required Structure', 1)[1]
+    section = text.split('## Required Structure', 1)[1].split('\n## ', 1)[0]
     roots, stack = [], []
     for line in section.splitlines():
         match = re.match(r'^( *)(?:- )(.+?)\s*$', line)
@@ -50,24 +50,49 @@ def navigation_tree(items, pages):
     return result
 
 
-def first_heading(text):
-    fence = None
+def markdown_headings(text):
+    headings, fence = [], None
     for line in text.splitlines():
-        marker = re.match(r'^\s*(`{3,}|~{3,})',line)
+        marker = re.match(r'^\s*(`{3,}|~{3,})', line)
         if marker:
             if fence is None:
                 fence = marker[1][0]
             elif fence == marker[1][0]:
                 fence = None
-        elif fence is None and re.match(r'^#\s+',line):
-            return re.sub(r'^#\s+','',line).strip()
-    return None
+        elif fence is None:
+            heading = re.match(r'^(#{1,6})\s+(.+?)\s*$', line)
+            if heading:
+                headings.append((len(heading[1]), heading[2]))
+    return headings
+
+
+def first_heading(text):
+    return next((title for level, title in markdown_headings(text) if level == 1), None)
+
+
+def content_requirements(instructions):
+    if '## Required Contents at Section' not in instructions:
+        return {}
+    section = instructions.split('## Required Contents at Section', 1)[1].split('\n## ', 1)[0]
+    requirements, current = {}, None
+    for line in section.splitlines():
+        declaration = re.match(r'^(.+?) section must .*contents:\s*$', line)
+        bullet = re.match(r'^( *)(?:[*-] )(.+?)\s*$', line)
+        if declaration:
+            current = declaration[1]
+            requirements[current] = []
+        elif current is not None and bullet:
+            requirements[current].append((2 + len(bullet[1]) // 2, bullet[2]))
+        elif line.strip():
+            current = None
+    return requirements
 
 
 def validate(project):
     project = project.resolve()
     docs = project / 'docs'
-    expected = required_tree((project/'AGENTS.md').read_text(encoding='utf-8-sig'))
+    instructions = (project/'AGENTS.md').read_text(encoding='utf-8-sig')
+    expected = required_tree(instructions)
     config = yaml.load((project/'mkdocs.yml').read_text(encoding='utf-8-sig'), Loader=yaml.BaseLoader)
     pages = []
     actual = navigation_tree(config['nav'],pages)
@@ -82,6 +107,14 @@ def validate(project):
             raise ValueError('Required document is missing: '+path)
         if first_heading(text_by_path[path]) != title:
             raise ValueError('Required page heading differs: '+path)
+    for section, required in content_requirements(instructions).items():
+        paths = [path for title, path in pages if title == section]
+        if len(paths) != 1 or not required:
+            raise ValueError('Required content section is missing or ambiguous: ' + section)
+        required_titles = {title for _, title in required}
+        actual_content = [(level, title) for level, title in markdown_headings(text_by_path[paths[0]]) if title in required_titles]
+        if actual_content != required:
+            raise ValueError('Required section content differs: ' + section + ' (headings, order, or levels changed)')
     secondary = set(text_by_path)-set(nav_paths)
     declared = {line.strip().removeprefix('/') for line in config.get('not_in_nav','').splitlines() if line.strip()}
     if secondary != declared:
