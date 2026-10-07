@@ -55,41 +55,41 @@ Each document must be followed document structure as a follow.
 
       - Supported the other boards
 
-  - AGL Components
-    - AGL Reference Applications
-      - Flutter IVI homescreen
-      - Flutter Cluster
-      - Qt IVI homescreen
-      - Instrument Cluster reference GUI (Qt)
-      - Momi Screen
-      - Momi navigation
-      - Momi Weather
-      - Momi Player
+    - AGL Components
+      - AGL Reference Applications
+        - Flutter IVI homescreen
+        - Flutter Cluster
+        - Qt IVI homescreen
+        - Instrument Cluster reference GUI (Qt)
+        - Momi Screen
+        - Momi navigation
+        - Momi Weather
+        - Momi Player
 
-    - AGL Services
-      - Graphics
-        - The AGL compositor
-      - Sound
-        - Pipewire & Wireplumber
-      - Policies
-        - Rule based arbitrator
-      - Misc
-        - Voice agent assistant
-      - Instrument Cluster
-        - Instrument Cluster service
-    - IVI Application Framework
-      - Application Lifecycle and Services
-        - Application Framework
+      - AGL Services
+        - Graphics
+          - The AGL compositor
+        - Sound
+          - Pipewire & Wireplumber
+        - Policies
+          - Rule based arbitrator
+        - Misc
+          - Voice agent assistant
+        - Instrument Cluster
+          - Instrument Cluster service
+      - IVI Application Framework
+        - Application Lifecycle and Services
+          - Application Framework
 
-    - AGL API
-      - Table for APIs
-      - Generic APIs
-        - Redundancy file operation (librefop)
-      - In-Vehicle Infotainment APIs
-        - Persistent storage API
-      - Instrument Cluster APIs
-        - AGL Instrument Cluster API
-      - Gateway APIs
+      - AGL API
+        - Table for APIs
+        - Generic APIs
+          - Redundancy file operation (librefop)
+        - In-Vehicle Infotainment APIs
+          - Persistent storage API
+        - Instrument Cluster APIs
+          - AGL Instrument Cluster API
+        - Gateway APIs
 
     - Platform Customize
       - Create/Modify an AGL image
