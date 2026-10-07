@@ -7,6 +7,76 @@
       "publisher": "Automotive Grade Linux",
       "description": "Official SoDeV reference architecture, reproduced unchanged",
       "sha256": "a9cbec55b10055c40c05083ed076a4cc18214cb07e7e336162814cc6f8e4d9c9"
+    },
+    {
+      "path": "assets/diagrams/container-integration.svg",
+      "publisher": "AGL documentation contributors",
+      "description": "Original editorial reconstruction of the IC/IVI LXC reference architecture; not a reproduced official slide",
+      "reviewed_on": "2026-10-08",
+      "sha256": "89124a4a2a950b2c20d86fc605773768cf40fb7354b67cec2f541fa32a600274",
+      "documentation_page": "integrated/containers/architecture.md",
+      "source_references": [
+        {
+          "title": "AGL Tech Day, April 2022",
+          "url": "https://static.sched.com/hosted_files/agltechday2022/3b/agl-techday-202204.pdf",
+          "pages": [
+            11,
+            12,
+            13
+          ],
+          "sha256": "840e625518f24ed2223ae6c0e609203e77a1318873623065ceca269461a5a9ad"
+        },
+        {
+          "title": "A Case Study for the Storage Isolation to Avoid System Slowdown Propagating from Other Containers, 2025 Summer AMM",
+          "url": "https://lf-automotivelinux.atlassian.net/wiki/rest/api/content/527761419/child/attachment/att533856273/download",
+          "pages": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            17,
+            18,
+            19,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            37
+          ],
+          "sha256": "de95b6b9bb813e1cce0c9e07d61c7dabd745af5d38473f26f1611f2273b1c100"
+        },
+        {
+          "title": "AGL Update, ALS 2025",
+          "url": "https://static.sched.com/hosted_files/ossjapan2025/d0/AGL%20Update%20Miner%20ALS%202025.pdf",
+          "pages": [
+            33
+          ],
+          "sha256": "c44abcc6cfee0dddc65895394efb92f94d70d2cc1299e1b3f7a1e596a8e2ba7e"
+        },
+        {
+          "title": "Official IC-IVI container build and boot profile",
+          "url": "https://docs.automotivelinux.org/en/master/01_Getting_Started/03_Build_and_Boot_guide_Profile/01_Instrument_Cluster_%28IC-IVI_with_Container_isolation%29/"
+        },
+        {
+          "title": "meta-agl-devel: meta-agl-ic-container recipes and board configurations",
+          "url": "https://git.automotivelinux.org/AGL/meta-agl-devel/tree/meta-agl-ic-container?id=9ca6a00e4c6d9e9e055d4b26faf729c7c5332071",
+          "revision": "9ca6a00e4c6d9e9e055d4b26faf729c7c5332071"
+        },
+        {
+          "title": "Container Manager schema (recipe-pinned revision)",
+          "url": "https://github.com/AGLExport/container-manager/blob/0f578e0d93be14c31b56c6944ff9e60217e6df17/doc/container-configuration-files.md",
+          "revision": "0f578e0d93be14c31b56c6944ff9e60217e6df17"
+        },
+        {
+          "title": "meta-agl-demo: Cluster and Momi launch configuration",
+          "url": "https://git.automotivelinux.org/AGL/meta-agl-demo/tree/meta-agl-demo-shared?id=b442b90ae8be41d438b6b01f6e17afb8eeab1a78",
+          "revision": "b442b90ae8be41d438b6b01f6e17afb8eeab1a78"
+        }
+      ]
     }
   ]
 }

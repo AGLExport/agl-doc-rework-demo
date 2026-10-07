@@ -4,7 +4,7 @@ This English documentation site follows the exact headings, order, and hierarchy
 
 The navigation contains 104 required headings. All 177 articles are reachable through those chapters, including 73 supporting articles linked from the relevant chapter rather than added to the required navigation. The original ../docs/ directory remains unchanged; all 84 source Markdown articles and 104 source assets are retained. Previously corrected technical procedures remain available as supporting guides.
 
-Home explains AGL and its community and links to AGL Artifact for vehicle E/E architecture context. AGL Artifact retains the three original SVG architecture figures and the unchanged official SoDeV architecture diagram with attribution. Basic demos cover Flutter IVI, Qt IVI, and the IVI-derived Flutter Cluster; Extra demos cover the dedicated Qt and Slint clusters and the Momi IVI container guest. Two additional original SVGs show Basic software composition and Extra execution models. Momi's build route uses the complete container host and guest composition. New material cites official source recipes and workspace documentation.
+Home explains AGL and its community and links to AGL Artifact for vehicle E/E architecture context. AGL Artifact retains the three original SVG architecture figures and the unchanged official SoDeV architecture diagram with attribution. Basic demos cover Flutter IVI, Qt IVI, and the IVI-derived Flutter Cluster; Extra demos cover the dedicated Qt and Slint clusters and the Momi IVI container guest. Two additional original SVGs show Basic software composition and Extra execution models. Container integration has a dedicated runtime architecture diagram and an explanation of guest roles, DRM leases, optional audio IPC, image assembly, and the 2025 storage-isolation PoC; its reviewed source revisions and diagram provenance are recorded. Momi's build route uses the complete container host and guest composition. New material cites official source recipes and workspace documentation.
 
 ## Contents
 
@@ -13,7 +13,7 @@ Home explains AGL and its community and links to AGL Artifact for vehicle E/E ar
 | `mkdocs.yml` | Navigation, theme, release variables, and build configuration |
 | `docs/` | Documentation articles, task-oriented entry pages, and copied assets |
 | `docs/assets/diagrams/` | Original vehicle-architecture SVGs and the official SoDeV architecture image |
-| `asset-sources.json` | Source attribution and SHA-256 for the official SoDeV image |
+| `asset-sources.json` | Attribution and SHA-256 for the official SoDeV image and the authored Container integration diagram |
 | `AGENTS.md` | Required documentation headings, hierarchy, language, and section content |
 | `structure-map.json` | Required heading-to-page mapping and previous page locations |
 | `source-map.json` | Source-to-destination mapping and SHA-256 hashes for the 84 imported articles |
