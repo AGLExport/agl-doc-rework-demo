@@ -199,53 +199,53 @@ nav:
         - Build target image: standalone/build/extra/image.md
         - Deploy to board: standalone/build/extra/deploy.md
       - Supported the other boards: standalone/build/other-boards.md
-  - AGL Components:
-    - components/index.md
-    - AGL Reference Applications:
-      - components/applications/index.md
-      - Flutter IVI homescreen: components/applications/flutter-homescreen.md
-      - Flutter Cluster: components/applications/flutter-cluster.md
-      - Qt IVI homescreen: components/applications/qt-homescreen.md
-      - Instrument Cluster reference GUI (Qt): components/applications/cluster-dashboard.md
-      - Momi Screen: components/applications/momi-screen.md
-      - Momi navigation: components/applications/momi-navigation.md
-      - Momi Weather: components/applications/momi-weather.md
-      - Momi Player: components/applications/momi-player.md
-    - AGL Services:
-      - components/services/index.md
-      - Graphics:
-        - components/services/graphics/index.md
-        - The AGL compositor: components/services/graphics/agl-compositor.md
-      - Sound:
-        - components/services/sound/index.md
-        - Pipewire & Wireplumber: components/services/sound/pipewire-wireplumber.md
-      - Policies:
-        - components/services/policies/index.md
-        - Rule based arbitrator: components/services/policies/rule-based-arbitrator.md
-      - Misc:
-        - components/services/misc/index.md
-        - Voice agent assistant: components/services/misc/voice-agent.md
-      - Instrument Cluster:
-        - components/services/cluster/index.md
-        - Instrument Cluster service: components/services/cluster/cluster-service.md
-    - IVI Application Framework:
-      - components/framework/index.md
-      - Application Lifecycle and Services:
-        - components/framework/lifecycle/index.md
-        - Application Framework: components/framework/lifecycle/application-framework.md
-    - AGL API:
-      - components/api/index.md
-      - Table for APIs: components/api/table.md
-      - Generic APIs:
-        - components/api/generic/index.md
-        - Redundancy file operation (librefop): components/api/generic/librefop.md
-      - In-Vehicle Infotainment APIs:
-        - components/api/ivi/index.md
-        - Persistent storage API: components/api/ivi/persistent-storage.md
-      - Instrument Cluster APIs:
-        - components/api/cluster/index.md
-        - AGL Instrument Cluster API: components/api/cluster/instrument-cluster-api.md
-      - Gateway APIs: components/api/gateway.md
+    - AGL Components:
+      - components/index.md
+      - AGL Reference Applications:
+        - components/applications/index.md
+        - Flutter IVI homescreen: components/applications/flutter-homescreen.md
+        - Flutter Cluster: components/applications/flutter-cluster.md
+        - Qt IVI homescreen: components/applications/qt-homescreen.md
+        - Instrument Cluster reference GUI (Qt): components/applications/cluster-dashboard.md
+        - Momi Screen: components/applications/momi-screen.md
+        - Momi navigation: components/applications/momi-navigation.md
+        - Momi Weather: components/applications/momi-weather.md
+        - Momi Player: components/applications/momi-player.md
+      - AGL Services:
+        - components/services/index.md
+        - Graphics:
+          - components/services/graphics/index.md
+          - The AGL compositor: components/services/graphics/agl-compositor.md
+        - Sound:
+          - components/services/sound/index.md
+          - Pipewire & Wireplumber: components/services/sound/pipewire-wireplumber.md
+        - Policies:
+          - components/services/policies/index.md
+          - Rule based arbitrator: components/services/policies/rule-based-arbitrator.md
+        - Misc:
+          - components/services/misc/index.md
+          - Voice agent assistant: components/services/misc/voice-agent.md
+        - Instrument Cluster:
+          - components/services/cluster/index.md
+          - Instrument Cluster service: components/services/cluster/cluster-service.md
+      - IVI Application Framework:
+        - components/framework/index.md
+        - Application Lifecycle and Services:
+          - components/framework/lifecycle/index.md
+          - Application Framework: components/framework/lifecycle/application-framework.md
+      - AGL API:
+        - components/api/index.md
+        - Table for APIs: components/api/table.md
+        - Generic APIs:
+          - components/api/generic/index.md
+          - Redundancy file operation (librefop): components/api/generic/librefop.md
+        - In-Vehicle Infotainment APIs:
+          - components/api/ivi/index.md
+          - Persistent storage API: components/api/ivi/persistent-storage.md
+        - Instrument Cluster APIs:
+          - components/api/cluster/index.md
+          - AGL Instrument Cluster API: components/api/cluster/instrument-cluster-api.md
+        - Gateway APIs: components/api/gateway.md
     - Platform Customize:
       - standalone/customize/index.md
       - Create/Modify an AGL image: standalone/customize/image.md

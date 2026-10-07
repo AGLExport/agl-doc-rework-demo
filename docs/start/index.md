@@ -9,4 +9,4 @@ Start with [Run Flutter IVI demo pre-build image](prebuilt/index.md). Choose QEM
 
 The configured channel is **{{ agl.codename }} / {{ artifact_kind }}**. Use [Releases & migration](../releases/index.md) to select a version.
 
-After evaluation, compare the [Basic and Extra demos](../standalone/portfolio/index.md), then follow [Build AGL system](../standalone/build/index.md) to create your own image. Individual applications and development workflows are described in [AGL Components](../components/index.md).
+After evaluation, compare the [Basic and Extra demos](../standalone/portfolio/index.md), then follow [Build AGL system](../standalone/build/index.md) to create your own image. Read [AGL Components](../components/index.md) for individual application and service explanations, then use [Application development](../standalone/applications/index.md) for Flutter and Qt workflows.

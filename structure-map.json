@@ -376,6 +376,7 @@
     {
       "breadcrumb": [
         "Home",
+        "AGL distributed system",
         "AGL Components"
       ],
       "heading": "AGL Components",
@@ -384,6 +385,7 @@
     {
       "breadcrumb": [
         "Home",
+        "AGL distributed system",
         "AGL Components",
         "AGL Reference Applications"
       ],
@@ -393,6 +395,7 @@
     {
       "breadcrumb": [
         "Home",
+        "AGL distributed system",
         "AGL Components",
         "AGL Reference Applications",
         "Flutter IVI homescreen"
@@ -403,6 +406,7 @@
     {
       "breadcrumb": [
         "Home",
+        "AGL distributed system",
         "AGL Components",
         "AGL Reference Applications",
         "Flutter Cluster"
@@ -413,6 +417,7 @@
     {
       "breadcrumb": [
         "Home",
+        "AGL distributed system",
         "AGL Components",
         "AGL Reference Applications",
         "Qt IVI homescreen"
@@ -423,6 +428,7 @@
     {
       "breadcrumb": [
         "Home",
+        "AGL distributed system",
         "AGL Components",
         "AGL Reference Applications",
         "Instrument Cluster reference GUI (Qt)"
@@ -433,6 +439,7 @@
     {
       "breadcrumb": [
         "Home",
+        "AGL distributed system",
         "AGL Components",
         "AGL Reference Applications",
         "Momi Screen"
@@ -443,6 +450,7 @@
     {
       "breadcrumb": [
         "Home",
+        "AGL distributed system",
         "AGL Components",
         "AGL Reference Applications",
         "Momi navigation"
@@ -453,6 +461,7 @@
     {
       "breadcrumb": [
         "Home",
+        "AGL distributed system",
         "AGL Components",
         "AGL Reference Applications",
         "Momi Weather"
@@ -463,6 +472,7 @@
     {
       "breadcrumb": [
         "Home",
+        "AGL distributed system",
         "AGL Components",
         "AGL Reference Applications",
         "Momi Player"
@@ -473,6 +483,7 @@
     {
       "breadcrumb": [
         "Home",
+        "AGL distributed system",
         "AGL Components",
         "AGL Services"
       ],
@@ -482,6 +493,7 @@
     {
       "breadcrumb": [
         "Home",
+        "AGL distributed system",
         "AGL Components",
         "AGL Services",
         "Graphics"
@@ -492,6 +504,7 @@
     {
       "breadcrumb": [
         "Home",
+        "AGL distributed system",
         "AGL Components",
         "AGL Services",
         "Graphics",
@@ -503,6 +516,7 @@
     {
       "breadcrumb": [
         "Home",
+        "AGL distributed system",
         "AGL Components",
         "AGL Services",
         "Sound"
@@ -513,6 +527,7 @@
     {
       "breadcrumb": [
         "Home",
+        "AGL distributed system",
         "AGL Components",
         "AGL Services",
         "Sound",
@@ -524,6 +539,7 @@
     {
       "breadcrumb": [
         "Home",
+        "AGL distributed system",
         "AGL Components",
         "AGL Services",
         "Policies"
@@ -534,6 +550,7 @@
     {
       "breadcrumb": [
         "Home",
+        "AGL distributed system",
         "AGL Components",
         "AGL Services",
         "Policies",
@@ -545,6 +562,7 @@
     {
       "breadcrumb": [
         "Home",
+        "AGL distributed system",
         "AGL Components",
         "AGL Services",
         "Misc"
@@ -555,6 +573,7 @@
     {
       "breadcrumb": [
         "Home",
+        "AGL distributed system",
         "AGL Components",
         "AGL Services",
         "Misc",
@@ -566,6 +585,7 @@
     {
       "breadcrumb": [
         "Home",
+        "AGL distributed system",
         "AGL Components",
         "AGL Services",
         "Instrument Cluster"
@@ -576,6 +596,7 @@
     {
       "breadcrumb": [
         "Home",
+        "AGL distributed system",
         "AGL Components",
         "AGL Services",
         "Instrument Cluster",
@@ -587,6 +608,7 @@
     {
       "breadcrumb": [
         "Home",
+        "AGL distributed system",
         "AGL Components",
         "IVI Application Framework"
       ],
@@ -596,6 +618,7 @@
     {
       "breadcrumb": [
         "Home",
+        "AGL distributed system",
         "AGL Components",
         "IVI Application Framework",
         "Application Lifecycle and Services"
@@ -606,6 +629,7 @@
     {
       "breadcrumb": [
         "Home",
+        "AGL distributed system",
         "AGL Components",
         "IVI Application Framework",
         "Application Lifecycle and Services",
@@ -617,6 +641,7 @@
     {
       "breadcrumb": [
         "Home",
+        "AGL distributed system",
         "AGL Components",
         "AGL API"
       ],
@@ -626,6 +651,7 @@
     {
       "breadcrumb": [
         "Home",
+        "AGL distributed system",
         "AGL Components",
         "AGL API",
         "Table for APIs"
@@ -636,6 +662,7 @@
     {
       "breadcrumb": [
         "Home",
+        "AGL distributed system",
         "AGL Components",
         "AGL API",
         "Generic APIs"
@@ -646,6 +673,7 @@
     {
       "breadcrumb": [
         "Home",
+        "AGL distributed system",
         "AGL Components",
         "AGL API",
         "Generic APIs",
@@ -657,6 +685,7 @@
     {
       "breadcrumb": [
         "Home",
+        "AGL distributed system",
         "AGL Components",
         "AGL API",
         "In-Vehicle Infotainment APIs"
@@ -667,6 +696,7 @@
     {
       "breadcrumb": [
         "Home",
+        "AGL distributed system",
         "AGL Components",
         "AGL API",
         "In-Vehicle Infotainment APIs",
@@ -678,6 +708,7 @@
     {
       "breadcrumb": [
         "Home",
+        "AGL distributed system",
         "AGL Components",
         "AGL API",
         "Instrument Cluster APIs"
@@ -688,6 +719,7 @@
     {
       "breadcrumb": [
         "Home",
+        "AGL distributed system",
         "AGL Components",
         "AGL API",
         "Instrument Cluster APIs",
@@ -699,6 +731,7 @@
     {
       "breadcrumb": [
         "Home",
+        "AGL distributed system",
         "AGL Components",
         "AGL API",
         "Gateway APIs"
@@ -709,7 +742,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL Components",
+        "AGL distributed system",
         "Platform Customize"
       ],
       "heading": "Platform Customize",
@@ -718,7 +751,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL Components",
+        "AGL distributed system",
         "Platform Customize",
         "Create/Modify an AGL image"
       ],
@@ -728,7 +761,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL Components",
+        "AGL distributed system",
         "Platform Customize",
         "Create a custom recipe"
       ],
@@ -738,7 +771,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL Components",
+        "AGL distributed system",
         "Platform Customize",
         "Create a service"
       ],
@@ -748,7 +781,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL Components",
+        "AGL distributed system",
         "Application development"
       ],
       "heading": "Application development",
@@ -757,7 +790,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL Components",
+        "AGL distributed system",
         "Application development",
         "Flutter application"
       ],
@@ -767,7 +800,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL Components",
+        "AGL distributed system",
         "Application development",
         "Qt application"
       ],
