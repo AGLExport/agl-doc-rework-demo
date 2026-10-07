@@ -86,7 +86,7 @@ ssh root@<target-ip-address>
 
 See [Flutter IVI demo](flutter.md) for an explanation of the UI and [Troubleshooting](../../troubleshooting/index.md) for logs and boot diagnosis.
 '''
-    overview = frontmatter('Pre-build image for IVI demo', source)+'''# Pre-build image for IVI demo
+    overview = frontmatter('Run Flutter IVI demo pre-build image', source)+'''# Run Flutter IVI demo pre-build image
 
 Evaluate AGL with the Flutter IVI demo before preparing a full source build. Read the demo overview, then choose your boot environment.
 

@@ -1,6 +1,6 @@
 {
   "instructions": "AGENTS.md",
-  "heading_count": 89,
+  "heading_count": 104,
   "required_pages": [
     {
       "breadcrumb": [
@@ -98,15 +98,15 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system distribution"
+        "AGL distributed system"
       ],
-      "heading": "AGL distributed system distribution",
+      "heading": "AGL distributed system",
       "page": "standalone/index.md"
     },
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system distribution",
+        "AGL distributed system",
         "Quick start"
       ],
       "heading": "Quick start",
@@ -115,30 +115,19 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system distribution",
+        "AGL distributed system",
         "Quick start",
-        "Pre-build image for IVI demo"
+        "Run Flutter IVI demo pre-build image"
       ],
-      "heading": "Pre-build image for IVI demo",
+      "heading": "Run Flutter IVI demo pre-build image",
       "page": "start/prebuilt/index.md"
     },
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system distribution",
+        "AGL distributed system",
         "Quick start",
-        "Pre-build image for IVI demo",
-        "Flutter IVI demo"
-      ],
-      "heading": "Flutter IVI demo",
-      "page": "start/prebuilt/flutter.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL distributed system distribution",
-        "Quick start",
-        "Pre-build image for IVI demo",
+        "Run Flutter IVI demo pre-build image",
         "QEMU x86-64"
       ],
       "heading": "QEMU x86-64",
@@ -147,9 +136,9 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system distribution",
+        "AGL distributed system",
         "Quick start",
-        "Pre-build image for IVI demo",
+        "Run Flutter IVI demo pre-build image",
         "Raspberry Pi 4/5"
       ],
       "heading": "Raspberry Pi 4/5",
@@ -158,271 +147,231 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system distribution",
-        "Build Platform"
+        "AGL distributed system",
+        "Portfolio"
       ],
-      "heading": "Build Platform",
+      "heading": "Portfolio",
+      "page": "standalone/portfolio/index.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL distributed system",
+        "Portfolio",
+        "Basic AGL system"
+      ],
+      "heading": "Basic AGL system",
+      "page": "standalone/portfolio/basic/index.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL distributed system",
+        "Portfolio",
+        "Basic AGL system",
+        "Flutter IVI demo"
+      ],
+      "heading": "Flutter IVI demo",
+      "page": "standalone/portfolio/basic/flutter-ivi.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL distributed system",
+        "Portfolio",
+        "Basic AGL system",
+        "Qt IVI demo"
+      ],
+      "heading": "Qt IVI demo",
+      "page": "standalone/portfolio/basic/qt-ivi.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL distributed system",
+        "Portfolio",
+        "Basic AGL system",
+        "IVI based Flutter Cluster demo"
+      ],
+      "heading": "IVI based Flutter Cluster demo",
+      "page": "standalone/portfolio/basic/flutter-cluster.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL distributed system",
+        "Portfolio",
+        "Extra AGL system"
+      ],
+      "heading": "Extra AGL system",
+      "page": "standalone/portfolio/extra/index.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL distributed system",
+        "Portfolio",
+        "Extra AGL system",
+        "Qt based Cluster demo"
+      ],
+      "heading": "Qt based Cluster demo",
+      "page": "standalone/portfolio/extra/qt-cluster.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL distributed system",
+        "Portfolio",
+        "Extra AGL system",
+        "Slint based Cluster demo"
+      ],
+      "heading": "Slint based Cluster demo",
+      "page": "standalone/portfolio/extra/slint-cluster.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL distributed system",
+        "Portfolio",
+        "Extra AGL system",
+        "Momi IVI demo"
+      ],
+      "heading": "Momi IVI demo",
+      "page": "standalone/portfolio/extra/momi-ivi.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL distributed system",
+        "Architecture"
+      ],
+      "heading": "Architecture",
+      "page": "standalone/architecture/index.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL distributed system",
+        "Architecture",
+        "Basic AGL system"
+      ],
+      "heading": "Basic AGL system",
+      "page": "standalone/architecture/basic.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL distributed system",
+        "Architecture",
+        "Extra AGL system"
+      ],
+      "heading": "Extra AGL system",
+      "page": "standalone/architecture/extra.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL distributed system",
+        "Build AGL system"
+      ],
+      "heading": "Build AGL system",
       "page": "standalone/build/index.md"
     },
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system distribution",
-        "Build Platform",
-        "Common part"
+        "AGL distributed system",
+        "Build AGL system",
+        "Basic AGL system"
       ],
-      "heading": "Common part",
-      "page": "standalone/build/common.md"
+      "heading": "Basic AGL system",
+      "page": "standalone/build/basic/index.md"
     },
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system distribution",
-        "Build Platform",
-        "In-Vehicle Infotainment"
+        "AGL distributed system",
+        "Build AGL system",
+        "Basic AGL system",
+        "Setup build environment"
       ],
-      "heading": "In-Vehicle Infotainment",
-      "page": "standalone/build/ivi/index.md"
+      "heading": "Setup build environment",
+      "page": "standalone/build/basic/setup.md"
     },
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system distribution",
-        "Build Platform",
-        "In-Vehicle Infotainment",
-        "Flutter IVI demo"
+        "AGL distributed system",
+        "Build AGL system",
+        "Basic AGL system",
+        "Build target image"
       ],
-      "heading": "Flutter IVI demo",
-      "page": "standalone/build/ivi/flutter.md"
+      "heading": "Build target image",
+      "page": "standalone/build/basic/image.md"
     },
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system distribution",
-        "Build Platform",
-        "In-Vehicle Infotainment",
-        "Qt IVI demo"
+        "AGL distributed system",
+        "Build AGL system",
+        "Basic AGL system",
+        "Deploy to board"
       ],
-      "heading": "Qt IVI demo",
-      "page": "standalone/build/ivi/qt-ivi-demo.md"
+      "heading": "Deploy to board",
+      "page": "standalone/build/basic/deploy.md"
     },
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system distribution",
-        "Build Platform",
-        "In-Vehicle Infotainment",
-        "IVI based Flutter Cluster"
+        "AGL distributed system",
+        "Build AGL system",
+        "Extra AGL system"
       ],
-      "heading": "IVI based Flutter Cluster",
-      "page": "standalone/build/ivi/flutter-cluster.md"
+      "heading": "Extra AGL system",
+      "page": "standalone/build/extra/index.md"
     },
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system distribution",
-        "Build Platform",
-        "Instrument Cluster"
+        "AGL distributed system",
+        "Build AGL system",
+        "Extra AGL system",
+        "Setup build environment"
       ],
-      "heading": "Instrument Cluster",
-      "page": "standalone/build/cluster/index.md"
+      "heading": "Setup build environment",
+      "page": "standalone/build/extra/setup.md"
     },
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system distribution",
-        "Build Platform",
-        "Instrument Cluster",
-        "Qt based Cluster"
+        "AGL distributed system",
+        "Build AGL system",
+        "Extra AGL system",
+        "Build target image"
       ],
-      "heading": "Qt based Cluster",
-      "page": "standalone/build/cluster/qt.md"
+      "heading": "Build target image",
+      "page": "standalone/build/extra/image.md"
     },
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system distribution",
-        "Build Platform",
-        "Instrument Cluster",
-        "Slint based Cluster"
+        "AGL distributed system",
+        "Build AGL system",
+        "Extra AGL system",
+        "Deploy to board"
       ],
-      "heading": "Slint based Cluster",
-      "page": "standalone/build/cluster/slint.md"
+      "heading": "Deploy to board",
+      "page": "standalone/build/extra/deploy.md"
     },
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system distribution",
-        "Platform Customize"
+        "AGL distributed system",
+        "Build AGL system",
+        "Supported the other boards"
       ],
-      "heading": "Platform Customize",
-      "page": "standalone/customize/index.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL distributed system distribution",
-        "Platform Customize",
-        "Create/Modify an AGL image"
-      ],
-      "heading": "Create/Modify an AGL image",
-      "page": "standalone/customize/image.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL distributed system distribution",
-        "Platform Customize",
-        "Create a custom recipe"
-      ],
-      "heading": "Create a custom recipe",
-      "page": "standalone/customize/recipe.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL distributed system distribution",
-        "Platform Customize",
-        "Create a service"
-      ],
-      "heading": "Create a service",
-      "page": "standalone/customize/service.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL distributed system distribution",
-        "Application development"
-      ],
-      "heading": "Application development",
-      "page": "standalone/applications/index.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL distributed system distribution",
-        "Application development",
-        "Flutter application"
-      ],
-      "heading": "Flutter application",
-      "page": "standalone/applications/flutter.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL distributed system distribution",
-        "Application development",
-        "Qt application"
-      ],
-      "heading": "Qt application",
-      "page": "standalone/applications/qt.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL integrated system development"
-      ],
-      "heading": "AGL integrated system development",
-      "page": "integrated/index.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL integrated system development",
-        "SoDeV"
-      ],
-      "heading": "SoDeV",
-      "page": "integrated/sodev/index.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL integrated system development",
-        "SoDeV",
-        "Build Platform"
-      ],
-      "heading": "Build Platform",
-      "page": "integrated/sodev/build.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL integrated system development",
-        "SoDeV",
-        "SoDeV Customize"
-      ],
-      "heading": "SoDeV Customize",
-      "page": "integrated/sodev/customize/index.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL integrated system development",
-        "SoDeV",
-        "SoDeV Customize",
-        "Create and Run Guest VM"
-      ],
-      "heading": "Create and Run Guest VM",
-      "page": "integrated/sodev/customize/guest-vm.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL integrated system development",
-        "Container integration"
-      ],
-      "heading": "Container integration",
-      "page": "integrated/containers/index.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL integrated system development",
-        "Container integration",
-        "Build Platform"
-      ],
-      "heading": "Build Platform",
-      "page": "integrated/containers/build.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL integrated system development",
-        "Container integration",
-        "Container integration Customize"
-      ],
-      "heading": "Container integration Customize",
-      "page": "integrated/containers/customize/index.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL integrated system development",
-        "Container integration",
-        "Container integration Customize",
-        "Create and Run Guest Container"
-      ],
-      "heading": "Create and Run Guest Container",
-      "page": "integrated/containers/customize/guest-container.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL integrated system development",
-        "KVM based integration"
-      ],
-      "heading": "KVM based integration",
-      "page": "integrated/kvm/index.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL integrated system development",
-        "KVM based integration",
-        "Build Platform"
-      ],
-      "heading": "Build Platform",
-      "page": "integrated/kvm/build.md"
+      "heading": "Supported the other boards",
+      "page": "standalone/build/other-boards.md"
     },
     {
       "breadcrumb": [
@@ -556,17 +505,6 @@
         "Home",
         "AGL Components",
         "AGL Services",
-        "Graphics",
-        "DRM lease manager"
-      ],
-      "heading": "DRM lease manager",
-      "page": "components/services/graphics/drm-lease-manager.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL Components",
-        "AGL Services",
         "Sound"
       ],
       "heading": "Sound",
@@ -680,97 +618,6 @@
       "breadcrumb": [
         "Home",
         "AGL Components",
-        "Platform extension"
-      ],
-      "heading": "Platform extension",
-      "page": "components/extensions/index.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL Components",
-        "Platform extension",
-        "Unified HMI"
-      ],
-      "heading": "Unified HMI",
-      "page": "components/extensions/unified-hmi.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL Components",
-        "Platform extension",
-        "Container Manager"
-      ],
-      "heading": "Container Manager",
-      "page": "components/extensions/container-manager.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL Components",
-        "Development Tools"
-      ],
-      "heading": "Development Tools",
-      "page": "components/tools/index.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL Components",
-        "Development Tools",
-        "Demo Control"
-      ],
-      "heading": "Demo Control",
-      "page": "components/tools/demo-control/index.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL Components",
-        "Development Tools",
-        "Demo Control",
-        "Demo Control Panel"
-      ],
-      "heading": "Demo Control Panel",
-      "page": "components/tools/demo-control/panel.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL Components",
-        "Development Tools",
-        "Demo Control",
-        "CARLA with AGL"
-      ],
-      "heading": "CARLA with AGL",
-      "page": "components/tools/demo-control/carla.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL Components",
-        "Development Tools",
-        "Virtual Car CAN definition"
-      ],
-      "heading": "Virtual Car CAN definition",
-      "page": "components/tools/virtual-car/index.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL Components",
-        "Development Tools",
-        "Virtual Car CAN definition",
-        "AGL virtual car"
-      ],
-      "heading": "AGL virtual car",
-      "page": "components/tools/virtual-car/virtual-car.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL Components",
         "AGL API"
       ],
       "heading": "AGL API",
@@ -858,6 +705,310 @@
       ],
       "heading": "Gateway APIs",
       "page": "components/api/gateway.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL Components",
+        "Platform Customize"
+      ],
+      "heading": "Platform Customize",
+      "page": "standalone/customize/index.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL Components",
+        "Platform Customize",
+        "Create/Modify an AGL image"
+      ],
+      "heading": "Create/Modify an AGL image",
+      "page": "standalone/customize/image.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL Components",
+        "Platform Customize",
+        "Create a custom recipe"
+      ],
+      "heading": "Create a custom recipe",
+      "page": "standalone/customize/recipe.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL Components",
+        "Platform Customize",
+        "Create a service"
+      ],
+      "heading": "Create a service",
+      "page": "standalone/customize/service.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL Components",
+        "Application development"
+      ],
+      "heading": "Application development",
+      "page": "standalone/applications/index.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL Components",
+        "Application development",
+        "Flutter application"
+      ],
+      "heading": "Flutter application",
+      "page": "standalone/applications/flutter.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL Components",
+        "Application development",
+        "Qt application"
+      ],
+      "heading": "Qt application",
+      "page": "standalone/applications/qt.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL integrated system"
+      ],
+      "heading": "AGL integrated system",
+      "page": "integrated/index.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL integrated system",
+        "SoDeV"
+      ],
+      "heading": "SoDeV",
+      "page": "integrated/sodev/index.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL integrated system",
+        "SoDeV",
+        "Architecture"
+      ],
+      "heading": "Architecture",
+      "page": "integrated/sodev/architecture.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL integrated system",
+        "SoDeV",
+        "Build SoDeV"
+      ],
+      "heading": "Build SoDeV",
+      "page": "integrated/sodev/build.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL integrated system",
+        "SoDeV",
+        "SoDeV Customize"
+      ],
+      "heading": "SoDeV Customize",
+      "page": "integrated/sodev/customize/index.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL integrated system",
+        "SoDeV",
+        "SoDeV Customize",
+        "Create and Run Guest VM"
+      ],
+      "heading": "Create and Run Guest VM",
+      "page": "integrated/sodev/customize/guest-vm.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL integrated system",
+        "SoDeV",
+        "Platform extension"
+      ],
+      "heading": "Platform extension",
+      "page": "integrated/sodev/extensions.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL integrated system",
+        "SoDeV",
+        "Platform extension",
+        "Unified HMI"
+      ],
+      "heading": "Unified HMI",
+      "page": "components/extensions/unified-hmi.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL integrated system",
+        "Container integration"
+      ],
+      "heading": "Container integration",
+      "page": "integrated/containers/index.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL integrated system",
+        "Container integration",
+        "Architecture"
+      ],
+      "heading": "Architecture",
+      "page": "integrated/containers/architecture.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL integrated system",
+        "Container integration",
+        "Build Container integration"
+      ],
+      "heading": "Build Container integration",
+      "page": "integrated/containers/build.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL integrated system",
+        "Container integration",
+        "Container integration Customize"
+      ],
+      "heading": "Container integration Customize",
+      "page": "integrated/containers/customize/index.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL integrated system",
+        "Container integration",
+        "Container integration Customize",
+        "Create and Run Guest Container"
+      ],
+      "heading": "Create and Run Guest Container",
+      "page": "integrated/containers/customize/guest-container.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL integrated system",
+        "Container integration",
+        "Platform extension"
+      ],
+      "heading": "Platform extension",
+      "page": "integrated/containers/extensions.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL integrated system",
+        "Container integration",
+        "Platform extension",
+        "DRM lease manager"
+      ],
+      "heading": "DRM lease manager",
+      "page": "components/services/graphics/drm-lease-manager.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL integrated system",
+        "Container integration",
+        "Platform extension",
+        "Container Manager"
+      ],
+      "heading": "Container Manager",
+      "page": "components/extensions/container-manager.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL integrated system",
+        "KVM based integration"
+      ],
+      "heading": "KVM based integration",
+      "page": "integrated/kvm/index.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL integrated system",
+        "KVM based integration",
+        "Build Platform"
+      ],
+      "heading": "Build Platform",
+      "page": "integrated/kvm/build.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL Development tools"
+      ],
+      "heading": "AGL Development tools",
+      "page": "components/tools/index.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL Development tools",
+        "Demo Control"
+      ],
+      "heading": "Demo Control",
+      "page": "components/tools/demo-control/index.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL Development tools",
+        "Demo Control",
+        "Demo Control Panel"
+      ],
+      "heading": "Demo Control Panel",
+      "page": "components/tools/demo-control/panel.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL Development tools",
+        "Demo Control",
+        "CARLA with AGL"
+      ],
+      "heading": "CARLA with AGL",
+      "page": "components/tools/demo-control/carla.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL Development tools",
+        "Virtual Car CAN definition"
+      ],
+      "heading": "Virtual Car CAN definition",
+      "page": "components/tools/virtual-car/index.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "AGL Development tools",
+        "Virtual Car CAN definition",
+        "AGL virtual car"
+      ],
+      "heading": "AGL virtual car",
+      "page": "components/tools/virtual-car/virtual-car.md"
     },
     {
       "breadcrumb": [

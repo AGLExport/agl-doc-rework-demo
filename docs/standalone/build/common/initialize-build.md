@@ -34,7 +34,7 @@ Note: This is also the place where you can add new boards.
 
 Following is a list of the available machines (level of support varies!):
 
-```sh
+```text
 Available machines:
    [meta-agl]
        am62xx-evm

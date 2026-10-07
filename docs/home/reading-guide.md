@@ -31,8 +31,8 @@ For individual feature specifications, use the [API and service catalog](../comp
 | Next goal | Guide |
 | --- | --- |
 | Explore a running environment | [Quick start](../start/index.md) |
-| Develop your own application | [Application development](../standalone/index.md#apps) |
-| Build an image with your own configuration | [Platform development](../standalone/index.md#platform) |
+| Develop your own application | [Application development](../standalone/applications/index.md) |
+| Build an image with your own configuration | [Build AGL system](../standalone/build/index.md) |
 | Look up an API or a setting | [API & configuration](../components/index.md) |
 
 Concepts and features can differ between versions. This site targets the `{{ agl.codename }}` development branch. For another version, use [Releases & migration](../releases/index.md) to find its documentation.

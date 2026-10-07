@@ -81,7 +81,7 @@ These commands do not require administrator privileges.
 
 ## Edit an article
 
-Read `AGENTS.md` before editing. Preserve all 89 required navigation headings,
+Read `AGENTS.md` before editing. Preserve all 104 required navigation headings,
 their spelling, order, and hierarchy. Each required page must use its required
 heading as its first H1. Preserve the required section contents, architecture
 figures, references, and links to subsections.

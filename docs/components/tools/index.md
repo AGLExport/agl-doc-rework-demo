@@ -1,15 +1,17 @@
 ---
-title: "Development Tools"
+title: "AGL Development tools"
 content_status: authored
 ---
 
-# Development Tools
+# AGL Development tools
 
-Use demo-control tools to drive a setup and virtual-car definitions to understand vehicle data exchanged by demonstrations.
+Use these tools to operate an AGL demonstration and understand vehicle data exchanged by reference systems.
 
-- [Demo Control](demo-control/index.md)
-- [Virtual Car CAN definition](virtual-car/index.md)
+| Area | Guides |
+| --- | --- |
+| [Demo Control](demo-control/index.md) | Demo Control Panel and CARLA with AGL |
+| [Virtual Car CAN definition](virtual-car/index.md) | AGL virtual-car signal definitions |
 
-## Further reading
+Begin with a running [distributed](../../standalone/index.md) or [integrated](../../integrated/index.md) system. Confirm its vehicle-data topology before connecting a controller or simulator. [Use a USB CAN adapter](usb-can-adapter.md) provides supporting hardware setup.
 
-- [Use a USB CAN adapter](usb-can-adapter.md)
+Return to [AGL Components](../index.md) for service and API specifications.

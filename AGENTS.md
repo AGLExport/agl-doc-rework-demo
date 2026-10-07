@@ -21,42 +21,39 @@ Each document must be followed document structure as a follow.
       - Container integration
       - KVM based integration
   
-  - AGL distributed system distribution
+  - AGL distributed system
     - Quick start
-      - Pre-build image for IVI demo
-        - Flutter IVI demo
+      - Run Flutter IVI demo pre-build image 
         - QEMU x86-64
         - Raspberry Pi 4/5
 
-    - Build Platform
-      - Common part
-      - In-Vehicle Infotainment
+    - Portfolio
+      - Basic AGL system 
         - Flutter IVI demo
         - Qt IVI demo
-        - IVI based Flutter Cluster
-      - Instrument Cluster
-        - Qt based Cluster
-        - Slint based Cluster
+        - IVI based Flutter Cluster demo
 
-    - Platform Customize
-      - Create/Modify an AGL image
-      - Create a custom recipe
-      - Create a service 
-    - Application development
-      - Flutter application
-      - Qt application
+      - Extra AGL system
+        - Qt based Cluster demo
+        - Slint based Cluster demo
+        - Momi IVI demo
 
-  - AGL integrated system development
-    - SoDeV
-      - Build Platform
-      - SoDeV Customize
-        - Create and Run Guest VM
-    - Container integration
-      - Build Platform
-      - Container integration Customize
-        - Create and Run Guest Container
-    - KVM based integration
-      - Build Platform
+    - Architecture
+      - Basic AGL system 
+      - Extra AGL system
+
+    - Build AGL system
+      - Basic AGL system 
+        - Setup build environment
+        - Build target image
+        - Deploy to board
+
+      - Extra AGL system
+        - Setup build environment
+        - Build target image
+        - Deploy to board
+
+      - Supported the other boards
 
   - AGL Components
     - AGL Reference Applications
@@ -68,10 +65,10 @@ Each document must be followed document structure as a follow.
       - Momi navigation
       - Momi Weather
       - Momi Player
+
     - AGL Services
       - Graphics
         - The AGL compositor
-        - DRM lease manager
       - Sound
         - Pipewire & Wireplumber
       - Policies
@@ -83,15 +80,7 @@ Each document must be followed document structure as a follow.
     - IVI Application Framework
       - Application Lifecycle and Services
         - Application Framework
-    - Platform extension
-      - Unified HMI
-      - Container Manager
-    - Development Tools
-      - Demo Control
-        - Demo Control Panel
-        - CARLA with AGL
-      - Virtual Car CAN definition
-        - AGL virtual car
+
     - AGL API
       - Table for APIs
       - Generic APIs
@@ -101,6 +90,45 @@ Each document must be followed document structure as a follow.
       - Instrument Cluster APIs
         - AGL Instrument Cluster API
       - Gateway APIs
+
+    - Platform Customize
+      - Create/Modify an AGL image
+      - Create a custom recipe
+      - Create a service 
+
+    - Application development
+      - Flutter application
+      - Qt application
+
+  - AGL integrated system
+    - SoDeV
+      - Architecture
+      - Build SoDeV
+      - SoDeV Customize
+        - Create and Run Guest VM
+      - Platform extension
+        - Unified HMI
+  
+    - Container integration
+      - Architecture
+      - Build Container integration
+      - Container integration Customize
+        - Create and Run Guest Container
+      - Platform extension
+        - DRM lease manager
+        - Container Manager
+  
+    - KVM based integration
+      - Build Platform
+
+  - AGL Development tools
+    - Demo Control
+      - Demo Control Panel
+      - CARLA with AGL
+
+    - Virtual Car CAN definition
+      - AGL virtual car
+
   - Troubleshooting
   - Releases & migration
   - Contribute 

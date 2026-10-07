@@ -13,4 +13,4 @@ The same distribution provides a common foundation for different profiles. Selec
 - [Instrument Cluster](cluster.md) provides Flutter, Qt, and Slint demo implementations with different platform requirements.
 - [Connected Gateway](gateway.md) provides a platform for gateway use cases; its detailed overview is still to be defined.
 
-Use [AGL distributed system distribution](../../standalone/index.md) for Quick start, platform builds, customization, and application development.
+Use [AGL distributed system](../../standalone/index.md) for Quick start, the Basic and Extra portfolios, architecture, and image builds. Use [AGL Components](../../components/index.md) for platform customization and application development.

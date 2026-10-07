@@ -283,6 +283,8 @@ def import_all(source_root: Path, overwrite_adapted: bool = False) -> None:
         raise ValueError("Prebuilt quickstart source is missing")
     pages = render_quickstarts(quickstart_input, source)
     for relative, page in pages.items():
+        if relative in REQUIRED_TITLES:
+            page = normalize_page(page, REQUIRED_TITLES[relative])
         target = docs_root / relative
         target.parent.mkdir(parents=True, exist_ok=True)
         if not write_imported_page(target, page, source, overwrite_adapted):

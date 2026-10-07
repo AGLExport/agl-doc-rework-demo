@@ -18,7 +18,7 @@ class SectionResolutionTests(unittest.TestCase):
         pages = [("SoDeV", "home/integrated/sodev.md"), ("SoDeV", "integrated/sodev/index.md")]
         structure = {"required_pages": [
             {"heading": "SoDeV", "page": pages[0][1], "breadcrumb": ["Home", "AGL Artifact", "Base platform for integrated system", "SoDeV"]},
-            {"heading": "SoDeV", "page": pages[1][1], "breadcrumb": ["Home", "AGL integrated system development", "SoDeV"]},
+            {"heading": "SoDeV", "page": pages[1][1], "breadcrumb": ["Home", "AGL integrated system", "SoDeV"]},
         ]}
         self.assertEqual(section_paths("SoDeV", pages, structure), [pages[0][1]])
 
@@ -56,6 +56,25 @@ class ImportPreservationTests(unittest.TestCase):
             manifest = json.loads((project / "source-map.json").read_text(encoding="utf-8"))
             self.assertEqual(manifest["source_markdown_count"], 2)
             self.assertEqual({page["source"] for page in manifest["pages"]}, set(mapping))
+
+    def test_generated_quickstart_uses_the_current_required_title(self):
+        with TemporaryDirectory() as directory:
+            base = Path(directory)
+            source = base / "source"
+            project = base / "project"
+            source.mkdir()
+            project.mkdir()
+            title = "Run Flutter IVI demo pre-build image"
+            required = {"start/prebuilt/index.md": title}
+            (project / "structure-map.json").write_text(json.dumps({
+                "required_pages": [{"page": path, "heading": heading} for path, heading in required.items()],
+                "moved_pages": [],
+            }), encoding="utf-8")
+            (source / "quickstart.md").write_text("### QEMU x86-64\nqemu-system-x86_64 --version\n", encoding="utf-8")
+            with patch.object(import_docs, "PROJECT", project), patch.object(import_docs, "MAPPING", {"quickstart.md": "start/prebuilt/index.md"}), patch.object(import_docs, "TITLES", {}), patch.object(import_docs, "REQUIRED_TITLES", required), redirect_stdout(StringIO()):
+                import_docs.import_all(source)
+            from validate_structure import first_heading
+            self.assertEqual(first_heading((project / "docs/start/prebuilt/index.md").read_text(encoding="utf-8")), title)
 
     def test_overwriting_an_adaptation_requires_the_explicit_option(self):
         with TemporaryDirectory() as directory:

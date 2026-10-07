@@ -5,11 +5,11 @@ content_status: authored
 
 # SoDeV
 
-Use a published SoDeV workspace for your board, preserve source pins, and build a complete system before changing guest composition.
+SoDeV is AGL's reference platform for software-defined vehicles. Begin with its domain and device architecture, then build the complete board workspace before customizing guests.
 
-- [Build Platform](build.md)
-- [SoDeV Customize](customize/index.md)
+1. [Architecture](architecture.md).
+2. [Build SoDeV](build.md).
+3. [SoDeV Customize](customize/index.md), including guest VM creation.
+4. [Platform extension](extensions.md), including Unified HMI.
 
-## Further reading
-
-- [Build a virtio guest](virtio-guest.md)
+The [artifact overview](../../home/integrated/sodev.md) provides the official announcement and context. [Build a virtio guest](virtio-guest.md) is a supporting guest-image procedure; it does not replace the workspace's host orchestration.

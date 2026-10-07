@@ -17,4 +17,4 @@ The initial version became available on 14 May 2026 through the Ultimate Unagi r
 
 The diagram separates platform management, device backends, and functional guests. It shows multiple guest platforms and their virtual device interfaces above the hypervisor, with Unified HMI serving the graphical guests.
 
-Continue with [SoDeV development](../../integrated/sodev/index.md), [Build Platform](../../integrated/sodev/build.md), and [Create and Run Guest VM](../../integrated/sodev/customize/guest-vm.md). Target-specific workspaces define the concrete guest configuration.
+Continue with [SoDeV development](../../integrated/sodev/index.md), [Build SoDeV](../../integrated/sodev/build.md), and [Create and Run Guest VM](../../integrated/sodev/customize/guest-vm.md). Target-specific workspaces define the concrete guest configuration.

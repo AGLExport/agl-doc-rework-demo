@@ -9,4 +9,4 @@ AGL Container integration provides a lightweight integrated system built on Linu
 
 The supplied AGL demo combines Instrument Cluster and IVI guests. Container Manager controls guest lifecycle and configuration, including device access, mounts, graphics, and sound.
 
-The [integration build guide](../../integrated/containers/build-guide.md) explains the host and guest images, supported boards, storage layout, and demo configurations. Continue with [Container integration development](../../integrated/containers/index.md), [Build Platform](../../integrated/containers/build.md), or [Create and Run Guest Container](../../integrated/containers/customize/guest-container.md).
+The [integration build guide](../../integrated/containers/build-guide.md) explains the host and guest images, supported boards, storage layout, and demo configurations. Continue with [Container integration development](../../integrated/containers/index.md), [Build Container integration](../../integrated/containers/build.md), or [Create and Run Guest Container](../../integrated/containers/customize/guest-container.md).

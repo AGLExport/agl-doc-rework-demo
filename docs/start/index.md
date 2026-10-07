@@ -5,8 +5,8 @@ content_status: authored
 
 # Quick start
 
-Start with the [Pre-build image for IVI demo](prebuilt/index.md) chapter. It introduces the complete Flutter IVI demo and offers two boot routes: QEMU x86-64 and Raspberry Pi 4/5.
+Start with [Run Flutter IVI demo pre-build image](prebuilt/index.md). Choose QEMU x86-64 or Raspberry Pi 4/5, download artifacts from the same release or snapshot, and confirm that the homescreen starts.
 
-Choose a version through [Releases & migration](../releases/index.md), then keep the downloaded image and any separate kernel on the same release or build. The configured development channel is **{{ agl.codename }} / {{ artifact_kind }}**.
+The configured channel is **{{ agl.codename }} / {{ artifact_kind }}**. Use [Releases & migration](../releases/index.md) to select a version.
 
-After the demo starts, use [AGL Reference Applications](../components/applications/index.md) for individual application explanations or [Application development](../standalone/applications/index.md) to begin your own work.
+After evaluation, compare the [Basic and Extra demos](../standalone/portfolio/index.md), then follow [Build AGL system](../standalone/build/index.md) to create your own image. Individual applications and development workflows are described in [AGL Components](../components/index.md).

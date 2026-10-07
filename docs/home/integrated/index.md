@@ -13,4 +13,4 @@ The integration defines how workloads share computing resources, access devices,
 - [Container integration](containers.md) provides lightweight Linux-based integration using isolated guest userlands.
 - [KVM based integration](kvm.md) provides another example of the SoDeV approach using Linux virtual machines.
 
-Continue with [AGL integrated system development](../../integrated/index.md) for platform builds and guest customization.
+Continue with [AGL integrated system](../../integrated/index.md) for platform builds and guest customization.
