@@ -5,7 +5,7 @@ content_status: authored
 
 # Container integration
 
-Container integration combines guest userlands under one host Linux kernel. The demo profile can run an Instrument Cluster and Momi IVI with controlled display and device access.
+AGL Container integration provides a lightweight integrated system built on Linux. It combines guest userlands under one host Linux kernel. The demo profile can run an Instrument Cluster and Momi IVI with controlled display and device access.
 
 1. [Architecture](architecture.md).
 2. [Build Container integration](build.md).

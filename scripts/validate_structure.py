@@ -77,7 +77,7 @@ def first_heading(text):
 
 
 def content_requirements(instructions):
-    """Interpret content topics, including indented figure and overview descriptions."""
+    """Interpret quoted, scoped and unindented section content rules."""
     if '## Required Contents at Section' not in instructions:
         return {}
     section = instructions.split('## Required Contents at Section', 1)[1].split('\n## ', 1)[0]
@@ -86,9 +86,16 @@ def content_requirements(instructions):
         declaration = re.match(r'^(.+?) section must .*contents?:\s*$', line)
         bullet = re.match(r'^( *)(?:[*-] )(.+?)\s*$', line)
         if declaration:
-            current = declaration[1]
+            scoped = re.fullmatch(r'"([^"]+)" section under "([^"]+)"', declaration[1])
+            name = scoped[1] if scoped else declaration[1].strip().strip(chr(34))
+            parent = scoped[2] if scoped else None
+            current = name + (' under ' + parent if parent else '')
             topic = None
-            requirements[current] = {'headings': [], 'figures': [], 'subsection_links': False, 'section_references': {}, 'paragraphs': [], 'source_links': [], 'official_figure': False}
+            requirements[current] = {
+                'section_title': name, 'parent': parent, 'headings': [], 'figures': [],
+                'subsection_links': False, 'section_references': {}, 'paragraphs': [],
+                'source_links': [], 'official_figure': False, 'required_assets': [],
+            }
         elif current is not None and bullet:
             title = bullet[2]
             figure = title.endswith(' with figure.')
@@ -100,22 +107,26 @@ def content_requirements(instructions):
             requirements[current]['headings'].append((2 + len(bullet[1]) // 2, title))
             if figure:
                 requirements[current]['figures'].append(title)
-        elif current is not None and line[:1].isspace() and line.strip():
+        elif current is not None and line.strip():
             description = line.strip()
+            if description == 'These contents should link to sub-sections.':
+                requirements[current]['subsection_links'] = True
+                continue
             requirements[current]['paragraphs'].append(description)
-            if topic is not None and description.casefold().startswith('figure out for ') and topic not in requirements[current]['figures']:
+            if topic is not None and description.casefold().startswith('figure out ') and topic not in requirements[current]['figures']:
                 requirements[current]['figures'].append(topic)
             reference = re.search(r'should refer to (.+?) section\.', description)
             if reference and topic is not None:
                 requirements[current]['section_references'][topic] = reference[1]
+            focus = re.fullmatch(r'(.+?) mainly focuses on this\.', description)
+            if focus and topic is not None:
+                requirements[current]['section_references'][topic] = focus[1]
             if 'official architecture diagram' in description.casefold():
                 requirements[current]['official_figure'] = True
             if 'shall import from ' in description:
                 requirements[current]['source_links'].extend(url.rstrip('.') for url in re.findall(r'https?://\S+', description))
-        elif current is not None and line.strip() == 'These contents should link to sub-sections.':
-            requirements[current]['subsection_links'] = True
-        elif line.strip():
-            current, topic = None, None
+            requirements[current]['required_assets'].extend(
+                re.findall(r'architecture diagram "([^"]+)"', description, flags=re.IGNORECASE))
     return requirements
 
 
@@ -128,18 +139,28 @@ def local_document_links(body, page):
     return targets
 
 
-# The Home content rule retains this historical name after the navigation rename.
-SECTION_ALIASES = {'AGL Coverage': 'AGL Artifact'}
+# Content rules retain a historical coverage label and use hyphenated category names.
+# Navigation always follows the exact spellings in Required Structure.
+SECTION_ALIASES = {
+    'AGL Coverage': 'Background',
+    'Small-scale integrated system': 'Small scale integrated system',
+    'AGL distributed system': 'Distributed system',
+    'AGL small-scale integrated system': 'Small scale integrated system',
+    'AGL large-scale integrated system': 'Large scale integrated system',
+}
 
 
-def section_paths(section, pages, structure):
+def section_paths(section, pages, structure, parent=None):
     titles = {title for title, _ in pages}
     if section not in titles:
-        section = SECTION_ALIASES.get(section, section)
+        aliases = {alias.casefold(): title for alias, title in SECTION_ALIASES.items()}
+        section = aliases.get(section.casefold(), section)
+    # A content rule applies to every matching chapter, including repeated demo-group titles.
     paths = [path for title, path in pages if title == section]
-    if len(paths) > 1:
-        overview_paths = {entry['page'] for entry in structure['required_pages'] if entry['heading'] == section and any(title in entry['breadcrumb'] for title in ('AGL Artifact',))}
-        paths = [path for path in paths if path in overview_paths]
+    if parent is not None:
+        scoped = {entry['page'] for entry in structure['required_pages']
+                  if entry['heading'] == section and entry['breadcrumb'][-2:-1] == [parent]}
+        paths = [path for path in paths if path in scoped]
     return paths
 
 
@@ -185,39 +206,49 @@ def validate(project):
             raise ValueError('Required page heading differs: '+path)
     structure = json.loads((project/'structure-map.json').read_text(encoding='utf-8'))
     for section, rules in content_requirements(instructions).items():
-        paths = section_paths(section, pages, structure)
+        paths = section_paths(rules['section_title'], pages, structure, rules['parent'])
         required = rules['headings']
-        if len(paths) != 1 or not (required or rules['paragraphs']):
-            raise ValueError('Required content section is missing or ambiguous: ' + section)
-        path = paths[0]
-        required_titles = {title for _, title in required}
-        blocks = markdown_sections(text_by_path[path])
-        actual_content = [(level, title) for level, title, _ in blocks if title in required_titles]
-        if actual_content != required:
-            raise ValueError('Required section content differs: ' + section + ' (headings, order, or levels changed)')
-        if rules['paragraphs'] and not any(len(line.split()) >= 5 and not line.lstrip().startswith(('#', '!', '[', '-', '*', '<', '|', '```')) for _, _, body in blocks for line in body.splitlines()):
-            raise ValueError('Required narrative content is missing: ' + section)
-        for source_url in rules['source_links']:
-            if source_url not in text_by_path[path]:
-                raise ValueError('Required source attribution is missing: ' + section)
-        if rules['official_figure']:
-            validate_official_figure(project, docs, path, text_by_path[path])
-        by_title = {title: body for _, title, body in blocks}
-        for title in rules['figures']:
-            if not re.search(r'!\[[^\]]*\]\(|<img\b', by_title[title]):
-                raise ValueError('Required architecture figure is missing: ' + title)
-        for topic, referenced_section in rules['section_references'].items():
-            referenced_paths = section_paths(referenced_section, pages, structure)
-            if len(referenced_paths) != 1 or referenced_paths[0] not in local_document_links(by_title[topic], path):
-                raise ValueError('Required section reference is missing: ' + topic + ' -> ' + referenced_section)
-        if rules['subsection_links']:
-            for index, (level, title) in enumerate(required):
-                if index + 1 < len(required) and required[index + 1][0] > level:
-                    continue
-                targets = local_document_links(by_title[title], path)
-                descendants = {p for p in nav_paths if p != path and p.startswith(posixpath.dirname(path) + '/')}
-                if not targets & descendants:
-                    raise ValueError('Required subsection link is missing: ' + title)
+        if not paths or not (required or rules['paragraphs']):
+            raise ValueError('Required content section is missing: ' + section)
+        for path in paths:
+            required_titles = {title for _, title in required}
+            blocks = markdown_sections(text_by_path[path])
+            actual_content = [(level, title) for level, title, _ in blocks if title in required_titles]
+            if actual_content != required:
+                raise ValueError('Required section content differs: ' + section + ' (headings, order, or levels changed)')
+            if rules['paragraphs'] and not any(len(line.split()) >= 5 and not line.lstrip().startswith(('#', '!', '[', '-', '*', '<', '|', '```')) for _, _, body in blocks for line in body.splitlines()):
+                raise ValueError('Required narrative content is missing: ' + section)
+            for source_url in rules['source_links']:
+                if source_url not in text_by_path[path]:
+                    raise ValueError('Required source attribution is missing: ' + section)
+            if rules['official_figure']:
+                validate_official_figure(project, docs, path, text_by_path[path])
+            for filename in rules['required_assets']:
+                images = []
+                for url in re.findall(r'!\[[^\]]*\]\(([^)]+)\)', text_by_path[path]):
+                    parsed = urlsplit(url)
+                    if not parsed.scheme and not parsed.netloc:
+                        image = (docs / posixpath.dirname(path) / unquote(parsed.path)).resolve()
+                        if image.is_relative_to(docs.resolve()):
+                            images.append(image)
+                if not any(image.name == filename and image.is_file() for image in images):
+                    raise ValueError('Required architecture diagram is missing: ' + section + ' -> ' + filename)
+            by_title = {title: body for _, title, body in blocks}
+            for title in rules['figures']:
+                if not re.search(r'!\[[^\]]*\]\(|<img\b', by_title[title]):
+                    raise ValueError('Required architecture figure is missing: ' + title)
+            for topic, referenced_section in rules['section_references'].items():
+                referenced_paths = section_paths(referenced_section, pages, structure)
+                if len(referenced_paths) != 1 or referenced_paths[0] not in local_document_links(by_title[topic], path):
+                    raise ValueError('Required section reference is missing: ' + topic + ' -> ' + referenced_section)
+            if rules['subsection_links']:
+                for index, (level, title) in enumerate(required):
+                    if index + 1 < len(required) and required[index + 1][0] > level:
+                        continue
+                    targets = local_document_links(by_title[title], path)
+                    descendants = {p for p in nav_paths if p != path and p.startswith(posixpath.dirname(path) + '/')}
+                    if not targets & descendants:
+                        raise ValueError('Required subsection link is missing: ' + title)
     secondary = set(text_by_path)-set(nav_paths)
     declared = {line.strip().removeprefix('/') for line in config.get('not_in_nav','').splitlines() if line.strip()}
     if secondary != declared:

@@ -1,6 +1,6 @@
 {
   "instructions": "AGENTS.md",
-  "heading_count": 104,
+  "heading_count": 97,
   "required_pages": [
     {
       "breadcrumb": [
@@ -12,101 +12,23 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL Artifact"
+        "Background"
       ],
-      "heading": "AGL Artifact",
+      "heading": "Background",
       "page": "home/index.md"
     },
     {
       "breadcrumb": [
         "Home",
-        "AGL Artifact",
-        "Linux Distribution"
+        "Distributed system"
       ],
-      "heading": "Linux Distribution",
-      "page": "home/standalone/index.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL Artifact",
-        "Linux Distribution",
-        "In-Vehicle Infotainment"
-      ],
-      "heading": "In-Vehicle Infotainment",
-      "page": "home/standalone/ivi.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL Artifact",
-        "Linux Distribution",
-        "Instrument Cluster"
-      ],
-      "heading": "Instrument Cluster",
-      "page": "home/standalone/cluster.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL Artifact",
-        "Linux Distribution",
-        "Connected Gateway"
-      ],
-      "heading": "Connected Gateway",
-      "page": "home/standalone/gateway.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL Artifact",
-        "Base platform for integrated system"
-      ],
-      "heading": "Base platform for integrated system",
-      "page": "home/integrated/index.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL Artifact",
-        "Base platform for integrated system",
-        "SoDeV"
-      ],
-      "heading": "SoDeV",
-      "page": "home/integrated/sodev.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL Artifact",
-        "Base platform for integrated system",
-        "Container integration"
-      ],
-      "heading": "Container integration",
-      "page": "home/integrated/containers.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL Artifact",
-        "Base platform for integrated system",
-        "KVM based integration"
-      ],
-      "heading": "KVM based integration",
-      "page": "home/integrated/kvm.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL distributed system"
-      ],
-      "heading": "AGL distributed system",
+      "heading": "Distributed system",
       "page": "standalone/index.md"
     },
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "Quick start"
       ],
       "heading": "Quick start",
@@ -115,7 +37,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "Quick start",
         "Run Flutter IVI demo pre-build image"
       ],
@@ -125,7 +47,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "Quick start",
         "Run Flutter IVI demo pre-build image",
         "QEMU x86-64"
@@ -136,7 +58,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "Quick start",
         "Run Flutter IVI demo pre-build image",
         "Raspberry Pi 4/5"
@@ -147,7 +69,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "Portfolio"
       ],
       "heading": "Portfolio",
@@ -156,19 +78,19 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "Portfolio",
-        "Basic AGL system"
+        "Basic demo system"
       ],
-      "heading": "Basic AGL system",
+      "heading": "Basic demo system",
       "page": "standalone/portfolio/basic/index.md"
     },
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "Portfolio",
-        "Basic AGL system",
+        "Basic demo system",
         "Flutter IVI demo"
       ],
       "heading": "Flutter IVI demo",
@@ -177,9 +99,9 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "Portfolio",
-        "Basic AGL system",
+        "Basic demo system",
         "Qt IVI demo"
       ],
       "heading": "Qt IVI demo",
@@ -188,9 +110,9 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "Portfolio",
-        "Basic AGL system",
+        "Basic demo system",
         "IVI based Flutter Cluster demo"
       ],
       "heading": "IVI based Flutter Cluster demo",
@@ -199,19 +121,19 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "Portfolio",
-        "Extra AGL system"
+        "Extra demo system"
       ],
-      "heading": "Extra AGL system",
+      "heading": "Extra demo system",
       "page": "standalone/portfolio/extra/index.md"
     },
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "Portfolio",
-        "Extra AGL system",
+        "Extra demo system",
         "Qt based Cluster demo"
       ],
       "heading": "Qt based Cluster demo",
@@ -220,9 +142,9 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "Portfolio",
-        "Extra AGL system",
+        "Extra demo system",
         "Slint based Cluster demo"
       ],
       "heading": "Slint based Cluster demo",
@@ -231,9 +153,9 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "Portfolio",
-        "Extra AGL system",
+        "Extra demo system",
         "Momi IVI demo"
       ],
       "heading": "Momi IVI demo",
@@ -242,7 +164,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "Architecture"
       ],
       "heading": "Architecture",
@@ -251,27 +173,27 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "Architecture",
-        "Basic AGL system"
+        "Basic demo system"
       ],
-      "heading": "Basic AGL system",
+      "heading": "Basic demo system",
       "page": "standalone/architecture/basic.md"
     },
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "Architecture",
-        "Extra AGL system"
+        "Extra demo system"
       ],
-      "heading": "Extra AGL system",
+      "heading": "Extra demo system",
       "page": "standalone/architecture/extra.md"
     },
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "Build AGL system"
       ],
       "heading": "Build AGL system",
@@ -280,7 +202,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "Build AGL system",
         "Basic AGL system"
       ],
@@ -290,7 +212,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "Build AGL system",
         "Basic AGL system",
         "Setup build environment"
@@ -301,7 +223,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "Build AGL system",
         "Basic AGL system",
         "Build target image"
@@ -312,7 +234,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "Build AGL system",
         "Basic AGL system",
         "Deploy to board"
@@ -323,7 +245,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "Build AGL system",
         "Extra AGL system"
       ],
@@ -333,7 +255,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "Build AGL system",
         "Extra AGL system",
         "Setup build environment"
@@ -344,7 +266,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "Build AGL system",
         "Extra AGL system",
         "Build target image"
@@ -355,7 +277,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "Build AGL system",
         "Extra AGL system",
         "Deploy to board"
@@ -366,7 +288,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "Build AGL system",
         "Supported the other boards"
       ],
@@ -376,7 +298,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "AGL Components"
       ],
       "heading": "AGL Components",
@@ -385,7 +307,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "AGL Components",
         "AGL Reference Applications"
       ],
@@ -395,7 +317,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "AGL Components",
         "AGL Reference Applications",
         "Flutter IVI homescreen"
@@ -406,7 +328,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "AGL Components",
         "AGL Reference Applications",
         "Flutter Cluster"
@@ -417,7 +339,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "AGL Components",
         "AGL Reference Applications",
         "Qt IVI homescreen"
@@ -428,7 +350,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "AGL Components",
         "AGL Reference Applications",
         "Instrument Cluster reference GUI (Qt)"
@@ -439,7 +361,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "AGL Components",
         "AGL Reference Applications",
         "Momi Screen"
@@ -450,7 +372,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "AGL Components",
         "AGL Reference Applications",
         "Momi navigation"
@@ -461,7 +383,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "AGL Components",
         "AGL Reference Applications",
         "Momi Weather"
@@ -472,7 +394,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "AGL Components",
         "AGL Reference Applications",
         "Momi Player"
@@ -483,7 +405,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "AGL Components",
         "AGL Services"
       ],
@@ -493,7 +415,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "AGL Components",
         "AGL Services",
         "Graphics"
@@ -504,7 +426,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "AGL Components",
         "AGL Services",
         "Graphics",
@@ -516,7 +438,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "AGL Components",
         "AGL Services",
         "Sound"
@@ -527,7 +449,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "AGL Components",
         "AGL Services",
         "Sound",
@@ -539,7 +461,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "AGL Components",
         "AGL Services",
         "Policies"
@@ -550,7 +472,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "AGL Components",
         "AGL Services",
         "Policies",
@@ -562,7 +484,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "AGL Components",
         "AGL Services",
         "Misc"
@@ -573,7 +495,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "AGL Components",
         "AGL Services",
         "Misc",
@@ -585,7 +507,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "AGL Components",
         "AGL Services",
         "Instrument Cluster"
@@ -596,7 +518,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "AGL Components",
         "AGL Services",
         "Instrument Cluster",
@@ -608,7 +530,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "AGL Components",
         "IVI Application Framework"
       ],
@@ -618,7 +540,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "AGL Components",
         "IVI Application Framework",
         "Application Lifecycle and Services"
@@ -629,7 +551,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "AGL Components",
         "IVI Application Framework",
         "Application Lifecycle and Services",
@@ -641,7 +563,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "AGL Components",
         "AGL API"
       ],
@@ -651,7 +573,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "AGL Components",
         "AGL API",
         "Table for APIs"
@@ -662,7 +584,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "AGL Components",
         "AGL API",
         "Generic APIs"
@@ -673,7 +595,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "AGL Components",
         "AGL API",
         "Generic APIs",
@@ -685,7 +607,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "AGL Components",
         "AGL API",
         "In-Vehicle Infotainment APIs"
@@ -696,7 +618,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "AGL Components",
         "AGL API",
         "In-Vehicle Infotainment APIs",
@@ -708,7 +630,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "AGL Components",
         "AGL API",
         "Instrument Cluster APIs"
@@ -719,7 +641,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "AGL Components",
         "AGL API",
         "Instrument Cluster APIs",
@@ -731,7 +653,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "AGL Components",
         "AGL API",
         "Gateway APIs"
@@ -742,7 +664,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "Platform Customize"
       ],
       "heading": "Platform Customize",
@@ -751,7 +673,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "Platform Customize",
         "Create/Modify an AGL image"
       ],
@@ -761,7 +683,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "Platform Customize",
         "Create a custom recipe"
       ],
@@ -771,7 +693,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "Platform Customize",
         "Create a service"
       ],
@@ -781,7 +703,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "Application development"
       ],
       "heading": "Application development",
@@ -790,7 +712,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "Application development",
         "Flutter application"
       ],
@@ -800,7 +722,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL distributed system",
+        "Distributed system",
         "Application development",
         "Qt application"
       ],
@@ -810,86 +732,15 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL integrated system"
+        "Small scale integrated system"
       ],
-      "heading": "AGL integrated system",
+      "heading": "Small scale integrated system",
       "page": "integrated/index.md"
     },
     {
       "breadcrumb": [
         "Home",
-        "AGL integrated system",
-        "SoDeV"
-      ],
-      "heading": "SoDeV",
-      "page": "integrated/sodev/index.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL integrated system",
-        "SoDeV",
-        "Architecture"
-      ],
-      "heading": "Architecture",
-      "page": "integrated/sodev/architecture.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL integrated system",
-        "SoDeV",
-        "Build SoDeV"
-      ],
-      "heading": "Build SoDeV",
-      "page": "integrated/sodev/build.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL integrated system",
-        "SoDeV",
-        "SoDeV Customize"
-      ],
-      "heading": "SoDeV Customize",
-      "page": "integrated/sodev/customize/index.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL integrated system",
-        "SoDeV",
-        "SoDeV Customize",
-        "Create and Run Guest VM"
-      ],
-      "heading": "Create and Run Guest VM",
-      "page": "integrated/sodev/customize/guest-vm.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL integrated system",
-        "SoDeV",
-        "Platform extension"
-      ],
-      "heading": "Platform extension",
-      "page": "integrated/sodev/extensions.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL integrated system",
-        "SoDeV",
-        "Platform extension",
-        "Unified HMI"
-      ],
-      "heading": "Unified HMI",
-      "page": "components/extensions/unified-hmi.md"
-    },
-    {
-      "breadcrumb": [
-        "Home",
-        "AGL integrated system",
+        "Small scale integrated system",
         "Container integration"
       ],
       "heading": "Container integration",
@@ -898,7 +749,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL integrated system",
+        "Small scale integrated system",
         "Container integration",
         "Architecture"
       ],
@@ -908,7 +759,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL integrated system",
+        "Small scale integrated system",
         "Container integration",
         "Build Container integration"
       ],
@@ -918,7 +769,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL integrated system",
+        "Small scale integrated system",
         "Container integration",
         "Container integration Customize"
       ],
@@ -928,7 +779,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL integrated system",
+        "Small scale integrated system",
         "Container integration",
         "Container integration Customize",
         "Create and Run Guest Container"
@@ -939,7 +790,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL integrated system",
+        "Small scale integrated system",
         "Container integration",
         "Platform extension"
       ],
@@ -949,7 +800,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL integrated system",
+        "Small scale integrated system",
         "Container integration",
         "Platform extension",
         "DRM lease manager"
@@ -960,7 +811,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL integrated system",
+        "Small scale integrated system",
         "Container integration",
         "Platform extension",
         "Container Manager"
@@ -971,7 +822,7 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL integrated system",
+        "Small scale integrated system",
         "KVM based integration"
       ],
       "heading": "KVM based integration",
@@ -980,12 +831,91 @@
     {
       "breadcrumb": [
         "Home",
-        "AGL integrated system",
+        "Small scale integrated system",
         "KVM based integration",
         "Build Platform"
       ],
       "heading": "Build Platform",
       "page": "integrated/kvm/build.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "Large scale integrated system"
+      ],
+      "heading": "Large scale integrated system",
+      "page": "integrated/large-scale.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "Large scale integrated system",
+        "SoDeV"
+      ],
+      "heading": "SoDeV",
+      "page": "integrated/sodev/index.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "Large scale integrated system",
+        "SoDeV",
+        "Architecture"
+      ],
+      "heading": "Architecture",
+      "page": "integrated/sodev/architecture.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "Large scale integrated system",
+        "SoDeV",
+        "Build SoDeV"
+      ],
+      "heading": "Build SoDeV",
+      "page": "integrated/sodev/build.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "Large scale integrated system",
+        "SoDeV",
+        "SoDeV Customize"
+      ],
+      "heading": "SoDeV Customize",
+      "page": "integrated/sodev/customize/index.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "Large scale integrated system",
+        "SoDeV",
+        "SoDeV Customize",
+        "Create and Run Guest VM"
+      ],
+      "heading": "Create and Run Guest VM",
+      "page": "integrated/sodev/customize/guest-vm.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "Large scale integrated system",
+        "SoDeV",
+        "Platform extension"
+      ],
+      "heading": "Platform extension",
+      "page": "integrated/sodev/extensions.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "Large scale integrated system",
+        "SoDeV",
+        "Platform extension",
+        "Unified HMI"
+      ],
+      "heading": "Unified HMI",
+      "page": "components/extensions/unified-hmi.md"
     },
     {
       "breadcrumb": [
@@ -1478,6 +1408,46 @@
       "old": "start/demos/index.md",
       "new": "start/prebuilt/flutter.md",
       "previous_sha256": "c7ac68145e75877ca231b5464211a3b97ee68c3bae481b0eb8e402b5790d3b09"
+    },
+    {
+      "old": "home/standalone/index.md",
+      "new": "standalone/index.md",
+      "previous_sha256": "402997ab2024100d4d28672be58f0fa5f5ee4b0f204bc43bf645e5c12e8bf6af"
+    },
+    {
+      "old": "home/standalone/ivi.md",
+      "new": "standalone/portfolio/basic/index.md",
+      "previous_sha256": "af43f56b2237339b2199f9813dc292fdbac4c9978e90fedfe2a5ac10ae652760"
+    },
+    {
+      "old": "home/standalone/cluster.md",
+      "new": "standalone/portfolio/extra/index.md",
+      "previous_sha256": "8728f3ad06b04554e82fbb04ed05f44d6d63dde9a71fd63284dcd2d65ee040ac"
+    },
+    {
+      "old": "home/standalone/gateway.md",
+      "new": "standalone/index.md",
+      "previous_sha256": "2ce7ba84d51953ebcc6ecfdec310e32a3f004eb50516e22210dd38fe0a74bd67"
+    },
+    {
+      "old": "home/integrated/index.md",
+      "new": "integrated/index.md",
+      "previous_sha256": "b19d8e70b7a4ba1a61db8017a0fb4ab356b2a1dffb3bc0ae1837cd98cc7b16a1"
+    },
+    {
+      "old": "home/integrated/sodev.md",
+      "new": "integrated/large-scale.md",
+      "previous_sha256": "8faed27343047af2f0b2f2fce90a26e0596a10efbf9e1b0c7376e3f1d752aba9"
+    },
+    {
+      "old": "home/integrated/containers.md",
+      "new": "integrated/containers/index.md",
+      "previous_sha256": "ba7c1a00e0127eec1ec5f0cba9a69c5d55f1e517fd9967b7fb104e054bf14737"
+    },
+    {
+      "old": "home/integrated/kvm.md",
+      "new": "integrated/kvm/index.md",
+      "previous_sha256": "5447b2677dcad6a9f1868969c9d965a2f8d9c05200ac07bc959aaa5bde8c3ed4"
     }
   ]
 }

@@ -1,15 +1,15 @@
 ---
-title: "AGL Artifact"
+title: "Background"
 content_status: authored
 ---
 
-# AGL Artifact
+# Background
 
-AGL artifacts include a Linux distribution for individual vehicle roles and a base platform for integrating several workloads. The vehicle E/E architectures below explain the relationship between distributed deployments and integrated systems.
+AGL covers individual automotive Linux systems and platforms that consolidate several workloads. The vehicle E/E architectures below explain the main focus of the three system categories used in this documentation. They describe deployment patterns; a product can combine them across a vehicle.
 
 ## Vehicle EE architectures.
 
-Vehicle electrical/electronic (E/E) architecture determines where software runs and how controllers communicate. The figures illustrate three ways to organize vehicle computing. Controller placement and network choices vary by vehicle. Select a figure to open a larger view.
+Vehicle electrical/electronic (E/E) architecture determines where software runs and how controllers communicate. Controller placement and network choices vary by vehicle. Select a figure to open a larger view.
 
 ### Traditional distributed architecture.
 
@@ -19,7 +19,7 @@ In a traditional distributed design, individual electronic control units (ECUs) 
 
 *Figure 1. Functions run on separate ECUs that communicate over the vehicle network.*
 
-[Linux Distribution](standalone/index.md) introduces the use of standalone AGL environments for individual vehicle roles.
+AGL's [Distributed system](../standalone/index.md) mainly focuses on this architecture. Each standalone deployment supplies one Linux kernel and userland for its selected role, and several deployments can exchange vehicle data.
 
 ### Domain architecture.
 
@@ -29,7 +29,7 @@ A domain design groups related functions, such as cockpit, body control, or powe
 
 *Figure 2. Functions are grouped into logical domains with their own controllers.*
 
-[Base platform for integrated system](integrated/index.md) introduces platforms for bringing several workloads together on shared computing resources.
+AGL's [Small scale integrated system](../integrated/index.md) mainly focuses on this architecture. Container integration and KVM combine two or more features, such as IVI and Instrument Cluster, on shared computing resources.
 
 ### Central/Zone architecture.
 
@@ -39,27 +39,7 @@ A central/zone design combines central computing with controllers organized by p
 
 *Figure 3. Central computing hosts workloads while zones organize local device connections.*
 
-[SoDeV](integrated/sodev.md), [Container integration](integrated/containers.md), and [KVM based integration](integrated/kvm.md) describe the integration approaches covered by AGL.
-
-## AGL distributed system.
-
-AGL provides a base distribution for distributed ECUs. A standalone AGL environment supplies the operating system, services, and applications for a selected role. Separate deployments can communicate through vehicle data interfaces while retaining their own software environments.
-
-The [Linux Distribution](standalone/index.md) section introduces these roles:
-
-- [In-Vehicle Infotainment](standalone/ivi.md) supplies the cabin user experience.
-- [Instrument Cluster](standalone/cluster.md) presents driving information.
-- [Connected Gateway](standalone/gateway.md) connects vehicle data and external services.
-
-## AGL integrated system.
-
-AGL integrated systems provide a base platform for domain or central/zone architecture by bringing several automotive workloads together through guest environments and shared platform resources. This relationship describes their role in system design; the chosen integration determines workload placement, resource allocation, and communication.
-
-The [Base platform for integrated system](integrated/index.md) section covers three approaches:
-
-- [SoDeV](integrated/sodev.md) provides a reference platform for software-defined vehicles. See the [official SoDeV announcement](https://www.automotivelinux.org/announcements/automotive-grade-linux-releases-open-source-sodev-reference-platform-for-software-defined-vehicles-and-welcomes-five-new-members/).
-- [Container integration](integrated/containers.md) separates guest environments that share a host kernel.
-- [KVM based integration](integrated/kvm.md) uses virtual machines with their own guest kernels.
+AGL's [Large scale integrated system](../integrated/large-scale.md) mainly focuses on this architecture. SoDeV provides a platform for consolidating guest systems and workloads with different criticality requirements. Distributed systems and small-scale integrations can be incorporated as part of that larger system.
 
 ## Further reading
 

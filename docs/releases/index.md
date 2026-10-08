@@ -40,5 +40,5 @@ These steps provide a general checking sequence. For version-specific changes an
 ## Next steps
 
 - To explore a prebuilt image: [Quick start](../start/index.md).
-- To build from source: [Platform development](../standalone/index.md#platform).
+- To build from source: [Distributed system](../standalone/index.md#platform).
 - To investigate a problem after updating: [Diagnose common problems](../troubleshooting/diagnostics.md), then use [Troubleshooting](../troubleshooting/index.md) to ask for help.

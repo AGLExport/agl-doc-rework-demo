@@ -11,4 +11,4 @@ Build an IVI-family Flutter or Qt demo, including the IVI-derived Flutter Cluste
 2. [Build target image](image.md): choose the actual recipe and inspect its artifacts.
 3. [Deploy to board](deploy.md): write or launch the image and check runtime behavior.
 
-Review the [Basic portfolio](../../portfolio/basic/index.md) and [Basic architecture](../../architecture/basic.md) first. Use a separate build directory when changing machine or profile features. See [Supported the other boards](../other-boards.md) for additional target requirements.
+Review the [Basic demo system](../../portfolio/basic/index.md) and [Basic architecture](../../architecture/basic.md) first. Use a separate build directory when changing machine or profile features. See [Supported the other boards](../other-boards.md) for additional target requirements.

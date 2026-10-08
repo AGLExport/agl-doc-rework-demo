@@ -7,7 +7,7 @@ content_status: authored
 
 The IVI-derived Flutter Cluster demo displays vehicle information through `flutter-cluster-dashboard`. It is an example of an Instrument Cluster using COVESA VSS and KUKSA vehicle data.
 
-The target is `agl-cluster-demo-flutter`. It builds on the AGL compositor image family and selects a cluster dashboard instead of the IVI homescreen. It is distinct from the dedicated Qt and Slint cluster profiles in Extra AGL system.
+The target is `agl-cluster-demo-flutter`. It builds on the AGL compositor image family and selects a cluster dashboard instead of the IVI homescreen. It is distinct from the dedicated Qt and Slint cluster profiles in [Extra demo system](../extra/index.md).
 
 - [Flutter Cluster application](../../../components/applications/flutter-cluster.md).
 - [Basic architecture](../../architecture/basic.md).

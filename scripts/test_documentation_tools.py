@@ -10,20 +10,107 @@ import unittest
 from unittest.mock import patch
 
 import import_docs
-from validate_structure import section_paths
+import yaml
+from validate_structure import content_requirements, section_paths, validate
 
 
 class SectionResolutionTests(unittest.TestCase):
-    def test_shared_titles_resolve_to_the_artifact_overview(self):
-        pages = [("SoDeV", "home/integrated/sodev.md"), ("SoDeV", "integrated/sodev/index.md")]
-        structure = {"required_pages": [
-            {"heading": "SoDeV", "page": pages[0][1], "breadcrumb": ["Home", "AGL Artifact", "Base platform for integrated system", "SoDeV"]},
-            {"heading": "SoDeV", "page": pages[1][1], "breadcrumb": ["Home", "AGL integrated system", "SoDeV"]},
-        ]}
-        self.assertEqual(section_paths("SoDeV", pages, structure), [pages[0][1]])
+    def test_historical_coverage_reference_resolves_to_background(self):
+        self.assertEqual(section_paths("AGL Coverage", [("Background", "home/index.md")], {}), ["home/index.md"])
 
-    def test_historical_coverage_reference_resolves_to_the_required_artifact(self):
-        self.assertEqual(section_paths("AGL Coverage", [("AGL Artifact", "home/index.md")], {}), ["home/index.md"])
+    def test_hyphenated_content_rule_resolves_to_exact_navigation_spelling(self):
+        pages = [("Small scale integrated system", "integrated/index.md")]
+        self.assertEqual(section_paths("Small-scale integrated system", pages, {}), ["integrated/index.md"])
+        self.assertEqual(section_paths("AGL small-scale integrated system", pages, {}), ["integrated/index.md"])
+
+    def test_ambiguous_sections_are_not_silently_selected(self):
+        pages = [("SoDeV", "first.md"), ("SoDeV", "second.md")]
+        self.assertEqual(section_paths("SoDeV", pages, {}), ["first.md", "second.md"])
+
+
+class ContentRequirementTests(unittest.TestCase):
+    def test_updated_instructions_require_figures_and_matching_system_links(self):
+        instructions = (Path(__file__).resolve().parents[1] / "AGENTS.md").read_text(encoding="utf-8-sig")
+        rules = content_requirements(instructions)
+        self.assertIn("Home", rules)
+        self.assertEqual(rules["Home"]["section_references"]["What is AGL."], "AGL Coverage")
+        background = rules["Background"]
+        self.assertEqual(background["figures"], [
+            "Traditional distributed architecture.", "Domain architecture.", "Central/Zone architecture.",
+        ])
+        expected_paths = ["standalone/index.md", "integrated/index.md", "integrated/large-scale.md"]
+        pages = [("Distributed system", expected_paths[0]),
+                 ("Small scale integrated system", expected_paths[1]),
+                 ("Large scale integrated system", expected_paths[2])]
+        self.assertEqual([section_paths(name, pages, {})[0]
+                          for name in background["section_references"].values()], expected_paths)
+
+    def test_official_figure_and_source_requirement_belong_to_large_scale(self):
+        instructions = (Path(__file__).resolve().parents[1] / "AGENTS.md").read_text(encoding="utf-8-sig")
+        rules = content_requirements(instructions)
+        self.assertTrue(rules["Large scale integrated system"]["official_figure"])
+        self.assertEqual(len(rules["Large scale integrated system"]["source_links"]), 1)
+        self.assertFalse(rules["SoDeV"]["official_figure"])
+        self.assertIn("Small-scale integrated system", rules)
+
+    def test_scoped_rule_selects_architecture_and_requires_both_named_diagrams(self):
+        instructions = (Path(__file__).resolve().parents[1] / "AGENTS.md").read_text(encoding="utf-8-sig")
+        rule = content_requirements(instructions)["Basic demo system under Architecture"]
+        self.assertEqual(rule["required_assets"], ["agl-flutter-ivi-architecture.svg", "agl-qt-ivi-architecture.svg"])
+        pages = [("Basic demo system", "portfolio.md"), ("Basic demo system", "architecture.md")]
+        structure = {"required_pages": [
+            {"heading": "Basic demo system", "page": pages[0][1], "breadcrumb": ["Home", "Portfolio", "Basic demo system"]},
+            {"heading": "Basic demo system", "page": pages[1][1], "breadcrumb": ["Home", "Architecture", "Basic demo system"]},
+        ]}
+        self.assertEqual(section_paths(rule["section_title"], pages, structure, rule["parent"]), ["architecture.md"])
+
+    def test_repeated_sections_and_scoped_diagram_are_both_validated(self):
+        with TemporaryDirectory() as directory:
+            project = Path(directory)
+            docs = project / "docs"
+            docs.mkdir()
+            instructions = """## Required Structure
+- Home
+  - Portfolio
+    - Basic demo system
+  - Architecture
+    - Basic demo system
+## Required Contents at Section
+"Basic demo system" section must include the following content:
+  A shared IVI platform supplies the runtime.
+"Basic demo system" section under "Architecture" section must include the following content:
+Show the architecture diagram "required.svg".
+"""
+            (project / "AGENTS.md").write_text(instructions, encoding="utf-8")
+            nav = [{"Home": ["index.md", {"Portfolio": ["portfolio.md", {"Basic demo system": "portfolio-basic.md"}]},
+                             {"Architecture": ["architecture.md", {"Basic demo system": "architecture-basic.md"}]}]}]
+            (project / "mkdocs.yml").write_text(yaml.safe_dump({"nav": nav, "not_in_nav": ""}), encoding="utf-8")
+            entries = []
+            def record(items, parents=()):
+                for item in items:
+                    title, value = next(iter(item.items()))
+                    entries.append({"heading": title, "page": value[0] if isinstance(value, list) else value,
+                                    "breadcrumb": [*parents, title]})
+                    if isinstance(value, list):
+                        record(value[1:], (*parents, title))
+            record(nav)
+            (project / "structure-map.json").write_text(json.dumps({"required_pages": entries}), encoding="utf-8")
+            (project / "source-map.json").write_text(json.dumps({"pages": []}), encoding="utf-8")
+            for entry in entries:
+                (docs / entry["page"]).write_text("# " + entry["heading"] + "\n\nThis chapter explains the shared IVI platform.\n", encoding="utf-8")
+            (docs / "required.svg").write_text('<svg xmlns="http://www.w3.org/2000/svg"/>', encoding="utf-8")
+            architecture = docs / "architecture-basic.md"
+            original = architecture.read_text(encoding="utf-8")
+            architecture.write_text(original + "\n![Architecture](required.svg)\n", encoding="utf-8")
+            with redirect_stdout(StringIO()):
+                validate(project)
+            architecture.write_text(original, encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "Required architecture diagram is missing"):
+                validate(project)
+            architecture.write_text(original + "\n![Architecture](required.svg)\n", encoding="utf-8")
+            (docs / "portfolio-basic.md").write_text("# Basic demo system\n", encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "Required narrative content is missing"):
+                validate(project)
 
 
 class ImportPreservationTests(unittest.TestCase):

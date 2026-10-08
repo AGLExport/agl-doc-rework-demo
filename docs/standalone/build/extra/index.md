@@ -11,4 +11,4 @@ Build a dedicated Qt/Slint cluster or the complete container host needed by Momi
 2. [Build target image](image.md): choose the actual recipe and inspect its artifacts.
 3. [Deploy to board](deploy.md): write or launch the image and check runtime behavior.
 
-Review the [Extra portfolio](../../portfolio/extra/index.md) and [Extra architecture](../../architecture/extra.md) first. Use a separate build directory when changing machine or profile features. See [Supported the other boards](../other-boards.md) for additional target requirements.
+Review the [Extra demo system](../../portfolio/extra/index.md) and [Extra architecture](../../architecture/extra.md) first. Use a separate build directory when changing machine or profile features. See [Supported the other boards](../other-boards.md) for additional target requirements.

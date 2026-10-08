@@ -37,9 +37,9 @@ The imported procedures have not been rerun on hardware as part of this site res
 | Goal | Look for | Read next |
 | --- | --- | --- |
 | Evaluate an IVI user interface | Qt or Flutter IVI demo | [Image targets](images.md) |
-| Develop an application | Matching runtime image and SDK/workspace | [Application development](../../../index.md#apps) |
+| Develop an application | Matching runtime image and SDK/workspace | [Distributed system](../../../index.md#apps) |
 | Run an Instrument Cluster | IC demo matching the board and profile | [IC container profile](../../../../integrated/containers/build-guide.md) or [Slint profile](../../cluster/slint.md) |
 | Integrate a gateway or multi-board demo | Gateway/preconfigured image and its network assumptions | [Image targets](images.md#2-preconfigured-demo-images) |
-| Modify the platform | Source build with the required layers and features | [Platform development](../../../index.md#platform) |
+| Modify the platform | Source build with the required layers and features | [Distributed system](../../../index.md#platform) |
 
 Keep the kernel, root filesystem, SDK, and documentation on the same release or build. Check the [build host requirements](../prepare-host.md) before beginning a source build.

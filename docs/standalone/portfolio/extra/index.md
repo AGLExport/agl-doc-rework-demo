@@ -1,11 +1,13 @@
 ---
-title: "Extra AGL system"
+title: "Extra demo system"
 content_status: authored
 ---
 
-# Extra AGL system
+# Extra demo system
 
-Extra covers a dedicated cluster userland and a lightweight Qt IVI guest. Select a profile before initializing its build directory.
+The Extra demo system includes an Instrument Cluster platform with demo software and a minimal-footprint IVI demo. Its Qt-based Instrument Cluster starts from minimal userland, providing a foundation for a small-footprint cluster system. The Slint-based Instrument Cluster is an early example implemented in Rust using the Slint UI toolkit.
+
+Momi IVI provides a lightweight Qt/QML infotainment guest. Its demonstrated deployment uses a container host together with a Cluster guest, so follow the [Small scale integrated system](../../../integrated/index.md) route for the complete integration. Select the profile before initializing its build directory.
 
 | Demo | Runtime and deployment | Image or integration target |
 | --- | --- | --- |

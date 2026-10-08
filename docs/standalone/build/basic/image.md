@@ -5,7 +5,7 @@ content_status: authored
 
 # Build target image
 
-Run BitBake from the shell initialized in [Setup build environment](setup.md). Select one recipe based on the [Basic portfolio](../../portfolio/basic/index.md).
+Run BitBake from the shell initialized in [Setup build environment](setup.md). Select one recipe based on the [Basic demo system](../../portfolio/basic/index.md).
 
 | Demo | `IMAGE_TARGET` |
 | --- | --- |

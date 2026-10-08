@@ -22,7 +22,7 @@ for the purpose of building Linux-based, open source software platforms
 for automotive applications that can serve as de facto industry
 standards.
 
-AGL aims to support software across the vehicle. The platforms covered by this site include infotainment, instrument cluster, connected gateway, and integrated systems. The project's broader goals include heads-up displays, driver assistance, functional safety, and autonomous driving. These goals should be distinguished from the concrete platform profiles documented for a release. Read [AGL Artifact](index.md) for the documented platform scope and [Releases & migration](../releases/index.md) for release-specific support.
+AGL aims to support software across the vehicle. The platforms covered by this site include infotainment, instrument cluster, connected gateway, and integrated systems. The project's broader goals include heads-up displays, driver assistance, functional safety, and autonomous driving. These goals should be distinguished from the concrete platform profiles documented for a release. Read [Background](index.md) for the documented platform scope and [Releases & migration](../releases/index.md) for release-specific support.
 
 Adopting a shared platform across the industry reduces fragmentation
 and allows automakers and suppliers to reuse the same code base, which

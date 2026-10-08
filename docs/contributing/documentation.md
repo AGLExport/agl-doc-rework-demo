@@ -41,7 +41,7 @@ change into `GitHubPages/` first.
 | `AGENTS.md` | Required English headings, hierarchy, and section content |
 | `mkdocs.yml` | Exact navigation, Material theme, shared release values, and supporting-page declarations |
 | `docs/index.md` | Home page |
-| `docs/home/` | AGL Artifact overviews |
+| `docs/home/` | Background and vehicle E/E architecture context |
 | `docs/start/` | Prebuilt-image quickstarts |
 | `docs/standalone/` | Distributed-system builds, customization, and application development |
 | `docs/integrated/` | SoDeV, container, and KVM integration |
@@ -81,7 +81,7 @@ These commands do not require administrator privileges.
 
 ## Edit an article
 
-Read `AGENTS.md` before editing. Preserve all 104 required navigation headings,
+Read `AGENTS.md` before editing. Preserve every required navigation heading,
 their spelling, order, and hierarchy. Each required page must use its required
 heading as its first H1. Preserve the required section contents, architecture
 figures, references, and links to subsections.

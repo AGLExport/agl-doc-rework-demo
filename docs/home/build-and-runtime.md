@@ -15,7 +15,7 @@ A **MACHINE** selects the target board configuration. An **image target** select
 
 Use this workflow when changing the operating system, services, layers, or recipes:
 
-[Prepare the host](../standalone/build/common/prepare-host.md) → [download source](../standalone/build/common/download-source.md) → [initialize the build](../standalone/build/common/initialize-build.md) → [build an image](../standalone/build/common/build-image.md) → [boot the target](../standalone/index.md#hardware).
+[Prepare the host](../standalone/build/common/prepare-host.md) → [download source](../standalone/build/common/download-source.md) → [initialize the build](../standalone/build/common/initialize-build.md) → [build an image](../standalone/build/common/build-image.md) → [Distributed system](../standalone/index.md#hardware).
 
 The [layer structure](../standalone/build/common/layers/overview.md) explains where platform changes belong.
 
@@ -23,7 +23,7 @@ The [layer structure](../standalone/build/common/layers/overview.md) explains wh
 
 An SDK provides tools and libraries matched to a target image. The Flutter workspace provides another documented development route, including QEMU integration.
 
-Begin with the [application development guide](../standalone/index.md#apps). Once the application runs, use the [application packaging guide](../standalone/applications/create-application.md) to register it with the AGL launcher.
+Begin with the [Distributed system](../standalone/index.md#apps). Once the application runs, use the [application packaging guide](../standalone/applications/create-application.md) to register it with the AGL launcher.
 
 ## Keep a matched environment
 

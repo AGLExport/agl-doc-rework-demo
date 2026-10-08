@@ -48,7 +48,7 @@ The preconfigured images assume a particular multi-board network setup. Use the 
 3. Explore the homescreen, climate controls, media, and settings. Check whether the services and devices needed for each function are available in your setup.
 4. If a function does not respond, collect the build identifier and logs using [Diagnose common problems](../../troubleshooting/diagnostics.md).
 
-To build the demo from source, follow [Platform development](../../standalone/index.md#platform) and select `agl-ivi-demo-flutter` as the image target. To modify its UI or add an application, start with [Set up a Flutter workspace](../../standalone/applications/flutter.md).
+To build the demo from source, follow [Distributed system](../../standalone/index.md#platform) and select `agl-ivi-demo-flutter` as the image target. To modify its UI or add an application, start with [Set up a Flutter workspace](../../standalone/applications/flutter.md).
 
 ## About this overview
 

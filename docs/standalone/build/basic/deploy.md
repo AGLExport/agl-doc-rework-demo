@@ -30,4 +30,4 @@ systemctl --failed
 journalctl -b -p err
 ~~~
 
-Use [Troubleshooting](../../../troubleshooting/index.md) when the UI or a service fails. Continue with [Platform Customize](../../customize/index.md) or [Application development](../../applications/index.md) under AGL distributed system.
+Use [Troubleshooting](../../../troubleshooting/index.md) when the UI or a service fails. Continue with [Platform Customize](../../customize/index.md) or [Application development](../../applications/index.md) under Distributed system.

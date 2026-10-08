@@ -13,7 +13,7 @@ The AGL Unified Code Base (UCB) is the project's common Linux distribution, buil
 
 AGL began with infotainment and has a broader goal of supporting automotive software across vehicle roles. This documentation covers In-Vehicle Infotainment, Instrument Cluster, and Connected Gateway, alongside platforms that integrate several workloads. A product team selects the relevant software, adds its own applications, and integrates it with the intended vehicle environment.
 
-Read [AGL Artifact](home/index.md) to understand how these roles relate to vehicle E/E architectures. Its diagrams introduce traditional distributed, domain, and central/zone designs. The [Linux Distribution](home/index.md#agl-distributed-system) overview explains the base distribution for distributed ECUs, while the [Base platform for integrated system](home/index.md#agl-integrated-system) overview explains the platform for combining workloads in domain or central/zone designs.
+Read [Background](home/index.md) for AGL coverage and its relationship to vehicle E/E architectures. It connects traditional distributed architecture to [Distributed system](standalone/index.md), domain architecture to [Small scale integrated system](integrated/index.md), and central/zone architecture to [Large scale integrated system](integrated/large-scale.md). These chapters explain the relevant platforms and provide build and development routes.
 
 ## AGL Community information.
 

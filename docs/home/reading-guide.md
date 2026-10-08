@@ -8,7 +8,13 @@ Use this section when you want to understand the overall platform or the relatio
 
 ## Start with the architecture
 
-Read the [architecture overview](architecture.md) to understand AGL's structure. The official [Unified Code Base](https://www.automotivelinux.org/software/unified-code-base) page provides broader context.
+Read [Background](index.md) to relate vehicle E/E architectures to the documented systems:
+
+- [Distributed system](../standalone/index.md) mainly addresses traditional distributed ECUs.
+- [Small scale integrated system](../integrated/index.md) combines functions at domain level using containers or KVM.
+- [Large scale integrated system](../integrated/large-scale.md) uses SoDeV for central/zone and mixed-criticality integration.
+
+The supporting [architecture overview](architecture.md) explains AGL's broader platform scope. The official [Unified Code Base](https://www.automotivelinux.org/software/unified-code-base) page provides broader context.
 
 ## Build and runtime environments
 

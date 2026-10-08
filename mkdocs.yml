@@ -74,6 +74,7 @@ extra:
   qt_layer_branch: '6.12'
   artifact_kind: snapshots
 not_in_nav: |
+  /standalone/architecture/agl-ivi-architecture-notes.md
   /components/api/source-api-coverage.md
   /components/extensions/container-settings/containers.md
   /components/extensions/container-settings/global.md
@@ -150,19 +151,8 @@ not_in_nav: |
 nav:
 - Home:
   - index.md
-  - AGL Artifact:
-    - home/index.md
-    - Linux Distribution:
-      - home/standalone/index.md
-      - In-Vehicle Infotainment: home/standalone/ivi.md
-      - Instrument Cluster: home/standalone/cluster.md
-      - Connected Gateway: home/standalone/gateway.md
-    - Base platform for integrated system:
-      - home/integrated/index.md
-      - SoDeV: home/integrated/sodev.md
-      - Container integration: home/integrated/containers.md
-      - KVM based integration: home/integrated/kvm.md
-  - AGL distributed system:
+  - Background: home/index.md
+  - Distributed system:
     - standalone/index.md
     - Quick start:
       - start/index.md
@@ -172,20 +162,20 @@ nav:
         - Raspberry Pi 4/5: start/prebuilt/raspberry-pi.md
     - Portfolio:
       - standalone/portfolio/index.md
-      - Basic AGL system:
+      - Basic demo system:
         - standalone/portfolio/basic/index.md
         - Flutter IVI demo: standalone/portfolio/basic/flutter-ivi.md
         - Qt IVI demo: standalone/portfolio/basic/qt-ivi.md
         - IVI based Flutter Cluster demo: standalone/portfolio/basic/flutter-cluster.md
-      - Extra AGL system:
+      - Extra demo system:
         - standalone/portfolio/extra/index.md
         - Qt based Cluster demo: standalone/portfolio/extra/qt-cluster.md
         - Slint based Cluster demo: standalone/portfolio/extra/slint-cluster.md
         - Momi IVI demo: standalone/portfolio/extra/momi-ivi.md
     - Architecture:
       - standalone/architecture/index.md
-      - Basic AGL system: standalone/architecture/basic.md
-      - Extra AGL system: standalone/architecture/extra.md
+      - Basic demo system: standalone/architecture/basic.md
+      - Extra demo system: standalone/architecture/extra.md
     - Build AGL system:
       - standalone/build/index.md
       - Basic AGL system:
@@ -255,18 +245,8 @@ nav:
       - standalone/applications/index.md
       - Flutter application: standalone/applications/flutter.md
       - Qt application: standalone/applications/qt.md
-  - AGL integrated system:
+  - Small scale integrated system:
     - integrated/index.md
-    - SoDeV:
-      - integrated/sodev/index.md
-      - Architecture: integrated/sodev/architecture.md
-      - Build SoDeV: integrated/sodev/build.md
-      - SoDeV Customize:
-        - integrated/sodev/customize/index.md
-        - Create and Run Guest VM: integrated/sodev/customize/guest-vm.md
-      - Platform extension:
-        - integrated/sodev/extensions.md
-        - Unified HMI: components/extensions/unified-hmi.md
     - Container integration:
       - integrated/containers/index.md
       - Architecture: integrated/containers/architecture.md
@@ -281,6 +261,18 @@ nav:
     - KVM based integration:
       - integrated/kvm/index.md
       - Build Platform: integrated/kvm/build.md
+  - Large scale integrated system:
+    - integrated/large-scale.md
+    - SoDeV:
+      - integrated/sodev/index.md
+      - Architecture: integrated/sodev/architecture.md
+      - Build SoDeV: integrated/sodev/build.md
+      - SoDeV Customize:
+        - integrated/sodev/customize/index.md
+        - Create and Run Guest VM: integrated/sodev/customize/guest-vm.md
+      - Platform extension:
+        - integrated/sodev/extensions.md
+        - Unified HMI: components/extensions/unified-hmi.md
   - AGL Development tools:
     - components/tools/index.md
     - Demo Control:

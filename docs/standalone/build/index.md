@@ -13,6 +13,6 @@ Build the system selected in the portfolio. Each route separates source and host
 | [Extra AGL system](extra/index.md) | Qt Cluster, Slint Cluster, Momi IVI | [Setup](extra/setup.md) → [Build](extra/image.md) → [Deploy](extra/deploy.md) |
 | [Supported the other boards](other-boards.md) | Additional hardware and cloud targets | Check BSP requirements and the supported image combination first. |
 
-Use [Common build reference](common.md) for shared host, source, cache, layer, and hardware documentation. It supplements these routes. Guest VM and host integration builds belong in [AGL integrated system](../../integrated/index.md).
+Use [Common build reference](common.md) for shared host, source, cache, layer, and hardware documentation. It supplements these routes. Container and KVM host/guest builds belong in [Small scale integrated system](../../integrated/index.md); SoDeV workspaces belong in [Large scale integrated system](../../integrated/large-scale.md).
 
 Before building, choose a release or snapshot through [Releases & migration](../../releases/index.md). Keep the source, SDK, and deployed artifacts aligned.
