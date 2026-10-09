@@ -138,7 +138,7 @@ not_in_nav: |
 nav:
 - Home:
   - index.md
-  - Background: home/index.md
+  - Introduction: home/index.md
   - Distributed system:
     - standalone/index.md
     - Quick start:

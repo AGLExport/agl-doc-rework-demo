@@ -82,7 +82,8 @@ def content_requirements(instructions):
         return {}
     section = instructions.split('## Required Contents at Section', 1)[1].split('\n## ', 1)[0]
     requirements, current, topic = {}, None, None
-    for line in section.splitlines():
+    lines = section.splitlines()
+    for index, line in enumerate(lines):
         declaration = re.match(r'^(.+?) section must .*contents?:\s*$', line)
         bullet = re.match(r'^( *)(?:[*-] )(.+?)\s*$', line)
         if declaration:
@@ -108,6 +109,15 @@ def content_requirements(instructions):
             if figure:
                 requirements[current]['figures'].append(title)
         elif current is not None and line.strip():
+            # Plain outline topics use indentation for children, or precede a
+            # same-level 'Figure out ...' instruction for an illustrated topic.
+            outline = re.match(r'^( {2,})(\S.+\.)\s*$', line)
+            following = next((item for item in lines[index + 1:] if item.strip()), '')
+            following_indent = len(following) - len(following.lstrip(' '))
+            if outline and (following_indent > len(outline[1]) or following.strip().startswith('Figure out ')):
+                topic = outline[2].strip()
+                requirements[current]['headings'].append((1 + len(outline[1]) // 2, topic))
+                continue
             description = line.strip()
             if description == 'These contents should link to sub-sections.':
                 requirements[current]['subsection_links'] = True
@@ -142,7 +152,7 @@ def local_document_links(body, page):
 # Content rules retain a historical coverage label and use hyphenated category names.
 # Navigation always follows the exact spellings in Required Structure.
 SECTION_ALIASES = {
-    'AGL Coverage': 'Background',
+    'AGL Coverage': 'Introduction',
     'Small-scale integrated system': 'Small scale integrated system',
     'AGL distributed system': 'Distributed system',
     'AGL small-scale integrated system': 'Small scale integrated system',

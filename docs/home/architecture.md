@@ -8,7 +8,7 @@ The AGL Unified Code Base (UCB) is a Linux distribution built from the ground up
 through a joint effort by automakers and suppliers to deliver a modern
 in-vehicle infotainment and connected car experience for consumers. Further
 helping reduce fragmentation and facilitate innovation in the development
-process. The project spans existing platform profiles and longer-term goals. [Background](index.md) describes the distribution and integrated platforms covered by this site. The following areas describe the broader scope; their maturity and supported features must be checked against the selected release:
+process. The project spans existing platform profiles and longer-term goals. [Introduction](index.md) describes the distribution and integrated platforms covered by this site. The following areas describe the broader scope; their maturity and supported features must be checked against the selected release:
 
  - In Vehicle Infotainment (IVI)
  - Instrument Cluster (IC)

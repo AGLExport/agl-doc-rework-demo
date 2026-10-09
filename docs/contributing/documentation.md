@@ -41,7 +41,7 @@ change into `GitHubPages/` first.
 | `AGENTS.md` | Required English headings, hierarchy, and section content |
 | `mkdocs.yml` | Exact navigation, Material theme, shared release values, and supporting-page declarations |
 | `docs/index.md` | Home page |
-| `docs/home/` | Background and vehicle E/E architecture context |
+| `docs/home/` | Introduction, vehicle E/E architecture context and E2E data processing |
 | `docs/start/` | Prebuilt-image quickstarts |
 | `docs/standalone/` | Distributed-system builds, customization, and application development |
 | `docs/integrated/` | SoDeV, container, and KVM integration |

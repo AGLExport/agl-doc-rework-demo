@@ -16,8 +16,8 @@ from import_transforms import remove_further_reading
 
 
 class SectionResolutionTests(unittest.TestCase):
-    def test_historical_coverage_reference_resolves_to_background(self):
-        self.assertEqual(section_paths("AGL Coverage", [("Background", "home/index.md")], {}), ["home/index.md"])
+    def test_historical_coverage_reference_resolves_to_introduction(self):
+        self.assertEqual(section_paths("AGL Coverage", [("Introduction", "home/index.md")], {}), ["home/index.md"])
 
     def test_hyphenated_content_rule_resolves_to_exact_navigation_spelling(self):
         pages = [("Small scale integrated system", "integrated/index.md")]
@@ -35,16 +35,21 @@ class ContentRequirementTests(unittest.TestCase):
         rules = content_requirements(instructions)
         self.assertIn("Home", rules)
         self.assertEqual(rules["Home"]["section_references"]["What is AGL."], "AGL Coverage")
-        background = rules["Background"]
-        self.assertEqual(background["figures"], [
+        introduction = rules["Introduction"]
+        self.assertEqual(introduction["figures"], [
             "Traditional distributed architecture.", "Domain architecture.", "Central/Zone architecture.",
+        ])
+        self.assertEqual(introduction["headings"], [
+            (2, "Vehicle EE architectures."), (3, "Traditional distributed architecture."),
+            (3, "Domain architecture."), (3, "Central/Zone architecture."),
+            (2, "E2E Vehicle Data Processing."),
         ])
         expected_paths = ["standalone/index.md", "integrated/index.md", "integrated/large-scale.md"]
         pages = [("Distributed system", expected_paths[0]),
                  ("Small scale integrated system", expected_paths[1]),
                  ("Large scale integrated system", expected_paths[2])]
         self.assertEqual([section_paths(name, pages, {})[0]
-                          for name in background["section_references"].values()], expected_paths)
+                          for name in introduction["section_references"].values()], expected_paths)
 
     def test_official_figure_and_source_requirement_belong_to_large_scale(self):
         instructions = (Path(__file__).resolve().parents[1] / "AGENTS.md").read_text(encoding="utf-8-sig")

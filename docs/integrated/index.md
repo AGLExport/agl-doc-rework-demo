@@ -18,4 +18,4 @@ Container integration includes guest customization, DRM lease management and Con
 
 A small-scale integration can itself be incorporated into a [Large scale integrated system](large-scale.md) based on SoDeV. The outer platform then determines how its guest environment receives resources and device interfaces.
 
-Use [Background](../home/index.md) for vehicle E/E architecture context and [Releases & migration](../releases/index.md) to keep workspace, host and guest revisions compatible.
+Use [Introduction](../home/index.md) for vehicle E/E architecture context and [Releases & migration](../releases/index.md) to keep workspace, host and guest revisions compatible.

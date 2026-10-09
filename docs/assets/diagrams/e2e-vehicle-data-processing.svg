@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 346" width="960" height="346" role="img" aria-labelledby="title description">
+<title id="title">End-to-end vehicle data processing</title>
+<desc id="description">A conceptual path from vehicle device edge through a cellular network and optional network edge to the cloud. Selected data flows to the cloud; policies and models return to the vehicle.</desc>
+<rect x="1" y="1" width="958" height="344" rx="14" fill="#ffffff" stroke="#d7e0e8"/>
+<g font-family="Arial, Helvetica, sans-serif" fill="#172b45">
+<text x="480" y="34" text-anchor="middle" font-size="22" font-weight="bold">Processing placement across the vehicle, network and cloud</text>
+<rect x="30" y="87" width="252" height="137" rx="10" fill="#edf3fa" stroke="#315b82" stroke-width="2"/>
+<text x="156.0" y="114" text-anchor="middle" font-size="19" font-weight="bold">Vehicle / Device edge</text>
+<text x="156.0" y="148" text-anchor="middle" font-size="16" font-weight="normal">Acquire and decode signals</text>
+<text x="156.0" y="175" text-anchor="middle" font-size="16" font-weight="normal">Filter, aggregate or infer</text>
+<text x="156.0" y="202" text-anchor="middle" font-size="16" font-weight="normal">Buffer selected data</text>
+<rect x="354" y="87" width="252" height="137" rx="10" fill="#edf3fa" stroke="#315b82" stroke-width="2"/>
+<text x="480.0" y="114" text-anchor="middle" font-size="19" font-weight="bold">Network</text>
+<text x="480.0" y="148" text-anchor="middle" font-size="16" font-weight="normal">Cellular transport</text>
+<text x="480.0" y="175" text-anchor="middle" font-size="16" font-weight="normal">Optional network edge</text>
+<text x="480.0" y="202" text-anchor="middle" font-size="16" font-weight="normal">Transfer to cloud services</text>
+<rect x="678" y="87" width="252" height="137" rx="10" fill="#edf3fa" stroke="#315b82" stroke-width="2"/>
+<text x="804.0" y="114" text-anchor="middle" font-size="19" font-weight="bold">Cloud</text>
+<text x="804.0" y="148" text-anchor="middle" font-size="16" font-weight="normal">Fleet analysis and storage</text>
+<text x="804.0" y="175" text-anchor="middle" font-size="16" font-weight="normal">Remote service processing</text>
+<text x="804.0" y="202" text-anchor="middle" font-size="16" font-weight="normal">Policy and model management</text>
+<path d="M282 158H349" fill="none" stroke="#476780" stroke-width="2.5"/>
+<text x="318.0" y="142" text-anchor="middle" font-size="14" font-weight="normal">Data</text>
+<path d="M606 158H673" fill="none" stroke="#476780" stroke-width="2.5"/>
+<text x="642.0" y="142" text-anchor="middle" font-size="14" font-weight="normal">Data</text>
+<path d="M804 224V269H156V229" fill="none" stroke="#476780" stroke-width="2.5"/>
+<text x="480" y="294" text-anchor="middle" font-size="17" font-weight="normal">Collection policies and model updates</text>
+<text x="480" y="327" text-anchor="middle" font-size="16" font-weight="normal">Evaluate latency, connectivity, data volume and total cost across all three layers.</text>
+<path d="M341 153L350 158L341 163Z M665 153L674 158L665 163Z M151 237L156 228L161 237Z" fill="#476780"/>
+</g>
+</svg>
