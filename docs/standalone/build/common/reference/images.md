@@ -1,141 +1,67 @@
 ---
 title: "AGL image targets"
 source_path: "01_Getting_Started/02_Building_AGL_Image/07_Available_Demo_Images.md"
-content_status: imported
+content_status: adapted
 ---
+
+# AGL image targets
+
+This catalog describes the recipes in the [Vimba 22.0.0 image directory](https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-platform/images/?h=vimba/22.0.0). Use the recipes and resolved manifest from the same release as the image or SDK. The site's build guides can track a development branch; see [Releases & migration](../../../../releases/index.md) for that distinction.
 
 ## 1. Demo Images
 
-These images are available when the `agl-demo` feature is given to `aglsetup.sh`.  The resulting images use DHCP for network configuration, and all except the `agl-ivi-demo-control-panel` images will contain instances of the KUKSA.val databroker by default.
+Enable the required layers/features with `aglsetup.sh`. Package selection and network configuration depend on the target and selected features. The IVI and IVI-derived cluster recipes include the databroker by default; the control-panel recipe selects client packages instead. The [databroker package group](https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-platform/packagegroups/packagegroup-agl-kuksa-val-databroker.bb?h=vimba/22.0.0) selects `kuksa-can-provider` and its AGL DBC/VSS configuration.
 
 ### agl-ivi-image
 
-Base IVI demo image that the other IVI images derive from.  A user will typically not be building this image, it is more relevant if making changes to the base demo services or packaging that affects all the IVI demos.
+Common IVI platform image. Other IVI recipes extend it with toolkit and application packages. It is useful when customizing platform services and packaging.
 
 ### agl-ivi-image-crosssdk
 
-Corresponding SDK image for `agl-ivi-image`.  Typically, a user will be more interested in the `agl-ivi-demo-qt-crosssk`, as the resulting SDK from that image is more useful for application development.
+SDK-oriented image derived from `agl-ivi-image`. For Qt demo development, inspect `agl-ivi-demo-qt-crosssdk` as well.
 
 ### agl-ivi-image-flutter
 
-Base Flutter IVI demo image.  Derived from `agl-ivi-image` and includes the Flutter components required for running Flutter applications.  A user will typically not be building this image, it usually will only be interesting if doing development of primary Flutter applications such as IVI homescreen  applications.
+Flutter IVI base derived from `agl-ivi-image`. It adds the Flutter platform package group and persistent storage API. The demo homescreen is selected by the derived demo image.
 
 ### agl-ivi-demo-flutter
 
-Flutter based IVI demo image, using `flutter-ics-homescreen` application.
-
-### agl-ivi-demo-html5
-
-HTML5 based IVI demo image, using a combination of the Chromium Embedded Framework (CEF) and Web Application Manager (WAM).
+Flutter IVI demo using `flutter-ics-homescreen` on the common Flutter IVI base. See [Basic demo system architecture](../../../architecture/basic.md) for the graphics, lifecycle, vehicle-data and audio paths.
 
 ### agl-ivi-demo-qt
 
-Qt based IVI demo image, using `homescreen` and `launcher` as well as other Qt applications.
+Qt IVI demo with `homescreen`, `launcher` and separate Qt applications on the common IVI platform.
 
 ### agl-ivi-demo-qt-crosssdk
 
-This is the corresponding SDK image for `agl-ivi-demo-qt`.
+Corresponding SDK-oriented image for `agl-ivi-demo-qt`.
 
 ### agl-ivi-demo-control-panel
 
-IVI demo control panel image.  Simple image that runs the `agl-demo-control-panel` application for driving demo setups.
+Weston-based image running `agl-demo-control-panel`. Its [recipe](https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-platform/images/agl-ivi-demo-control-panel.bb?h=vimba/22.0.0) installs KUKSA client/certificate packages and the control application. Connect it to the databroker used by the demo setup.
 
 ### agl-cluster-demo-flutter
 
-Flutter based IC demo image, using `flutter-cluster-dashboard` application.
+IVI-derived Flutter Instrument Cluster image with `flutter-cluster-dashboard`, `flutter-auto`, cluster streaming receiver and KUKSA configuration. This differs from the dedicated small-userland cluster platform.
 
 ### agl-cluster-demo-qt
 
-Qt based IC demo image, using `cluster-dashboard` application.
+IVI-derived Qt Instrument Cluster image selected by `packagegroup-agl-cluster-demo-platform`. For the dedicated Instrument Cluster service and Qt GUI, use the [Qt Cluster build route](../../cluster/qt.md).
 
 ### agl-gateway-demo
 
-Gateway demo image.  The image runs the KUKSA.val databroker and the associated `kuksa-dbc-feeder` for CAN input.
+Minimal gateway demo image hosting the KUKSA.val databroker and CAN provider. The [recipe](https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-platform/images/agl-gateway-demo.bb?h=vimba/22.0.0) also installs `agl-vss-proxy` and the open databroker environment; development tools are conditional on `agl-devel`. Configure network access and CAN interfaces for the selected deployment.
 
 ### agl-telematics-demo
 
-Telematics demo image.  Currently a WIP.
+Minimal telematics image selecting `packagegroup-agl-telematics-demo-platform`. Its recipe requires the `3g` distribution feature.
 
 ## 2. Preconfigured Demo Images
 
-These images are also available when the `agl-demo` feature is given to `aglsetup.sh`, but are intended for use with a more complete demo setup along the lines of what the project showcases at tradeshows such as CES or Embedded World.  The resulting images use DHCP for network configuration, but the following address assignments are assumed:
+The old `*-preconfigured` and `*-preconfigured-gateway` image names, and `agl-ivi-demo-html5`, are absent from the Vimba 22.0.0 image directory. Do not use those older target names as Vimba build commands. Coordinated IVI, cluster and gateway setups require configuration of the current image recipes and their client/provider packages.
 
-- IVI board has address 192.168.10.2
-- IC board has address 192.168.10.3
-- Gateway board has address 192.168.10.4
+The [KUKSA application configuration recipe](https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-connectivity/kuksa-val/kuksa-conf.bb?h=vimba/22.0.0) provides `kuksa-conf`, `kuksa-conf-demo-tradeshow`, `kuksa-conf-gateway-demo` and KVM configuration variants. They install alternative `kuksa.toml` files under `/etc/xdg/AGL`; these are configuration packages, not additional image targets.
 
-Whether an image includes the KUKSA.val databroker or not will be indicated below.
+The [gateway client configuration](https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-connectivity/kuksa-val/kuksa-conf/kuksa.toml.gateway-demo?h=vimba/22.0.0) uses a remote broker at `192.168.10.4`. Confirm the broker address, TLS credentials and service placement on each participating system.
 
-Note that the preconfigured IVI images are for the most part only tested on the Renesas H3ULCB based AGL reference hardware.  While the IC images are typically run on a Raspberry Pi 4 when a standalone IC is used as part of a tradeshow demo, the IC images are simpler and should be a bit more flexible with respect to target platform.
-
-### agl-ivi-demo-flutter-preconfigured
-
-Flutter IVI demo image with:
-
-- IC navigation streaming support
-- KUKSA.val databroker present, preconfigured IC images assume it runs on IVI board.
-- udev configuration for USB I2C adapter for demo setup LEDs and RTC
-- Weston Terminal application removed
-
-### agl-ivi-demo-flutter-preconfigured-gateway
-
-Flutter IVI demo image with:
-
-- IC navigation streaming support
-- KUKSA.val databroker removed, as it runs on the gateway.
-- Application configuration changes for databroker being on the gateway.
-- udev configuration for USB I2C adapter for demo setup LEDs and RTC
-- Weston Terminal application removed
-
-### agl-ivi-demo-qt-preconfigured
-
-Qt IVI demo image with:
-
-- IC navigation streaming support
-- KUKSA.val databroker present, preconfigured IC images assume it runs on IVI board.
-- udev configuration for USB I2C adapter for demo setup LEDs and RTC
-- Weston Terminal application removed
-
-### agl-ivi-demo-control-panel-preconfigured
-
-IVI demo control panel image with:
-
-- Default configuration for databroker running on IVI board.
-
-### agl-ivi-demo-control-panel-preconfigured-gateway
-
-IVI demo control panel image with:
-
-- KUKSA.val databroker present, with `kuksa-dbc-feeder` configuration to output CAN messages for the signals coming from the application's vehicle simulation.
-- Default configuration disables HVAC and steering wheel pages, as those are driven by hardware connected to the gateway in the full demo setup.
-
-### agl-cluster-demo-flutter-preconfigured
-
-Flutter IC demo image with:
-
-- KUKSA.val databroker removed, as it runs on the IVI board.
-- Application configuration changes for databroker being on the IVI board.
-- Configuration tweaks to invert the screen orientation, as the IC screen in the full demo setup is upside down.
-
-### agl-cluster-demo-flutter-preconfigured-gateway
-
-Flutter IC demo image with:
-
-- KUKSA.val databroker removed, as it runs on the gateway.
-- Application configuration changes for databroker being on the gateway.
-- Configuration tweaks to invert the screen orientation, as the IC screen in the full demo setup is upside down.
-
-### agl-cluster-demo-qt-preconfigured
-
-Qt IC demo image with:
-
-- KUKSA.val databroker removed, as it runs on the IVI board.
-- Application configuration changes for databroker being on the IVI board.
-- Configuration tweaks to invert the screen orientation, as the IC screen in the full demo setup is upside down.
-
-### agl-gateway-demo-preconfigured
-
-Gateway demo image with:
-
-- `kuksa-dbc-feeder` against `can0` interface configured for vehicle simulation (e.g. vehicle and engine speed) CAN messages coming from the `agl-ivi-demo-control-panel-preconfigured-gateway` image.
-- A second instance of `kuksa-dbc-feeder` against `can1` interface configured for input and output of CAN messages from and to the steering wheel and HVAC hardware, respectively.
+For CAN integration, select the appropriate provider configuration from the [Vimba CAN recipes](https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-connectivity/kuksa-val/?h=vimba/22.0.0). The default AGL configuration uses `can0`; control-panel, bidirectional and gateway-hardware configurations are separate packages. In particular, `kuksa-can-provider-conf-gw-hardware` supplies a second `kuksa-can-provider-can1.service`. Installing that package and assigning the interfaces requires an explicit deployment configuration; the base gateway image does not imply the complete multi-board hardware setup.

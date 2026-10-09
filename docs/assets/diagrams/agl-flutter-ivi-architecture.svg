@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2000" height="1410" viewBox="0 0 2000 1410" role="img" aria-labelledby="title desc"><title id="title">AGL Flutter IVI demo — unified architecture</title><desc id="desc">One integrated architecture: application layer, rendering and lifecycle, vehicle and media services, Linux interfaces and hardware. Salmon baseline using post-2023 sources.</desc><defs>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2000" height="1410" viewBox="0 0 2000 1410" role="img" aria-labelledby="title desc"><title id="title">AGL Flutter IVI demo — unified architecture</title><desc id="desc">One integrated architecture: application layer, rendering and lifecycle, vehicle and media services, Linux interfaces and hardware. Vibrant Vimba 22.0.0 baseline using tagged recipes and their pinned component revisions.</desc><defs>
 <marker id="blue" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0 0 L10 5 L0 10 Z" fill="#147fa5"/></marker>
 <marker id="purple" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0 0 L10 5 L0 10 Z" fill="#7354a8"/></marker>
 <marker id="green" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0 0 L10 5 L0 10 Z" fill="#19836a"/></marker>
@@ -8,7 +8,7 @@
 <rect width="2000" height="10" fill="#147fa5"/>
 <text x="60" y="55" class="tag" style="fill:#147fa5">AUTOMOTIVE GRADE LINUX  /  SINGLE-VIEW ARCHITECTURE</text>
 <text x="60" y="105" class="title">AGL Flutter IVI demo</text>
-<text x="60" y="140" class="body">Salmon baseline • sources from 2024 onward • reviewed 2026-10-08 • logical component view</text>
+<text x="60" y="140" class="body">Vimba 22.0.0 | tagged recipes and pinned sources | reviewed 2026-10-09 | logical component view</text>
 <rect x="60" y="177" width="1880" height="164" rx="13" fill="#eaf6fc" stroke="#147fa5" stroke-width="1.6"/>
 <text x="82" y="208" class="tag" style="fill:#147fa5">APPLICATIONS / HMI</text>
 <text x="82" y="246" class="head">flutter-ics-homescreen</text>
@@ -64,7 +64,7 @@
 <text x="738" y="620" class="edge" style="fill:#7354a8">unit control</text>
 <rect x="60" y="655" width="440" height="112" rx="13" fill="#eaf6fc" stroke="#cbd8e1" stroke-width="1.6"/>
 <text x="78" y="686" class="head">agl-compositor</text>
-<text x="78" y="714" class="small">libweston + libweston-desktop</text>
+<text x="78" y="714" class="small">libweston 15 + libweston-desktop</text>
 <text x="78" y="739" class="small">Compositing / surface activation / policy</text>
 <rect x="540" y="655" width="360" height="112" rx="13" fill="#f2edf9" stroke="#cbd8e1" stroke-width="1.6"/>
 <text x="558" y="686" class="head">systemd</text>
@@ -79,7 +79,7 @@
 <text x="958" y="712" class="small">Demo HVAC adapter</text>
 <text x="958" y="737" class="small">Hardware dependent</text>
 <rect x="1180" y="655" width="220" height="112" rx="13" fill="#eaf7f2" stroke="#cbd8e1" stroke-width="1.6" stroke-dasharray="8 6"/>
-<text x="1198" y="686" class="head">kuksa-dbc-feeder</text>
+<text x="1198" y="686" class="head" style="font-size:17px">kuksa-can-provider</text>
 <text x="1198" y="714" class="small">CAN ↔ VSS mapping</text>
 <text x="1198" y="739" class="small">CAN-enabled setup</text>
 <polyline points="1400,510 1420,510 1420,626 1580,626 1580,655" fill="none" stroke="#19836a" stroke-width="2.7" marker-end="url(#green)" marker-start="url(#green)"/>
@@ -100,7 +100,7 @@
 <rect x="1750" y="852" width="190" height="100" rx="13" fill="#fff5e6" stroke="#cbd8e1" stroke-width="1.6"/>
 <text x="1768" y="883" class="head">WirePlumber</text>
 <text x="1768" y="911" class="small">Session policy</text>
-<text x="1768" y="936" class="small">Device management</text>
+<text x="1768" y="936" class="small" style="font-size:15px">Device management</text>
 <polyline points="1750,927 1720,927" fill="none" stroke="#b76a17" stroke-width="2.7" marker-end="url(#orange)"/>
 <polyline points="280,767 280,1015" fill="none" stroke="#147fa5" stroke-width="2.7" marker-end="url(#blue)" marker-start="url(#blue)"/>
 <text x="298" y="910" class="edge" style="fill:#147fa5">display / input</text>
@@ -110,10 +110,13 @@
 <text x="1308" y="910" class="edge" style="fill:#19836a">CAN</text>
 <polyline points="1580,952 1580,1015" fill="none" stroke="#b76a17" stroke-width="2.7" marker-end="url(#orange)"/>
 <text x="1598" y="992" class="edge" style="fill:#b76a17">PCM audio</text>
-<text x="560" y="835" class="tag">COMMON AGL PLATFORM</text>
-<text x="560" y="870" class="small">Launch and surface activation are separate.</text>
-<text x="560" y="900" class="small">systemd also manages platform daemons.</text>
-<text x="560" y="930" class="small">Networking / Bluetooth details are omitted.</text>
+<polyline points="520,341 520,885 540,885" fill="none" stroke="#7354a8" stroke-width="2.7" marker-end="url(#purple)" marker-start="url(#purple)"/>
+<rect x="540" y="822" width="360" height="130" rx="13" fill="#f2edf9" stroke="#cbd8e1" stroke-width="1.6"/>
+<text x="558" y="850" class="head">Persistent storage API</text>
+<text x="558" y="878" class="small">Flutter HMI &#8594; gRPC</text>
+<text x="558" y="904" class="small">Rust / tonic + RocksDB</text>
+<text x="558" y="930" class="small">Settings / profile persistence</text>
+<text x="558" y="978" class="small">systemd manages apps and daemons.</text>
 <rect x="60" y="1015" width="1880" height="96" rx="13" fill="#eaf0f5" stroke="#cbd8e1" stroke-width="1.6"/>
 <text x="560" y="1050" class="tag">LINUX KERNEL / DEVICE DRIVERS</text>
 <text x="80" y="1050" class="head">DRM / KMS + input</text>
@@ -135,17 +138,17 @@
 <rect x="1440" y="1160" width="500" height="72" rx="13" fill="#fff" stroke="#cbd8e1" stroke-width="1.6"/>
 <text x="1458" y="1191" class="head">Audio hardware / speakers</text>
 <text x="60" y="1276" class="small">Solid: principal connection   •   Dashed: optional or hardware-dependent   •   Arrows: control / data; two-ended: request + response / events</text>
-<text x="60" y="1306" class="small">Default: databroker on IVI. Flutter gateway variants relocate it. IC streaming and container boundaries are outside this core view.</text>
-<a xlink:href="https://docs.automotivelinux.org/en/salmon/01_Getting_Started/02_Building_AGL_Image/07_Available_Demo_Images/" target="_blank">
+<text x="60" y="1306" class="small">Default: databroker on IVI; configured gateway variants use a remote broker. IC streaming and container boundaries are outside this view.</text>
+<a xlink:href="https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-platform/images/?h=vimba/22.0.0" target="_blank">
 <text x="60" y="1352" class="small" style="fill:#147fa5">Image definitions</text>
 </a>
-<a xlink:href="https://docs.automotivelinux.org/en/salmon/06_Component_Documentation/02_agl_compositor/" target="_blank">
+<a xlink:href="https://git.automotivelinux.org/AGL/meta-agl/tree/meta-agl-core/recipes-graphics/wayland/agl-compositor_git.bb?h=vimba/22.0.0" target="_blank">
 <text x="380" y="1352" class="small" style="fill:#147fa5">Compositor</text>
 </a>
-<a xlink:href="https://git.automotivelinux.org/src/applaunchd/tree/README.md?h=salmon" target="_blank">
+<a xlink:href="https://git.automotivelinux.org/src/applaunchd/tree/README.md?id=c32fe42f40d0af8b31b6113a3140f52b83be7769" target="_blank">
 <text x="670" y="1352" class="small" style="fill:#147fa5">applaunchd</text>
 </a>
-<a xlink:href="https://git.automotivelinux.org/apps/flutter-ics-homescreen/tree/lib/data/data_providers?h=salmon" target="_blank">
+<a xlink:href="https://git.automotivelinux.org/apps/flutter-ics-homescreen/tree/lib/data/data_providers?id=2ce5a77cec61aed021f54100eeb21d98a2c30e84" target="_blank">
 <text x="960" y="1352" class="small" style="fill:#147fa5">HMI / service clients</text>
 </a>
 <text x="60" y="1385" class="small">Sources and scope: agl-ivi-architecture-notes.md • editable SVG • source-derived illustration, not an official AGL diagram</text>

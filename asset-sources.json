@@ -77,6 +77,76 @@
           "revision": "b442b90ae8be41d438b6b01f6e17afb8eeab1a78"
         }
       ]
+    },
+    {
+      "path": "assets/diagrams/agl-flutter-ivi-architecture.svg",
+      "publisher": "AGL documentation contributors",
+      "description": "Logical IVI architecture updated against tagged Vimba 22.0.0 recipes and their pinned source revisions",
+      "release": "Vibrant Vimba 22.0.0",
+      "reviewed_on": "2026-10-09",
+      "sha256": "5534f5871022220a45077137f44c4f80209185b80511e1d5a8304784164ca88f",
+      "documentation_page": "standalone/architecture/agl-ivi-architecture-notes.md",
+      "source_references": [
+        {
+          "title": "Vimba 22.0.0 image recipes",
+          "url": "https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-platform/images/?h=vimba/22.0.0"
+        },
+        {
+          "title": "Vimba compositor recipe",
+          "url": "https://git.automotivelinux.org/AGL/meta-agl/tree/meta-agl-core/recipes-graphics/wayland/agl-compositor_git.bb?h=vimba/22.0.0"
+        },
+        {
+          "title": "Recipe-pinned applaunchd README",
+          "url": "https://git.automotivelinux.org/src/applaunchd/tree/README.md?id=c32fe42f40d0af8b31b6113a3140f52b83be7769",
+          "revision": "c32fe42f40d0af8b31b6113a3140f52b83be7769"
+        },
+        {
+          "title": "Vimba KUKSA package group",
+          "url": "https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-platform/packagegroups/packagegroup-agl-kuksa-val-databroker.bb?h=vimba/22.0.0"
+        },
+        {
+          "title": "Recipe-pinned Flutter data providers",
+          "url": "https://git.automotivelinux.org/apps/flutter-ics-homescreen/tree/lib/data/data_providers?id=2ce5a77cec61aed021f54100eeb21d98a2c30e84",
+          "revision": "2ce5a77cec61aed021f54100eeb21d98a2c30e84"
+        },
+        {
+          "title": "Vimba persistent storage recipe",
+          "url": "https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-demo/agl-persistent-storage-api/agl-persistent-storage-api_git.bb?h=vimba/22.0.0"
+        }
+      ]
+    },
+    {
+      "path": "assets/diagrams/agl-qt-ivi-architecture.svg",
+      "publisher": "AGL documentation contributors",
+      "description": "Logical IVI architecture updated against tagged Vimba 22.0.0 recipes and their pinned source revisions",
+      "release": "Vibrant Vimba 22.0.0",
+      "reviewed_on": "2026-10-09",
+      "sha256": "2b7ff98d16db3ad158a73756f11c9c7c157c2ee5e1eb1416bead44b7cf3c5bc6",
+      "documentation_page": "standalone/architecture/agl-ivi-architecture-notes.md",
+      "source_references": [
+        {
+          "title": "Vimba 22.0.0 image recipes",
+          "url": "https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-platform/images/?h=vimba/22.0.0"
+        },
+        {
+          "title": "Vimba compositor recipe",
+          "url": "https://git.automotivelinux.org/AGL/meta-agl/tree/meta-agl-core/recipes-graphics/wayland/agl-compositor_git.bb?h=vimba/22.0.0"
+        },
+        {
+          "title": "Recipe-pinned applaunchd README",
+          "url": "https://git.automotivelinux.org/src/applaunchd/tree/README.md?id=c32fe42f40d0af8b31b6113a3140f52b83be7769",
+          "revision": "c32fe42f40d0af8b31b6113a3140f52b83be7769"
+        },
+        {
+          "title": "Vimba KUKSA package group",
+          "url": "https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-platform/packagegroups/packagegroup-agl-kuksa-val-databroker.bb?h=vimba/22.0.0"
+        },
+        {
+          "title": "Recipe-pinned Qt service wrappers",
+          "url": "https://git.automotivelinux.org/src/libqtappfw/tree/?id=352c84f60ff6e2a916443a7bb7c19dd704ffc727",
+          "revision": "352c84f60ff6e2a916443a7bb7c19dd704ffc727"
+        }
+      ]
     }
   ]
 }
