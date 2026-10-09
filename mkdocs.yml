@@ -74,13 +74,11 @@ extra:
   qt_layer_branch: '6.12'
   artifact_kind: snapshots
 not_in_nav: |
-  /standalone/architecture/agl-ivi-architecture-notes.md
   /components/api/source-api-coverage.md
   /components/extensions/container-settings/containers.md
   /components/extensions/container-settings/global.md
   /components/extensions/index.md
   /components/framework/lifecycle/application-startup.md
-  /components/framework/sandboxing.md
   /components/services/runtime.md
   /components/services/sound/cluster-sound.md
   /components/source-directory.md
@@ -88,30 +86,19 @@ not_in_nav: |
   /components/tools/virtual-car/signals/body.md
   /components/tools/virtual-car/signals/sensors.md
   /components/tools/virtual-car/signals/vehicle.md
-  /contributing/ai-coding-assistants.md
   /contributing/checklist.md
-  /contributing/code-guidelines.md
   /contributing/documentation.md
   /contributing/general-guidelines.md
-  /contributing/gerrit-practices.md
   /contributing/gerrit.md
-  /contributing/jira.md
-  /contributing/lava-lab.md
-  /contributing/linux-foundation-account.md
-  /contributing/review-changes.md
   /contributing/submit-changes.md
-  /home/about-source.md
   /home/architecture.md
-  /home/build-and-runtime.md
-  /home/glossary.md
-  /home/reading-guide.md
   /integrated/containers/build-guide.md
   /integrated/kvm/images.md
   /integrated/sodev/virtio-guest.md
   /standalone/applications/build-apps.md
   /standalone/applications/create-application.md
-  /standalone/applications/sdk-overview.md
   /standalone/applications/setup-sdk.md
+  /standalone/architecture/agl-ivi-architecture-notes.md
   /standalone/build/cluster/index.md
   /standalone/build/cluster/qt.md
   /standalone/build/cluster/slint.md

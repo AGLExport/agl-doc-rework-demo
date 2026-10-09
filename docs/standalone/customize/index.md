@@ -10,7 +10,3 @@ Change installed packages through image customization, package software with rec
 - [Create/Modify an AGL image](image.md)
 - [Create a custom recipe](recipe.md)
 - [Create a service](service.md)
-
-## Further reading
-
-- [Configure caches and build output](build-output.md)

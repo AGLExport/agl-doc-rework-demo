@@ -12,7 +12,3 @@ Applications depend on graphics, sound, policy, voice, and cluster services. Cho
 - [Policies](policies/index.md)
 - [Misc](misc/index.md)
 - [Instrument Cluster](cluster/index.md)
-
-## Further reading
-
-- [How AGL services fit together](runtime.md)

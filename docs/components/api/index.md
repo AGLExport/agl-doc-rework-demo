@@ -12,7 +12,3 @@ Start with the API table and select a generic, IVI, cluster, or gateway interfac
 - [In-Vehicle Infotainment APIs](ivi/index.md)
 - [Instrument Cluster APIs](cluster/index.md)
 - [Gateway APIs](gateway.md)
-
-## Further reading
-
-- [Original API coverage overview](source-api-coverage.md)

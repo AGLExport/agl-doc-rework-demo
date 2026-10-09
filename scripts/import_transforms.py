@@ -3,6 +3,31 @@ import json
 import re
 
 
+def remove_further_reading(text):
+    """Remove a Markdown section through the next heading of equal or lower level."""
+    lines = text.splitlines(keepends=True)
+    headings, fence = [], None
+    for index, line in enumerate(lines):
+        marker = re.match(r'^\s*(' + chr(96) + r'{3,}|~{3,})', line)
+        if marker:
+            if fence is None:
+                fence = (marker[1][0], len(marker[1]))
+            elif marker[1][0] == fence[0] and len(marker[1]) >= fence[1]:
+                fence = None
+        elif fence is None:
+            heading = re.match(r'^(#{1,6})\s+(.+?)\s*#*\s*$', line)
+            if heading:
+                headings.append((index, len(heading[1]), heading[2].casefold()))
+    removed = set()
+    for offset, (start, level, title) in enumerate(headings):
+        if title == 'further reading':
+            stop = next((index for index, depth, _ in headings[offset + 1:] if depth <= level), len(lines))
+            removed.update(range(start, stop))
+    if not removed:
+        return text
+    return ''.join(line for index, line in enumerate(lines) if index not in removed).rstrip() + '\n'
+
+
 def frontmatter(title, source):
     return '---\ntitle: '+json.dumps(title)+'\nsource_path: '+json.dumps(source)+'\ncontent_status: adapted\n---\n\n'
 
@@ -19,7 +44,7 @@ The [image catalog](../../standalone/build/common/reference/images.md#agl-ivi-de
 Read [Application Framework](../framework/lifecycle/application-framework.md) for lifecycle integration. The imported source records a pending detailed-documentation issue below.
 
 ''',
-        'standalone/applications/qt.md': '''Use the SDK and target image from the same AGL release. Read the [SDK workflow](sdk-overview.md), [SDK setup](setup-sdk.md), and [build applications guide](build-apps.md), then [package/register the application](create-application.md).
+        'standalone/applications/qt.md': '''Use the SDK and target image from the same AGL release. Read the [SDK setup](setup-sdk.md) and [build applications guide](build-apps.md), then [package/register the application](create-application.md).
 
 For the reference UI and image, see [Qt IVI homescreen](../../components/applications/qt-homescreen.md) and [Qt IVI demo build](../build/ivi/qt-ivi-demo.md). The supplied Qt-specific source page is incomplete; the SDK guides provide the documented preparation and deployment route.
 

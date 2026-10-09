@@ -9,8 +9,3 @@ Extensions add distributed HMI and container management. Their configuration dep
 
 - [Unified HMI](unified-hmi.md)
 - [Container Manager](container-manager.md)
-
-## Further reading
-
-- [Container configuration files](container-settings/containers.md)
-- [Container Manager global configuration](container-settings/global.md)

@@ -204,7 +204,19 @@ def validate(project):
             raise ValueError('Required document is missing: '+path)
         if first_heading(text_by_path[path]) != title:
             raise ValueError('Required page heading differs: '+path)
+    for path, body in text_by_path.items():
+        if any(title.casefold() == 'further reading' for _, title in markdown_headings(body)):
+            raise ValueError('Further reading section must be removed: ' + path)
     structure = json.loads((project/'structure-map.json').read_text(encoding='utf-8'))
+    removed = {entry['path'] for entry in structure.get('removed_files', [])}
+    if removed & set(nav_paths):
+        raise ValueError('A required navigation page is listed as removed')
+    for path in removed:
+        target = (docs / path).resolve()
+        if not target.is_relative_to(docs.resolve()):
+            raise ValueError('Removed file path is outside docs: ' + path)
+        if target.exists():
+            raise ValueError('An explicitly removed file has reappeared: ' + path)
     for section, rules in content_requirements(instructions).items():
         paths = section_paths(rules['section_title'], pages, structure, rules['parent'])
         required = rules['headings']
@@ -273,6 +285,16 @@ def validate(project):
     destinations = [p['destination'] for p in manifest['pages']]
     if len(set(destinations)) != len(destinations) or not set(destinations).issubset(text_by_path):
         raise ValueError('Source article mappings are missing or duplicated')
+    excluded = manifest.get('excluded_pages', [])
+    if any(entry['destination'] not in removed for entry in excluded):
+        raise ValueError('Excluded source page is not recorded as removed')
+    if manifest.get('source_markdown_count', len(destinations) + len(excluded)) != len(destinations) + len(excluded):
+        raise ValueError('Source article count differs from active and excluded mappings')
+    if manifest.get('imported_markdown_count', len(destinations)) != len(destinations):
+        raise ValueError('Imported article count differs from active mappings')
+    excluded_assets = manifest.get('excluded_assets', [])
+    if any(entry['destination'] not in removed for entry in excluded_assets):
+        raise ValueError('Excluded source asset is not recorded as removed')
     if [(p['heading'],p['page']) for p in structure['required_pages']] != pages:
         raise ValueError('Structure map differs from navigation')
     print(f'Validated {len(pages)} required headings, {len(text_by_path)} reachable articles, and {len(destinations)} source mappings.')

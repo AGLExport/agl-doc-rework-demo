@@ -3,11 +3,6 @@
   "source_asset_count": 104,
   "pages": [
     {
-      "source": "index.md",
-      "destination": "home/about-source.md",
-      "source_sha256": "92f87a359cf0ffe5553625a36e35fc56ba4fa0f7b91a6c98b33f2278b878f349"
-    },
-    {
       "source": "01_Getting_Started/01_Quickstart/01_Using_Ready_Made_Images.md",
       "destination": "start/prebuilt/index.md",
       "source_sha256": "f0c67817633cfd0dba60a4ea5f531374ea8a07defca68e1920181a49ba161cd7"
@@ -116,11 +111,6 @@
       "source": "03_Architecture_Guides/01_Introduction/01_Overview.md",
       "destination": "home/architecture.md",
       "source_sha256": "38d6997a828fb761099ee16f25ca5e2af09493e0b897185503db949e7e2408d7"
-    },
-    {
-      "source": "04_Developer_Guides/01_Basic/01_Overview.md",
-      "destination": "standalone/applications/sdk-overview.md",
-      "source_sha256": "03b00a48eb723735da4ed1bd2bd1fe4f7d218b83277a141fcc80bc82022e8eac"
     },
     {
       "source": "04_Developer_Guides/01_Basic/02_Setting_Up_AGL_SDK.md",
@@ -268,11 +258,6 @@
       "source_sha256": "f419a5457c12ec431190edf6226b3ec12d377e482fdcb80101e66b2f39447255"
     },
     {
-      "source": "06_Component_Documentation/20_IVI_Application_Framework/04_Application_Sandboxing.md",
-      "destination": "components/framework/sandboxing.md",
-      "source_sha256": "b6b94cbd4eeeb75a0d87916c440bcecb54f97c89f71340fcd543fac0a0a69852"
-    },
-    {
       "source": "06_Component_Documentation/40_Demo_Application/01_Flutter_Demo_IVI/01_Flutter_Homescreen.md",
       "destination": "components/applications/flutter-homescreen.md",
       "source_sha256": "eca807e7075e8f88bdbeb8318b19f20a5b805772dbcf466733871d1ac920aa6e"
@@ -353,16 +338,6 @@
       "source_sha256": "538c44f5ecc329eb424fb3be2377f346869b3fcc7e69db504b3c666633d70305"
     },
     {
-      "source": "07_How_To_Contribute/01_Getting_Linux_Foundation_account.md",
-      "destination": "contributing/linux-foundation-account.md",
-      "source_sha256": "d630d79a7e7eb5ee05df57ea09b85077b520aa65f36d3ce19a584e9705d8ee67"
-    },
-    {
-      "source": "07_How_To_Contribute/02_Using_Jira_for_current_work_items.md",
-      "destination": "contributing/jira.md",
-      "source_sha256": "ff9c76b9b10d7cb47b33b8a2fb1c3336d07c34996672417b0958255b233e8fc5"
-    },
-    {
       "source": "07_How_To_Contribute/03_Working_with_Gerrit.md",
       "destination": "contributing/gerrit.md",
       "source_sha256": "c71eec05e5ec5caa70259ba15f57a00ceaae22f03676a0f91a062440b92f05aa"
@@ -371,16 +346,6 @@
       "source": "07_How_To_Contribute/04_Submitting_Changes.md",
       "destination": "contributing/submit-changes.md",
       "source_sha256": "38e8f09fcd6bfdfe86d9798f86d93ee34fef2131c516c03761094d00f171aed6"
-    },
-    {
-      "source": "07_How_To_Contribute/05_Reviewing_Changes.md",
-      "destination": "contributing/review-changes.md",
-      "source_sha256": "af836d383c6fd98ba7f33c4e14bcd1e6eedcd6451092d4bd86ce435f708164a1"
-    },
-    {
-      "source": "07_How_To_Contribute/06_Gerrit_Recommended_Practices.md",
-      "destination": "contributing/gerrit-practices.md",
-      "source_sha256": "dea558b4a8ff36fb6ef4b831472caff3eb0ffdf4d532eaddb95a1985c9255cc1"
     },
     {
       "source": "07_How_To_Contribute/07_General_Guidelines.md",
@@ -398,16 +363,6 @@
       "source_sha256": "102e7a3f5b3b341769faf93d2e7083d5e765e29a2adf9985cedd6c63736ab248"
     },
     {
-      "source": "07_How_To_Contribute/08_Code_contribution_guidelines.md",
-      "destination": "contributing/code-guidelines.md",
-      "source_sha256": "141559ad67e659d12a53581817a293d2538e4ef34543e0c3ee2b174229cc3e52"
-    },
-    {
-      "source": "07_How_To_Contribute/08_AI-coding-assistants.md",
-      "destination": "contributing/ai-coding-assistants.md",
-      "source_sha256": "1753f7b877910e63540ebabdd37aa3be89c970f8c08f8ec1c5255452213f7ab8"
-    },
-    {
       "source": "07_How_To_Contribute/09_Adding_Documentation.md",
       "destination": "contributing/documentation.md",
       "source_sha256": "59ff80f0446281ea716f76cc1e4b9ddd9977d80c2559aaae387ff7c36c97696b"
@@ -416,11 +371,90 @@
       "source": "07_How_To_Contribute/10_Contribution_Checklist.md",
       "destination": "contributing/checklist.md",
       "source_sha256": "0dc5c82aa1c0c75823c0fe2a8b9e4b227a4a8acb802cb035c24567a07ad55985"
+    }
+  ],
+  "excluded_pages": [
+    {
+      "source": "index.md",
+      "destination": "home/about-source.md",
+      "source_sha256": "92f87a359cf0ffe5553625a36e35fc56ba4fa0f7b91a6c98b33f2278b878f349",
+      "reason": "Unreferenced after removing Further reading sections"
+    },
+    {
+      "source": "04_Developer_Guides/01_Basic/01_Overview.md",
+      "destination": "standalone/applications/sdk-overview.md",
+      "source_sha256": "03b00a48eb723735da4ed1bd2bd1fe4f7d218b83277a141fcc80bc82022e8eac",
+      "reason": "Unreferenced after removing Further reading sections"
+    },
+    {
+      "source": "06_Component_Documentation/20_IVI_Application_Framework/04_Application_Sandboxing.md",
+      "destination": "components/framework/sandboxing.md",
+      "source_sha256": "b6b94cbd4eeeb75a0d87916c440bcecb54f97c89f71340fcd543fac0a0a69852",
+      "reason": "Unreferenced after removing Further reading sections"
+    },
+    {
+      "source": "07_How_To_Contribute/01_Getting_Linux_Foundation_account.md",
+      "destination": "contributing/linux-foundation-account.md",
+      "source_sha256": "d630d79a7e7eb5ee05df57ea09b85077b520aa65f36d3ce19a584e9705d8ee67",
+      "reason": "Unreferenced after removing Further reading sections"
+    },
+    {
+      "source": "07_How_To_Contribute/02_Using_Jira_for_current_work_items.md",
+      "destination": "contributing/jira.md",
+      "source_sha256": "ff9c76b9b10d7cb47b33b8a2fb1c3336d07c34996672417b0958255b233e8fc5",
+      "reason": "Unreferenced after removing Further reading sections"
+    },
+    {
+      "source": "07_How_To_Contribute/05_Reviewing_Changes.md",
+      "destination": "contributing/review-changes.md",
+      "source_sha256": "af836d383c6fd98ba7f33c4e14bcd1e6eedcd6451092d4bd86ce435f708164a1",
+      "reason": "Unreferenced after removing Further reading sections"
+    },
+    {
+      "source": "07_How_To_Contribute/06_Gerrit_Recommended_Practices.md",
+      "destination": "contributing/gerrit-practices.md",
+      "source_sha256": "dea558b4a8ff36fb6ef4b831472caff3eb0ffdf4d532eaddb95a1985c9255cc1",
+      "reason": "Unreferenced after removing Further reading sections"
+    },
+    {
+      "source": "07_How_To_Contribute/08_Code_contribution_guidelines.md",
+      "destination": "contributing/code-guidelines.md",
+      "source_sha256": "141559ad67e659d12a53581817a293d2538e4ef34543e0c3ee2b174229cc3e52",
+      "reason": "Unreferenced after removing Further reading sections"
+    },
+    {
+      "source": "07_How_To_Contribute/08_AI-coding-assistants.md",
+      "destination": "contributing/ai-coding-assistants.md",
+      "source_sha256": "1753f7b877910e63540ebabdd37aa3be89c970f8c08f8ec1c5255452213f7ab8",
+      "reason": "Unreferenced after removing Further reading sections"
     },
     {
       "source": "07_How_To_Contribute/11_Setup_AGL_LAVA_Lab.md",
       "destination": "contributing/lava-lab.md",
-      "source_sha256": "35c7cffab8dfa6efaa72302f3e74a80617c6076189f3bf1c4638e4313f74b718"
+      "source_sha256": "35c7cffab8dfa6efaa72302f3e74a80617c6076189f3bf1c4638e4313f74b718",
+      "reason": "Unreferenced after removing Further reading sections"
     }
-  ]
+  ],
+  "excluded_assets": [
+    {
+      "source": "07_How_To_Contribute/images/jira-2.png",
+      "destination": "assets/source/07_How_To_Contribute/images/jira-2.png",
+      "source_sha256": "5a9ba27106e22578a6b3dee5ac06c54d931c1bb364de57d20f5556c0a0d75e43",
+      "reason": "Unreferenced after removing Further reading sections"
+    },
+    {
+      "source": "07_How_To_Contribute/images/jira-3.png",
+      "destination": "assets/source/07_How_To_Contribute/images/jira-3.png",
+      "source_sha256": "e5bea818e16b2a93b84b858f86075f7ce4243907b16b26b63417647900026537",
+      "reason": "Unreferenced after removing Further reading sections"
+    },
+    {
+      "source": "07_How_To_Contribute/images/review.png",
+      "destination": "assets/source/07_How_To_Contribute/images/review.png",
+      "source_sha256": "7a3ab5eebff995d265fdeb262d958828cda5a4a9f83a1946f7542d9bf6cb6527",
+      "reason": "Unreferenced after removing Further reading sections"
+    }
+  ],
+  "imported_markdown_count": 74,
+  "imported_asset_count": 101
 }

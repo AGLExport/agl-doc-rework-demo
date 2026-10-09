@@ -12,8 +12,8 @@ import posixpath
 import re
 import shutil
 from pathlib import Path
-from urllib.parse import unquote, urlsplit
-from import_transforms import adapt_page, render_quickstarts, normalize_page
+from urllib.parse import quote, unquote, urlsplit
+from import_transforms import adapt_page, render_quickstarts, normalize_page, remove_further_reading
 
 PROJECT = Path(__file__).resolve().parents[1]
 REQUIRED_TITLES = {p["page"]: p["heading"] for p in json.loads((PROJECT / "structure-map.json").read_text(encoding="utf-8"))["required_pages"]}
@@ -144,11 +144,13 @@ def write_imported_page(target: Path, page: str, source: str, overwrite_adapted:
                 raise ValueError("Adapted page has a different or missing source_path: " + str(target))
             return False
     target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_text(page, encoding="utf-8")
+    target.write_text(remove_further_reading(page), encoding="utf-8")
     return True
 
 
 def import_all(source_root: Path, overwrite_adapted: bool = False) -> None:
+    structure = json.loads((PROJECT / "structure-map.json").read_text(encoding="utf-8"))
+    removed_files = {entry["path"] for entry in structure.get("removed_files", [])}
     files = {p.relative_to(source_root).as_posix(): p for p in source_root.rglob("*") if p.is_file()}
     markdown = {name for name in files if name.endswith(".md")}
     if markdown != set(MAPPING):
@@ -157,6 +159,15 @@ def import_all(source_root: Path, overwrite_adapted: bool = False) -> None:
     route_map = {name.removesuffix(".md").casefold(): name for name in MAPPING}
     assets = {name: "assets/source/" + name for name in files if not name.endswith(".md")}
     docs_root = PROJECT / "docs"
+
+    def excluded_reference(canonical: str, fragment: str = "") -> str:
+        is_page = canonical.endswith(".md")
+        route = canonical.removesuffix(".md") if is_page else canonical
+        if is_page and route == "index":
+            route = ""
+        elif is_page and route.endswith("/index"):
+            route = route.removesuffix("index")
+        return "https://docs.automotivelinux.org/en/{{ agl.codename }}/" + quote(route.strip("/"), safe="/") + ("/" if is_page and route else "") + ("#" + fragment if fragment else "")
 
     def destination(url: str, old: str, new: str) -> str:
         old_url = url
@@ -168,6 +179,8 @@ def import_all(source_root: Path, overwrite_adapted: bool = False) -> None:
             canonical = route_map.get(route.removesuffix(".md").casefold())
             fragment = (self_link.group(2) or "").strip("/")
             if canonical:
+                if MAPPING[canonical] in removed_files:
+                    return excluded_reference(canonical, fragment)
                 if canonical.endswith("01_Supported_Hardware_Overview.md"):
                     fragment = ""
                 if fragment in ("_top", ""):
@@ -190,6 +203,8 @@ def import_all(source_root: Path, overwrite_adapted: bool = False) -> None:
         target = MAPPING.get(canonical) or assets.get(canonical)
         if not target:
             return old_url
+        if target in removed_files:
+            return excluded_reference(canonical, parsed.fragment)
         relative = posixpath.relpath(target, posixpath.dirname(new) or ".")
         return relative + ("?" + parsed.query if parsed.query else "") + ("#" + parsed.fragment if parsed.fragment else "")
 
@@ -245,14 +260,22 @@ def import_all(source_root: Path, overwrite_adapted: bool = False) -> None:
             return match.group(1) + converted + match.group(3)
         return re.sub(r"""((?:href|src)\s*=\s*["'])([^"']+)(["'])""", attr, text)
 
+    excluded_assets = []
     for old, new in assets.items():
+        if new in removed_files:
+            excluded_assets.append({"source": old, "destination": new, "source_sha256": hashlib.sha256(files[old].read_bytes()).hexdigest(), "reason": "Unreferenced after removing Further reading sections"})
+            continue
         target = docs_root / new
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(files[old], target)
     manifest = []
+    excluded_pages = []
     preserved = set()
     quickstart_input = None
     for old, new in MAPPING.items():
+        if new in removed_files:
+            excluded_pages.append({"source": old, "destination": new, "source_sha256": hashlib.sha256(files[old].read_bytes()).hexdigest(), "reason": "Unreferenced after removing Further reading sections"})
+            continue
         original = files[old].read_text(encoding="utf-8-sig")
         match = re.match(r"\A---\s*\n(.*?)\n---\s*\n", original, re.S)
         metadata = match.group(1) if match else ""
@@ -283,23 +306,30 @@ def import_all(source_root: Path, overwrite_adapted: bool = False) -> None:
         raise ValueError("Prebuilt quickstart source is missing")
     pages = render_quickstarts(quickstart_input, source)
     for relative, page in pages.items():
+        if relative in removed_files:
+            continue
         if relative in REQUIRED_TITLES:
             page = normalize_page(page, REQUIRED_TITLES[relative])
         target = docs_root / relative
         target.parent.mkdir(parents=True, exist_ok=True)
         if not write_imported_page(target, page, source, overwrite_adapted):
             preserved.add(relative)
-    structure = json.loads((PROJECT / "structure-map.json").read_text(encoding="utf-8"))
     retired_paths = {p["old"] for p in structure["moved_pages"]}
     retired_paths.update({"start/qemu-arm64.md", "start/virtualbox.md", "start/x86-hardware.md"})
     current_paths = set(MAPPING.values()) | set(pages) | {p["page"] for p in structure["required_pages"]}
-    for relative in retired_paths - current_paths:
+    for relative in (retired_paths - current_paths) | removed_files:
         retired = (docs_root / relative).resolve()
         if not retired.is_relative_to(docs_root.resolve()):
             raise ValueError("Retired page path is outside the documentation directory")
         retired.unlink(missing_ok=True)
-    (PROJECT / "source-map.json").write_text(json.dumps({"source_markdown_count": len(manifest), "source_asset_count": len(assets), "pages": manifest}, indent=2) + "\n", encoding="utf-8")
-    print(f"Mapped {len(manifest)} Markdown pages and copied {len(assets)} assets; preserved {len(preserved)} adapted pages.")
+    (PROJECT / "source-map.json").write_text(json.dumps({
+        "source_markdown_count": len(manifest) + len(excluded_pages),
+        "imported_markdown_count": len(manifest),
+        "source_asset_count": len(assets),
+        "imported_asset_count": len(assets) - len(excluded_assets),
+        "pages": manifest, "excluded_pages": excluded_pages, "excluded_assets": excluded_assets,
+    }, indent=2) + "\n", encoding="utf-8")
+    print(f"Mapped {len(manifest)} Markdown pages and copied {len(assets) - len(excluded_assets)} assets; preserved {len(preserved)} adapted pages.")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)

@@ -2,7 +2,7 @@
 
 This English documentation site follows the exact headings, order, and hierarchy in [AGENTS.md](AGENTS.md). Home has eight child sections: Background, Distributed system, Small scale integrated system, Large scale integrated system, AGL Development tools, Troubleshooting, Releases & migration, and Contribute. Background connects the three vehicle E/E architectures to the system categories. Container integration and KVM belong to Small scale integrated system; SoDeV belongs to Large scale integrated system.
 
-The navigation contains 97 required headings. All 171 articles are reachable through those chapters, including 74 supporting articles linked from their relevant chapters. The original ../docs/ directory remains unchanged; all 84 source Markdown articles and 104 source assets are retained. Previously corrected technical procedures remain available as supporting guides. Eight former artifact overview pages have been consolidated into the new Background, system and portfolio chapters; their former locations and hashes are recorded in structure-map.json.
+The navigation contains 97 required headings. All 158 articles are reachable through those chapters, including 61 supporting articles linked from their relevant chapters. The original ../docs/ directory remains unchanged; source-map.json records all 84 original article hashes, with 74 active mappings and 10 excluded articles. There are 101 imported assets; three screenshots that lost their references were removed. Previously corrected technical procedures remain available as supporting guides. Eight former artifact overview pages have been consolidated into the new Background, system and portfolio chapters; their former locations and hashes are recorded in structure-map.json.
 
 Portfolio and Architecture use Basic demo system and Extra demo system. Build AGL system retains Basic AGL system and Extra AGL system exactly as required. Both build routes have Setup build environment, Build target image, and Deploy to board. AGL Components, Platform Customize and Application development remain under Distributed system. Unified HMI belongs to SoDeV; DRM lease manager and Container Manager belong to Container integration.
 
@@ -17,8 +17,8 @@ Background retains the three vehicle E/E architecture SVGs. Basic demo system Ar
 | `docs/assets/diagrams/` | Vehicle and runtime architecture SVGs and the official SoDeV image |
 | `asset-sources.json` | Attribution and SHA-256 for the official SoDeV image and the authored Container integration diagram |
 | `AGENTS.md` | Required documentation headings, hierarchy, language, and section content |
-| `structure-map.json` | Required heading-to-page mapping and previous page locations |
-| `source-map.json` | Source-to-destination mapping and SHA-256 hashes for the 84 imported articles |
+| `structure-map.json` | Required heading-to-page mapping, previous page locations, and explicitly removed files |
+| `source-map.json` | Active source-to-destination mappings, excluded files, and SHA-256 hashes for the 84 source articles |
 | `scripts/import_docs.py` | Re-import the original articles and assets |
 | `scripts/import_transforms.py` | Preserve required titles, adapted introductions, and Flutter quickstarts on re-import |
 | `scripts/test_documentation_tools.py` | Regression checks for section resolution and import preservation |
@@ -78,7 +78,7 @@ export MKDOCS_SITE_URL=http://127.0.0.1:8000/
 .venv/bin/python scripts/validate_site.py site --site-url "$MKDOCS_SITE_URL"
 ```
 
-The structure validator checks the navigation against AGENTS.md, first-level page titles, required section contents, architecture figures, subsection links, required references between sections, supporting-page declarations, article reachability, and source mappings. The build checks MkDocs configuration and document references. The validator checks generated local page links, images and other assets, and fragment anchors. External URLs are not checked. The workflow repeats these checks before deployment.
+The structure validator rejects Further reading sections and files recorded as removed, and checks the navigation against AGENTS.md, first-level page titles, required section contents, architecture figures, subsection links, required references between sections, supporting-page declarations, article reachability, and source mappings. The build checks MkDocs configuration and document references. The validator checks generated local page links, images and other assets, and fragment anchors. External URLs are not checked. The workflow repeats these checks before deployment.
 
 ## Publish on GitHub Pages
 
@@ -132,7 +132,7 @@ The importer is a manual migration utility, not part of the normal site build. F
 python scripts/import_docs.py --source ../docs
 ```
 
-Re-importing refreshes unadapted articles (`content_status: imported`), copied assets, and `source-map.json`. Articles marked `content_status: adapted` retain their local corrections and must keep a matching `source_path`; this includes the corrected prebuilt guides and SDK, Qt, board, and contribution procedures. Mark an imported article as adapted when maintaining local changes. Authored chapters and the Flutter IVI demo overview are maintained directly in `docs/`. Use `--overwrite-adapted` only when deliberately replacing curated pages with reviewed upstream material, then reapply any remaining local adaptations and run all checks. The importer removes retired page locations listed in `structure-map.json` so obsolete headings do not reappear.
+Re-importing honors the explicit removed_files list in structure-map.json, excludes those pages/assets from output, and strips Further reading sections. It refreshes unadapted articles (`content_status: imported`), copied assets, and `source-map.json`. Articles marked `content_status: adapted` retain their local corrections and must keep a matching `source_path`; this includes the corrected prebuilt guides and SDK, Qt, board, and contribution procedures. Mark an imported article as adapted when maintaining local changes. Authored chapters and the Flutter IVI demo overview are maintained directly in `docs/`. Use `--overwrite-adapted` only when deliberately replacing curated pages with reviewed upstream material, then reapply any remaining local adaptations and run all checks. The importer removes retired page locations and explicitly excluded files listed in `structure-map.json` so they do not reappear.
 
 In a separate site repository, `../docs/` will not normally exist. Supply the original AGL documentation directory using `--source` only when deliberately re-importing it.
 

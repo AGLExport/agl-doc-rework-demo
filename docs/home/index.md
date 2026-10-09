@@ -40,11 +40,3 @@ A central/zone design combines central computing with controllers organized by p
 *Figure 3. Central computing hosts workloads while zones organize local device connections.*
 
 AGL's [Large scale integrated system](../integrated/large-scale.md) mainly focuses on this architecture. SoDeV provides a platform for consolidating guest systems and workloads with different criticality requirements. Distributed systems and small-scale integrations can be incorporated as part of that larger system.
-
-## Further reading
-
-- [About Automotive Grade Linux](about-source.md)
-- [AGL system architecture](architecture.md)
-- [Build host, target, image, and SDK](build-and-runtime.md)
-- [AGL glossary](glossary.md)
-- [Understand AGL](reading-guide.md)

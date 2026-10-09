@@ -12,6 +12,7 @@ from unittest.mock import patch
 import import_docs
 import yaml
 from validate_structure import content_requirements, section_paths, validate
+from import_transforms import remove_further_reading
 
 
 class SectionResolutionTests(unittest.TestCase):
@@ -113,6 +114,16 @@ Show the architecture diagram "required.svg".
                 validate(project)
 
 
+class SectionCleanupTests(unittest.TestCase):
+    def test_sections_end_at_siblings_and_headings_in_code_are_preserved(self):
+        fence = chr(96) * 3
+        before = "# Guide\n\n" + fence + "\n## Further reading\nexample\n" + fence + "\n\n## Work\nKeep this procedure.\n\n"
+        section = "## Further reading\n\n[Unused](unused.md)\n\n### Nested references\nRemove these too.\n\n"
+        after = "## Next task\nKeep the next task.\n"
+        self.assertEqual(remove_further_reading(before + section + after), before + after)
+        self.assertEqual(remove_further_reading("Text without a section"), "Text without a section")
+
+
 class ImportPreservationTests(unittest.TestCase):
     def test_default_import_preserves_adaptations_and_refreshes_unadapted_pages(self):
         with TemporaryDirectory() as directory:
@@ -143,6 +154,39 @@ class ImportPreservationTests(unittest.TestCase):
             manifest = json.loads((project / "source-map.json").read_text(encoding="utf-8"))
             self.assertEqual(manifest["source_markdown_count"], 2)
             self.assertEqual({page["source"] for page in manifest["pages"]}, set(mapping))
+
+    def test_reimport_keeps_excluded_pages_and_assets_removed(self):
+        with TemporaryDirectory() as directory:
+            base = Path(directory)
+            source, project = base / "source", base / "project"
+            source.mkdir()
+            project.mkdir()
+            (project / "structure-map.json").write_text(json.dumps({
+                "required_pages": [], "moved_pages": [],
+                "removed_files": [{"path": "ordinary.md"}, {"path": "assets/source/unused.png"}],
+            }), encoding="utf-8")
+            (source / "quickstart.md").write_text("### QEMU x86-64\n[Old overview](ordinary.md)\n![Old image](unused.png)\n", encoding="utf-8")
+            (source / "ordinary.md").write_text("# Old overview\nUnused content.\n", encoding="utf-8")
+            (source / "unused.png").write_bytes(b"excluded asset")
+            (source / "retained.png").write_bytes(b"retained asset")
+            (project / "docs").mkdir()
+            (project / "docs/ordinary.md").write_text("# Stale output\n", encoding="utf-8")
+            with patch.object(import_docs, "PROJECT", project), patch.object(import_docs, "MAPPING", {
+                    "quickstart.md": "start/prebuilt/index.md", "ordinary.md": "ordinary.md",
+                }), patch.object(import_docs, "TITLES", {}), patch.object(import_docs, "REQUIRED_TITLES", {}), redirect_stdout(StringIO()):
+                import_docs.import_all(source)
+            self.assertFalse((project / "docs/ordinary.md").exists())
+            self.assertFalse((project / "docs/assets/source/unused.png").exists())
+            self.assertTrue((project / "docs/assets/source/retained.png").is_file())
+            quickstart = (project / "docs/start/prebuilt/qemu-x86-64.md").read_text(encoding="utf-8")
+            self.assertIn("https://docs.automotivelinux.org/en/{{ agl.codename }}/ordinary/", quickstart)
+            self.assertIn("https://docs.automotivelinux.org/en/{{ agl.codename }}/unused.png)", quickstart)
+            manifest = json.loads((project / "source-map.json").read_text(encoding="utf-8"))
+            self.assertEqual(manifest["source_markdown_count"], 2)
+            self.assertEqual(manifest["imported_markdown_count"], 1)
+            self.assertEqual(manifest["imported_asset_count"], 1)
+            self.assertEqual(manifest["excluded_pages"][0]["destination"], "ordinary.md")
+            self.assertEqual(manifest["excluded_assets"][0]["destination"], "assets/source/unused.png")
 
     def test_generated_quickstart_uses_the_current_required_title(self):
         with TemporaryDirectory() as directory:

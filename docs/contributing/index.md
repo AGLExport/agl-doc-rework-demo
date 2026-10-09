@@ -27,18 +27,3 @@ When improving a procedure, include its version and environment, prerequisites, 
 ## Related information
 
 Depending on your task, refer to [Distributed system](../standalone/index.md), [API & configuration](../components/index.md), and [Releases & migration](../releases/index.md).
-
-## Further reading
-
-- [AI coding assistants](ai-coding-assistants.md)
-- [Contribution checklist](checklist.md)
-- [Code contribution guidelines](code-guidelines.md)
-- [Contribute to the documentation](documentation.md)
-- [Contribution guidelines](general-guidelines.md)
-- [Gerrit recommended practices](gerrit-practices.md)
-- [Work with Gerrit](gerrit.md)
-- [Track work in Jira](jira.md)
-- [Set up an AGL LAVA lab](lava-lab.md)
-- [Get a Linux Foundation account](linux-foundation-account.md)
-- [Review changes](review-changes.md)
-- [Submit a change](submit-changes.md)
