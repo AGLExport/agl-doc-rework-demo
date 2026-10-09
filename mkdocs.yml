@@ -79,7 +79,6 @@ not_in_nav: |
   /components/extensions/container-settings/global.md
   /components/extensions/index.md
   /components/framework/lifecycle/application-startup.md
-  /components/services/runtime.md
   /components/services/sound/cluster-sound.md
   /components/source-directory.md
   /components/tools/usb-can-adapter.md
@@ -91,7 +90,6 @@ not_in_nav: |
   /contributing/general-guidelines.md
   /contributing/gerrit.md
   /contributing/submit-changes.md
-  /home/architecture.md
   /integrated/containers/build-guide.md
   /integrated/kvm/images.md
   /integrated/sodev/virtio-guest.md

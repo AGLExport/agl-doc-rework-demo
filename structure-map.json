@@ -1530,6 +1530,16 @@
       "path": "standalone/applications/sdk-overview.md",
       "reason": "Unreferenced after removing Further reading sections",
       "previous_sha256": "d754c5242859f4596637f24d05508afb3b39702fe64be2754a62b03825e7935b"
+    },
+    {
+      "path": "components/services/runtime.md",
+      "reason": "Removed by user; stale references cleaned up",
+      "previous_sha256": "fea49fda17276a0beef622beb6fab7eb5f9b2f78704f936ba39e5cb15e68eb72"
+    },
+    {
+      "path": "home/architecture.md",
+      "reason": "Removed by user; stale references cleaned up",
+      "previous_sha256": "a04a2d2c2cd3241047618497895fc13872e86c0834aa292e1dbc93271ab57257"
     }
   ]
 }

@@ -43,7 +43,7 @@ Qt service wrappers, including `libqtappfw`, connect applications to the vehicle
 
 ## Platform services and image selection
 
-The [AGL compositor](../../components/services/graphics/agl-compositor.md) manages graphical surfaces. Basic IVI audio uses [PipeWire and WirePlumber](../../components/services/sound/pipewire-wireplumber.md). Read [Application Framework](../../components/framework/lifecycle/application-framework.md) for lifecycle integration and [service relationships](../../components/services/runtime.md) for vehicle-data flow.
+The [AGL compositor](../../components/services/graphics/agl-compositor.md) manages graphical surfaces. Basic IVI audio uses [PipeWire and WirePlumber](../../components/services/sound/pipewire-wireplumber.md). Read [Application Framework](../../components/framework/lifecycle/application-framework.md) for lifecycle integration and [AGL Services](../../components/services/index.md) for the service catalog.
 
 Software composition is controlled by the [image recipes](../build/common/reference/images.md) and [Yocto layers](../build/common/layers/overview.md). Do not infer that every Basic target includes every IVI service. Preconfigured multi-board variants can move vehicle-data responsibilities between IVI, cluster, and gateway systems.
 

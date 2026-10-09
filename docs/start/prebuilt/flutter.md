@@ -29,7 +29,7 @@ The interface uses several platform services:
 - **Audio:** PipeWire provides playback and capture, while WirePlumber manages audio policy and devices. [Audio services](https://docs.automotivelinux.org/en/master/06_Component_Documentation/02_Sound_Service/01_pipewire_wireplumber/)
 - **Vehicle data:** the standard demo image includes a KUKSA.val databroker. A multi-board configuration can place the databroker on another device. [Demo image configurations](https://docs.automotivelinux.org/en/master/01_Getting_Started/02_Building_AGL_Image/07_Available_Demo_Images/)
 
-For local explanations and specifications, see [How AGL services fit together](../../components/services/runtime.md) and the [service catalog](../../components/services/index.md).
+For local explanations and specifications, see the [service catalog](../../components/services/index.md).
 
 ## Choose the right demo image
 

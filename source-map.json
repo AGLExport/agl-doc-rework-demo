@@ -108,11 +108,6 @@
       "source_sha256": "182d089e93227a454c2360285e10852e4c9b139c8e9af8be499a0950e08d1660"
     },
     {
-      "source": "03_Architecture_Guides/01_Introduction/01_Overview.md",
-      "destination": "home/architecture.md",
-      "source_sha256": "38d6997a828fb761099ee16f25ca5e2af09493e0b897185503db949e7e2408d7"
-    },
-    {
       "source": "04_Developer_Guides/01_Basic/02_Setting_Up_AGL_SDK.md",
       "destination": "standalone/applications/setup-sdk.md",
       "source_sha256": "fd173d36b2ac9138ffb4170a03ee586125dc50dd12c157beccabffb9bbf5476f"
@@ -433,6 +428,12 @@
       "destination": "contributing/lava-lab.md",
       "source_sha256": "35c7cffab8dfa6efaa72302f3e74a80617c6076189f3bf1c4638e4313f74b718",
       "reason": "Unreferenced after removing Further reading sections"
+    },
+    {
+      "source": "03_Architecture_Guides/01_Introduction/01_Overview.md",
+      "destination": "home/architecture.md",
+      "source_sha256": "38d6997a828fb761099ee16f25ca5e2af09493e0b897185503db949e7e2408d7",
+      "reason": "Removed by user; stale references cleaned up"
     }
   ],
   "excluded_assets": [
@@ -455,6 +456,6 @@
       "reason": "Unreferenced after removing Further reading sections"
     }
   ],
-  "imported_markdown_count": 74,
+  "imported_markdown_count": 73,
   "imported_asset_count": 101
 }
