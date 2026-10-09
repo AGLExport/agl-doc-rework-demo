@@ -11,7 +11,7 @@ This document must be describe English.
 Each document must be followed document structure as a follow.
 
 - Home
-  - Background
+  - Introduction
   - Distributed system
     - Quick start
       - Run Flutter IVI demo pre-build image 
@@ -138,19 +138,24 @@ Do not omit, rename, duplicate, or reorder these headings.
 * AGL Community information.
 
 
-"Background" section must include the following content:
-* Vehicle EE architectures.
-  * Traditional distributed architecture.
+"Introduction" section must include the following content:
+
+  Vehicle EE architectures.
+    Traditional distributed architecture.
     Figure out the distributed architecture.
     AGL distributed system mainly focuses on this.
 
-  * Domain architecture.
+    Domain architecture.
     Figure out the domain architecture.
     AGL small-scale integrated system mainly focuses on this.
 
-  * Central/Zone architecture.
+    Central/Zone architecture.
     Figure out the Central/Zone architecture.
     AGL large-scale integrated system mainly focuses on this.
+
+  E2E Vehicle Data Processing.
+    Vehicle data has been processed in the cloud for 10-15 years by collecting it via the cellular network. Now, there are proposals to offload data processing to the vehicle side (Device Edge computing concept).
+    This scenario needs to be considered based on E2E (End-to-End) optimization, including the network/cloud sides.
 
 
 "Distributed system" section must be include the following content:
