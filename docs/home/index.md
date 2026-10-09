@@ -5,14 +5,12 @@ content_status: authored
 
 # Introduction
 
-Software-Defined Vehicles (SDVs) build on several automotive technology trends: the consolidation of computing, changes to vehicle networks, shared software platforms, continuous software updates and connected data services. These developments shape both the hardware architecture and the way software is developed and maintained. [Bosch's E/E architecture overview](https://www.bosch-mobility.com/en/mobility-topics/ee-architecture/) explains how consolidated vehicle computers and zonal connections support scalable software and updates.
+Software-Defined Vehicles (SDVs) build on several automotive technology trends: the consolidation of computing, changes to vehicle networks, shared software platforms, continuous software updates and connected data services. These developments shape both the hardware architecture and the way software is developed and maintained.
 
 Within this transition, AGL focuses on two related areas introduced in this chapter:
 
 - [Vehicle EE architectures](#vehicle-ee-architectures): where vehicle functions run, how controllers and devices connect, and how individual systems can be integrated on shared computing resources.
 - [E2E Vehicle Data Processing](#e2e-vehicle-data-processing): how data processing is shared between the vehicle, communication networks and cloud services, with optimization across the complete end-to-end path.
-
-AGL supplies individual automotive Linux systems and platforms that consolidate several workloads. Its [SoDeV announcement](https://www.automotivelinux.org/announcements/automotive-grade-linux-releases-open-source-sodev-reference-platform-for-software-defined-vehicles-and-welcomes-five-new-members/) describes ECU consolidation, hardware abstraction through virtualization and cloud integration as part of its SDV reference platform. The three E/E architectures below explain the main focus of the system categories used in this documentation. They describe deployment patterns that a product can combine across a vehicle. E2E data processing complements these patterns by considering the network and cloud sides alongside vehicle-side computing.
 
 ## Vehicle EE architectures.
 
