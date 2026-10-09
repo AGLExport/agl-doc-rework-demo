@@ -12,7 +12,7 @@ Each document must be followed document structure as a follow.
 
 - Home
   - Introduction
-  - Distributed system
+  - Base platform for the distributed system
     - Quick start
       - Run Flutter IVI demo pre-build image 
         - QEMU x86-64
@@ -52,10 +52,6 @@ Each document must be followed document structure as a follow.
         - Flutter Cluster
         - Qt IVI homescreen
         - Instrument Cluster reference GUI (Qt)
-        - Momi Screen
-        - Momi navigation
-        - Momi Weather
-        - Momi Player
 
       - AGL Services
         - Graphics
@@ -68,6 +64,7 @@ Each document must be followed document structure as a follow.
           - Voice agent assistant
         - Instrument Cluster
           - Instrument Cluster service
+
       - IVI Application Framework
         - Application Lifecycle and Services
           - Application Framework
@@ -91,28 +88,40 @@ Each document must be followed document structure as a follow.
       - Flutter application
       - Qt application
 
-  - Small scale integrated system
+  - Base platform for the small-scale integrated system
     - Container integration
       - Architecture
       - Build Container integration
       - Container integration Customize
         - Create and Run Guest Container
-      - Platform extension
-        - DRM lease manager
-        - Container Manager
+
+      - Demo image for container integration
+        - Momi IVI demo
+
+      - AGL Components
+        - Platform extension
+          - DRM lease manager
+          - Container Manager
+        - AGL Reference Applications for IC demo
+          - Momi Screen
+          - Momi navigation
+          - Momi Weather
+          - Momi Player
   
     - KVM based integration
       - Build Platform
 
 
-  - Large scale integrated system
+  - Base platform for the large-scale integrated system
     - SoDeV
       - Architecture
       - Build SoDeV
       - SoDeV Customize
         - Create and Run Guest VM
-      - Platform extension
-        - Unified HMI
+
+      - AGL Components
+        - Platform extension
+          - Unified HMI
 
 
   - AGL Development tools
@@ -159,7 +168,7 @@ Do not omit, rename, duplicate, or reorder these headings.
     This scenario needs to be considered based on E2E (End-to-End) optimization, including the network/cloud sides.
 
 
-"Distributed system" section must be include the following content:
+"Base platform for the distributed system" section must be include the following content:
   AGL develops and provides a Linux distribution for automotive systems.  It focuses on a standalone system built on a single Linux Kernel and userland.
 
 
@@ -181,7 +190,7 @@ Show the Flutter IVI demo detail with architecture diagram "agl-flutter-ivi-arch
 Show the Qt IVI demo detail with architecture diagram "agl-qt-ivi-architecture.svg".
 
 
-"Small-scale integrated system" section must include the following content:
+"Base platform for the small-scale integrated system" section must include the following content:
   AGL develops and provides a base platform for small-scale integrated systems. It focuses on integrating two or more features into a single system. This base platform integrates one or more AGL Linux distributions and/or other platforms.
   It uses Linux Container technology or Kernel-based Virtual Machine.
 
@@ -190,7 +199,7 @@ Show the Qt IVI demo detail with architecture diagram "agl-qt-ivi-architecture.s
   AGL Container integration realize light weight integrated system built on Linux.
 
 
-"Large scale integrated system" section must be include the following content:
+"Base platform for the large-scale integrated system" section must be include the following content:
   SoDeV details shall import from https://www.automotivelinux.org/announcements/automotive-grade-linux-releases-open-source-sodev-reference-platform-for-software-defined-vehicles-and-welcomes-five-new-members/.
   Must be include official architecture diagram.
 
