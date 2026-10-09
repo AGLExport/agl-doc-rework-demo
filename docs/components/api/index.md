@@ -1,6 +1,8 @@
 ---
-title: "AGL API"
+title: AGL API
 content_status: authored
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # AGL API

@@ -1,6 +1,8 @@
 ---
-title: "Create and Run Guest VM"
+title: Create and Run Guest VM
 content_status: authored
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Create and Run Guest VM

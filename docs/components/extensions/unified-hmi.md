@@ -1,7 +1,9 @@
 ---
-title: "Unified HMI"
-source_path: "06_Component_Documentation/60_Unified_HMI/01_Unified_HMI.md"
+title: Unified HMI
+source_path: 06_Component_Documentation/60_Unified_HMI/01_Unified_HMI.md
 content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Unified HMI
@@ -105,7 +107,7 @@ Replace the `<image_name>` with the appropriate values you want. We have confirm
 For Environment setup instructions for each platform, refer to the following links in the AGL Documentation:
 * [Building for x86(Emulation and Hardware)](../../standalone/build/common/hardware/x86.md)
 * [Building for Raspberry Pi 4](../../standalone/build/common/hardware/raspberry-pi.md)
-* [Building for Supported Renesas Boards](https://docs.automotivelinux.org/en/{{ agl.codename }}/#01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/04_Building_for_Supported_Renesas_Boards/)
+* [Building for Supported Renesas Boards](https://docs.automotivelinux.org/en/master/01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/04_Building_for_Supported_Renesas_Boards/)
 
 ## Preconfigured Images for using Unified HMI
 

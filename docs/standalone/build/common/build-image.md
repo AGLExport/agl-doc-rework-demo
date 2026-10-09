@@ -1,8 +1,12 @@
 ---
-title: "Build an AGL image"
-source_path: "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/01_Building_the_AGL_Image.md"
-content_status: imported
+title: Build an AGL image
+source_path: 01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/01_Building_the_AGL_Image.md
+content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
+
+# Build an AGL image
 
 Building the AGL image involves running BitBake with a specified target.
 Depending on whether you are building the image for the first time or if this

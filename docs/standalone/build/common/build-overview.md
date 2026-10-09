@@ -1,8 +1,12 @@
 ---
-title: "AGL image build workflow"
-source_path: "01_Getting_Started/02_Building_AGL_Image/01_Build_Process_Overview.md"
-content_status: imported
+title: AGL image build workflow
+source_path: 01_Getting_Started/02_Building_AGL_Image/01_Build_Process_Overview.md
+content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
+
+# AGL image build workflow
 
 The AGL image development workflow consists of setting up
 the system (i.e. the build host) that builds the image and finishes with

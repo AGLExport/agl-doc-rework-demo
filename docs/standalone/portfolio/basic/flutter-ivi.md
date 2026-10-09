@@ -1,13 +1,15 @@
 ---
-title: "Flutter IVI demo"
+title: Flutter IVI demo
 content_status: authored
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Flutter IVI demo
 
 The Flutter IVI demo combines the `flutter-ics-homescreen` UI with infotainment functions and AGL platform services. Flutter is the main IVI toolkit described in this documentation.
 
-Use `agl-ivi-demo-flutter` for initial evaluation. The preconfigured variants are intended for coordinated multi-board demonstrations and assume their own network topology.
+Use `agl-ivi-demo-flutter` for initial evaluation. Coordinated multi-board demonstrations require explicit client/provider configuration and service placement.
 
 - [Explore the complete demo](../../../start/prebuilt/flutter.md).
 - [Run the prebuilt image](../../../start/prebuilt/index.md).

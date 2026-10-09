@@ -1,7 +1,9 @@
 ---
-title: "Rule based arbitrator"
-source_path: "06_Component_Documentation/03_Policies_Service/01_Rule_Based_Arbitrator.md"
-content_status: imported
+title: Rule based arbitrator
+source_path: 06_Component_Documentation/03_Policies_Service/01_Rule_Based_Arbitrator.md
+content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Rule based arbitrator

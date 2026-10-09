@@ -1,6 +1,8 @@
 ---
-title: "Platform extension"
+title: Platform extension
 content_status: authored
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Platform extension

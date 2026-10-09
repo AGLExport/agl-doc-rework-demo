@@ -1,8 +1,12 @@
 ---
-title: "Contribution checklist"
-source_path: "07_How_To_Contribute/10_Contribution_Checklist.md"
-content_status: imported
+title: Contribution checklist
+source_path: 07_How_To_Contribute/10_Contribution_Checklist.md
+content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
+
+# Contribution checklist
 
 **Open Source Code Contribution Checklist**
 

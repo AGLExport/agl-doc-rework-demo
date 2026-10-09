@@ -1,24 +1,28 @@
 ---
-title: "Container Manager global configuration"
-source_path: "06_Component_Documentation/61_Container/01_Container_Manager/01_Container_manager_global_config.md"
-content_status: imported
+title: Container Manager global configuration
+source_path: 06_Component_Documentation/61_Container/01_Container_Manager/01_Container_manager_global_config.md
+content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
-# Container Manager Global Configuration Guide
+# Container Manager global configuration
+
+## Container Manager Global Configuration Guide
 
 This document describes the global configuration file (`container-manager.json`) used by Container Manager.
 
-## Overview
+### Overview
 
 The **Container Manager Configuration File** (`container-manager.json`) contains global settings that apply to the entire Container Manager instance, including network bridges and system-wide mount operations.
 
 ---
 
-## Container Manager Configuration File
+### Container Manager Configuration File
 
 Global configuration for the entire Container Manager.
 
-### Minimum Configuration Example
+#### Minimum Configuration Example
 
 ```json
 {
@@ -34,14 +38,14 @@ Global configuration for the entire Container Manager.
 }
 ```
 
-### Configuration Items
+#### Configuration Items
 
-#### `configdir` (Required)
+##### `configdir` (Required)
 - **Type**: String
 - **Description**: Directory containing container configuration files
 - **Example**: `"/opt/container/conf/"`
 
-#### `etherbridge` (Optional)
+##### `etherbridge` (Optional)
 - **Type**: Array
 - **Description**: Array of network bridge configurations
 - **Elements**:
@@ -61,31 +65,31 @@ Global configuration for the entire Container Manager.
 
 ---
 
-## Troubleshooting
+### Troubleshooting
 
-### Common Errors
+#### Common Errors
 
-#### 1. "Json file error"
+##### 1. "Json file error"
 - JSON file format is invalid
 - Verify that the file encoding is UTF-8
 - Use a JSON validator to check the schema
 
-#### 2. "mandatory value"
+##### 2. "mandatory value"
 - Required items are missing
 - Check the "Required" column in the documentation
 
-#### 3. Bridge not found
+##### 3. Bridge not found
 - Verify that the bridge name exists on the system
 - Check available bridges: `ip link show type bridge`
 
-#### 4. Mount failure
+##### 4. Mount failure
 - Verify the filesystem is correctly specified
 - Ensure mount options are valid
 - Check device existence: `ls -la /dev/`
 
 ---
 
-## References
+### References
 
 - **Network Bridges**: Virtual network interfaces for container connectivity
 - **Mount Operations**: System-wide filesystem mounting with redundancy options

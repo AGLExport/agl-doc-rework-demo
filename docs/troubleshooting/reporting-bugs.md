@@ -1,8 +1,12 @@
 ---
-title: "Report a bug"
-source_path: "07_How_To_Contribute/08_Reporting_bugs.md"
-content_status: imported
+title: Report a bug
+source_path: 07_How_To_Contribute/08_Reporting_bugs.md
+content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
+
+# Report a bug
 
 Reporting bugs
 

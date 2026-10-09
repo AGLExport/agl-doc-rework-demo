@@ -1,7 +1,9 @@
 ---
-title: "Qt IVI homescreen"
-source_path: "06_Component_Documentation/40_Demo_Application/02_Qt_Demo_IVI/01_Qt_Homescreen.md"
+title: Qt IVI homescreen
+source_path: 06_Component_Documentation/40_Demo_Application/02_Qt_Demo_IVI/01_Qt_Homescreen.md
 content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Qt IVI homescreen

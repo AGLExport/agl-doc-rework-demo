@@ -1,8 +1,12 @@
 ---
-title: "Build and boot on VisionFive2"
-source_path: "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/08_Building_for_VisionFive2_Boards.md"
+title: Build and boot on VisionFive2
+source_path: 01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/08_Building_for_VisionFive2_Boards.md
 content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
+
+# Build and boot on VisionFive2
 
 Complete [host preparation](../prepare-host.md) and [source download](../download-source.md) first. These steps define `AGL_TOP` as the parent workspace and `AGL_SOURCE` as the source checkout. Run each setup command from `$AGL_SOURCE`; `aglsetup.sh` then enters its build directory. Use `-f` only when intentionally replacing existing configuration.
 
@@ -112,9 +116,7 @@ The UART speed of VisionFive2 is 115200bps.
 
 ### Firmware Update
 
-**Attention! If you want to use both Vimba and Unagi on the same board, you should not update the firmware. The new firmware does not have backward compatibility.**
-
-During the Vimba release timeframe, the Vision Five 2 board changed from a vendored u-boot to upstream u-boot. Vimba and newer versions build a new firmware.
+**Check firmware compatibility before updating a board used with older images.** The master build uses upstream U-Boot and produces corresponding firmware. That firmware is not backward-compatible with every older vendored U-Boot image; preserve the existing firmware or use a separate board when it must continue to boot those images.
 
 If you want to update the firmware, please refer to [U-Boot document Vision Five 2 page](https://docs.u-boot.org/en/latest/board/starfive/visionfive2.html).
 

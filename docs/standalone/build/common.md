@@ -1,6 +1,8 @@
 ---
-title: "Common part"
+title: Common part
 content_status: authored
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Common part

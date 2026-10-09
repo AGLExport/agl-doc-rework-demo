@@ -1,6 +1,8 @@
 ---
-title: "Table for APIs"
+title: Table for APIs
 content_status: authored
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Table for APIs
@@ -12,7 +14,8 @@ Find the interface for the data or operation your application needs. Application
 | Generic file data | [Redundancy file operation (librefop)](generic/librefop.md) | Redundant file storage and recovery status. |
 | IVI data | [Persistent storage API](ivi/persistent-storage.md) | Retain demo settings across shutdown. |
 | Dedicated cluster | [AGL Instrument Cluster API](cluster/instrument-cluster-api.md) | Communicate with the cluster service. |
-| Gateway vehicle data | [Gateway APIs](gateway.md) | Locate vehicle-data and CAN interfaces. |
+| Vehicle data on IVI/cluster/gateway | [Gateway APIs](gateway.md) | Locate vehicle-data and CAN interfaces. |
+| IVI demo backend interfaces | [AGL Services](../services/index.md#ivi-demo-service-paths-on-master) | HVAC, audio mixer, radio and MPD client paths. |
 | Window management | [The AGL compositor](../services/graphics/agl-compositor.md) | Application surfaces and activation. |
 | Audio | [Pipewire & Wireplumber](../services/sound/pipewire-wireplumber.md) | Playback, capture, devices, and policy. |
 | Application lifecycle | [Application Framework](../framework/lifecycle/application-framework.md) | Application management and services. |

@@ -1,6 +1,8 @@
 ---
-title: "Flutter IVI demo"
+title: Flutter IVI demo
 content_status: authored
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Flutter IVI demo
@@ -13,4 +15,4 @@ Follow [Common part](../common.md) first. Initialize your selected machine with 
 bitbake agl-ivi-demo-flutter
 ```
 
-Use the selected board's deployment instructions and output filenames in `tmp/deploy/images/<machine>/`. Confirm the UI starts and record the build identifier. The [image catalog](../common/reference/images.md) describes variants; do not select a preconfigured or guest image without its integration guide.
+Use the selected board's deployment instructions and output filenames in `tmp/deploy/images/<machine>/`. Confirm the UI starts and record the build identifier. The [image catalog](../common/reference/images.md) describes variants; use the matching integration guide when selecting a guest image or changing service placement.

@@ -1,8 +1,12 @@
 ---
-title: "Get community help"
-source_path: "07_How_To_Contribute/08_Getting_help.md"
-content_status: imported
+title: Get community help
+source_path: 07_How_To_Contribute/08_Getting_help.md
+content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
+
+# Get community help
 
 Getting help
 

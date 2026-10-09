@@ -1,46 +1,53 @@
 ---
-title: "Releases & migration"
+title: Releases & migration
+content_status: authored
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Releases & migration
 
-Use this section to choose a version or plan an update to an existing environment.
+This documentation uses the **AGL `master` development branch** for AGL source, examples and snapshot artifacts. It does not select a named release as its implementation baseline. The official [master documentation](https://docs.automotivelinux.org/en/master/) and [master manifest](https://git.automotivelinux.org/AGL/AGL-repo/tree/default.xml?h=master) are the starting points.
 
-## Version covered by this site
+## Current master baseline
 
-| Item | Site configuration |
+The source review on **10 October 2026** confirmed:
+
+| Item | Reviewed master configuration |
 | --- | --- |
-| AGL name | {{ agl.full_name }} |
-| Source branch | `{{ agl.codename }}` |
-| Status | Development branch and snapshots |
-| Yocto | {{ yocto.codename }} / {{ yocto.version }} |
+| AGL manifest default | `revision="master"` for AGL layer repositories |
+| Distribution branch | `AGL_BRANCH = "master"` |
+| Distribution build identifier | `AGLVERSION = "21.93.0"` at review time |
+| Yocto/OpenEmbedded | Wrynose line; external projects pinned by the manifest |
+| Qt layer | meta-qt6 6.12 line, with the manifest's selected revision |
+| Prebuilt images | `master` snapshots; choose one snapshot directory for all matching artifacts |
 
-This site documents the moving development branch rather than a pinned release. On 7 October 2026, the official [distribution configuration](https://git.automotivelinux.org/AGL/meta-agl/tree/meta-agl-core/conf/distro/agl.conf) identified master as Vimba with an AGL version of 21.93.0. The [source manifest](https://git.automotivelinux.org/AGL/AGL-repo/tree/default.xml) at revision f28a8d166fb1a2e792fc69952ae204a522d75a24 used the Wrynose and Qt 6.12 branches; its update recorded Yocto Project 6.0.3. The [official release notes](https://wiki.automotivelinux.org/agl-distro/release-notes#vibrant_vimba) call this release family Vibrant Vimba.
+The [distribution configuration](https://git.automotivelinux.org/AGL/meta-agl/tree/meta-agl-core/conf/distro/agl.conf?h=master) and manifest define these observations. The branch can advance after review. The [source-review record](../assets/source-reviews/master-2026-10-10.json) contains the checked official URLs and content hashes; source inspection does not report hardware boot tests.
 
-The [Vimba 22.0.0 release tag](https://git.automotivelinux.org/AGL/AGL-repo/tag/?h=vimba/22.0.0) is also available. Its [tagged manifest](https://git.automotivelinux.org/AGL/AGL-repo/tree/default.xml?h=vimba/22.0.0) selects the `vimba` AGL branch, and the [tagged distribution configuration](https://git.automotivelinux.org/AGL/meta-agl/tree/meta-agl-core/conf/distro/agl.conf?h=vimba/22.0.0) identifies version 22.0.0. The [IVI architecture diagrams](../standalone/architecture/basic.md) use this named release baseline, with their inspected component revisions recorded in the source/scope notes.
+## Record a reproducible master checkout
 
-A manifest revision alone does not pin layers that track branches. After downloading source, save a resolved manifest with repo manifest -r as described in [Download AGL source](../standalone/build/common/download-source.md). Match any prebuilt image and SDK to that source revision or to one named release.
+Follow [Download AGL source](../standalone/build/common/download-source.md), then save the resolved revisions:
 
-The version information above records a source inspection. It does not indicate that every included procedure or environment has been tested against those artifacts.
+```sh
+cd "$AGL_SOURCE"
+repo manifest -r -o "$AGL_SOURCE/manifest-pinned.xml"
+repo status
+```
 
-## Choose a stable release
+Use the same resolved manifest for the image, SDK and any separately assembled AGL guests. Record board, setup features, image target and artifact filenames. A moving branch name or a `latest` snapshot alone does not identify a reproducible build.
 
-Use the [official release notes](https://wiki.automotivelinux.org/agl-distro/release-notes) to check release information, supported environments, and known issues. Find version-specific documentation on the [official AGL documentation site](https://docs.automotivelinux.org/).
+## Update an existing master deployment
 
-Use a prebuilt image, source branch, SDK, and documentation for the same version.
+1. Save the current resolved manifest, local configuration, application/service settings and boot logs.
+2. Review changes in the [master manifest](https://git.automotivelinux.org/AGL/AGL-repo/log/default.xml?h=master) and selected layer recipes.
+3. Synchronize a separate source workspace and create a fresh build directory for the chosen machine/features.
+4. Rebuild the image and matching SDK. Align protobuf definitions, VSS mappings and runtime client/server configuration.
+5. Deploy matching artifacts and verify boot, UI, service health, vehicle-data exchange and any required guest/device boundaries.
 
-## Move to another version
+External SoDeV board/hypervisor workspaces have their own branches and pins. The [SoDeV build guide](../integrated/sodev/build.md) states how AGL master guests relate to those integrations; do not assume a workspace's default AGL branch is master.
 
-1. Record your current AGL version, source revision, board, image, selected features, and SDK.
-2. Check the destination release notes for supported boards, changes, and known issues.
-3. Use the destination version's instructions to check [host requirements](../standalone/build/common/prepare-host.md) and SDK requirements.
-4. Check the APIs and settings you use against the [API and service catalog](../components/services/index.md) and the destination version's documentation.
-5. In the new environment, verify boot, application execution, and the services your application uses.
+## Choose the next task
 
-These steps provide a general checking sequence. For version-specific changes and compatibility information, use the official release notes and documentation for each version.
-
-## Next steps
-
-- To explore a prebuilt image: [Quick start](../start/index.md).
-- To build from source: [Distributed system](../standalone/index.md#platform).
-- To investigate a problem after updating: [Diagnose common problems](../troubleshooting/diagnostics.md), then use [Troubleshooting](../troubleshooting/index.md) to ask for help.
+- [Quick start](../start/index.md) runs a master snapshot.
+- [Build AGL system](../standalone/build/index.md) builds a master source checkout.
+- [Diagnose common problems](../troubleshooting/diagnostics.md) identifies version, configuration and service failures.

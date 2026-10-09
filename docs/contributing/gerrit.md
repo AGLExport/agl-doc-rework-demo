@@ -1,8 +1,12 @@
 ---
-title: "Work with Gerrit"
-source_path: "07_How_To_Contribute/03_Working_with_Gerrit.md"
+title: Work with Gerrit
+source_path: 07_How_To_Contribute/03_Working_with_Gerrit.md
 content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
+
+# Work with Gerrit
 
 Follow these instructions to collaborate on AGL projects through the Gerrit review
 system. For changes to this GitHub Pages site, first follow

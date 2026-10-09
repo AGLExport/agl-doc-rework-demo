@@ -1,6 +1,8 @@
 ---
-title: "Build target image"
+title: Build target image
 content_status: authored
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Build target image

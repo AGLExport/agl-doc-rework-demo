@@ -1,6 +1,8 @@
 ---
-title: "Architecture"
+title: Architecture
 content_status: authored
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Architecture
@@ -59,25 +61,21 @@ Guest Ethernet interfaces use veth connections to `lxcbr0` in the reference conf
 
 The normal type 2a Wic layout places the host and guest filesystems in separate partitions. Type 2b additionally stages the Qt and Flutter IVI ext4 images from a separate build and adds their guest configuration and partitions. The partition numbers and boot-loader regions depend on the machine's Wic layout; select the board-specific layout rather than copying another board's device paths. Separate partitions isolate software stacks, but still share the underlying storage device and its I/O contention. [Image assembly include][assembly], [2025 IC Expert Group presentation, slides 11-13][storage-talk]
 
-### Recent storage-isolation work
-
-The 2025 Summer AMM presentation studies contention on shared flash storage and develops a ROM-disk approach: U-Boot loads host and Cluster EROFS images into reserved RAM, exposed through phram/MTD. It also adds dm-verity block verification. The presentation identifies the implementation as a **PoC**, with recipes in `AGLExport/meta-basic-distro` on the `amms2025` branch. [Presentation, slides 17-19, 25-31 and 37][storage-talk], [PoC recipes][storage-poc]
-
-This is an optional development direction, not the default ext4/Wic storage path in Figure 1. The reviewed `meta-agl-ic-container` recipes continue to stage ext4 guests. Integration of ROM disks needs its own boot-loader, reserved-memory, image-generation and verification configuration. The PoC's dm-verity design verifies storage blocks; it does not introduce separate guest kernels. [Image assembly include][assembly]
+The reviewed master profile stages ext4 guest filesystems through its multiconfig assembly include. Its default board image is the WIC storage path shown in Figure 1. Verify the selected board's boot loader and partition layout when changing storage; separate guest userlands continue to share the host kernel.
 
 ## Sources and revision scope
 
-The diagram describes the reviewed IC/IVI container profile. [SoDeV](../sodev/architecture.md) has its own architecture and integration choices. A future AGL release or a downstream image may use a different composition.
+The diagram describes the AGL master IC/IVI container profile, reviewed on 10 October 2026. [SoDeV](../sodev/architecture.md) has its own architecture and integration choices. A future AGL release or a downstream image may use a different composition.
 
 | Primary source | Evidence used |
 | --- | --- |
 | [AGL Tech Day, April 2022][techday] | Slides 11-13: lease control and direct DRM rendering; historical architecture context |
-| [A Case Study for the Storage Isolation to Avoid System Slowdown Propagating from Other Containers, 2025 Summer AMM][storage-talk] | Slides 9-13: shared-kernel software separation; slides 17-37: ROM-disk and verification PoC |
+| [A Case Study for the Storage Isolation to Avoid System Slowdown Propagating from Other Containers, 2025 Summer AMM][storage-talk] | Slides 9-13: shared-kernel software separation; historical storage-isolation research; the current diagram follows master ext4/WIC recipes |
 | [AGL Update, ALS 2025][agl-update] | Slide 33: IC Expert Group and Rockchip container-demo status |
 | [Official master build/boot guide][profile] | Integration types, guest alternatives and role-switching workflow |
-| [meta-agl-devel, revision 9ca6a00][layer] | Host/guest recipes, multiconfig assembly, board-specific guest JSON and DRM lease configuration |
+| [meta-agl-devel master, reviewed revision 9ca6a00][layer] | Host/guest recipes, multiconfig assembly, board-specific guest JSON and DRM lease configuration |
 | [Container Manager, revision 0f578e0][cm-schema] | Version pinned by the reviewed layer; lifecycle and configuration schema |
-| [meta-agl-demo, revision b442b90][cluster-service] | Cluster launch configuration and Momi Screen package sources |
+| [meta-agl-demo master, reviewed revision b442b90][cluster-service] | Cluster launch configuration and Momi Screen package sources |
 
 Full reviewed revisions: `meta-agl-devel` `9ca6a00e4c6d9e9e055d4b26faf729c7c5332071`; `meta-agl-demo` `b442b90ae8be41d438b6b01f6e17afb8eeab1a78`; Container Manager `0f578e0d93be14c31b56c6944ff9e60217e6df17`. These references describe a source inspection, not a new hardware validation.
 
@@ -86,17 +84,16 @@ Continue with [Build Container integration](build.md), its [detailed profile gui
 [profile]: https://docs.automotivelinux.org/en/master/01_Getting_Started/03_Build_and_Boot_guide_Profile/01_Instrument_Cluster_%28IC-IVI_with_Container_isolation%29/
 [techday]: https://static.sched.com/hosted_files/agltechday2022/3b/agl-techday-202204.pdf
 [storage-talk]: https://lf-automotivelinux.atlassian.net/wiki/rest/api/content/527761419/child/attachment/att533856273/download
-[storage-poc]: https://github.com/AGLExport/meta-basic-distro/tree/amms2025
 [agl-update]: https://static.sched.com/hosted_files/ossjapan2025/d0/AGL%20Update%20Miner%20ALS%202025.pdf
-[layer]: https://git.automotivelinux.org/AGL/meta-agl-devel/tree/meta-agl-ic-container`id=9ca6a00e4c6d9e9e055d4b26faf729c7c5332071
-[host-recipe]: https://git.automotivelinux.org/AGL/meta-agl-devel/tree/meta-agl-ic-container/recipes-platform/images/agl-instrument-cluster-container-demo.bb`id=9ca6a00e4c6d9e9e055d4b26faf729c7c5332071
-[cluster-recipe]: https://git.automotivelinux.org/AGL/meta-agl-devel/tree/meta-agl-ic-container/recipes-platform/images/guest-image-cluster-demo.bb`id=9ca6a00e4c6d9e9e055d4b26faf729c7c5332071
-[momi-recipe]: https://git.automotivelinux.org/AGL/meta-agl-devel/tree/meta-agl-ic-container/recipes-platform/images/guest-image-ivi-demo.bb`id=9ca6a00e4c6d9e9e055d4b26faf729c7c5332071
-[assembly]: https://git.automotivelinux.org/AGL/meta-agl-devel/tree/meta-agl-ic-container/recipes-platform/images/agl-lxc-multi-partition-image.inc`id=9ca6a00e4c6d9e9e055d4b26faf729c7c5332071
-[cluster-json]: https://git.automotivelinux.org/AGL/meta-agl-devel/tree/meta-agl-ic-container/recipes-container/container-manager-config/cm-config-cluster-demo/rpi/cluster-demo.json`id=9ca6a00e4c6d9e9e055d4b26faf729c7c5332071
-[momi-json]: https://git.automotivelinux.org/AGL/meta-agl-devel/tree/meta-agl-ic-container/recipes-container/container-manager-config/cm-config-agl-momi-ivi-demo/rpi/agl-momi-ivi-demo.json`id=9ca6a00e4c6d9e9e055d4b26faf729c7c5332071
-[can-json]: https://git.automotivelinux.org/AGL/meta-agl-devel/tree/meta-agl-ic-container/recipes-container/container-manager-config/cm-config-cluster-demo/rpi/cluster-demo-can.json`id=9ca6a00e4c6d9e9e055d4b26faf729c7c5332071
-[lease-config]: https://git.automotivelinux.org/AGL/meta-agl-devel/tree/meta-agl-ic-container/recipes-graphics/drm-lease-manager/drm-lease-manager-init/rpi/drm-lease-manager.ini`id=9ca6a00e4c6d9e9e055d4b26faf729c7c5332071
+[layer]: https://git.automotivelinux.org/AGL/meta-agl-devel/tree/meta-agl-ic-container?h=master
+[host-recipe]: https://git.automotivelinux.org/AGL/meta-agl-devel/tree/meta-agl-ic-container/recipes-platform/images/agl-instrument-cluster-container-demo.bb?h=master
+[cluster-recipe]: https://git.automotivelinux.org/AGL/meta-agl-devel/tree/meta-agl-ic-container/recipes-platform/images/guest-image-cluster-demo.bb?h=master
+[momi-recipe]: https://git.automotivelinux.org/AGL/meta-agl-devel/tree/meta-agl-ic-container/recipes-platform/images/guest-image-ivi-demo.bb?h=master
+[assembly]: https://git.automotivelinux.org/AGL/meta-agl-devel/tree/meta-agl-ic-container/recipes-platform/images/agl-lxc-multi-partition-image.inc?h=master
+[cluster-json]: https://git.automotivelinux.org/AGL/meta-agl-devel/tree/meta-agl-ic-container/recipes-container/container-manager-config/cm-config-cluster-demo/rpi/cluster-demo.json?h=master
+[momi-json]: https://git.automotivelinux.org/AGL/meta-agl-devel/tree/meta-agl-ic-container/recipes-container/container-manager-config/cm-config-agl-momi-ivi-demo/rpi/agl-momi-ivi-demo.json?h=master
+[can-json]: https://git.automotivelinux.org/AGL/meta-agl-devel/tree/meta-agl-ic-container/recipes-container/container-manager-config/cm-config-cluster-demo/rpi/cluster-demo-can.json?h=master
+[lease-config]: https://git.automotivelinux.org/AGL/meta-agl-devel/tree/meta-agl-ic-container/recipes-graphics/drm-lease-manager/drm-lease-manager-init/rpi/drm-lease-manager.ini?h=master
 [cm-schema]: https://github.com/AGLExport/container-manager/blob/0f578e0d93be14c31b56c6944ff9e60217e6df17/doc/container-configuration-files.md
-[cluster-service]: https://git.automotivelinux.org/AGL/meta-agl-demo/tree/meta-agl-demo-shared/recipes-demo/cluster-refgui/cluster-refgui/cluster.service`id=b442b90ae8be41d438b6b01f6e17afb8eeab1a78
-[momiscreen-source]: https://git.automotivelinux.org/AGL/meta-agl-demo/tree/meta-agl-demo-shared/recipes-demo/momiscreen`id=b442b90ae8be41d438b6b01f6e17afb8eeab1a78
+[cluster-service]: https://git.automotivelinux.org/AGL/meta-agl-demo/tree/meta-agl-demo-shared/recipes-demo/cluster-refgui/cluster-refgui/cluster.service?h=master
+[momiscreen-source]: https://git.automotivelinux.org/AGL/meta-agl-demo/tree/meta-agl-demo-shared/recipes-demo/momiscreen?h=master

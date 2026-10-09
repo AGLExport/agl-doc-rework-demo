@@ -1,21 +1,18 @@
 ---
-title: "Momi IVI demo"
+title: Momi IVI demo
 content_status: authored
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Momi IVI demo
 
-Momi IVI is a small Qt/QML infotainment demonstration used as a container guest. It demonstrates graphics, sound, media, and network access without the full standard IVI application stack.
+Momi is the minimal-footprint IVI example in the Extra portfolio. It uses Qt/QML applications in a container guest and has a different runtime composition from the full Flutter/Qt IVI demos.
 
-| Application | Purpose |
+| Portfolio distinction | Deployment |
 | --- | --- |
-| [Momi Screen](../../../components/applications/momi-screen.md) | Homescreen and application selection |
-| [Momi navigation](../../../components/applications/momi-navigation.md) | Map and navigation example |
-| [Momi Weather](../../../components/applications/momi-weather.md) | Network-connected weather example |
-| [Momi Player](../../../components/applications/momi-player.md) | Media playback example |
+| Lightweight IVI application set | Momi Screen, navigation, weather and player |
+| Guest execution | Shares the container host kernel and receives leased display access |
+| Complete bootable image | `agl-instrument-cluster-container-demo`, with Cluster and Momi guest filesystems |
 
-The [guest recipe](https://git.automotivelinux.org/AGL/meta-agl-devel/tree/meta-agl-ic-container/recipes-platform/images/guest-image-ivi-demo.bb) is `guest-image-ivi-demo`. The type 2a [container host recipe](https://git.automotivelinux.org/AGL/meta-agl-devel/tree/meta-agl-ic-container/recipes-platform/images/agl-instrument-cluster-container-demo.bb) builds it together with the cluster guest.
-
-Use `agl-ic-container` and build `agl-instrument-cluster-container-demo` for a complete bootable integration. A guest root filesystem alone does not supply the host kernel, container registration, or DRM leases.
-
-Follow [Extra setup](../../build/extra/setup.md), [image build](../../build/extra/image.md), and [deployment](../../build/extra/deploy.md). Read [Container integration architecture](../../../integrated/containers/architecture.md) and the [detailed type 2a guide](../../../integrated/containers/build-guide.md) for storage and display allocation. Momi's Qt/multimedia package group includes PulseAudio; do not assume it has the same audio stack as the Basic IVI demos.
+The complete procedure is maintained under [Container integration > Demo image for container integration > Momi IVI demo](../../../integrated/containers/demo/momi-ivi.md). Use that master-based build and deployment route. Read [Extra architecture](../../architecture/extra.md) for the portfolio comparison and [Container integration architecture](../../../integrated/containers/architecture.md) for host/guest boundaries.

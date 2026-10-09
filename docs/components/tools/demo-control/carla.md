@@ -1,7 +1,9 @@
 ---
-title: "CARLA with AGL"
-source_path: "06_Component_Documentation/80_DevTools/02_CARLA_with_AGL.md"
-content_status: imported
+title: CARLA with AGL
+source_path: 06_Component_Documentation/80_DevTools/02_CARLA_with_AGL.md
+content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # CARLA with AGL

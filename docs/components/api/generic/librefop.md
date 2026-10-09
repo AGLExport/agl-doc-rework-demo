@@ -1,6 +1,8 @@
 ---
-title: "Redundancy file operation (librefop)"
+title: Redundancy file operation (librefop)
 content_status: authored
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Redundancy file operation (librefop)

@@ -1,7 +1,9 @@
 ---
-title: "Demo Control Panel"
-source_path: "06_Component_Documentation/80_DevTools/01_AGL_Demo_Control_Panel.md"
-content_status: imported
+title: Demo Control Panel
+source_path: 06_Component_Documentation/80_DevTools/01_AGL_Demo_Control_Panel.md
+content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Demo Control Panel

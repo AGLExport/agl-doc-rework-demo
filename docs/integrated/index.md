@@ -1,9 +1,11 @@
 ---
-title: "Small scale integrated system"
+title: Base platform for the small-scale integrated system
 content_status: authored
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
-# Small scale integrated system
+# Base platform for the small-scale integrated system
 
 AGL develops and provides a base platform for small-scale integrated systems. It integrates two or more features into a single system by combining one or more AGL Linux distributions and/or other platforms. This category mainly addresses domain-level consolidation, such as running Instrument Cluster and IVI together on one board.
 
@@ -16,6 +18,6 @@ The integration uses Linux Container technology or Kernel-based Virtual Machine 
 
 Container integration includes guest customization, DRM lease management and Container Manager. KVM retains its own image and host/guest procedure. In both cases, host configuration determines access to displays, networks, storage and devices.
 
-A small-scale integration can itself be incorporated into a [Large scale integrated system](large-scale.md) based on SoDeV. The outer platform then determines how its guest environment receives resources and device interfaces.
+A small-scale integration can itself be incorporated into a [Base platform for the large-scale integrated system](large-scale.md) based on SoDeV. The outer platform then determines how its guest environment receives resources and device interfaces.
 
 Use [Introduction](../home/index.md) for vehicle E/E architecture context and [Releases & migration](../releases/index.md) to keep workspace, host and guest revisions compatible.

@@ -1,6 +1,8 @@
 ---
-title: "Slint based Cluster demo"
+title: Slint based Cluster demo
 content_status: authored
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Slint based Cluster demo

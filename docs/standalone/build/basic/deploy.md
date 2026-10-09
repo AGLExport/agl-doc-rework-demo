@@ -1,6 +1,8 @@
 ---
-title: "Deploy to board"
+title: Deploy to board
 content_status: authored
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Deploy to board
@@ -30,4 +32,4 @@ systemctl --failed
 journalctl -b -p err
 ~~~
 
-Use [Troubleshooting](../../../troubleshooting/index.md) when the UI or a service fails. Continue with [Platform Customize](../../customize/index.md) or [Application development](../../applications/index.md) under Distributed system.
+Use [Troubleshooting](../../../troubleshooting/index.md) when the UI or a service fails. Continue with [Platform Customize](../../customize/index.md) or [Application development](../../applications/index.md) under Base platform for the distributed system.

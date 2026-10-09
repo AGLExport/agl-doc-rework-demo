@@ -1,7 +1,9 @@
 ---
-title: "Create a custom recipe"
-source_path: "04_Developer_Guides/02_AGL_Platform_Development/02_Modify_AGL_by_Yourself/03_Creating_a_custom_recipe.md"
+title: Create a custom recipe
+source_path: 04_Developer_Guides/02_AGL_Platform_Development/02_Modify_AGL_by_Yourself/03_Creating_a_custom_recipe.md
 content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Create a custom recipe

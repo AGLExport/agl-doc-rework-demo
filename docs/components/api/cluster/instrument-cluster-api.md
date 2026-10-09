@@ -1,8 +1,12 @@
 ---
-title: "AGL Instrument Cluster API"
-source_path: "05_APIs_and_Services/instrument-cluster/AGL-Instrument-Cluster-API-en.md"
-content_status: imported
+title: AGL Instrument Cluster API
+source_path: 05_APIs_and_Services/instrument-cluster/AGL-Instrument-Cluster-API-en.md
+content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
+
+# AGL Instrument Cluster API
 
 AGL Instrument Cluster API Specifications
 
@@ -16,11 +20,11 @@ Rev1.0 Last Update: 2026/2/4
 |0.4|2021/01/20|Added clusterInit, clusterTerm functions and fixed typos|
 |1.0|2026/02/04|Official release|
 
-# AGL Instrument Cluster API
+## AGL Instrument Cluster API
 
 This specification describes the interface for the Cluster UI in the HMI Layer to obtain signal information from the IC-Service.
 
-# Overview
+## Overview
 This defines the API between the Cluster UI in the HMI Layer, which performs screen rendering, and the IC-Service in the Service Layer, which performs functional processing.
 
 ![HMI Layer positioning](../../../assets/source/05_APIs_and_Services/instrument-cluster/image/hmi-layer-definition.png)
@@ -47,7 +51,7 @@ There are two usage models for the pseudo shared memory: Polling and Event.
 
   ![Communication in Event mode](../../../assets/source/05_APIs_and_Services/instrument-cluster/image/communication-method-event.png)
 
-# API Details
+## API Details
 
 This section describes the details of the API.  It defines using the C language ABI.  These API uses to obtain each signal.
 
@@ -76,15 +80,15 @@ Macro constant definitions include:
 * Value and description
 * Notes
 
-## Enum Definition
-### IC_HMI_ON_OFF
-#### Enum Name
+### Enum Definition
+#### IC_HMI_ON_OFF
+##### Enum Name
 IC_HMI_ON_OFF
 
-#### Description
+##### Description
 Telltale ON/OFF state
 
-#### Constants and values
+##### Constants and values
 
 <dl>
   <dt>0: IC_HMI_OFF</dt>
@@ -93,18 +97,18 @@ Telltale ON/OFF state
     <dd>ON state</dd>
 </dl>
 
-#### Notes
+##### Notes
 None
 
 ---
-### IC_HMI_GEAR_AT_VAL
-#### Enum Name
+#### IC_HMI_GEAR_AT_VAL
+##### Enum Name
 IC_HMI_GEAR_AT_VAL
 
-#### Description
+##### Description
 Gear state (AT)
 
-#### Constants and values
+##### Constants and values
 <dl>
   <dt>0: IC_HMI_AT_OFF</dt>
     <dd>Gear not displayed</dd>
@@ -134,18 +138,18 @@ Gear state (AT)
     <dd>Gear unused</dd>
 </dl>
 
-#### Notes
+##### Notes
 None
 
 ---
-### IC_HMI_GEAR_MT_VAL
-#### Enum Name
+#### IC_HMI_GEAR_MT_VAL
+##### Enum Name
 IC_HMI_GEAR_MT_VAL
 
-#### Description
+##### Description
 Gear state (MT)
 
-#### Constants and values
+##### Constants and values
 <dl>
   <dt>0: IC_HMI_MT_OFF</dt>
     <dd>Gear not displayed</dd>
@@ -167,18 +171,18 @@ Gear state (MT)
     <dd>8th gear</dd>
 </dl>
 
-#### Notes
+##### Notes
 None
 
 ---
-### IC_HMI_SP_UNIT_VAL
-#### Enum Name
+#### IC_HMI_SP_UNIT_VAL
+##### Enum Name
 IC_HMI_SP_UNIT_VAL
 
-#### Description
+##### Description
 Speed unit
 
-#### Constants and values
+##### Constants and values
 <dl>
   <dt>0: IC_HMI_SP_KM_H</dt>
     <dd>Speed unit is km/h</dd>
@@ -186,15 +190,15 @@ Speed unit
     <dd>Speed unit is mph</dd>
 </dl>
 
-#### Notes
+##### Notes
 None
 
 ---
-### IC_HMI_TRCOM_UNIT_VAL
-#### Enum Name
+#### IC_HMI_TRCOM_UNIT_VAL
+##### Enum Name
 IC_HMI_TRCOM_UNIT_VAL
 
-#### Description
+##### Description
 Trip computer unit
 <dl>
   <dt>0: IC_HMI_TRCOM_KM</dt>
@@ -203,22 +207,22 @@ Trip computer unit
     <dd>Trip computer unit is mile</dd>
 </dl>
 
-#### Notes
+##### Notes
 None
 
 ---
-### IC_HMI_FUEL_ECONOMY_UNIT_VAL
-#### Enum Name
+#### IC_HMI_FUEL_ECONOMY_UNIT_VAL
+##### Enum Name
 IC_HMI_FUEL_ECONOMY_UNIT_VAL
 
-#### Description
+##### Description
 Fuel economy display units
 * Instant fuel economy
 * Average fuel economy A/B
 * Instant electric consumption
 * Instant electric consumption A/B
 
-#### Constants and values
+##### Constants and values
 <dl>
   <dt>0: IC_HMI_FUEL_KM_L</dt>
     <dd>Fuel economy unit km/L</dd>
@@ -240,18 +244,18 @@ Fuel economy display units
     <dd>Fuel economy unit kWh/100km</dd>
 </dl>
 
-#### Notes
+##### Notes
 None
 
 ---
-### IC_HMI_OTEMP_UNIT_VAL
-#### Enum Name
+#### IC_HMI_OTEMP_UNIT_VAL
+##### Enum Name
 IC_HMI_OTEMP_UNIT_VAL
 
-#### Description
+##### Description
 Outside temperature unit
 
-#### Constants and values
+##### Constants and values
 <dl>
   <dt>0: IC_HMI_OTEMP_UNIT_C</dt>
     <dd>Outside temperature unit Celsius</dd>
@@ -259,517 +263,517 @@ Outside temperature unit
     <dd>Outside temperature unit Fahrenheit</dd>
 </dl>
 
-#### Notes
+##### Notes
 None
 
-## Macro Definition
-### TellTale
+### Macro Definition
+#### TellTale
 
 ---
-#### IC_HMI_TT_TURN_R
-##### Macro Name
+##### IC_HMI_TT_TURN_R
+###### Macro Name
 IC_HMI_TT_TURN_R
 
-##### Description
+###### Description
 Bit flag for right turn signal state
 
-##### Value
+###### Value
 0x0000000000000001
 
-##### Notes
+###### Notes
 None
 
 ---
-#### IC_HMI_TT_TURN_L
-##### Macro Name
+##### IC_HMI_TT_TURN_L
+###### Macro Name
 IC_HMI_TT_TURN_L
 
-##### Description
+###### Description
 Bit flag for left turn signal state
 
-##### Value
+###### Value
 0x0000000000000002
 
-##### Notes
+###### Notes
 None
 
 ---
-#### IC_HMI_TT_BRAKE
-##### Macro Name
+##### IC_HMI_TT_BRAKE
+###### Macro Name
 IC_HMI_TT_BRAKE
 
-##### Description
+###### Description
 Bit flag for brake warning light state
 
-##### Value
+###### Value
 0x0000000000000004
 
-##### Notes
+###### Notes
 None
 
 ---
-#### IC_HMI_TT_SEATBELT
-##### Macro Name
+##### IC_HMI_TT_SEATBELT
+###### Macro Name
 IC_HMI_TT_SEATBELT
 
-##### Description
+###### Description
 Bit flag for seatbelt warning light state
 
-##### Value
+###### Value
 0x0000000000000008
 
-##### Notes
+###### Notes
 None
 
 ---
-#### IC_HMI_TT_HIGHBEAM
-##### Macro Name
+##### IC_HMI_TT_HIGHBEAM
+###### Macro Name
 IC_HMI_TT_HIGHBEAM
 
-##### Description
+###### Description
 Bit flag for beam passing indicator state
 
-##### Value
+###### Value
 0x0000000000000010
 
-##### Notes
+###### Notes
 None
 
 ---
-#### IC_HMI_TT_DOOR
-##### Macro Name
+##### IC_HMI_TT_DOOR
+###### Macro Name
 IC_HMI_TT_DOOR
 
-##### Description
+###### Description
 Bit flag for half-door warning light state
 
-##### Value
+###### Value
 0x0000000000000020
 
-##### Notes
+###### Notes
 None
 
 ---
-#### IC_HMI_TT_EPS
-##### Macro Name
+##### IC_HMI_TT_EPS
+###### Macro Name
 IC_HMI_TT_EPS
 
-##### Description
+###### Description
 Bit flag for EPS warning light state
 
-##### Value
+###### Value
 0x0000000000000040
 
-##### Notes
+###### Notes
 None
 
 ---
-#### IC_HMI_TT_SRS_AIRBAG
-##### Macro Name
+##### IC_HMI_TT_SRS_AIRBAG
+###### Macro Name
 IC_HMI_SRS_TT_AIRBAG
 
-##### Description
+###### Description
 Bit flag for SRS airbag warning light state
 
-##### Value
+###### Value
 0x0000000000000080
 
-##### Notes
+###### Notes
 None
 
 ---
-#### IC_HMI_TT_ABS
-##### Macro Name
+##### IC_HMI_TT_ABS
+###### Macro Name
 IC_HMI_TT_ABS
 
-##### Description
+###### Description
 Bit flag for ABS warning light state
 
-##### Value
+###### Value
 0x0000000000000100
 
-##### Notes
+###### Notes
 None
 
 ---
-#### IC_HMI_TT_LOW_BATTERY
-##### Macro Name
+##### IC_HMI_TT_LOW_BATTERY
+###### Macro Name
 IC_HMI_TT_LOW_BATTERY
 
-##### Description
+###### Description
 Bit flag for charge warning light state
 
-##### Value
+###### Value
 0x0000000000000200
 
-##### Notes
+###### Notes
 None
 
 ---
-#### IC_HMI_TT_OIL_PRESS
-##### Macro Name
+##### IC_HMI_TT_OIL_PRESS
+###### Macro Name
 IC_HMI_TT_OIL_PRESS
 
-##### Description
+###### Description
 Bit flag for oil pressure warning light state
 
-##### Value
+###### Value
 0x0000000000000400
 
-##### Notes
+###### Notes
 None
 
 ---
-#### IC_HMI_TT_ENGINE
-##### Macro Name
+##### IC_HMI_TT_ENGINE
+###### Macro Name
 IC_HMI_TT_ENGINE
 
-##### Description
+###### Description
 Bit flag for engine warning light state
 
-##### Value
+###### Value
 0x0000000000000800
 
-##### Notes
+###### Notes
 None
 
 ---
-#### IC_HMI_TT_FUEL
-##### Macro Name
+##### IC_HMI_TT_FUEL
+###### Macro Name
 IC_HMI_TT_FUEL
 
-##### Description
+###### Description
 Bit flag for low fuel warning light state
 
-##### Value
+###### Value
 0x0000000000001000
 
-##### Notes
+###### Notes
 None
 
 ---
-#### IC_HMI_TT_IMMOBI
-##### Macro Name
+##### IC_HMI_TT_IMMOBI
+###### Macro Name
 IC_HMI_TT_IMMOBI
 
-##### Description
+###### Description
 Bit flag for immobilizer warning light state
 
-##### Value
+###### Value
 0x0000000000002000
 
-##### Notes
+###### Notes
 None
 
 ---
-#### IC_HMI_TT_TM_FAIL
-##### Macro Name
+##### IC_HMI_TT_TM_FAIL
+###### Macro Name
 IC_HMI_TT_TM_FAIL
 
-##### Description
+###### Description
 Bit flag for TM Failure warning light state
 
-##### Value
+###### Value
 0x0000000000004000
 
-##### Notes
+###### Notes
 None
 
 ---
-#### IC_HMI_TT_ESP_ACT
-##### Macro Name
+##### IC_HMI_TT_ESP_ACT
+###### Macro Name
 IC_HMI_TT_ESP_ACT
 
-##### Description
+###### Description
 Bit flag for ESP-ACT warning light state
 
-##### Value
+###### Value
 0x0000000000008000
 
-##### Notes
+###### Notes
 None
 
 ---
-#### IC_HMI_TT_ESP_OFF
-##### Macro Name
+##### IC_HMI_TT_ESP_OFF
+###### Macro Name
 IC_HMI_TT_ESP_OFF
 
-##### Description
+###### Description
 Bit flag for ESP-OFF warning light state
 
-##### Value
+###### Value
 0x0000000000010000
 
-##### Notes
+###### Notes
 None
 
 ---
-#### IC_HMI_TT_ADAPTING_LIGHTING
-##### Macro Name
+##### IC_HMI_TT_ADAPTING_LIGHTING
+###### Macro Name
 IC_HMI_TT_ADAPTING_LIGHTING
 
-##### Description
+###### Description
 Bit flag for Adapting Lighting warning light state
 
-##### Value
+###### Value
 0x0000000000020000
 
-##### Notes
+###### Notes
 None
 
 ---
-#### IC_HMI_TT_AUTO_STOP
-##### Macro Name
+##### IC_HMI_TT_AUTO_STOP
+###### Macro Name
 IC_HMI_TT_AUTO_STOP
 
-##### Description
+###### Description
 Bit flag for Auto Stop warning light state
 
-##### Value
+###### Value
 0x0000000000040000
 
-##### Notes
+###### Notes
 None
 
 ---
-#### IC_HMI_TT_AUTO_STOP_FAIL
-##### Macro Name
+##### IC_HMI_TT_AUTO_STOP_FAIL
+###### Macro Name
 IC_HMI_TT_AUTO_STOP_FAIL
 
-##### Description
+###### Description
 Bit flag for Auto Stop Fail warning light state
 
-##### Value
+###### Value
 0x0000000000080000
 
-##### Notes
+###### Notes
 None
 
 ---
-#### IC_HMI_TT_PARKING_LIGHTS
-##### Macro Name
+##### IC_HMI_TT_PARKING_LIGHTS
+###### Macro Name
 IC_HMI_TT_PARKING_LIGHTS
 
-##### Description
+###### Description
 Bit flag for Parking Lights warning light state
 
-##### Value
+###### Value
 0x0000000000100000
 
-##### Notes
+###### Notes
 None
 
 ---
-#### IC_HMI_TT_FRONT_FOG
-##### Macro Name
+##### IC_HMI_TT_FRONT_FOG
+###### Macro Name
 IC_HMI_TT_FRONT_FOG
 
-##### Description
+###### Description
 Bit flag for Front Fog warning light state
 
-##### Value
+###### Value
 0x0000000000200000
 
-##### Notes
+###### Notes
 None
 
 ---
-#### IC_HMI_TT_EXTERIOR_LIGHT_FAULT
-##### Macro Name
+##### IC_HMI_TT_EXTERIOR_LIGHT_FAULT
+###### Macro Name
 IC_HMI_TT_EXTERIOR_LIGHT_FAULT
 
-##### Description
+###### Description
 Bit flag for Exterior Light Fault warning light state
 
-##### Value
+###### Value
 0x0000000000400000
 
-##### Notes
+###### Notes
 None
 
 ---
-#### IC_HMI_TT_ACC_FAIL
-##### Macro Name
+##### IC_HMI_TT_ACC_FAIL
+###### Macro Name
 IC_HMI_TT_ACC_FAIL
 
-##### Description
+###### Description
 Bit flag for ACC-Failure warning light state
 
-##### Value
+###### Value
 0x0000000000800000
 
-##### Notes
+###### Notes
 None
 
 ---
-#### IC_HMI_TT_LDW_OFF
-##### Macro Name
+##### IC_HMI_TT_LDW_OFF
+###### Macro Name
 IC_HMI_TT_LDW_OFF
 
-##### Description
+###### Description
 Bit flag for Lane Departure Warning OFF state
 
-##### Value
+###### Value
 0x0000000001000000
 
-##### Notes
+###### Notes
 None
 
 ---
-#### IC_HMI_TT_HILL_DESCENT
-##### Macro Name
+##### IC_HMI_TT_HILL_DESCENT
+###### Macro Name
 IC_HMI_TT_HILL_DESCENT
 
-##### Description
+###### Description
 Bit flag for Hill-Descent warning light state
 
-##### Value
+###### Value
 0x0000000002000000
 
-##### Notes
+###### Notes
 None
 
 ---
-#### IC_HMI_TT_AUTO_HI_BEAM_GREEN
-##### Macro Name
+##### IC_HMI_TT_AUTO_HI_BEAM_GREEN
+###### Macro Name
 IC_HMI_TT_AUTO_HI_BEAM_GREEN
 
-##### Description
+###### Description
 Bit flag for AutoHiBeamGreen warning light state
 
-##### Value
+###### Value
 0x0000000004000000
 
-##### Notes
+###### Notes
 None
 
 ---
-#### IC_HMI_TT_AUTO_HI_BEAM_AMBER
-##### Macro Name
+##### IC_HMI_TT_AUTO_HI_BEAM_AMBER
+###### Macro Name
 IC_HMI_TT_AUTO_HI_BEAM_AMBER
 
-##### Description
+###### Description
 Bit flag for AutoHiBeamAmber warning light state
 
-##### Value
+###### Value
 0x0000000008000000
 
-##### Notes
+###### Notes
 None
 
 ---
-#### IC_HMI_TT_LDW_OPERATE
-##### Macro Name
+##### IC_HMI_TT_LDW_OPERATE
+###### Macro Name
 IC_HMI_TT_LDW_OPERATE
 
-##### Description
+###### Description
 Bit flag for Lane Departure Warning Operate state
 
-##### Value
+###### Value
 0x0000000010000000
 
-##### Notes
+###### Notes
 None
 
 ---
-#### IC_HMI_TT_GENERAL_WARN
-##### Macro Name
+##### IC_HMI_TT_GENERAL_WARN
+###### Macro Name
 IC_HMI_TT_GENERAL_WARN
 
-##### Description
+###### Description
 Bit flag for General Warn state
 
-##### Value
+###### Value
 0x0000000020000000
 
-##### Notes
+###### Notes
 None
 
 ---
-#### IC_HMI_TT_SPORTS_MODE
-##### Macro Name
+##### IC_HMI_TT_SPORTS_MODE
+###### Macro Name
 IC_HMI_TT_SPORTS_MODE
 
-##### Description
+###### Description
 Bit flag for Sports Mode state
 
-##### Value
+###### Value
 0x0000000040000000
 
-##### Notes
+###### Notes
 None
 
 ---
-#### IC_HMI_TT_DRIVING_POWER_MODE
-##### Macro Name
+##### IC_HMI_TT_DRIVING_POWER_MODE
+###### Macro Name
 IC_HMI_TT_DRIVING_POWER_MODE
 
-##### Description
+###### Description
 Bit flag for Driving Power Mode state
 
-##### Value
+###### Value
 0x0000000080000000
 
-##### Notes
+###### Notes
 None
 
 ---
-#### IC_HMI_TT_HOT_TEMP
-##### Macro Name
+##### IC_HMI_TT_HOT_TEMP
+###### Macro Name
 IC_HMI_TT_HOT_TEMP
 
-##### Description
+###### Description
 Bit flag for Hot Temp state
 
-##### Value
+###### Value
 0x0000000100000000
 
-##### Notes
+###### Notes
 None
 
 ---
-#### IC_HMI_TT_LOW_TEMP
-##### Macro Name
+##### IC_HMI_TT_LOW_TEMP
+###### Macro Name
 IC_HMI_TT_LOW_TEMP
 
-##### Description
+###### Description
 Bit flag for Low Temp state
 
-##### Value
+###### Value
 0x0000000200000000
 
-##### Notes
+###### Notes
 None
 
 ---
-#### IC_HMI_TT_ALL
-##### Macro Name
+##### IC_HMI_TT_ALL
+###### Macro Name
 IC_HMI_TT_ALL
 
-##### Description
+###### Description
 Bit flag to set all warning lights ON
 
-##### Value
+###### Value
 0xFFFFFFFFFFFFFFFF
 
-##### Notes
+###### Notes
 None
 
-## Callback Function
-### IC_HMI_FUNC_NOTIFY_IC_HMI
-#### Function prototype
+### Callback Function
+#### IC_HMI_FUNC_NOTIFY_IC_HMI
+##### Function prototype
 **typedef void(* IC_HMI_FUNC_NOTIFY_IC_HMI)(unsigned long long arg_1, IC_HMI_ON_OFF arg_2)**
 
-#### Description
+##### Description
 Callback function type passed as an argument to `registerIcHmi` used in Event mode.
 
-#### Return type
+##### Return type
 void
 
-#### Return details
+##### Return details
 None
 
-#### Argument details
+##### Argument details
 <dl>
   <dt>unsigned long long arg_1</dt>
     <dd>Bit flags corresponding to signals to be retrieved. See the Telltale section for mapping of bits to signals.</dd>
@@ -777,23 +781,23 @@ None
     <dd>Signal state after change detection. See Enum Definition for state meanings.</dd>
 </dl>
 
-#### Notes
+##### Notes
 None
 
 
-## Telltale
+### Telltale
 
-### getTurnR
-#### Prototype
+#### getTurnR
+##### Prototype
 **IC_HMI_ON_OFF getTurnR(void)**
 
-#### Description
+##### Description
 Gets the right turn signal state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Off</dd>
@@ -801,24 +805,24 @@ IC_HMI_ON_OFF
     <dd>On</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 Blink control is handled by IC-Service.
 
 ---
-### getTurnL
-#### Prototype
+#### getTurnL
+##### Prototype
 **IC_HMI_ON_OFF	getTurnL(void)**
 
-#### Description
+##### Description
 Gets the left turn signal state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Off</dd>
@@ -826,24 +830,24 @@ IC_HMI_ON_OFF
     <dd>On</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 Blink control is handled by IC-Service.
 
 ---
-### getBrake
-#### Prototype
+#### getBrake
+##### Prototype
 **IC_HMI_ON_OFF	getBrake(void)**
 
-#### Description
+##### Description
 Gets the brake warning light state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Off</dd>
@@ -851,24 +855,24 @@ IC_HMI_ON_OFF
     <dd>On</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getSeatbelt
-#### Prototype
+#### getSeatbelt
+##### Prototype
 **IC_HMI_ON_OFF	getSeatbelt(void)**
 
-#### Description
+##### Description
 Gets the seatbelt warning light state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Off</dd>
@@ -876,24 +880,24 @@ IC_HMI_ON_OFF
     <dd>On</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 Returns ON if any of `getFrontRightSeatbelt` through `getRearLeftSeatbelt` is OFF.
 
 ---
-### getFrontRightSeatbelt
-#### Prototype
+#### getFrontRightSeatbelt
+##### Prototype
 **IC_HMI_ON_OFF	getFrontRightSeatbelt(void)**
 
-#### Description
+##### Description
 Gets the front-right seatbelt state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Not fastened</dd>
@@ -901,24 +905,24 @@ IC_HMI_ON_OFF
     <dd>Fastened</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getFrontCenterSeatbelt
-#### Prototype
+#### getFrontCenterSeatbelt
+##### Prototype
 **IC_HMI_ON_OFF	getFrontCenterSeatbelt(void)**
 
-#### Description
+##### Description
 Gets the front-center seatbelt state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Not fastened</dd>
@@ -926,24 +930,24 @@ IC_HMI_ON_OFF
     <dd>Fastened</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getFrontLeftSeatbelt
-#### Prototype
+#### getFrontLeftSeatbelt
+##### Prototype
 **IC_HMI_ON_OFF	getFrontLeftSeatbelt(void)**
 
-#### Description
+##### Description
 Gets the front-left seatbelt state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Not fastened</dd>
@@ -951,24 +955,24 @@ IC_HMI_ON_OFF
     <dd>Fastened</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getMid1RightSeatbelt
-#### Prototype
+#### getMid1RightSeatbelt
+##### Prototype
 **IC_HMI_ON_OFF	getMid1RightSeatbelt(void)**
 
-#### Description
+##### Description
 Gets the second-row right seatbelt state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Not fastened</dd>
@@ -976,24 +980,24 @@ IC_HMI_ON_OFF
     <dd>Fastened</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 Returns seatbelt information for the second row in vehicles with three or more rows. Not used for vehicles with less than three rows.
 
 ---
-### getMid1CenterSeatbelt
-#### Prototype
+#### getMid1CenterSeatbelt
+##### Prototype
 **IC_HMI_ON_OFF	getMid1CenterSeatbelt(void)**
 
-#### Description
+##### Description
 Gets the second-row center seatbelt state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Not fastened</dd>
@@ -1001,24 +1005,24 @@ IC_HMI_ON_OFF
     <dd>Fastened</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 Returns seatbelt information for the second row in vehicles with three or more rows. Not used for vehicles with less than three rows.
 
 ---
-### getMid1LeftSeatbelt
-#### Prototype
+#### getMid1LeftSeatbelt
+##### Prototype
 **IC_HMI_ON_OFF	getMid1LeftSeatbelt(void)**
 
-#### Description
+##### Description
 Gets the second-row left seatbelt state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Not fastened</dd>
@@ -1026,24 +1030,24 @@ IC_HMI_ON_OFF
     <dd>Fastened</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 Returns seatbelt information for the second row in vehicles with three or more rows. Not used for vehicles with less than three rows.
 
 ---
-### getMid2RightSeatbelt
-#### Prototype
+#### getMid2RightSeatbelt
+##### Prototype
 **IC_HMI_ON_OFF	getMid2RightSeatbelt(void)**
 
-#### Description
+##### Description
 Gets the third-row right seatbelt state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Not fastened</dd>
@@ -1051,24 +1055,24 @@ IC_HMI_ON_OFF
     <dd>Fastened</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 Returns seatbelt information for the third row in vehicles with four or more rows. Not used for vehicles with less than four rows.
 
 ---
-### getMid2CenterSeatbelt
-#### Prototype
+#### getMid2CenterSeatbelt
+##### Prototype
 **IC_HMI_ON_OFF	getMid2CenterSeatbelt(void)**
 
-#### Description
+##### Description
 Gets the third-row center seatbelt state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Not fastened</dd>
@@ -1076,24 +1080,24 @@ IC_HMI_ON_OFF
     <dd>Fastened</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 Returns seatbelt information for the third row in vehicles with four or more rows. Not used for vehicles with less than four rows.
 
 ---
-### getMid2LeftSeatbelt
-#### Prototype
+#### getMid2LeftSeatbelt
+##### Prototype
 **IC_HMI_ON_OFF	getMid2LeftSeatbelt(void)**
 
-#### Description
+##### Description
 Gets the third-row left seatbelt state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Not fastened</dd>
@@ -1101,24 +1105,24 @@ IC_HMI_ON_OFF
     <dd>Fastened</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 Returns seatbelt information for the third row in vehicles with four or more rows. Not used for vehicles with less than four rows.
 
 ---
-### getRearRightSeatbelt
-#### Prototype
+#### getRearRightSeatbelt
+##### Prototype
 **IC_HMI_ON_OFF	getRearRightSeatbelt(void)**
 
-#### Description
+##### Description
 Gets the rear-right seatbelt state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Not fastened</dd>
@@ -1126,24 +1130,24 @@ IC_HMI_ON_OFF
     <dd>Fastened</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getRearCenterSeatbelt
-#### Prototype
+#### getRearCenterSeatbelt
+##### Prototype
 **IC_HMI_ON_OFF	getRearCenterSeatbelt(void)**
 
-#### Description
+##### Description
 Gets the rear-center seatbelt state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Not fastened</dd>
@@ -1151,24 +1155,24 @@ IC_HMI_ON_OFF
     <dd>Fastened</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getRearLeftSeatbelt
-#### Prototype
+#### getRearLeftSeatbelt
+##### Prototype
 **IC_HMI_ON_OFF	getRearLeftSeatbelt(void)**
 
-#### Description
+##### Description
 Gets the rear-left seatbelt state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Not fastened</dd>
@@ -1176,24 +1180,24 @@ IC_HMI_ON_OFF
     <dd>Fastened</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getHighbeam
-#### Prototype
+#### getHighbeam
+##### Prototype
 **IC_HMI_ON_OFF	getHighbeam(void)**
 
-#### Description
+##### Description
 Gets the beam passing indicator state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Off</dd>
@@ -1201,24 +1205,24 @@ IC_HMI_ON_OFF
     <dd>On</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getDoor
-#### Prototype
+#### getDoor
+##### Prototype
 **IC_HMI_ON_OFF	getDoor(void)**
 
-#### Description
+##### Description
 Gets the half-door warning state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Off</dd>
@@ -1226,24 +1230,24 @@ IC_HMI_ON_OFF
     <dd>On</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 Returns ON if any of `getFrontRightDoor` through `getHoodDoor` is ON.
 
 ---
-### getFrontRightDoor
-#### Prototype
+#### getFrontRightDoor
+##### Prototype
 **IC_HMI_ON_OFF	getFrontRightDoor(void)**
 
-#### Description
+##### Description
 Gets the front-right door open/close state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Closed</dd>
@@ -1251,24 +1255,24 @@ IC_HMI_ON_OFF
     <dd>Open</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getFrontLeftDoor
-#### Prototype
+#### getFrontLeftDoor
+##### Prototype
 **IC_HMI_ON_OFF	getFrontLeftDoor(void)**
 
-#### Description
+##### Description
 Gets the front-left door open/close state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Closed</dd>
@@ -1276,24 +1280,24 @@ IC_HMI_ON_OFF
     <dd>Open</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getRearRightDoor
-#### Prototype
+#### getRearRightDoor
+##### Prototype
 **IC_HMI_ON_OFF	getRearRightDoor(void)**
 
-#### Description
+##### Description
 Gets the rear-right door open/close state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Closed</dd>
@@ -1301,24 +1305,24 @@ IC_HMI_ON_OFF
     <dd>Open</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getRearLeftDoor
-#### Prototype
+#### getRearLeftDoor
+##### Prototype
 **IC_HMI_ON_OFF	getRearLeftDoor(void)**
 
-#### Description
+##### Description
 Gets the rear-left door open/close state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Closed</dd>
@@ -1326,24 +1330,24 @@ IC_HMI_ON_OFF
     <dd>Open</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getTrunkDoor
-#### Prototype
+#### getTrunkDoor
+##### Prototype
 **IC_HMI_ON_OFF	getTrunkDoor(void)**
 
-#### Description
+##### Description
 Gets the trunk door open/close state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Closed</dd>
@@ -1351,24 +1355,24 @@ IC_HMI_ON_OFF
     <dd>Open</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getHoodDoor
-#### Prototype
+#### getHoodDoor
+##### Prototype
 **IC_HMI_ON_OFF	getHoodDoor(void)**
 
-#### Description
+##### Description
 Gets the hood (bonnet) open/close state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Closed</dd>
@@ -1376,24 +1380,24 @@ IC_HMI_ON_OFF
     <dd>Open</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getEps
-#### Prototype
+#### getEps
+##### Prototype
 **IC_HMI_ON_OFF	getEps(void)**
 
-#### Description
+##### Description
 Gets the EPS warning light state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Off</dd>
@@ -1401,24 +1405,24 @@ IC_HMI_ON_OFF
     <dd>On</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getSrsAirbag
-#### Prototype
+#### getSrsAirbag
+##### Prototype
 **IC_HMI_ON_OFF	getSrsAirbag(void)**
 
-#### Description
+##### Description
 Gets the SRS airbag warning light state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Off</dd>
@@ -1426,24 +1430,24 @@ IC_HMI_ON_OFF
     <dd>On</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getAbs
-#### Prototype
+#### getAbs
+##### Prototype
 **IC_HMI_ON_OFF	getAbs(void)**
 
-#### Description
+##### Description
 Gets the ABS warning light state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Off</dd>
@@ -1451,24 +1455,24 @@ IC_HMI_ON_OFF
     <dd>On</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getLowBattery
-#### Prototype
+#### getLowBattery
+##### Prototype
 **IC_HMI_ON_OFF	getLowBattery(void)**
 
-#### Description
+##### Description
 Gets the charge warning light state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Off</dd>
@@ -1476,24 +1480,24 @@ IC_HMI_ON_OFF
     <dd>On</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getOilPress
-#### Prototype
+#### getOilPress
+##### Prototype
 **IC_HMI_ON_OFF	getOilPress(void)**
 
-#### Description
+##### Description
 Gets the oil pressure warning light state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Off</dd>
@@ -1501,24 +1505,24 @@ IC_HMI_ON_OFF
     <dd>On</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getEngine
-#### Prototype
+#### getEngine
+##### Prototype
 **IC_HMI_ON_OFF	getEngine(void)**
 
-#### Description
+##### Description
 Gets the engine warning light state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Off</dd>
@@ -1526,24 +1530,24 @@ IC_HMI_ON_OFF
     <dd>On</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getFuel
-#### Prototype
+#### getFuel
+##### Prototype
 **IC_HMI_ON_OFF	getFuel(void)**
 
-#### Description
+##### Description
 Gets the low fuel warning light state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Off</dd>
@@ -1551,24 +1555,24 @@ IC_HMI_ON_OFF
     <dd>On</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getImmobi
-#### Prototype
+#### getImmobi
+##### Prototype
 **IC_HMI_ON_OFF	getImmobi(void)**
 
-#### Description
+##### Description
 Gets the immobilizer warning light state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Off</dd>
@@ -1576,24 +1580,24 @@ IC_HMI_ON_OFF
     <dd>On</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getTMFail
-#### Prototype
+#### getTMFail
+##### Prototype
 **IC_HMI_ON_OFF	getTMFail(void)**
 
-#### Description
+##### Description
 Gets the TM Failure warning light state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Off</dd>
@@ -1601,24 +1605,24 @@ IC_HMI_ON_OFF
     <dd>On</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getEspAct
-#### Prototype
+#### getEspAct
+##### Prototype
 **IC_HMI_ON_OFF	getEspAct(void)**
 
-#### Description
+##### Description
 Gets the ESP-ACT warning light state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Off</dd>
@@ -1626,24 +1630,24 @@ IC_HMI_ON_OFF
     <dd>On</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getEspOff
-#### Prototype
+#### getEspOff
+##### Prototype
 **IC_HMI_ON_OFF	getEspOff(void)**
 
-#### Description
+##### Description
 Gets the ESP-OFF warning light state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Off</dd>
@@ -1651,24 +1655,24 @@ IC_HMI_ON_OFF
     <dd>On</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getAdaptingLighting
-#### Prototype
+#### getAdaptingLighting
+##### Prototype
 **IC_HMI_ON_OFF	getAdaptingLighting(void)**
 
-#### Description
+##### Description
 Gets the Adapting Lighting warning light state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Off</dd>
@@ -1676,24 +1680,24 @@ IC_HMI_ON_OFF
     <dd>On</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getAutoStop
-#### Prototype
+#### getAutoStop
+##### Prototype
 **IC_HMI_ON_OFF	getAutoStop(void)**
 
-#### Description
+##### Description
 Gets the Auto Stop warning light state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Off</dd>
@@ -1701,24 +1705,24 @@ IC_HMI_ON_OFF
     <dd>On</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getAutoStopFail
-#### Prototype
+#### getAutoStopFail
+##### Prototype
 **IC_HMI_ON_OFF	getAutoStopFail(void)**
 
-#### Description
+##### Description
 Gets the Auto Stop Fail warning light state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Off</dd>
@@ -1726,24 +1730,24 @@ IC_HMI_ON_OFF
     <dd>On</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getParkingLights
-#### Prototype
+#### getParkingLights
+##### Prototype
 **IC_HMI_ON_OFF	getParkingLights(void)**
 
-#### Description
+##### Description
 Gets the Parking Lights warning light state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Off</dd>
@@ -1751,24 +1755,24 @@ IC_HMI_ON_OFF
     <dd>On</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getFrontFog
-#### Prototype
+#### getFrontFog
+##### Prototype
 **IC_HMI_ON_OFF	getFrontFog(void)**
 
-#### Description
+##### Description
 Gets the Front Fog warning light state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Off</dd>
@@ -1776,24 +1780,24 @@ IC_HMI_ON_OFF
     <dd>On</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getExteriorLightFault
-#### Prototype
+#### getExteriorLightFault
+##### Prototype
 **IC_HMI_ON_OFF	getExteriorLightFault(void)**
 
-#### Description
+##### Description
 Gets the Exterior Light Fault warning light state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Off</dd>
@@ -1801,24 +1805,24 @@ IC_HMI_ON_OFF
     <dd>On</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getAccFail
-#### Prototype
+#### getAccFail
+##### Prototype
 **IC_HMI_ON_OFF	getAccFail(void)**
 
-#### Description
+##### Description
 Gets the ACC-Failure warning light state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Off</dd>
@@ -1826,24 +1830,24 @@ IC_HMI_ON_OFF
     <dd>On</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getLdwOff
-#### Prototype
+#### getLdwOff
+##### Prototype
 **IC_HMI_ON_OFF	getLdwOff(void)**
 
-#### Description
+##### Description
 Gets the Lane Departure Warning OFF state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Off</dd>
@@ -1851,24 +1855,24 @@ IC_HMI_ON_OFF
     <dd>On</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getHillDescent
-#### Prototype
+#### getHillDescent
+##### Prototype
 **IC_HMI_ON_OFF	getHillDescent(void)**
 
-#### Description
+##### Description
 Gets the Hill-Descent warning light state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Off</dd>
@@ -1876,24 +1880,24 @@ IC_HMI_ON_OFF
     <dd>On</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getAutoHiBeamGreen
-#### Prototype
+#### getAutoHiBeamGreen
+##### Prototype
 **IC_HMI_ON_OFF	getAutoHiBeamGreen(void)**
 
-#### Description
+##### Description
 Gets the AutoHiBeamGreen warning light state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Off</dd>
@@ -1901,24 +1905,24 @@ IC_HMI_ON_OFF
     <dd>On</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getAutoHiBeamAmber
-#### Prototype
+#### getAutoHiBeamAmber
+##### Prototype
 **IC_HMI_ON_OFF	getAutoHiBeamAmber(void)**
 
-#### Description
+##### Description
 Gets the AutoHiBeamAmber warning light state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Off</dd>
@@ -1926,24 +1930,24 @@ IC_HMI_ON_OFF
     <dd>On</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getSportsMode
-#### Prototype
+#### getSportsMode
+##### Prototype
 **IC_HMI_ON_OFF	getSportsMode(void)**
 
-#### Description
+##### Description
 Gets the Sports Mode warning light state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Off</dd>
@@ -1951,24 +1955,24 @@ IC_HMI_ON_OFF
     <dd>On</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getLdwOperate
-#### Prototype
+#### getLdwOperate
+##### Prototype
 **IC_HMI_ON_OFF	getLdwOperate(void)**
 
-#### Description
+##### Description
 Gets the Lane Departure Warning Operate state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Off</dd>
@@ -1976,24 +1980,24 @@ IC_HMI_ON_OFF
     <dd>On</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getGeneralWarn
-#### Prototype
+#### getGeneralWarn
+##### Prototype
 **IC_HMI_ON_OFF	getGeneralWarn(void)**
 
-#### Description
+##### Description
 Gets the General Warn state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Off</dd>
@@ -2001,24 +2005,24 @@ IC_HMI_ON_OFF
     <dd>On</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getDrivingPowerMode
-#### Prototype
+#### getDrivingPowerMode
+##### Prototype
 **IC_HMI_ON_OFF	getDrivingPowerMode(void)**
 
-#### Description
+##### Description
 Gets the Driving Power Mode state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Off</dd>
@@ -2026,24 +2030,24 @@ IC_HMI_ON_OFF
     <dd>On</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getHotTemp
-#### Prototype
+#### getHotTemp
+##### Prototype
 **IC_HMI_ON_OFF	getHotTemp(void)**
 
-#### Description
+##### Description
 Gets the Hot Temp warning light state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Off</dd>
@@ -2051,24 +2055,24 @@ IC_HMI_ON_OFF
     <dd>On</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getLowTemp
-#### Prototype
+#### getLowTemp
+##### Prototype
 **IC_HMI_ON_OFF	getLowTemp(void)**
 
-#### Description
+##### Description
 Gets the Low Temp warning light state.
 
-#### Return type
+##### Return type
 IC_HMI_ON_OFF
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OFF</dt>
     <dd>Off</dd>
@@ -2076,26 +2080,26 @@ IC_HMI_ON_OFF
     <dd>On</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 
-## ShiftPosition
+### ShiftPosition
 
-### getGearAtVal
-#### Prototype
+#### getGearAtVal
+##### Prototype
 **IC_HMI_GEAR_AT_VAL	getGearAtVal(void)**
 
-#### Description
+##### Description
 Gets the gear state value.
 
-#### Return type
+##### Return type
 IC_HMI_GEAR_AT_VAL
 
-#### Return details
+##### Return details
 <dl>
   <dt>0: IC_HMI_AT_OFF</dt>
     <dd>Indicates gear not displayed.</dd>
@@ -2125,24 +2129,24 @@ IC_HMI_GEAR_AT_VAL
     <dd>Indicates gear unused.</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getGearMtVal
-#### Prototype
+#### getGearMtVal
+##### Prototype
 **IC_HMI_GEAR_MT_VAL	getGearMtVal(void)**
 
-#### Description
+##### Description
 Gets the gear state value.
 
-#### Return type
+##### Return type
 IC_HMI_GEAR_MT_VAL
 
-#### Return details
+##### Return details
 <dl>
   <dt>0: IC_HMI_MT_OFF</dt>
     <dd>Indicates gear not displayed.</dd>
@@ -2164,50 +2168,50 @@ IC_HMI_GEAR_MT_VAL
     <dd>Indicates 8th gear.</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 
-## Speed
+### Speed
 
-### getSpAnalogVal
-#### Prototype
+#### getSpAnalogVal
+##### Prototype
 **unsigned long	getSpAnalogVal(void)**
 
-#### Description
+##### Description
 Gets the speed analog value (resolution: 0.01 after smoothing).
 
-#### Return type
+##### Return type
 unsigned long
 
-#### Return details
+##### Return details
 | Value | Meaning |
 |------:|:----------|
 |0x00000000|Min Speed (0.00)|
 |0x00007530|Max Speed (300.00)|
 |0x00007531-0xFFFFFFFF|Unused (300.01~42949672.95)|
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 Unit depends on destination market.
 
 ---
-### getSpAnaDigUnitVal
-#### Prototype
+#### getSpAnaDigUnitVal
+##### Prototype
 **IC_HMI_SP_UNIT_VAL	getSpAnaDigUnitVal(void)**
 
-#### Description
+##### Description
 Gets the speed unit.
 
-#### Return type
+##### Return type
 IC_HMI_SP_UNIT_VAL
 
-#### Return details
+##### Return details
 <dl>
   <dt>0: IC_HMI_SP_KM_H</dt>
     <dd>Display speed in km/h.</dd>
@@ -2215,51 +2219,51 @@ IC_HMI_SP_UNIT_VAL
     <dd>Display speed in mph.</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 
-## Tacho
+### Tacho
 
-### getTaAnalogVal
-#### Prototype
+#### getTaAnalogVal
+##### Prototype
 **unsigned long	getTaAnalogVal(void)**
 
-#### Description
+##### Description
 Gets the tacho analog value (resolution: 1 after smoothing). Unit: rpm.
 
-#### Return type
+##### Return type
 unsigned long
 
-#### Return details
+##### Return details
 | Value | Meaning |
 |------:|:----------|
 |0x00000000|Min rpm (0)|
 |0x00004E20|Max rpm (20000)|
 |0x00004E21-0xFFFFFFFF|Unused (20001~4294967295)|
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
-## TripComputer
+### TripComputer
 
-### getTrcomTripAVal
-#### Prototype
+#### getTrcomTripAVal
+##### Prototype
 **unsigned long getTrcomTripAVal(void)**
 
-#### Description
+##### Description
 Gets Trip A value (resolution: 0.1).
 
-#### Return type
+##### Return type
 unsigned long
 
-#### Return details
+##### Return details
 | Value | Meaning |
 |------:|:----------|
 |0x00000000|TripA Min(0.0)|
@@ -2268,24 +2272,24 @@ unsigned long
 |0xFFFFFFFE|"—" display|
 |0xFFFFFFFF|Hidden|
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 Number of display digits depends on model.
 
 ---
-### getTrcomTripBVal
-#### Prototype
+#### getTrcomTripBVal
+##### Prototype
 **unsigned long getTrcomTripBVal(void)**
 
-#### Description
+##### Description
 Gets Trip B value (resolution: 0.1).
 
-#### Return type
+##### Return type
 unsigned long
 
-#### Return details
+##### Return details
 | Value | Meaning |
 |------:|:----------|
 |0x00000000|TripB Min(0.0)|
@@ -2294,24 +2298,24 @@ unsigned long
 |0xFFFFFFFE|"—" display|
 |0xFFFFFFFF|Hidden|
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 Number of display digits depends on model.
 
 ---
-### getTrcomOdoVal
-#### Prototype
+#### getTrcomOdoVal
+##### Prototype
 **unsigned long getTrcomOdoVal(void)**
 
-#### Description
+##### Description
 Gets ODO value (resolution: 1).
 
-#### Return type
+##### Return type
 unsigned long
 
-#### Return details
+##### Return details
 | Value | Meaning |
 |------:|:----------|
 |0x00000000|ODO Min(0)|
@@ -2320,24 +2324,24 @@ unsigned long
 |0xFFFFFFFE|"—" display|
 |0xFFFFFFFF|Hidden|
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 Number of display digits depends on model.
 
 ---
-### getTrcomUnitVal
-#### Prototype
+#### getTrcomUnitVal
+##### Prototype
 **IC_HMI_TRCOM_UNIT_VAL	getTrcomUnitVal(void)**
 
-#### Description
+##### Description
 Gets the trip computer unit.
 
-#### Return type
+##### Return type
 IC_HMI_TRCOM_UNIT_VAL
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_TRCOM_KM</dt>
     <dd>Display trip computer unit in km.</dd>
@@ -2345,21 +2349,21 @@ IC_HMI_TRCOM_UNIT_VAL
     <dd>Display trip computer unit in mile.</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 Used to get units for Trip A/B and ODO values.
 
 ---
-### getAvgSpeedAVal
-#### Prototype
+#### getAvgSpeedAVal
+##### Prototype
 **unsigned short	getAvgSpeedAVal(void)**
 
-#### Description
+##### Description
 Gets average speed value associated with Trip A (resolution: 1).
 
-#### Return type
+##### Return type
 unsigned short
 
-#### Return details
+##### Return details
 | Value | Meaning |
 |------:|:----------|
 |0x0000|Average Speed A Min(0)|
@@ -2368,24 +2372,24 @@ unsigned short
 |0xFFFE|"—" display|
 |0xFFFF|Hidden|
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 Display range depends on model.
 
 ---
-### getAvgSpeedBVal
-#### Prototype
+#### getAvgSpeedBVal
+##### Prototype
 **unsigned short	getAvgSpeedBVal(void)**
 
-#### Description
+##### Description
 Gets average speed value associated with Trip B (resolution: 1).
 
-#### Return type
+##### Return type
 unsigned short
 
-#### Return details
+##### Return details
 | Value | Meaning |
 |------:|:----------|
 |0x0000|Average Speed B Min(0)|
@@ -2394,24 +2398,24 @@ unsigned short
 |0xFFFE|"—" display|
 |0xFFFF|Hidden|
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 Display range depends on model.
 
 ---
-### getHourAVal
-#### Prototype
+#### getHourAVal
+##### Prototype
 **unsigned short	getHourAVal(void)**
 
-#### Description
+##### Description
 Gets elapsed hours associated with Trip A (resolution: 1).
 
-#### Return type
+##### Return type
 unsigned short
 
-#### Return details
+##### Return details
 | Value | Meaning |
 |------:|:----------|
 |0x0000|Hour A Min(0)|
@@ -2420,24 +2424,24 @@ unsigned short
 |0xFFFE|"—" display|
 |0xFFFF|Hidden|
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 Display range depends on model.
 
 ---
-### getHourBVal
-#### Prototype
+#### getHourBVal
+##### Prototype
 **unsigned short	getHourBVal(void)**
 
-#### Description
+##### Description
 Gets elapsed hours associated with Trip B (resolution: 1).
 
-#### Return type
+##### Return type
 unsigned short
 
-#### Return details
+##### Return details
 | Value | Meaning |
 |------:|:----------|
 |0x0000|Hour B Min(0)|
@@ -2446,24 +2450,24 @@ unsigned short
 |0xFFFE|"—" display|
 |0xFFFF|Hidden|
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 Display range depends on model.
 
 ---
-### getMinuteAVal
-#### Prototype
+#### getMinuteAVal
+##### Prototype
 **unsigned char	getMinuteAVal(void)**
 
-#### Description
+##### Description
 Gets elapsed minutes associated with Trip A (resolution: 1).
 
-#### Return type
+##### Return type
 unsigned char
 
-#### Return details
+##### Return details
 | Value | Meaning |
 |------:|:----------|
 |0x00|Minute A Min (0)|
@@ -2472,24 +2476,24 @@ unsigned char
 |0xFE|"—" display|
 |0xFF|Hidden|
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 Display range depends on model.
 
 ---
-### getMinuteBVal
-#### Prototype
+#### getMinuteBVal
+##### Prototype
 **unsigned char	getMinuteBVal(void)**
 
-#### Description
+##### Description
 Gets elapsed minutes associated with Trip B (resolution: 1).
 
-#### Return type
+##### Return type
 unsigned char
 
-#### Return details
+##### Return details
 | Value | Meaning |
 |------:|:----------|
 |0x00|Minute B Min (0)|
@@ -2498,24 +2502,24 @@ unsigned char
 |0xFE|"—" display|
 |0xFF|Hidden|
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 Display range depends on model.
 
 ---
-### getSecondAVal
-#### Prototype
+#### getSecondAVal
+##### Prototype
 **unsigned char	getSecondAVal(void)**
 
-#### Description
+##### Description
 Gets elapsed seconds associated with Trip A (resolution: 1).
 
-#### Return type
+##### Return type
 unsigned char
 
-#### Return details
+##### Return details
 | Value | Meaning |
 |------:|:----------|
 |0x00|Second A Min (0)|
@@ -2524,24 +2528,24 @@ unsigned char
 |0xFE|"—" display|
 |0xFF|Hidden|
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 Display range depends on model.
 
 ---
-### getSecondBVal
-#### Prototype
+#### getSecondBVal
+##### Prototype
 **unsigned char	getSecondBVal(void)**
 
-#### Description
+##### Description
 Gets elapsed seconds associated with Trip B (resolution: 1).
 
-#### Return type
+##### Return type
 unsigned char
 
-#### Return details
+##### Return details
 | Value | Meaning |
 |------:|:----------|
 |0x00|Second B Min (0)|
@@ -2550,24 +2554,24 @@ unsigned char
 |0xFE|"—" display|
 |0xFF|Hidden|
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 Display range depends on model.
 
 ---
-### getOTempVal
-#### Prototype
+#### getOTempVal
+##### Prototype
 **signed short	getOTempVal(void)**
 
-#### Description
+##### Description
 Gets the outside temperature display value (resolution: 1).
 
-#### Return type
+##### Return type
 signed short
 
-#### Return details
+##### Return details
 | Value | Meaning |
 |------:|:----------|
 |0x8001-0xFFD7|Unused(-32767 ~ -41)|
@@ -2577,24 +2581,24 @@ signed short
 |0x7FFE|"—" display(32766)|
 |0x7FFF|Hidden(32767)|
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 Display range depends on model.
 
 ---
-### getOTempUnitVal
-#### Prototype
+#### getOTempUnitVal
+##### Prototype
 **IC_HMI_OTEMP_UNIT_VAL	getOTempUnitVal(void)**
 
-#### Description
+##### Description
 Gets the unit used for the outside temperature display.
 
-#### Return type
+##### Return type
 IC_HMI_OTEMP_UNIT_VAL
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_OTEMP_UNIT_C</dt>
     <dd>Display outside temperature in Celsius.</dd>
@@ -2602,24 +2606,24 @@ IC_HMI_OTEMP_UNIT_VAL
     <dd>Display outside temperature in Fahrenheit.</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 None
 
 ---
-### getCruRangeVal
-#### Prototype
+#### getCruRangeVal
+##### Prototype
 **unsigned short	getCruRangeVal(void)**
 
-#### Description
+##### Description
 Gets the cruise range display value (resolution: 1).
 
-#### Return type
+##### Return type
 unsigned short
 
-#### Return details
+##### Return details
 | Value | Meaning |
 |------:|:----------|
 |0x0000|Cruise Range Min(0)|
@@ -2628,24 +2632,24 @@ unsigned short
 |0xFFFE|"—" display|
 |0xFFFF|Hidden|
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 Display range depends on model.
 
 ---
-### getAvgFuelAVal
-#### Prototype
+#### getAvgFuelAVal
+##### Prototype
 **unsigned short	getAvgFuelAVal(void)**
 
-#### Description
+##### Description
 Gets average fuel consumption associated with Trip A (resolution: 0.1).
 
-#### Return type
+##### Return type
 unsigned short
 
-#### Return details
+##### Return details
 | Value | Meaning |
 |------:|:----------|
 |0x0000|Average Fuel TripA Min(0.0)|
@@ -2654,24 +2658,24 @@ unsigned short
 |0xFFFE|"—" display|
 |0xFFFF|Hidden|
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 Display range depends on model.
 
 ---
-### getAvgFuelBVal
-#### Prototype
+#### getAvgFuelBVal
+##### Prototype
 **unsigned short	getAvgFuelBVal(void)**
 
-#### Description
+##### Description
 Gets average fuel consumption associated with Trip B (resolution: 0.1).
 
-#### Return type
+##### Return type
 unsigned short
 
-#### Return details
+##### Return details
 | Value | Meaning |
 |------:|:----------|
 |0x0000|Average Fuel TripB Min(0.0)|
@@ -2680,24 +2684,24 @@ unsigned short
 |0xFFFE|"—" display|
 |0xFFFF|Hidden|
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 Display range depends on model.
 
 ---
-### getInsFuelAVal
-#### Prototype
+#### getInsFuelAVal
+##### Prototype
 **unsigned short	getInsFuelAVal(void)**
 
-#### Description
+##### Description
 Gets instantaneous fuel consumption associated with Trip A (resolution: 0.1).
 
-#### Return type
+##### Return type
 unsigned short
 
-#### Return details
+##### Return details
 | Value | Meaning |
 |------:|:----------|
 |0x0000|Instant Fuel TripA Min(0.0)|
@@ -2706,24 +2710,24 @@ unsigned short
 |0xFFFE|"—" display|
 |0xFFFF|Hidden|
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 Display range depends on model.
 
 ---
-### getInsFuelBVal
-#### Prototype
+#### getInsFuelBVal
+##### Prototype
 **unsigned short	getInsFuelBVal(void)**
 
-#### Description
+##### Description
 Gets instantaneous fuel consumption associated with Trip B (resolution: 0.1).
 
-#### Return type
+##### Return type
 unsigned short
 
-#### Return details
+##### Return details
 | Value | Meaning |
 |------:|:----------|
 |0x0000|Instant Fuel TripB Min(0.0)|
@@ -2732,24 +2736,24 @@ unsigned short
 |0xFFFE|"—" display|
 |0xFFFF|Hidden|
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 Display range depends on model.
 
 ---
-### getFuelEconomyUnitVal
-#### Prototype
+#### getFuelEconomyUnitVal
+##### Prototype
 **IC_HMI_FUEL_ECONOMY_UNIT_VAL	getFuelEconomyUnitVal(void)**
 
-#### Description
+##### Description
 Gets the fuel economy display unit.
 
-#### Return type
+##### Return type
 IC_HMI_FUEL_ECONOMY_UNIT_VAL
 
-#### Return details
+##### Return details
 <dl>
   <dt>IC_HMI_FUEL_KM_L</dt>
     <dd>Display fuel economy in km/L.</dd>
@@ -2771,28 +2775,28 @@ IC_HMI_FUEL_ECONOMY_UNIT_VAL
     <dd>Display fuel economy in kWh/100km.</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 Used to retrieve units for average and instantaneous fuel consumption.
 
-#### Notes
+##### Notes
 None
 
 
-## Register/Notify
+### Register/Notify
 
-### registerIcHmi
-#### Prototype
+#### registerIcHmi
+##### Prototype
 **bool registerIcHmi(unsigned long long arg_1,
 IC_HMI_FUNC_NOTIFY_IC_HMI addr)**
 
-#### Description
+##### Description
 Used by the Cluster UI in Event mode to specify which signals it wants to receive. See Chapter 2 for communication modes.
 Specify mask bits in the first argument to select the signals to receive. The second argument is the address of the application-created callback function.
 
-#### Return type
+##### Return type
 bool
 
-#### Return details
+##### Return details
 <dl>
   <dt>true</dt>
     <dd>Registration succeeded</dd>
@@ -2800,14 +2804,14 @@ bool
     <dd>Registration failed</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 unsigned long long arg_1: Bit flags for signals to retrieve. See the Telltale section for mapping of bits to signals. Unused flags are ignored.
 
 IC_HMI_FUNC_NOTIFY_IC_HMI addr: Address of the defined callback function. See the Callback Function section for details.
 
 If `addr` is set to null, registration fails.
 
-#### Notes
+##### Notes
 Example implementation registering TurnR and TurnL signals:
 
 `registerIcHmi((IC_HMI_TT_TURN_R||IC_HMI_TT_TURN_L ), IC_HMI_FUNC_NOTIFY_IC_HMI addr)`
@@ -2815,25 +2819,25 @@ Example implementation registering TurnR and TurnL signals:
 The callback specified by `addr` is called when the corresponding signal changes.
 
 ---
-### notifyIcHmi
-#### Prototype
+#### notifyIcHmi
+##### Prototype
 **void	notifyIcHmi(unsigned long long arg_1, IC_HMI_ON_OFF arg_2)**
 
-#### Description
+##### Description
 Called by the IC-Service to notify the Cluster UI that a registered signal has changed. This function is invoked at the time of change detection. The first argument is the bit flag indicating which signal changed, and the second argument is the post-change value.
 
-#### Return type
+##### Return type
 void
 
-#### Return details
+##### Return details
 None
 
-#### Arguments
+##### Arguments
 unsigned long long arg_1: Bit flags corresponding to the signal(s). See the bit flag section for each signal.
 
 IC_HMI_ON_OFF arg_2: Signal state after change detection. See Enum Definition for details.
 
-#### Notes
+##### Notes
 When a registered signal changes, the callback specified in `registerIcHmi` is invoked.
 
 ```
@@ -2849,18 +2853,18 @@ void notifyIcHmi(unsigned long long arg_1, IC_HMI_ON_OFF arg_2) {
 }
 ```
 
-## Initialize
-### clusterInit
-#### Prototype
+### Initialize
+#### clusterInit
+##### Prototype
 **bool	clusterInit(void)**
 
-#### Description
+##### Description
 Initializes the Cluster API for using the IC-Service.
 
-#### Return type
+##### Return type
 bool
 
-#### Return details
+##### Return details
 <dl>
   <dt>true</dt>
     <dd>Initialization succeeded</dd>
@@ -2868,24 +2872,24 @@ bool
     <dd>Initialization failed</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 Behavior is undefined if other APIs are called without calling this API first. Calling this API twice in a row without `clusterTerm()` will cause an error. If the IC-Service is not running, initialization will fail.
 
 ---
-### clusterTerm
-#### Prototype
+#### clusterTerm
+##### Prototype
 **bool	clusterTerm(void)**
 
-#### Description
+##### Description
 Terminates the Cluster API and releases resources used by the Cluster API.
 
-#### Return type
+##### Return type
 bool
 
-#### Return details
+##### Return details
 <dl>
   <dt>true</dt>
     <dd>Termination succeeded</dd>
@@ -2893,8 +2897,8 @@ bool
     <dd>Termination failed</dd>
 </dl>
 
-#### Arguments
+##### Arguments
 None
 
-#### Notes
+##### Notes
 Calling this API without first calling `clusterInit()` results in an error. Calling this API twice in a row will cause an error.

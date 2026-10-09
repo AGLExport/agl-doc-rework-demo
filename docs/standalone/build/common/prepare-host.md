@@ -1,8 +1,12 @@
 ---
-title: "Prepare a build host"
-source_path: "01_Getting_Started/02_Building_AGL_Image/02_Preparing_Your_Build_Host.md"
-content_status: imported
+title: Prepare a build host
+source_path: 01_Getting_Started/02_Building_AGL_Image/02_Preparing_Your_Build_Host.md
+content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
+
+# Prepare a build host
 
 Preparing your build host so that it can build an AGL image means
 making sure your system is set up to use the

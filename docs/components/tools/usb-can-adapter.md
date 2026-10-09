@@ -1,20 +1,24 @@
 ---
-title: "Use a USB CAN adapter"
-source_path: "04_Developer_Guides/20_Tools_Guide/01_CAN/01_USB_CAN_Adaptor.md"
-content_status: imported
+title: Use a USB CAN adapter
+source_path: 04_Developer_Guides/20_Tools_Guide/01_CAN/01_USB_CAN_Adaptor.md
+content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
-# How to send/receive CAN message using PC
+# Use a USB CAN adapter
 
-## Overview
+## How to send/receive CAN message using PC
+
+### Overview
 
 This document describe how to send CAN message to target device/view CAN message receive from target device.
 
 We use DSD Tech [SH-C30A](https://www.deshide.com/product-details_SH-C30A.html) and [SH-C31A](https://www.deshide.com/product-details_SH-C31A.html) for reference USB-CAN adaptor.  Both adapter usage is same, this document mainly focus to SH-C30A.
 
-## Hardware
+### Hardware
 
-### SH-C30A
+#### SH-C30A
 
 <img src="https://wds-service-1258344699.file.myqcloud.com/20/12636/jpg/1671089335161995e3a8f14f70aad.jpg?version=0" width="400">
 
@@ -27,7 +31,7 @@ R120 switch and Boot Switch set to these.
 - Boot Switch : OFF(Work Mode)
 - R120 : ON(If you do not connect terminator.)
 
-### SH-C31A
+#### SH-C31A
 
 <img src="https://wds-service-1258344699.file.myqcloud.com/20/12636/jpg/1692148935508a9d5ac2665b6a0e1cedbea2ae3cb0185.jpg?version=1692148939" width="400">
 
@@ -41,9 +45,9 @@ R120 switch and Boot Switch set to these.
 - Boot Switch : OFF(Work Mode)
 - R120 : ON(If you do not connect terminator.)
 
-## Software
+### Software
 
-### Install Device Driver
+#### Install Device Driver
 
 [SH-C30A Web page](https://www.deshide.com/product-details_SH-C30A.html)
 
@@ -59,7 +63,7 @@ As a result, this device can see at device manager. When your device has SLCAN f
 ![sw-driver3](../../assets/source/04_Developer_Guides/20_Tools_Guide/01_CAN/images/sw-driver3.png)
 
 ---
-### Install Control Software
+#### Install Control Software
 
 A Cangaroo is a control software for this device.  You can download this link at device page of DSD Tech.
 
@@ -70,7 +74,7 @@ After the install and exec, it show follow window.
 ![sw-cangaroo2](../../assets/source/04_Developer_Guides/20_Tools_Guide/01_CAN/images/sw-cangaroo2.png)
 
 ---
-### How to view CAN message receive from target device.
+#### How to view CAN message receive from target device.
 
 You do follows step, it will receive CAN message from target.
 
@@ -87,7 +91,7 @@ Push OK.
 It show received CAN messages.
 
 ---
-### How to send CAN message to target device
+#### How to send CAN message to target device
 
 You do follows step, it will send CAN message to target.
 

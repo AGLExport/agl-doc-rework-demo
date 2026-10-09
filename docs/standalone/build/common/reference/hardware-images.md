@@ -1,8 +1,12 @@
 ---
-title: "Hardware image configurations"
-source_path: "02_Hardware_Support/02_Supported_Hardware_Images.md"
-content_status: imported
+title: Hardware image configurations
+source_path: 02_Hardware_Support/02_Supported_Hardware_Images.md
+content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
+
+# Hardware image configurations
 
 ### Supported Hardware Images
 

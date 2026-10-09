@@ -1,8 +1,12 @@
 ---
-title: "meta-agl-demo"
-source_path: "04_Developer_Guides/02_AGL_Platform_Development/01_AGL_Yocto_Layers/03_meta_agl_demo.md"
-content_status: imported
+title: meta-agl-demo
+source_path: 04_Developer_Guides/02_AGL_Platform_Development/01_AGL_Yocto_Layers/03_meta_agl_demo.md
+content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
+
+# meta-agl-demo
 
 ## Introduction
 

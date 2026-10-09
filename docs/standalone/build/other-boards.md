@@ -1,6 +1,8 @@
 ---
-title: "Supported the other boards"
+title: Supported the other boards
 content_status: authored
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Supported the other boards

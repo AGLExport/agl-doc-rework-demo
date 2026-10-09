@@ -1,12 +1,16 @@
 ---
-title: "Instrument Cluster sound management"
-source_path: "06_Component_Documentation/02_Sound_Service/02_Instrument_Cluster_Sound_Management.md"
-content_status: imported
+title: Instrument Cluster sound management
+source_path: 06_Component_Documentation/02_Sound_Service/02_Instrument_Cluster_Sound_Management.md
+content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
-# Instrument Cluster Sound Management
+# Instrument Cluster sound management
 
-## Introduction
+## Instrument Cluster Sound Management
+
+### Introduction
 
 This document describes the design of the software setup which enables the integration
 of AGL’s sound system with applications running in the Instrument Cluster domain.
@@ -35,7 +39,7 @@ between the host and the other domain’s (non-IC) container. It should be the r
 of the other domain’s container to implement the sound system policy, so that the host does
 not need to be aware of the exact applications that are running on this container.
 
-## Requirements
+### Requirements
 
 - Single system shared between IC and at least one secondary domain (IVI, other ...)
 
@@ -49,7 +53,7 @@ not need to be aware of the exact applications that are running on this containe
 - The sound hardware offers, on the Linux kernel driver side, a separate ALSA
   device for sounds that belong to the IC and a separate ALSA device for other sounds
 
-## Architectural design
+### Architectural design
 
 ![Architecture overview](../../../assets/source/06_Component_Documentation/02_Sound_Service/images/ic-sound-manager/architecture.png)
 
@@ -83,7 +87,7 @@ with the dedicated ALSA device that is meant for IC sounds. Arbitration of this 
 different IC applications is out of scope for this document and it is assumed to be a solved
 problem.
 
-### PipeWire-IC-IPC
+#### PipeWire-IC-IPC
 
 This component acts as the server-side component for the UNIX socket that is used for
 communication between the IC applications and the host. It is implemented as a pipewire module,
@@ -95,7 +99,7 @@ PipeWire (`core.daemon = true`), which implements the sound server.
 
 ![PipeWire-IC-IPC Processes](../../../assets/source/06_Component_Documentation/02_Sound_Service/images/ic-sound-manager/pipewire-ic-ipc-processes.png)
 
-### icipc library
+#### icipc library
 
 The IC Application is given a library (‘libicipc’) that implements the client side of
 pipewire-ic-ipc. This library allows sending two commands:

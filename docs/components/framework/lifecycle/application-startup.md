@@ -1,10 +1,14 @@
 ---
-title: "Application startup and applaunchd"
-source_path: "06_Component_Documentation/20_IVI_Application_Framework/02_Application_Startup.md"
-content_status: imported
+title: Application startup and applaunchd
+source_path: 06_Component_Documentation/20_IVI_Application_Framework/02_Application_Startup.md
+content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
-# Introduction
+# Application startup and applaunchd
+
+## Introduction
 
 At system runtime, it may be necessary for applications to start other
 applications on demand. Such actions can be executed in reaction to a user
@@ -16,7 +20,7 @@ discovering installed applications and executing those.
 In order to provide a language-independent interface for applications and
 service to use, AGL includes `applaunchd`, a system service.
 
-# Application Launcher Service
+## Application Launcher Service
 
 The purpose of `applaunchd` is to enumerate applications available on the
 system and provide a way for other applications to query this list and start
@@ -30,20 +34,20 @@ can use in order to execute those actions.
 it isn't aware of applications started by other means (`systemd`, direct
 executable call...), and therefore can't send notifications for those.*
 
-## Application Discovery
+### Application Discovery
 
 Applications are enumerated from systemd's list of available units based on the
 pattern `agl-app*@*.service`, and are started and controlled using their systemd
 unit.  Please note `applaunchd` allows only one instance of a given
 application.
 
-## Application Identifiers
+### Application Identifiers
 
 Each application is identified by a unique Application ID. Although this ID can
 be any valid string, it is highly recommended to use the "reverse DNS"
 convention in order to avoid potential name collisions.
 
-## gRPC Interface
+### gRPC Interface
 
 The interface provides methods for the following actions:
 
@@ -60,7 +64,7 @@ compatibility in case additional fields are required.
 It is a good standard practice to follow up with these recommendation when
 developing a new protobuf specification.
 
-### Application Enumeration
+#### Application Enumeration
 
 The `ListApplications` method allows clients to retrieve the list of available
 applications.
@@ -79,7 +83,7 @@ message ListResponse {
 }
 ```
 
-### Application Start-up
+#### Application Start-up
 
 Applications can be started by using the `StartApplication` method, passing the
 `StartRequest` message, defined as:
@@ -108,7 +112,7 @@ If the application is already running, `applaunchd` won't start another
 instance, but instead reply with a `AppStatus` message setting the `status`
 string to "started".
 
-### Status Notifications
+#### Status Notifications
 
 The gRPC interface provides clients with a subscription model to receive
 status events. Client should subscribe to `GetStatusEvents` method to receive
@@ -148,7 +152,7 @@ This can be useful, for example, when switching between graphical applications:
   set to "terminated" to denote that the application has been terminated,
   forcibly or not
 
-## Start-up, Activation, and Application Switching
+### Start-up, Activation, and Application Switching
 
 Application start-up, activation and application switching are sometimes
 conflated into a single operation but underneath some of these are distinct
@@ -179,7 +183,7 @@ by the desktop run-time/shell client.
 as this synchronization part between `applaunchd` has not been implemented. The
 plan is to migrate all of remaining run-times to using this approach.*
 
-### Start-up and Activation
+#### Start-up and Activation
 
 This means that we require some sort of interaction between `StartApplication`
 method and the events sent by the AGL compositor in order to correctly handle
@@ -233,7 +237,7 @@ application start-up:
 
 ![Application_start](../../../assets/source/06_Component_Documentation/20_IVI_Application_Framework/images/start_and_activation.png)
 
-### Application Switching
+#### Application Switching
 
 With the compositor providing application status events, it might seem that the
 `applaunchd`'s, `GetStatusEvents` might be redundant, but in fact it is being

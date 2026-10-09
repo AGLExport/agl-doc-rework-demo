@@ -1,7 +1,9 @@
 ---
-title: "Momi Weather"
-source_path: "06_Component_Documentation/40_Demo_Application/04_Momi_IVI_Demo/04_Momi_Weather.md"
-content_status: imported
+title: Momi Weather
+source_path: 06_Component_Documentation/40_Demo_Application/04_Momi_IVI_Demo/04_Momi_Weather.md
+content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Momi Weather

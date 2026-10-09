@@ -1,5 +1,7 @@
 ---
-title: "Contribute"
+title: Contribute
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Contribute
@@ -26,4 +28,4 @@ When improving a procedure, include its version and environment, prerequisites, 
 
 ## Related information
 
-Depending on your task, refer to [Distributed system](../standalone/index.md), [API & configuration](../components/index.md), and [Releases & migration](../releases/index.md).
+Depending on your task, refer to [Base platform for the distributed system](../standalone/index.md), [API & configuration](../components/index.md), and [Releases & migration](../releases/index.md).

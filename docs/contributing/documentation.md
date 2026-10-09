@@ -1,7 +1,9 @@
 ---
-title: "Contribute to the documentation"
-source_path: "07_How_To_Contribute/09_Adding_Documentation.md"
+title: Contribute to the documentation
+source_path: 07_How_To_Contribute/09_Adding_Documentation.md
 content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Contribute to the documentation

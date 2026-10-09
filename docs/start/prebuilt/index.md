@@ -1,7 +1,9 @@
 ---
-title: "Run Flutter IVI demo pre-build image"
-source_path: "01_Getting_Started/01_Quickstart/01_Using_Ready_Made_Images.md"
+title: Run Flutter IVI demo pre-build image
+source_path: 01_Getting_Started/01_Quickstart/01_Using_Ready_Made_Images.md
 content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Run Flutter IVI demo pre-build image

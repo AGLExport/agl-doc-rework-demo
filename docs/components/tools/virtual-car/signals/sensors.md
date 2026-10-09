@@ -1,20 +1,24 @@
 ---
-title: "Virtual car sensor signals"
-source_path: "06_Component_Documentation/80_DevTools/03_AGL_Virtual_Car_CAN/04_sensor.md"
-content_status: imported
+title: Virtual car sensor signals
+source_path: 06_Component_Documentation/80_DevTools/03_AGL_Virtual_Car_CAN/04_sensor.md
+content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
-# The CAN signal specification for the AGL virtual car.
+# Virtual car sensor signals
+
+## The CAN signal specification for the AGL virtual car.
 
 [Top](../virtual-car.md)
 
-## Sensor
+### Sensor
 
-### ID: 33 , Steering Wheel
+#### ID: 33 , Steering Wheel
 
 8 Byte CAN message.
 
-#### Signals
+##### Signals
 | Name | Type | Endian | Start Bit | Bits Length | Factor | Offset | Min | Max | Unit | Comment |
 |:-----|:-----|:-------|----------:|------------:|-------:|-------:|----:|----:|-----:|:------- |
 | SW_CruiseEnable | unsigned | little | 55 | 1 | 1 | +0 | 0 | 1 | ON/OFF | A cruise enable switch of the steering wheel. |
@@ -36,13 +40,13 @@ content_status: imported
 | SW_Info | unsigned | little | 33 | 1 | 1 | +0 | 0 | 1 | ON/OFF | A information switch of the steering wheel. |
 | SW_VolumeMute | unsigned | little | 32 | 1 | 1 | +0 | 0 | 1 | ON/OFF | A volume mute switch of the steering wheel. |
 
-#### Units
+##### Units
 
 | Unit | Descriptions |
 |:-----|:-------------|
 |ON/OFF| 1: ON, 0: OFF |
 
-#### Supported demo
+##### Supported demo
 
 + agl-ivi-demo with kuksa.val
 

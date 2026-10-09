@@ -1,7 +1,9 @@
 ---
-title: "Build a virtio guest"
-source_path: "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/06_Building_for_Virtio.md"
+title: Build a virtio guest
+source_path: 01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/06_Building_for_Virtio.md
 content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Build a virtio guest

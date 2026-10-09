@@ -1,7 +1,9 @@
 ---
-title: "Build and boot on Raspberry Pi"
-source_path: "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/03_Building_for_Raspberry_Pi_x.md"
+title: Build and boot on Raspberry Pi
+source_path: 01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/03_Building_for_Raspberry_Pi_x.md
 content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Build and boot on Raspberry Pi

@@ -1,8 +1,12 @@
 ---
-title: "Contribution guidelines"
-source_path: "07_How_To_Contribute/07_General_Guidelines.md"
-content_status: imported
+title: Contribution guidelines
+source_path: 07_How_To_Contribute/07_General_Guidelines.md
+content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
+
+# Contribution guidelines
 
 ## Getting help
 

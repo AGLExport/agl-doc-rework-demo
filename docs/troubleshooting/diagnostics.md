@@ -1,6 +1,9 @@
 ---
 title: Diagnose common problems
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
+
 # Diagnose common problems
 
 Choose the symptom below, then capture enough context to identify the image and environment.
@@ -12,7 +15,7 @@ Choose the symptom below, then capture enough context to identify the image and 
 | SSH connection fails | Target address and network connection. The supplied x86 QEMU command forwards host port 2222 to target port 22. | [Prebuilt environments](../start/prebuilt/index.md) |
 | Source build fails early | Supported host distribution, required tools/packages, free storage, MACHINE, and selected features. | [Prepare a host](../standalone/build/common/prepare-host.md), [Initialize the build](../standalone/build/common/initialize-build.md) |
 | An application does not appear in the launcher | Application identifier, matching service unit, and packaging configuration. | [Register an application](../standalone/applications/create-application.md), [Application startup](../components/framework/lifecycle/application-startup.md) |
-| A multi-board demo cannot exchange data | Image variant, expected network addresses, and where the databroker runs. | [Preconfigured images](../standalone/build/common/reference/images.md#2-preconfigured-demo-images) |
+| A multi-board demo cannot exchange data | Image variant, expected network addresses, and where the databroker runs. | [Coordinated demo configuration](../standalone/build/common/reference/images.md#coordinated-demo-configuration) |
 
 ## Collect target information
 

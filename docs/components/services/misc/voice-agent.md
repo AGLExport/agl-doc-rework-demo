@@ -1,21 +1,23 @@
 ---
-title: "Voice agent assistant"
-source_path: "06_Component_Documentation/04_Misc_Service/02_agl_voice_agent_assistant.md"
-content_status: imported
+title: Voice agent assistant
+source_path: 06_Component_Documentation/04_Misc_Service/02_agl_voice_agent_assistant.md
+content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Voice agent assistant
 
-# Introduction
+## Introduction
 A gRPC-based voice agent designed for Automotive Grade Linux (AGL). This service leverages GStreamer, Vosk, Whisper AI, and Snips to process user voice commands seamlessly. It converts spoken words into text, extracts intents from these commands, and performs actions through the Kuksa interface. The voice agent is modular and extensible, allowing for the addition of new speech recognition and intent extraction models. Whisper AI is available for both online and offline modes, offering more accurate transcription compared to Vosk, though it may run slower in offline mode.
 
 Note: RASA NLU is currently not available as it is not supported by Python 3.12, the version used in AGL.
 
 
-# Installation and Usage
+## Installation and Usage
 Before diving into the detailed components documentation, let's first look at how to install and use the voice agent service. All of the features of the voice agent service are encapsulated in the `meta-offline-voice-agent` sub-layer, which can be found under the `meta-agl-devel layer`. These features are currently available in the `{{ agl.codename }}` branch only. You can build this sub-layer into the final image using the following commands:
 
-### Building for QEMU x86-64
+#### Building for QEMU x86-64
 
 ```shell
 $ source {{ agl.codename }}/meta-agl/scripts/aglsetup.sh -m qemux86-64 -b build-{{ agl.codename }} agl-demo agl-devel agl-offline-voice-agent
@@ -23,7 +25,7 @@ $ source agl-init-build-env
 $ bitbake agl-ivi-demo-flutter
 ```
 
-### Building for Raspberry Pi 5
+#### Building for Raspberry Pi 5
 
 Whisper AI does not work on the emulator; therefore, building and running on a physical device like the Raspberry Pi 5 is recommended. You can set up the build environment specifically for Raspberry Pi 5 using:
 
@@ -183,10 +185,10 @@ $ voiceagent-service run-server --config path/to/config.ini
 
 One thing to note here is that all the directory paths in the configuration file should be absolute and always end with a `/`.
 
-# High Level Architecture
+## High Level Architecture
 ![Voice_Agent_Architecture](../../../assets/source/06_Component_Documentation/04_Misc_Service/images/agl-voice-agent/AGL_VoiceAgent_updated_architecture.png)
 
-# Components
+## Components
 - Voice Agent Service
     - Whisper AI
     - Vosk Kaldi
@@ -194,23 +196,23 @@ One thing to note here is that all the directory paths in the configuration file
     - RASA
 - Voice Assistant App
 
-# Voice Agent Service
+## Voice Agent Service
 The voice agent service is a gRPC-based service that is responsible for converting spoken words into text, extracting intents from these commands, and performing actions through the Kuksa interface. The service is composed of three main components: Whisper AI, Vosk Kaldi, RASA, and Snips.
 
-## Whisper AI
+### Whisper AI
 Whisper AI is a versatile speech recognition model developed by OpenAI. It is designed to convert spoken words into text with high accuracy and supports multiple languages out of the box. Whisper AI offers various pre-trained models, each optimized for different hardware capabilities and performance requirements. The current voice agent service uses Whisper AI for **speech recognition**. In offline mode, Whisper AI processes speech locally on the device, providing an accurate transcription of user commands. While Whisper AI may be slightly slower than other models like Vosk, it offers higher accuracy, especially for complex and noisy inputs. It does not currently support wake word detection, so it is used alongside other tools like Vosk for a comprehensive voice assistant solution.
 
-## Vosk Kaldi
+### Vosk Kaldi
 Vosk Kaldi is a speech recognition toolkit that is based on Kaldi and Vosk. It is used to convert spoken words into text. It provides us with some official pre-trained models for various popular languages. We can also train our own models using the Vosk Kaldi toolkit. The current voice agent service requires two different models to run, one for **wake-word detection** and one for **speech recognition**. The wake word detection model is used to detect when the user says the wake word, which is "Hey Automotive" by default, we can easily change the default wake word by modifying the config file. The speech recognition model is used to convert the user's spoken words into text.
 
 **Note:** The current **wake word** is set to **"Hey Automotive,"** but you can change it to any wake word of your choice. However, if you plan to use a more specific wake word, you may need to train the Vosk wake word model yourself, as the pre-trained models may not be optimized for your specific wake word.
 
-## Snips
+### Snips
 Snips NLU (Natural Language Understanding) is a Python based Intent Engine that allows to extract structured information from sentences written in natural language. The NLU engine first detects what the intention of the user is (a.k.a. intent), then extracts the parameters (called slots) of the query. The developer can then use this to determine the appropriate action or response. Our voice agent service uses either Snips or RASA to extract intents from the user's spoken commands.
 
 It is recommended to take a brief look at [Snips Official Documentation](https://snips-nlu.readthedocs.io/en/latest/) to get a better understanding of how Snips works.
 
-### Dataset Format
+#### Dataset Format
 The Snips NLU engine uses a dataset to understand and recognize user intents. The dataset is structured into two files:
 
 - `intents.yaml`: Contains the intent definitions, slots, and sample utterances for each intent.
@@ -218,7 +220,7 @@ The Snips NLU engine uses a dataset to understand and recognize user intents. Th
 
 To train the NLU Intent Engine model, a pre-processing step is required to convert the dataset into a format compatible with the Snips NLU engine. Once the model is trained, it can be used to parse user queries and extract the intent and relevant slots for further processing.
 
-### Training
+#### Training
 To train the NLU Intent Engine for your specific use case, you can modify the dataset files `intents.yaml` and `entities.yaml` to add new intents, slots, or entity values. You need to re-generate the dataset if you modify `intent.yaml` or `entities.yaml`, for this purpose you need to install [`snips-sdk-agl`](https://github.com/malik727/snips-sdk-agl) module. This module is an extension of the original Snips NLU with upgraded Python support and is specifically designed for data pre-processing and training purposes only.
 
 After installation run the following command to generate the updated `dataset.json` file:
@@ -233,7 +235,7 @@ $ snips-sdk train path/to/dataset.json path/to/model
 
 Finally, you can use the [`snips-inference-agl`](https://git.automotivelinux.org/src/snips-inference-agl) module to process commands and extract the associated intents.
 
-### Usage
+#### Usage
 To set up and run the Snips NLU Intent Engine, follow these steps:
 
 1. Train your model by following the steps laid earlier or just clone a pre-existing model from [here](https://git.automotivelinux.org/src/snips-model-agl).
@@ -245,12 +247,12 @@ To set up and run the Snips NLU Intent Engine, follow these steps:
     $ snips-inference parse path/to/model -q "your command here"
     ```
 
-### Observations
+#### Observations
 - The Snips NLU engine is very lightweight and uses around 250 MB - 300 MB of RAM when running on the target device.
 - The underlying AI arhictecture of the Snips NLU is not extensible or changeable.
 - The Snips NLU engine is not very accurate as compared to RASA, however, its extremely lightweight and really fast.
 
-## RASA
+### RASA
 
 **Note:** : RASA is currently not included into the build as it is not supported by Python 3.12, the version used in AGL.
 
@@ -258,7 +260,7 @@ RASA is an open-source machine learning framework for building contextual AI ass
 
 It is recommended to take a brief look at [RASA Official Documentation](https://rasa.com/docs/rasa/) to get a better understanding of how RASA works.
 
-### Dataset Format
+#### Dataset Format
 Rasa uses YAML as a unified and extendable way to manage all training data, including NLU data, stories and rules.
 
 You can split the training data over any number of YAML files, and each file can contain any combination of NLU data, stories, and rules. The training data parser determines the training data type using top level keys.
@@ -278,7 +280,7 @@ nlu:
     - credit account
 ```
 
-### Training
+#### Training
 To train the RASA NLU intent engine model you need to curate a dataset for your specific use case. You can also use the [RASA NLU Trainer](https://rasahq.github.io/rasa-nlu-trainer/) to curate your dataset. Once you have your dataset ready, now you need to create a `config.yml` file. This file contains the configuration for the RASA NLU engine. A sample `config.yml` file is given below:
 
 ```yaml
@@ -315,7 +317,7 @@ Finally, you can use the following command to train the RASA NLU engine:
 $ rasa train nlu --config config.yml --nlu path/to/dataset.yml --out path/to/model
 ```
 
-### Usage
+#### Usage
 To set up and run the RASA NLU Intent Engine, follow these steps:
 
 1. Train your model by following the steps laid earlier or just clone a pre-existing model from [here](https://gerrit.automotivelinux.org/gerrit/gitweb?p=src/rasa-model-agl.git;a=summary).
@@ -325,14 +327,14 @@ To set up and run the RASA NLU Intent Engine, follow these steps:
     $ rasa shell --model path/to/model
     ```
 
-### Observations
+#### Observations
 - The RASA NLU engine is heavy and uses around 0.8 GB - 1 GB of RAM when running on the target device.
 - The underlying AI arhictecture of the RASA NLU is extensible and changeable thanks to the TensorFlow backend.
 - The RASA NLU engine is very accurate as compared to Snips, however, its heavy and slightly slow.
 
-# Voice Assistant Client
+## Voice Assistant Client
 
-## flutter-ics-homescreen Integration
+### flutter-ics-homescreen Integration
 The voice assistant client is integrated into the `flutter-ics-homescreen` app, which can interact with the voice agent service to process user voice commands.
 
 | ![Flutter-ics-homescreen_1](../../../assets/source/06_Component_Documentation/04_Misc_Service/images/agl-voice-agent/flutter-ics-homescreen-voice-assistant-1.png) | ![Flutter-ics-homescreen_2](../../../assets/source/06_Component_Documentation/04_Misc_Service/images/agl-voice-agent/flutter-ics-homescreen-voice-assistant-2.png) |
@@ -341,7 +343,7 @@ The voice assistant client is integrated into the `flutter-ics-homescreen` app, 
 | ![Flutter-ics-homescreen_1](../../../assets/source/06_Component_Documentation/04_Misc_Service/images/agl-voice-agent/flutter-ics-homescreen-voice-assistant-3.png) | ![Flutter-ics-homescreen_2](../../../assets/source/06_Component_Documentation/04_Misc_Service/images/agl-voice-agent/flutter-ics-homescreen-voice-assistant-settings.png) |
 |:--:|:--:|
 
-## Voice Assistant App
+### Voice Assistant App
 The voice assistant app is a standalone, Flutter-based client designed for Automotive Grade Linux (AGL). It is responsible for interacting with the voice agent service for user voice command recognition, intent extraction, and command execution. It also receives the response from the voice agent service and displays it on the screen. Some app UI screenshots are attached below.
 
 | ![Voice_Agent_App_1](../../../assets/source/06_Component_Documentation/04_Misc_Service/images/agl-voice-agent/voice-assistant-updated-1.png) | ![Voice_Agent_App_2](../../../assets/source/06_Component_Documentation/04_Misc_Service/images/agl-voice-agent/voice-assistant-updated-2.png) |

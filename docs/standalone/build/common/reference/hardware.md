@@ -1,8 +1,12 @@
 ---
-title: "Hardware support levels and boards"
-source_path: "02_Hardware_Support/01_Supported_Hardware_Overview.md"
-content_status: imported
+title: Hardware support levels and boards
+source_path: 02_Hardware_Support/01_Supported_Hardware_Overview.md
+content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
+
+# Hardware support levels and boards
 
 ### Supported Hardware
 

@@ -1,6 +1,8 @@
 ---
-title: "Instrument Cluster"
+title: Instrument Cluster
 content_status: authored
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Instrument Cluster

@@ -1,6 +1,8 @@
 ---
-title: "Extra demo system"
+title: Extra demo system
 content_status: authored
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Extra demo system

@@ -1,13 +1,12 @@
 {% extends "base.html" %}
 {% block announce %}
-  <strong>AGL {{ config.extra.agl.codename }}</strong>
-  {% if config.extra.artifact_kind == "snapshots" %} · Development documentation{% else %} · Release documentation{% endif %}
-  · Yocto {{ config.extra.yocto.version }}
-  <a href="{{ 'releases/' | url }}">Release guidance →</a>
+  <strong>AGL master</strong> &middot; Development documentation
+  &middot; Sources reviewed {{ config.extra.source_review_date }}
+  <a href="{{ 'releases/' | url }}">Build and version guidance &rarr;</a>
 {% endblock %}
 {% block content %}
-  {% if page.meta.content_status == "imported" %}
-    <div class="agl-source-note">Detailed AGL guide · Match the instructions to your release, image, and board.</div>
+  {% if page.meta.source_path %}
+    <div class="agl-source-note">AGL master guide &middot; Match the image, SDK and guest artifacts to one resolved source manifest.</div>
   {% endif %}
   {{ super() }}
 {% endblock %}

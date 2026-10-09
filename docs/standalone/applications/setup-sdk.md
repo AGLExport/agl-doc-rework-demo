@@ -1,7 +1,9 @@
 ---
-title: "Set up the AGL SDK"
-source_path: "04_Developer_Guides/01_Basic/02_Setting_Up_AGL_SDK.md"
+title: Set up the AGL SDK
+source_path: 04_Developer_Guides/01_Basic/02_Setting_Up_AGL_SDK.md
 content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Set up the AGL SDK

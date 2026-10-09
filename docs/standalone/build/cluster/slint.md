@@ -1,7 +1,9 @@
 ---
-title: "Slint based Cluster"
-source_path: "01_Getting_Started/03_Build_and_Boot_guide_Profile/03_Slint_Demo_Image.md"
+title: Slint based Cluster
+source_path: 01_Getting_Started/03_Build_and_Boot_guide_Profile/03_Slint_Demo_Image.md
 content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Slint based Cluster
@@ -9,7 +11,7 @@ content_status: adapted
 
 This document describes how to build Rust based Instrument Cluster Demo Images.
 
-## 1. Available target board
+### 1. Available target board
 
 Rust based Instrument Cluster Demo Images is available on table 1 boards.
 
@@ -20,19 +22,19 @@ Rust based Instrument Cluster Demo Images is available on table 1 boards.
 | NanoPC-T6 (4G or 8G or 16G) |
 | Raspberry Pi4/5 (4G or 8G) |
 
-## 2. Setup build environment
+### 2. Setup build environment
 
 Build environment for Rust based Instrument Cluster Demo is same as AGL other profile build environment.
 
-### 1st step:
+#### 1st step:
 Please read [[Build Process Overview]](../common/build-overview.md) in AGL doc.
 
-### 2nd step:
+#### 2nd step:
 Please read [[Preparing Your Build Host]](../common/prepare-host.md) in AGL doc.
 
 Use the directory definitions in [Download AGL source](../common/download-source.md): `AGL_TOP` is the parent directory and `AGL_SOURCE` is the checkout root.
 
-### 3rd step:
+#### 3rd step:
 Define Your Top-Level Directory.
 
 ```bash
@@ -40,7 +42,7 @@ $ export AGL_TOP=$HOME/AGL
 $ mkdir -p $AGL_TOP
 ```
 
-### 4th step: Download the repo Tool and Set Permissions
+#### 4th step: Download the repo Tool and Set Permissions
 
 If your environment already install google repo, please skip this step.
 
@@ -51,7 +53,7 @@ $ curl https://storage.googleapis.com/git-repo-downloads/repo > $HOME/bin/repo
 $ chmod a+x $HOME/bin/repo
 ```
 
-### 5th step: Setup git
+#### 5th step: Setup git
 
 If your environment already setup user information for git, please skip this step.
 
@@ -60,7 +62,7 @@ $ git config --global user.email "you@example.com"
 $ git config --global user.name "Your Name"
 ```
 
-### 6th step: Download the AGL Source Files
+#### 6th step: Download the AGL Source Files
 
 ```bash
 $ cd $AGL_TOP
@@ -72,9 +74,9 @@ $ repo sync
 ```
 
 
-## 3. Configure to target board and build.
+### 3. Configure to target board and build.
 
-### 1st step:  Run the aglsetup.sh Script.
+#### 1st step:  Run the aglsetup.sh Script.
 
 ```bash
 $ cd "$AGL_SOURCE"
@@ -96,13 +98,13 @@ $ source meta-agl/scripts/aglsetup.sh -f -m raspberrypi5 -b build-ic-rpi5 agl-de
 ```
 
 
-### 2nd step: Build target image.
+#### 2nd step: Build target image.
 
 ```bash
 $ bitbake  agl-instrument-cluster-standalone-demo-slint
 ```
 
-## 4. Write image to SD card.
+### 4. Write image to SD card.
 
 The image is constructed by wic image, that include partition table and each partition data into one image file.
 
@@ -125,9 +127,9 @@ A /dev/sda is SSD for your PC.  A /dev/sdb is SD card.  You should use
 When your PC has direct SD card interface not a use card reader, your SD
 card device is /dev/mmcblkX may be.
 
-## 6. Power on.
+### 6. Power on.
 
 
-# Attention
+## Attention
 
 Current demo image requires to 1920 x 720 display.

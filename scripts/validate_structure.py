@@ -165,6 +165,13 @@ def section_paths(section, pages, structure, parent=None):
     if section not in titles:
         aliases = {alias.casefold(): title for alias, title in SECTION_ALIASES.items()}
         section = aliases.get(section.casefold(), section)
+        platform_aliases = {
+            'Distributed system': 'Base platform for the distributed system',
+            'Small scale integrated system': 'Base platform for the small-scale integrated system',
+            'Large scale integrated system': 'Base platform for the large-scale integrated system',
+        }
+        if section not in titles and platform_aliases.get(section) in titles:
+            section = platform_aliases[section]
     # A content rule applies to every matching chapter, including repeated demo-group titles.
     paths = [path for title, path in pages if title == section]
     if parent is not None:
@@ -195,6 +202,20 @@ def validate_official_figure(project, docs, page, text):
     raise ValueError('Required official architecture diagram is missing: ' + page)
 
 
+def validate_master_references(text_by_path):
+    """Reject named-release documentation and layer branch links on a master site."""
+    for path, text in text_by_path.items():
+        for match in re.finditer(r"https://docs\.automotivelinux\.org/en/([^/]+)/", text):
+            if match[1] not in ("master", "{{ agl.codename }}"):
+                raise ValueError("Non-master AGL documentation reference: " + path + " -> " + match[1])
+        for url in re.findall(r'https://git\.automotivelinux\.org/AGL/[^\s<>"\)]+', text):
+            branch = re.search(r'[?&]h=([^&#]+)', url)
+            if branch and branch[1] != "master":
+                raise ValueError("Non-master AGL layer reference: " + path + " -> " + branch[1])
+            if chr(96) + "id=" in url:
+                raise ValueError("Malformed AGL source reference: " + path)
+
+
 def validate(project):
     project = project.resolve()
     docs = project / 'docs'
@@ -209,12 +230,18 @@ def validate(project):
     if len(set(nav_paths)) != len(nav_paths):
         raise ValueError('A document is duplicated in the required navigation')
     text_by_path = {p.relative_to(docs).as_posix():p.read_text(encoding='utf-8-sig') for p in docs.rglob('*.md')}
+    if config.get('extra', {}).get('agl', {}).get('codename') == 'master':
+        validate_master_references(text_by_path)
+        validate_master_references({p.relative_to(docs).as_posix(): p.read_text(encoding='utf-8')
+                                    for p in (docs / 'assets/diagrams').glob('*.svg')})
     for title,path in pages:
         if path not in text_by_path:
             raise ValueError('Required document is missing: '+path)
         if first_heading(text_by_path[path]) != title:
             raise ValueError('Required page heading differs: '+path)
     for path, body in text_by_path.items():
+        if sum(level == 1 for level, _ in markdown_headings(body)) != 1:
+            raise ValueError('Each article must have exactly one H1: ' + path)
         if any(title.casefold() == 'further reading' for _, title in markdown_headings(body)):
             raise ValueError('Further reading section must be removed: ' + path)
     structure = json.loads((project/'structure-map.json').read_text(encoding='utf-8'))

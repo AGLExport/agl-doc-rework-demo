@@ -1,7 +1,9 @@
 ---
-title: "Momi Screen"
-source_path: "06_Component_Documentation/40_Demo_Application/04_Momi_IVI_Demo/01_Momi_Screen.md"
-content_status: imported
+title: Momi Screen
+source_path: 06_Component_Documentation/40_Demo_Application/04_Momi_IVI_Demo/01_Momi_Screen.md
+content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Momi Screen

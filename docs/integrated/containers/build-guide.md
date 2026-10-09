@@ -1,16 +1,20 @@
 ---
-title: "Instrument Cluster with container isolation"
-source_path: "01_Getting_Started/03_Build_and_Boot_guide_Profile/01_Instrument_Cluster_(IC-IVI_with_Container_isolation).md"
+title: Instrument Cluster with container isolation
+source_path: 01_Getting_Started/03_Build_and_Boot_guide_Profile/01_Instrument_Cluster_(IC-IVI_with_Container_isolation).md
 content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
-# Build and Boot AGL Instrument Cluster demo image (IC-IVI with Container isolation)
+# Instrument Cluster with container isolation
+
+## Build and Boot AGL Instrument Cluster demo image (IC-IVI with Container isolation)
 
 
 This document describes how to build AGL instrument cluster with
 container integration.
 
-## 1. Select Image type and target board
+### 1. Select Image type and target board
 
 AGL IC container integration has various type.  Developer need to choose
 which integration type.  Those types are shown in table 1.
@@ -39,20 +43,20 @@ We recommend choosing Sparrow Hawk or Raspberry Pi5 (4G or 8G) or NanoPC-T6 (4G 
 
 **Typical Hardware Set is shown in Appendix.1. **
 
-## 2. Setup build environment
+### 2. Setup build environment
 
 Build environment for AGL IC container integration is same as AGL other
 profile build environment.
 
-### 1st step:
+#### 1st step:
 Please read [[Build Process Overview]](../../standalone/build/common/build-overview.md) in AGL doc.
 
-### 2nd step:
+#### 2nd step:
 Please read [[Preparing Your Build Host]](../../standalone/build/common/prepare-host.md) in AGL doc.
 
 Use the directory definitions in [Download AGL source](../../standalone/build/common/download-source.md): `AGL_TOP` is the parent directory and `AGL_SOURCE` is the checkout root.
 
-### 3rd step:
+#### 3rd step:
 Define Your Top-Level Directory.
 
 ```bash
@@ -60,7 +64,7 @@ $ export AGL_TOP=$HOME/AGL
 $ mkdir -p $AGL_TOP
 ```
 
-### 4th step: Download the repo Tool and Set Permissions
+#### 4th step: Download the repo Tool and Set Permissions
 
 If your environment already install google repo, please skip this step.
 
@@ -71,7 +75,7 @@ $ curl https://storage.googleapis.com/git-repo-downloads/repo > $HOME/bin/repo
 $ chmod a+x $HOME/bin/repo
 ```
 
-### 5th step: Setup git
+#### 5th step: Setup git
 
 If your environment already setup user information for git, please skip this step.
 
@@ -80,7 +84,7 @@ $ git config --global user.email "you@example.com"
 $ git config --global user.name "Your Name"
 ```
 
-### 6th step: Download the AGL Source Files
+#### 6th step: Download the AGL Source Files
 
 ```bash
 $ cd $AGL_TOP
@@ -92,9 +96,9 @@ $ repo sync
 ```
 
 
-## 3. Configure to target board and build.
+### 3. Configure to target board and build.
 
-### 1st step:  Run the aglsetup.sh Script.
+#### 1st step:  Run the aglsetup.sh Script.
 
 ```bash
 $ cd "$AGL_SOURCE"
@@ -122,7 +126,7 @@ $ source meta-agl/scripts/aglsetup.sh -f -m raspberrypi5 -b build-ic-rpi5 agl-ic
 ```
 
 
-### 2nd step: Build target image.
+#### 2nd step: Build target image.
 
 In this time, you can build 1 and 2a.  If you want to build 2b,
 please do extra step in next section.
@@ -139,7 +143,7 @@ When you choose integration type 2a.
 $ bitbake agl-instrument-cluster-container-demo
 ```
 
-## 4. Extra step for type 2b build.
+### 4. Extra step for type 2b build.
 
 This extra step can select 4.1 or 4.2.  When you want to build AGL demo
 IVI container guest yourself, please select the 4.1 workflow.  When you
@@ -149,9 +153,9 @@ Typically 4.1 step requires long build time about 6h.  When you want to
 build AGL Ref HW/ SK+ Kingfisher software, you can't use the 4.2
 work flow due to Renesas proprietary license limitation.
 
-### 4.1. Extra step for type 2b build myself.
+#### 4.1. Extra step for type 2b build myself.
 
-#### 1st step: Configure 2nd build tree.
+##### 1st step: Configure 2nd build tree.
 
 We recommend to open new terminal to do this extra section.
 
@@ -182,7 +186,7 @@ When your board is Raspberry Pi 5
 $ source meta-agl/scripts/aglsetup.sh -f -m raspberrypi5 -b build-ivi-rpi5 agl-container-guest-demo agl-demo
 ```
 
-#### 2nd step: Build target images.
+##### 2nd step: Build target images.
 
 Type 2b integration need to build 3 image, these image are
 agl-ivi-demo-qt and agl-ivi-demo-flutter.
@@ -192,7 +196,7 @@ $ bitbake agl-ivi-demo-qt
 $ bitbake agl-ivi-demo-flutter
 ```
 
-#### 3rd step: Set deploy path of AGL IVI Demo to IC side config.
+##### 3rd step: Set deploy path of AGL IVI Demo to IC side config.
 
 Type 2b integration refer to IVI pre build image.  Please set IVI side
 deploy directory in ic side local.conf (or site.conf).
@@ -228,7 +232,7 @@ ex.  When your board is Raspberry Pi 5 and your home directory is "/home/user/".
 OUT_OF_TREE_CONTAINER_IMAGE_DEPLOY_DIR = "/home/user/AGL/{{ agl.codename }}/build-ivi-rpi5/tmp/deploy"
 ```
 
-#### 4th step: Build all in one image (2b).
+##### 4th step: Build all in one image (2b).
 
 Back to terminal for ic build.
 
@@ -236,7 +240,7 @@ Back to terminal for ic build.
 $ bitbake agl-instrument-cluster-container-demo
 ```
 
-## 5. Write image to SD card.
+### 5. Write image to SD card.
 
 The 2a and 2b image is constructed by wic image, that include partition
 table and each partition data into one image file.
@@ -260,9 +264,9 @@ A /dev/sda is SSD for your PC.  A /dev/sdb is SD card.  You should use
 When your PC has direct SD card interface not a use card reader, your SD
 card device is /dev/mmcblkX may be.
 
-## 6. Power on.
+### 6. Power on.
 
-## 7. How to use container exchange UI.
+### 7. How to use container exchange UI.
 
 IC container integration has three method for container exchange.
 
@@ -273,7 +277,7 @@ IC container integration has three method for container exchange.
 | 3 | Key board UI | Appendix 4. |
 
 
-### 7a. How to change guest using command line interface
+#### 7a. How to change guest using command line interface
 
 The cmcontrol is a command line interface for the container manager.  It supports container listing, shutdown, reboot, force reboot, and active guest change.
 
@@ -331,16 +335,16 @@ If you want to force reboot IVI guest without shutdown process, it uses these co
 $ cmcontrol --force-reboot-guest-role=ivi
 ```
 
-## Frequently Asked Questions
+### Frequently Asked Questions
 
 | Questions | Answer |
 |:---|:---|
 | Why not show map in default screen of Momi IVI. | When you want to show the map, you need an extra step.  Please follow [this page](../../components/applications/momi-navigation.md).|
 
 
-## Appendix.1.  Typical Hardware set.
+### Appendix.1.  Typical Hardware set.
 
-### NanoPC-T6
+#### NanoPC-T6
 
 ![](../../assets/source/01_Getting_Started/03_Build_and_Boot_guide_Profile/images/image6.png)
 
@@ -353,7 +357,7 @@ $ cmcontrol --force-reboot-guest-role=ivi
 | 4 | HDMI Cable (Need to check how to connect this cable to Touch/Cluster Display, that depend to display side connector) | 2 | [https://amzn.asia/d/auuhnTK](https://amzn.asia/d/auuhnTK) |
 | 5 | Optional: Special Keyboard | 1 | [https://amzn.asia/d/dZdbp9X](https://amzn.asia/d/dZdbp9X) |
 
-### Raspberry PI4
+#### Raspberry PI4
 
 ![](../../assets/source/01_Getting_Started/03_Build_and_Boot_guide_Profile/images/image7.png)
 
@@ -366,21 +370,21 @@ $ cmcontrol --force-reboot-guest-role=ivi
 | 5 | Optional: Special Keyboard | 1 | [https://amzn.asia/d/dZdbp9X](https://amzn.asia/d/dZdbp9X) |
 
 
-## Appendix.2. Cluster with IVI Containers View.
+### Appendix.2. Cluster with IVI Containers View.
 
-### Qt IVI
+#### Qt IVI
 
 ![](../../assets/source/01_Getting_Started/03_Build_and_Boot_guide_Profile/images/image8.jpeg)
 
-### Flutter IVI
+#### Flutter IVI
 
 ![](../../assets/source/01_Getting_Started/03_Build_and_Boot_guide_Profile/images/image9.jpeg)
 
-### Momi IVI
+#### Momi IVI
 
 ![](../../assets/source/01_Getting_Started/03_Build_and_Boot_guide_Profile/images/image11.jpeg)
 
-## Appendix 3. How to use Web UI (Momi Web).
+### Appendix 3. How to use Web UI (Momi Web).
 
 The Momi web is a web interface for container exchange.  When you want
 to use Momi web, you must connect network between board and
@@ -389,7 +393,7 @@ PC/Tablet/Phone.
 **The Momi web is completely demo feature, that open many security hole.
  You shall not use out of standalone demo.**
 
-### 1st step: Check IP address in your board.
+#### 1st step: Check IP address in your board.
 
 After booting, you check IP address in your board.
 
@@ -402,7 +406,7 @@ eth0      Link encap:Ethernet  HWaddr E4:XX:YY:ZZ:WW:VV\
 
 In this case, this board set IP address by 192.168.10.128.
 
-### 2nd step: Connect to board using web browser.
+#### 2nd step: Connect to board using web browser.
 
 Open "[http://a.b.c.d:8080](http://a.b.c.d:8080)".  When
 a board is set IP address 192.168.10.128, you open
@@ -411,18 +415,18 @@ a board is set IP address 192.168.10.128, you open
 When you success to connect to board, your web browser show these web
 UI.
 
-### PC View
+#### PC View
 
 ![](../../assets/source/01_Getting_Started/03_Build_and_Boot_guide_Profile/images/image4.png)
 
-### Mobile View
+#### Mobile View
 
 ![](../../assets/source/01_Getting_Started/03_Build_and_Boot_guide_Profile/images/image5.png)
 
 
-## Appendix 4. How to configure Special Keyboard.
+### Appendix 4. How to configure Special Keyboard.
 
-### How to get configuration tool.
+#### How to get configuration tool.
 
 This description is targeting to [this type of special
 keyboard](https://amzn.asia/d/dUxGK5Q).
@@ -436,7 +440,7 @@ Usage of usb-12key-kbd-prog is please refer to upstream site.
 Upstream:
 [https://github.com/NeoCat/usb-12key-kbd-prog](https://github.com/NeoCat/usb-12key-kbd-prog)
 
-### Key Map.
+#### Key Map.
 | Key | Container |
 |---|---|
 | A | Momi IVI |
@@ -444,7 +448,7 @@ Upstream:
 | D | Qt IVI |
 | G | Flutter IVI |
 
-# Reference webpages
+## Reference webpages
 
  1. [AGL Tech Day Presentation](https://static.sched.com/hosted_files/agltechday2022/3b/agl-techday-202204.pdf)
  1. [Build AGL Image](../../standalone/build/common/build-overview.md)

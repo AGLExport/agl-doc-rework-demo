@@ -1,6 +1,8 @@
 ---
-title: "Introduction"
+title: Introduction
 content_status: authored
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Introduction
@@ -24,7 +26,7 @@ In a traditional distributed design, individual electronic control units (ECUs) 
 
 *Figure 1. Functions run on separate ECUs that communicate over the vehicle network.*
 
-AGL's [Distributed system](../standalone/index.md) mainly focuses on this architecture. Each standalone deployment supplies one Linux kernel and userland for its selected role, and several deployments can exchange vehicle data.
+AGL's [Base platform for the distributed system](../standalone/index.md) mainly focuses on this architecture. Each standalone deployment supplies one Linux kernel and userland for its selected role, and several deployments can exchange vehicle data.
 
 ### Domain architecture.
 
@@ -34,7 +36,7 @@ A domain design groups related functions, such as cockpit, body control, or powe
 
 *Figure 2. Functions are grouped into logical domains with their own controllers.*
 
-AGL's [Small scale integrated system](../integrated/index.md) mainly focuses on this architecture. Container integration and KVM combine two or more features, such as IVI and Instrument Cluster, on shared computing resources.
+AGL's [Base platform for the small-scale integrated system](../integrated/index.md) mainly focuses on this architecture. Container integration and KVM combine two or more features, such as IVI and Instrument Cluster, on shared computing resources.
 
 ### Central/Zone architecture.
 
@@ -44,7 +46,7 @@ A central/zone design combines central computing with controllers organized by p
 
 *Figure 3. Central computing hosts workloads while zones organize local device connections.*
 
-AGL's [Large scale integrated system](../integrated/large-scale.md) mainly focuses on this architecture. SoDeV provides a platform for consolidating guest systems and workloads with different criticality requirements. Distributed systems and small-scale integrations can be incorporated as part of that larger system.
+AGL's [Base platform for the large-scale integrated system](../integrated/large-scale.md) mainly focuses on this architecture. SoDeV provides a platform for consolidating guest systems and workloads with different criticality requirements. Base platform for the distributed systems and small-scale integrations can be incorporated as part of that larger system.
 
 
 ## E2E Vehicle Data Processing.
@@ -71,4 +73,4 @@ An E2E (End-to-End) design evaluates the complete path from signal acquisition t
 
 For example, a diagnostic service might evaluate a condition locally, retain a bounded interval of relevant signals and upload the event with its context. Assess the resulting diagnostic quality, onboard load, upload volume and cloud cost together. A smaller upload alone does not establish a better E2E design.
 
-These processing choices apply across AGL's [Distributed system](../standalone/index.md), [Small scale integrated system](../integrated/index.md) and [Large scale integrated system](../integrated/large-scale.md). Their E/E architecture determines where vehicle-side workloads can run; the network and cloud parts still require integration for the intended service.
+These processing choices apply across AGL's [Base platform for the distributed system](../standalone/index.md), [Base platform for the small-scale integrated system](../integrated/index.md) and [Base platform for the large-scale integrated system](../integrated/large-scale.md). Their E/E architecture determines where vehicle-side workloads can run; the network and cloud parts still require integration for the intended service.

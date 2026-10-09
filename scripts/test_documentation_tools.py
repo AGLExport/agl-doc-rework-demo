@@ -11,7 +11,7 @@ from unittest.mock import patch
 
 import import_docs
 import yaml
-from validate_structure import content_requirements, section_paths, validate
+from validate_structure import content_requirements, section_paths, validate, validate_master_references
 from import_transforms import remove_further_reading
 
 
@@ -45,19 +45,19 @@ class ContentRequirementTests(unittest.TestCase):
             (2, "E2E Vehicle Data Processing."),
         ])
         expected_paths = ["standalone/index.md", "integrated/index.md", "integrated/large-scale.md"]
-        pages = [("Distributed system", expected_paths[0]),
-                 ("Small scale integrated system", expected_paths[1]),
-                 ("Large scale integrated system", expected_paths[2])]
+        pages = [("Base platform for the distributed system", expected_paths[0]),
+                 ("Base platform for the small-scale integrated system", expected_paths[1]),
+                 ("Base platform for the large-scale integrated system", expected_paths[2])]
         self.assertEqual([section_paths(name, pages, {})[0]
                           for name in introduction["section_references"].values()], expected_paths)
 
     def test_official_figure_and_source_requirement_belong_to_large_scale(self):
         instructions = (Path(__file__).resolve().parents[1] / "AGENTS.md").read_text(encoding="utf-8-sig")
         rules = content_requirements(instructions)
-        self.assertTrue(rules["Large scale integrated system"]["official_figure"])
-        self.assertEqual(len(rules["Large scale integrated system"]["source_links"]), 1)
+        self.assertTrue(rules["Base platform for the large-scale integrated system"]["official_figure"])
+        self.assertEqual(len(rules["Base platform for the large-scale integrated system"]["source_links"]), 1)
         self.assertFalse(rules["SoDeV"]["official_figure"])
-        self.assertIn("Small-scale integrated system", rules)
+        self.assertIn("Base platform for the small-scale integrated system", rules)
 
     def test_scoped_rule_selects_architecture_and_requires_both_named_diagrams(self):
         instructions = (Path(__file__).resolve().parents[1] / "AGENTS.md").read_text(encoding="utf-8-sig")
@@ -117,6 +117,28 @@ Show the architecture diagram "required.svg".
             (docs / "portfolio-basic.md").write_text("# Basic demo system\n", encoding="utf-8")
             with self.assertRaisesRegex(ValueError, "Required narrative content is missing"):
                 validate(project)
+
+
+class MasterBaselineTests(unittest.TestCase):
+    def test_named_release_links_are_rejected_but_recipe_selected_components_are_allowed(self):
+        validate_master_references({"current.md":
+            "[Docs](https://docs.automotivelinux.org/en/master/) "
+            "[Recipe](https://git.automotivelinux.org/AGL/meta-agl/tree/?h=master) "
+            "[Component](https://git.automotivelinux.org/src/applaunchd/tree/?id=abc)"})
+        for url in ["https://docs.automotivelinux.org/en/unagi/guide/",
+                    "https://git.automotivelinux.org/AGL/meta-agl/tree/?h=vimba/22.0.0"]:
+            with self.subTest(url=url), self.assertRaisesRegex(ValueError, "Non-master"):
+                validate_master_references({"outdated.md": url})
+
+    def test_legacy_content_names_resolve_to_updated_platform_chapters(self):
+        pages = [("Base platform for the distributed system", "standalone/index.md"),
+                 ("Base platform for the small-scale integrated system", "integrated/index.md"),
+                 ("Base platform for the large-scale integrated system", "integrated/large-scale.md")]
+        for name, destination in [("AGL distributed system", "standalone/index.md"),
+                                  ("AGL small-scale integrated system", "integrated/index.md"),
+                                  ("AGL large-scale integrated system", "integrated/large-scale.md")]:
+            with self.subTest(name=name):
+                self.assertEqual(section_paths(name, pages, {}), [destination])
 
 
 class SectionCleanupTests(unittest.TestCase):

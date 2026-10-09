@@ -1,9 +1,11 @@
 ---
-title: "Distributed system"
+title: Base platform for the distributed system
 content_status: authored
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
-# Distributed system
+# Base platform for the distributed system
 
 AGL develops and provides a Linux distribution for automotive systems. It focuses on a standalone system built on a single Linux kernel and userland. Deploy it on an individual ECU, or connect several such systems across a vehicle network. Choose a demo from the portfolio, understand its architecture, and then build and deploy the selected image.
 
@@ -26,7 +28,7 @@ Follow the Basic or Extra build sequence after selecting a demo. The [board and 
 
 <span id="apps"></span>
 
-Read [AGL Components](../components/index.md) for the reference applications, services, framework, and APIs used by a distributed system. Continue with the sibling chapters [Platform Customize](customize/index.md) or [Application development](applications/index.md) to change platform behavior or applications. For guest isolation and shared computing resources, use [Small scale integrated system](../integrated/index.md) or [Large scale integrated system](../integrated/large-scale.md).
+Read [AGL Components](../components/index.md) for the reference applications, services, framework, and APIs used by a distributed system. Continue with the sibling chapters [Platform Customize](customize/index.md) or [Application development](applications/index.md) to change platform behavior or applications. For guest isolation and shared computing resources, use [Base platform for the small-scale integrated system](../integrated/index.md) or [Base platform for the large-scale integrated system](../integrated/large-scale.md).
 
 ## Vehicle roles
 

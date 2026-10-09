@@ -1,6 +1,8 @@
 ---
-title: "Setup build environment"
+title: Setup build environment
 content_status: authored
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Setup build environment
@@ -24,8 +26,7 @@ For QEMU x86-64, use `-m qemux86-64 -b build-basic-qemu` in a fresh shell. For R
 The setup script leaves the shell in the initialized build environment. Inspect `conf/local.conf` and `conf/bblayers.conf` before building:
 
 ~~~sh
-printf '%s
-' "$BUILDDIR"
+printf '%s\n' "$BUILDDIR"
 bitbake-getvar MACHINE
 ~~~
 

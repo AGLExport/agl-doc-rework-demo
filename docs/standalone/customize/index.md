@@ -1,6 +1,8 @@
 ---
-title: "Platform Customize"
+title: Platform Customize
 content_status: authored
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Platform Customize

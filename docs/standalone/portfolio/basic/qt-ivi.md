@@ -1,6 +1,8 @@
 ---
-title: "Qt IVI demo"
+title: Qt IVI demo
 content_status: authored
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Qt IVI demo

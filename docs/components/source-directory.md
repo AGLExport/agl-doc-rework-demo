@@ -1,85 +1,89 @@
 ---
-title: "AGL component directory"
-source_path: "06_Component_Documentation/00_AGL_components.md"
-content_status: imported
+title: AGL component directory
+source_path: 06_Component_Documentation/00_AGL_components.md
+content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
-# Components under development within AGL
+# AGL component directory
 
-## Services
+## Components under development within AGL
 
-### Graphics
+### Services
+
+#### Graphics
 
 - [The AGL compositor](services/graphics/agl-compositor.md)
 - [DRM lease manager](services/graphics/drm-lease-manager.md)
 
 
-### Sound
+#### Sound
 
 - [Pipewire & Wireplumber](services/sound/pipewire-wireplumber.md)
 - [IC and Sound Manager](services/sound/cluster-sound.md)
 
 
-### Policies
+#### Policies
 
 - [Rule based arbitrator](services/policies/rule-based-arbitrator.md)
 
 
-### Misc
+#### Misc
 
 - [Persistent storage](api/ivi/persistent-storage.md)
 - [Voice agent assistant](services/misc/voice-agent.md)
 
 
-## Instrument Cluster
+### Instrument Cluster
 
 - [Instrument Cluster](services/cluster/cluster-service.md)
 
 
-## IVI Application Framework
+### IVI Application Framework
 
-### Application Lifecycle and Services
+#### Application Lifecycle and Services
 
 - [Application Framework](framework/lifecycle/application-framework.md)
 
 
-## Application for Demo
+### Application for Demo
 
-### For Flutter Demo IVI
+#### For Flutter Demo IVI
 
 - [Flutter Homescreen](applications/flutter-homescreen.md)
 
-### For Qt Demo IVI
+#### For Qt Demo IVI
 
 - [Qt Homescreen](applications/qt-homescreen.md)
 
-### For Instrument Cluster
+#### For Instrument Cluster
 
 - [Cluster Ref GUI](applications/cluster-dashboard.md)
 
-### For Momi IVI Demo
+#### For Momi IVI Demo
 
 - [Momi Navi](applications/momi-navigation.md)
 
 
-## Platform extension
+### Platform extension
 
-### Unified HMI
+#### Unified HMI
 
 - [Unified HMI](extensions/unified-hmi.md)
 
-### Container
+#### Container
 
 - [Container Manager](extensions/container-manager.md)
 
 
-## Development Tools
+### Development Tools
 
-### Demo Control
+#### Demo Control
 
 - [Demo Control Panel](tools/demo-control/panel.md)
 - [CARLA with AGL](tools/demo-control/carla.md)
 
-### Virtual Car CAN definition
+#### Virtual Car CAN definition
 
 - [AGL virtual car](tools/virtual-car/virtual-car.md)

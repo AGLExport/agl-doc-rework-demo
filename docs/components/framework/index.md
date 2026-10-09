@@ -1,6 +1,8 @@
 ---
-title: "IVI Application Framework"
+title: IVI Application Framework
 content_status: authored
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # IVI Application Framework

@@ -1,7 +1,9 @@
 ---
-title: "Raspberry Pi 4/5"
-source_path: "01_Getting_Started/01_Quickstart/01_Using_Ready_Made_Images.md"
+title: Raspberry Pi 4/5
+source_path: 01_Getting_Started/01_Quickstart/01_Using_Ready_Made_Images.md
 content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Raspberry Pi 4/5

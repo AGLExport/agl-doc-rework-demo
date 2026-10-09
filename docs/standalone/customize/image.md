@@ -1,7 +1,9 @@
 ---
-title: "Create/Modify an AGL image"
-source_path: "04_Developer_Guides/02_AGL_Platform_Development/02_Modify_AGL_by_Yourself/01_Customizing_AGL_Image.md"
+title: Create/Modify an AGL image
+source_path: 04_Developer_Guides/02_AGL_Platform_Development/02_Modify_AGL_by_Yourself/01_Customizing_AGL_Image.md
 content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Create/Modify an AGL image

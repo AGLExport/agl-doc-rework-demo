@@ -3,7 +3,7 @@
   <desc id="desc">Type 2a runs a Qt Instrument Cluster guest and a Momi IVI guest on one LXC host and one Linux kernel. Type 2b installs Qt and Flutter IVI alternatives, with one active guest per IVI role. Container Manager and liblxc manage both guest roles. The host DRM lease manager transfers leased file descriptors over Unix sockets; guests render directly through kernel DRM/KMS. Optional audio hooks require an installed and configured host service. Separate guest root filesystems share the underlying storage and kernel.</desc>
   <rect width="1200" height="1080" fill="#fff" />
   <text x="40" y="48" class="title" font-family="Arial,Helvetica,sans-serif" fill="#172c40" font-size="30" font-weight="700">AGL Container integration</text>
-  <text x="40" y="78" class="body muted" font-family="Arial,Helvetica,sans-serif" fill="#466078" font-size="20">Current IC/IVI reference profile / shared Linux kernel / reviewed 8 October 2026</text>
+  <text x="40" y="78" class="body muted" font-family="Arial,Helvetica,sans-serif" fill="#466078" font-size="20">AGL master IC/IVI profile / shared Linux kernel / reviewed 10 October 2026</text>
   <line x1="40" y1="110" x2="80" y2="110" stroke="#126a99" stroke-width="3" />
   <text x="91" y="116" class="small" font-family="Arial,Helvetica,sans-serif" fill="#172c40" font-size="17">Direct graphics access</text>
   <line x1="340" y1="110" x2="380" y2="110" stroke="#7846a5" stroke-width="3" />

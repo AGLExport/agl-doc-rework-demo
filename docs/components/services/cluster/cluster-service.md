@@ -1,7 +1,9 @@
 ---
-title: "Instrument Cluster service"
-source_path: "06_Component_Documentation/10_IC_Service/01_Instrument_Cluster_Service.md"
-content_status: imported
+title: Instrument Cluster service
+source_path: 06_Component_Documentation/10_IC_Service/01_Instrument_Cluster_Service.md
+content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Instrument Cluster service

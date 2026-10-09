@@ -1,7 +1,9 @@
 ---
-title: "The AGL compositor"
-source_path: "06_Component_Documentation/01_Graphics_Service/01_agl_compositor.md"
-content_status: imported
+title: The AGL compositor
+source_path: 06_Component_Documentation/01_Graphics_Service/01_agl_compositor.md
+content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # The AGL compositor

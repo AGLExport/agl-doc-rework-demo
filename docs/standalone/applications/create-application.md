@@ -1,8 +1,12 @@
 ---
-title: "Package and register an AGL application"
-source_path: "06_Component_Documentation/20_IVI_Application_Framework/03_Creating_a_New_Application.md"
+title: Package and register an AGL application
+source_path: 06_Component_Documentation/20_IVI_Application_Framework/03_Creating_a_New_Application.md
 content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
+
+# Package and register an AGL application
 
 In the context of AGL, "applications" are usually considered to be standalone
 user facing infotainment applications that can be started in addition to the
@@ -13,7 +17,7 @@ sections walk through what is required to add an application to an AGL image
 that uses applaunchd, as well as discussion of developer conveniences that
 AGL provides to simplify doing so in the Yocto build environment.
 
-# Basic Requirements
+## Basic Requirements
 
 As described in the [applaunchd documentation](../../components/framework/lifecycle/application-startup.md#application-discovery),
 applications need to have a systemd system unit with a name matching the pattern `agl-app*@*.service`.
@@ -60,7 +64,7 @@ After adding an application to a running development image, run
 reload their application lists. The [Qt example](qt.md#deploy-and-register)
 shows the complete target-side registration flow.
 
-# Graphical Application Requirements
+## Graphical Application Requirements
 
 In addition, graphical applications need to comply with a few more requirements:
 
@@ -73,7 +77,7 @@ Doing so will ensure other software can associate the actual `app-id` to the pro
 *Note: application ID's are set using the [XDG toplevel](https://wayland-book.com/xdg-shell-basics/xdg-toplevel.html)
 Wayland interface.*
 
-# Application Templates
+## Application Templates
 
 To provide a working example of application template units, AGL includes templates
 for generic, Flutter, and web applications as part of the `applaunchd` recipe in the
@@ -84,7 +88,7 @@ application identifier.  To simplify this, a `BitBake` class named `agl-app` is 
 the layer for use in application recipes.  The different templates and their configuration
 will be discussed further in the following sections.
 
-## Generic Graphical Application Template
+### Generic Graphical Application Template
 
 The `agl-app@.service` template unit is intended for simple standalone graphical applications.
 It makes the following assumptions by default:
@@ -136,7 +140,7 @@ AGL_APP_NAME = "Foo"
 Note that this assumes that the recipe is named `foo_git.bb`. If the recipe was instead named
 something like `foo-app_git.bb`, then `AGL_APP_ID = "foo"` would need to be added.
 
-## Flutter Application Template
+### Flutter Application Template
 
 The `agl-app-flutter@.service` template unit is intended for Flutter graphical applications
 that use the `flutter-auto` Flutter embedder.  It makes the following assumptions by default:
@@ -199,7 +203,7 @@ Note that this assumes that the recipe is named `foo_git.bb`, and that the appli
 in the Flutter `pubspec.yaml` is `foo`.  If the recipe was instead named something like
 `flutter-foo_git.bb`, then `AGL_APP_ID = "foo"` would need to be added.
 
-## Web Application Template
+### Web Application Template
 
 The `agl-app-web@.service` template unit is intended for web applications run using the
 Web Application Manager (WAM) service.  It makes the following assumptions by default:

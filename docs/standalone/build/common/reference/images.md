@@ -1,16 +1,18 @@
 ---
-title: "AGL image targets"
-source_path: "01_Getting_Started/02_Building_AGL_Image/07_Available_Demo_Images.md"
+title: AGL image targets
+source_path: 01_Getting_Started/02_Building_AGL_Image/07_Available_Demo_Images.md
 content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # AGL image targets
 
-This catalog describes the recipes in the [Vimba 22.0.0 image directory](https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-platform/images/?h=vimba/22.0.0). Use the recipes and resolved manifest from the same release as the image or SDK. The site's build guides can track a development branch; see [Releases & migration](../../../../releases/index.md) for that distinction.
+This catalog describes the recipes in the [AGL master image directory](https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-platform/images/?h=master). Use the recipes and resolved manifest from the same release as the image or SDK. The site's build guides can track a development branch; see [Releases & migration](../../../../releases/index.md) for that distinction.
 
 ## 1. Demo Images
 
-Enable the required layers/features with `aglsetup.sh`. Package selection and network configuration depend on the target and selected features. The IVI and IVI-derived cluster recipes include the databroker by default; the control-panel recipe selects client packages instead. The [databroker package group](https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-platform/packagegroups/packagegroup-agl-kuksa-val-databroker.bb?h=vimba/22.0.0) selects `kuksa-can-provider` and its AGL DBC/VSS configuration.
+Enable the required layers/features with `aglsetup.sh`. Package selection and network configuration depend on the target and selected features. The IVI and IVI-derived cluster recipes include the databroker by default; the control-panel recipe selects client packages instead. The [databroker package group](https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-platform/packagegroups/packagegroup-agl-kuksa-val-databroker.bb?h=master) selects `kuksa-can-provider` and its AGL DBC/VSS configuration.
 
 ### agl-ivi-image
 
@@ -38,7 +40,7 @@ Corresponding SDK-oriented image for `agl-ivi-demo-qt`.
 
 ### agl-ivi-demo-control-panel
 
-Weston-based image running `agl-demo-control-panel`. Its [recipe](https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-platform/images/agl-ivi-demo-control-panel.bb?h=vimba/22.0.0) installs KUKSA client/certificate packages and the control application. Connect it to the databroker used by the demo setup.
+Weston-based image running `agl-demo-control-panel`. Its [recipe](https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-platform/images/agl-ivi-demo-control-panel.bb?h=master) installs KUKSA client/certificate packages and the control application. Connect it to the databroker used by the demo setup.
 
 ### agl-cluster-demo-flutter
 
@@ -50,18 +52,18 @@ IVI-derived Qt Instrument Cluster image selected by `packagegroup-agl-cluster-de
 
 ### agl-gateway-demo
 
-Minimal gateway demo image hosting the KUKSA.val databroker and CAN provider. The [recipe](https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-platform/images/agl-gateway-demo.bb?h=vimba/22.0.0) also installs `agl-vss-proxy` and the open databroker environment; development tools are conditional on `agl-devel`. Configure network access and CAN interfaces for the selected deployment.
+Minimal gateway demo image hosting the KUKSA.val databroker and CAN provider. The [recipe](https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-platform/images/agl-gateway-demo.bb?h=master) also installs `agl-vss-proxy` and the open databroker environment; development tools are conditional on `agl-devel`. Configure network access and CAN interfaces for the selected deployment.
 
 ### agl-telematics-demo
 
 Minimal telematics image selecting `packagegroup-agl-telematics-demo-platform`. Its recipe requires the `3g` distribution feature.
 
-## 2. Preconfigured Demo Images
+## Coordinated demo configuration
 
-The old `*-preconfigured` and `*-preconfigured-gateway` image names, and `agl-ivi-demo-html5`, are absent from the Vimba 22.0.0 image directory. Do not use those older target names as Vimba build commands. Coordinated IVI, cluster and gateway setups require configuration of the current image recipes and their client/provider packages.
+The old `*-preconfigured` and `*-preconfigured-gateway` image names, and `agl-ivi-demo-html5`, are absent from the AGL master image directory. Do not use those older target names as master build commands. Coordinated IVI, cluster and gateway setups require configuration of the current image recipes and their client/provider packages.
 
-The [KUKSA application configuration recipe](https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-connectivity/kuksa-val/kuksa-conf.bb?h=vimba/22.0.0) provides `kuksa-conf`, `kuksa-conf-demo-tradeshow`, `kuksa-conf-gateway-demo` and KVM configuration variants. They install alternative `kuksa.toml` files under `/etc/xdg/AGL`; these are configuration packages, not additional image targets.
+The [KUKSA application configuration recipe](https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-connectivity/kuksa-val/kuksa-conf.bb?h=master) provides `kuksa-conf`, `kuksa-conf-demo-tradeshow`, `kuksa-conf-gateway-demo` and KVM configuration variants. They install alternative `kuksa.toml` files under `/etc/xdg/AGL`; these are configuration packages, not additional image targets.
 
-The [gateway client configuration](https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-connectivity/kuksa-val/kuksa-conf/kuksa.toml.gateway-demo?h=vimba/22.0.0) uses a remote broker at `192.168.10.4`. Confirm the broker address, TLS credentials and service placement on each participating system.
+The [gateway client configuration](https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-connectivity/kuksa-val/kuksa-conf/kuksa.toml.gateway-demo?h=master) uses a remote broker at `192.168.10.4`. Confirm the broker address, TLS credentials and service placement on each participating system.
 
-For CAN integration, select the appropriate provider configuration from the [Vimba CAN recipes](https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-connectivity/kuksa-val/?h=vimba/22.0.0). The default AGL configuration uses `can0`; control-panel, bidirectional and gateway-hardware configurations are separate packages. In particular, `kuksa-can-provider-conf-gw-hardware` supplies a second `kuksa-can-provider-can1.service`. Installing that package and assigning the interfaces requires an explicit deployment configuration; the base gateway image does not imply the complete multi-board hardware setup.
+For CAN integration, select the appropriate provider configuration from the [Master CAN recipes](https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-connectivity/kuksa-val/?h=master). The default AGL configuration uses `can0`; control-panel, bidirectional and gateway-hardware configurations are separate packages. In particular, `kuksa-can-provider-conf-gw-hardware` supplies a second `kuksa-can-provider-can1.service`. Installing that package and assigning the interfaces requires an explicit deployment configuration; the base gateway image does not imply the complete multi-board hardware setup.

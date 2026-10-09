@@ -1,7 +1,9 @@
 ---
-title: "Pipewire & Wireplumber"
-source_path: "06_Component_Documentation/02_Sound_Service/01_pipewire_wireplumber.md"
+title: Pipewire & Wireplumber
+source_path: 06_Component_Documentation/02_Sound_Service/01_pipewire_wireplumber.md
 content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Pipewire & Wireplumber

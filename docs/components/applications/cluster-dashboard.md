@@ -1,7 +1,9 @@
 ---
-title: "Instrument Cluster reference GUI (Qt)"
-source_path: "06_Component_Documentation/40_Demo_Application/03_Instrument_Cluster/01_Cluster_Ref_GUI.md"
-content_status: imported
+title: Instrument Cluster reference GUI (Qt)
+source_path: 06_Component_Documentation/40_Demo_Application/03_Instrument_Cluster/01_Cluster_Ref_GUI.md
+content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Instrument Cluster reference GUI (Qt)

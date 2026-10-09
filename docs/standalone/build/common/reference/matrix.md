@@ -1,6 +1,9 @@
 ---
 title: Choose a board and image
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
+
 # Choose a board and image
 
 Start with your goal, then match the AGL release, image target, and board. The configured documentation channel is **{{ agl.codename }} / {{ artifact_kind }}**; it is a development channel.
@@ -25,7 +28,7 @@ For a first evaluation on a Linux PC, start with the [QEMU x86-64 quickstart](..
 This table is a guide to the supplied documentation, not a release compatibility guarantee. Image availability, feature combinations, and board validation depend on the release.
 
 - [Hardware support levels](hardware.md) explain Reference BSP and Community BSP maintenance.
-- [Image targets](images.md) describe IVI, Instrument Cluster, gateway, SDK, and preconfigured demos.
+- [Image targets](images.md) describe IVI, Instrument Cluster, gateway, SDK, and coordinated demo configuration.
 - [Build initialization](../initialize-build.md) lists MACHINE values and features.
 - [Hardware image configurations](hardware-images.md) retain the original image recipes.
 - [Release guidance](../../../../releases/index.md) links to the official release notes and artifacts.
@@ -37,9 +40,9 @@ The imported procedures have not been rerun on hardware as part of this site res
 | Goal | Look for | Read next |
 | --- | --- | --- |
 | Evaluate an IVI user interface | Qt or Flutter IVI demo | [Image targets](images.md) |
-| Develop an application | Matching runtime image and SDK/workspace | [Distributed system](../../../index.md#apps) |
+| Develop an application | Matching runtime image and SDK/workspace | [Base platform for the distributed system](../../../index.md#apps) |
 | Run an Instrument Cluster | IC demo matching the board and profile | [IC container profile](../../../../integrated/containers/build-guide.md) or [Slint profile](../../cluster/slint.md) |
-| Integrate a gateway or multi-board demo | Gateway/preconfigured image and its network assumptions | [Image targets](images.md#2-preconfigured-demo-images) |
-| Modify the platform | Source build with the required layers and features | [Distributed system](../../../index.md#platform) |
+| Integrate a gateway or multi-board demo | Gateway image and coordinated network configuration | [Image targets](images.md#coordinated-demo-configuration) |
+| Modify the platform | Source build with the required layers and features | [Base platform for the distributed system](../../../index.md#platform) |
 
 Keep the kernel, root filesystem, SDK, and documentation on the same release or build. Check the [build host requirements](../prepare-host.md) before beginning a source build.

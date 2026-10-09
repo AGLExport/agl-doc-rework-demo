@@ -1,7 +1,9 @@
 ---
-title: "Qt application"
-source_path: "04_Developer_Guides/03_AGL_Application_Development/Develop_using_Qt/01_AGL-SDK_for_Qt.md"
+title: Qt application
+source_path: 04_Developer_Guides/03_AGL_Application_Development/Develop_using_Qt/01_AGL-SDK_for_Qt.md
 content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Qt application

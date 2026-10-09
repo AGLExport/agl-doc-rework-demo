@@ -1,8 +1,12 @@
 ---
-title: "Build and boot on Sparrow Hawk"
-source_path: "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/04_Building_for_Retronix_Sparrow_Hawk_Board.md"
+title: Build and boot on Sparrow Hawk
+source_path: 01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/04_Building_for_Retronix_Sparrow_Hawk_Board.md
 content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
+
+# Build and boot on Sparrow Hawk
 
 Complete [host preparation](../prepare-host.md) and [source download](../download-source.md) first. These steps define `AGL_TOP` as the parent workspace and `AGL_SOURCE` as the source checkout. Run each setup command from `$AGL_SOURCE`; `aglsetup.sh` then enters its build directory. Use `-f` only when intentionally replacing existing configuration.
 

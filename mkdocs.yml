@@ -65,9 +65,10 @@ validation:
 extra_css:
 - assets/stylesheets/extra.css
 extra:
+  source_review_date: 2026-10-10
   agl:
     codename: master
-    full_name: Vibrant Vimba
+    full_name: AGL master
   yocto:
     codename: wrynose
     version: 6.0.x
@@ -137,7 +138,7 @@ nav:
 - Home:
   - index.md
   - Introduction: home/index.md
-  - Distributed system:
+  - Base platform for the distributed system:
     - standalone/index.md
     - Quick start:
       - start/index.md
@@ -182,10 +183,6 @@ nav:
         - Flutter Cluster: components/applications/flutter-cluster.md
         - Qt IVI homescreen: components/applications/qt-homescreen.md
         - Instrument Cluster reference GUI (Qt): components/applications/cluster-dashboard.md
-        - Momi Screen: components/applications/momi-screen.md
-        - Momi navigation: components/applications/momi-navigation.md
-        - Momi Weather: components/applications/momi-weather.md
-        - Momi Player: components/applications/momi-player.md
       - AGL Services:
         - components/services/index.md
         - Graphics:
@@ -230,7 +227,7 @@ nav:
       - standalone/applications/index.md
       - Flutter application: standalone/applications/flutter.md
       - Qt application: standalone/applications/qt.md
-  - Small scale integrated system:
+  - Base platform for the small-scale integrated system:
     - integrated/index.md
     - Container integration:
       - integrated/containers/index.md
@@ -239,14 +236,25 @@ nav:
       - Container integration Customize:
         - integrated/containers/customize/index.md
         - Create and Run Guest Container: integrated/containers/customize/guest-container.md
-      - Platform extension:
-        - integrated/containers/extensions.md
-        - DRM lease manager: components/services/graphics/drm-lease-manager.md
-        - Container Manager: components/extensions/container-manager.md
+      - Demo image for container integration:
+        - integrated/containers/demo/index.md
+        - Momi IVI demo: integrated/containers/demo/momi-ivi.md
+      - AGL Components:
+        - integrated/containers/components/index.md
+        - Platform extension:
+          - integrated/containers/extensions.md
+          - DRM lease manager: components/services/graphics/drm-lease-manager.md
+          - Container Manager: components/extensions/container-manager.md
+        - AGL Reference Applications for IC demo:
+          - integrated/containers/components/applications.md
+          - Momi Screen: components/applications/momi-screen.md
+          - Momi navigation: components/applications/momi-navigation.md
+          - Momi Weather: components/applications/momi-weather.md
+          - Momi Player: components/applications/momi-player.md
     - KVM based integration:
       - integrated/kvm/index.md
       - Build Platform: integrated/kvm/build.md
-  - Large scale integrated system:
+  - Base platform for the large-scale integrated system:
     - integrated/large-scale.md
     - SoDeV:
       - integrated/sodev/index.md
@@ -255,9 +263,11 @@ nav:
       - SoDeV Customize:
         - integrated/sodev/customize/index.md
         - Create and Run Guest VM: integrated/sodev/customize/guest-vm.md
-      - Platform extension:
-        - integrated/sodev/extensions.md
-        - Unified HMI: components/extensions/unified-hmi.md
+      - AGL Components:
+        - integrated/sodev/components/index.md
+        - Platform extension:
+          - integrated/sodev/extensions.md
+          - Unified HMI: components/extensions/unified-hmi.md
   - AGL Development tools:
     - components/tools/index.md
     - Demo Control:

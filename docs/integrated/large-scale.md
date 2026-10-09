@@ -1,15 +1,17 @@
 ---
-title: "Large scale integrated system"
+title: Base platform for the large-scale integrated system
 content_status: authored
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
-# Large scale integrated system
+# Base platform for the large-scale integrated system
 
 AGL's large-scale integrated system is based on SoDeV. It mainly addresses central/zone consolidation and supports combining guest systems and workloads with different criticality requirements. Start with the reference platform overview below, then follow the [SoDeV development chapter](sodev/index.md).
 
 SoDeV is AGL's open source reference platform for software-defined vehicles. It combines the AGL Unified Code Base with Linux containers, VirtIO, the Xen hypervisor, Zephyr RTOS, and other platform components. This integration supports ECU consolidation and separates software development from hardware availability. The [official availability announcement](https://www.automotivelinux.org/announcements/automotive-grade-linux-releases-open-source-sodev-reference-platform-for-software-defined-vehicles-and-welcomes-five-new-members/) is the source for this overview.
 
-The initial version became available on 14 May 2026 through the Ultimate Unagi release. The announcement describes Sparrow Hawk reference hardware, virtual machines, and cloud-based environments. Select the workspace and revision appropriate to your target before building.
+The availability announcement describes Sparrow Hawk reference hardware, virtual machines and cloud-based environments. This documentation uses master for AGL guest instructions; the selected board workspace supplies its own hypervisor and backend integration. See [Build SoDeV](sodev/build.md) for their relationship.
 
 ## Official architecture
 

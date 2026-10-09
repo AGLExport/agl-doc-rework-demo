@@ -1,7 +1,9 @@
 ---
-title: "Download AGL source"
-source_path: "01_Getting_Started/02_Building_AGL_Image/03_Downloading_AGL_Software.md"
+title: Download AGL source
+source_path: 01_Getting_Started/02_Building_AGL_Image/03_Downloading_AGL_Software.md
 content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Download AGL source
@@ -53,24 +55,15 @@ repo init -b "$AGL_BRANCH" -u https://gerrit.automotivelinux.org/gerrit/AGL/AGL-
 repo sync
 ```
 
-### Stable release
+### Record the resolved master revisions
 
-Choose a release branch or manifest tag from the [official release notes](https://wiki.automotivelinux.org/agl-distro/release-notes). Replace `release-ref` below with that exact reference; `master` is the development branch. Use the matching release documentation, image, and SDK.
-
-```sh
-AGL_REF=release-ref
-export AGL_SOURCE="$AGL_TOP/$AGL_REF"
-mkdir -p "$AGL_SOURCE"
-cd "$AGL_SOURCE"
-repo init -b "$AGL_REF" -u https://gerrit.automotivelinux.org/gerrit/AGL/AGL-repo
-repo sync
-```
-
-A maintained release branch can receive updates. For a reproducible checkout, choose a published manifest tag or record the resolved revisions after synchronization:
+The AGL layers track `master`; external projects use the revisions selected by its manifest. Save the resolved checkout after synchronization:
 
 ```sh
 repo manifest -r -o "$AGL_SOURCE/manifest-pinned.xml"
 ```
+
+Use this resolved manifest when reproducing the image or matching its SDK and separately built guests. [Releases & migration](../../../releases/index.md) explains how to update an existing master deployment.
 
 ## Confirm the checkout
 

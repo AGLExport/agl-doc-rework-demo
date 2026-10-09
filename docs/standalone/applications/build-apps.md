@@ -1,8 +1,12 @@
 ---
-title: "Build applications with the SDK"
-source_path: "04_Developer_Guides/01_Basic/03_How_to_Build.md"
-content_status: imported
+title: Build applications with the SDK
+source_path: 04_Developer_Guides/01_Basic/03_How_to_Build.md
+content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
+
+# Build applications with the SDK
 
 ## Setup Cross SDK environment
 

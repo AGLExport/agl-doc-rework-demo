@@ -1,7 +1,9 @@
 ---
-title: "Configure caches and build output"
-source_path: "01_Getting_Started/02_Building_AGL_Image/05_Customizing_Your_Build.md"
+title: Configure caches and build output
+source_path: 01_Getting_Started/02_Building_AGL_Image/05_Customizing_Your_Build.md
 content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Configure caches and build output

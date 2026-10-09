@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2000" height="1410" viewBox="0 0 2000 1410" role="img" aria-labelledby="title desc"><title id="title">AGL Flutter IVI demo — unified architecture</title><desc id="desc">One integrated architecture: application layer, rendering and lifecycle, vehicle and media services, Linux interfaces and hardware. Vibrant Vimba 22.0.0 baseline using tagged recipes and their pinned component revisions.</desc><defs>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2000" height="1410" viewBox="0 0 2000 1410" role="img" aria-labelledby="title desc"><title id="title">AGL Flutter IVI demo — unified architecture</title><desc id="desc">One integrated architecture: application layer, rendering and lifecycle, vehicle and media services, Linux interfaces and hardware. AGL master baseline using master recipes and their pinned component revisions.</desc><defs>
 <marker id="blue" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0 0 L10 5 L0 10 Z" fill="#147fa5"/></marker>
 <marker id="purple" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0 0 L10 5 L0 10 Z" fill="#7354a8"/></marker>
 <marker id="green" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0 0 L10 5 L0 10 Z" fill="#19836a"/></marker>
@@ -8,7 +8,7 @@
 <rect width="2000" height="10" fill="#147fa5"/>
 <text x="60" y="55" class="tag" style="fill:#147fa5">AUTOMOTIVE GRADE LINUX  /  SINGLE-VIEW ARCHITECTURE</text>
 <text x="60" y="105" class="title">AGL Flutter IVI demo</text>
-<text x="60" y="140" class="body">Vimba 22.0.0 | tagged recipes and pinned sources | reviewed 2026-10-09 | logical component view</text>
+<text x="60" y="140" class="body">AGL master | recipe-selected component sources | reviewed 2026-10-10 | logical component view</text>
 <rect x="60" y="177" width="1880" height="164" rx="13" fill="#eaf6fc" stroke="#147fa5" stroke-width="1.6"/>
 <text x="82" y="208" class="tag" style="fill:#147fa5">APPLICATIONS / HMI</text>
 <text x="82" y="246" class="head">flutter-ics-homescreen</text>
@@ -139,10 +139,10 @@
 <text x="1458" y="1191" class="head">Audio hardware / speakers</text>
 <text x="60" y="1276" class="small">Solid: principal connection   •   Dashed: optional or hardware-dependent   •   Arrows: control / data; two-ended: request + response / events</text>
 <text x="60" y="1306" class="small">Default: databroker on IVI; configured gateway variants use a remote broker. IC streaming and container boundaries are outside this view.</text>
-<a xlink:href="https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-platform/images/?h=vimba/22.0.0" target="_blank">
+<a xlink:href="https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-platform/images/?h=master" target="_blank">
 <text x="60" y="1352" class="small" style="fill:#147fa5">Image definitions</text>
 </a>
-<a xlink:href="https://git.automotivelinux.org/AGL/meta-agl/tree/meta-agl-core/recipes-graphics/wayland/agl-compositor_git.bb?h=vimba/22.0.0" target="_blank">
+<a xlink:href="https://git.automotivelinux.org/AGL/meta-agl/tree/meta-agl-core/recipes-graphics/wayland/agl-compositor_git.bb?h=master" target="_blank">
 <text x="380" y="1352" class="small" style="fill:#147fa5">Compositor</text>
 </a>
 <a xlink:href="https://git.automotivelinux.org/src/applaunchd/tree/README.md?id=c32fe42f40d0af8b31b6113a3140f52b83be7769" target="_blank">

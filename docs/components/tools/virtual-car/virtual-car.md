@@ -1,7 +1,9 @@
 ---
-title: "AGL virtual car"
-source_path: "06_Component_Documentation/80_DevTools/03_AGL_Virtual_Car_CAN/01_agl-vcar.md"
-content_status: imported
+title: AGL virtual car
+source_path: 06_Component_Documentation/80_DevTools/03_AGL_Virtual_Car_CAN/01_agl-vcar.md
+content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # AGL virtual car

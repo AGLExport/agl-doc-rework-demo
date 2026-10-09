@@ -1,8 +1,12 @@
 ---
-title: "Initialize the AGL build environment"
-source_path: "01_Getting_Started/02_Building_AGL_Image/04_Initializing_Your_Build_Environment.md"
+title: Initialize the AGL build environment
+source_path: 01_Getting_Started/02_Building_AGL_Image/04_Initializing_Your_Build_Environment.md
 content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
+
+# Initialize the AGL build environment
 
 First complete [Download AGL source](download-source.md), which defines `AGL_TOP` as the parent workspace and `AGL_SOURCE` as the selected source directory.
 
@@ -211,14 +215,14 @@ Common targets are:
   * agl-ivi-demo-control-panel    (demo/test control panel image)
 
   More details:
-  https://docs.automotivelinux.org/en/{{ agl.codename }}/#01_Getting_Started/02_Building_AGL_Image/07_Available_Demo_Images
+  https://docs.automotivelinux.org/en/master/01_Getting_Started/02_Building_AGL_Image/07_Available_Demo_Images
 
 - meta-agl-demo-shared:
   * agl-instrument-cluster-standalone-demo
     (IC EG non-container cluster test image)
 
 Build guide:
-https://docs.automotivelinux.org/en/{{ agl.codename }}/#01_Getting_Started/02_Building_AGL_Image/01_Build_Process_Overview/
+https://docs.automotivelinux.org/en/master/01_Getting_Started/02_Building_AGL_Image/01_Build_Process_Overview/
 
 ```
 

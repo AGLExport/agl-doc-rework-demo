@@ -1,7 +1,9 @@
 ---
-title: "Persistent storage API"
-source_path: "06_Component_Documentation/04_Misc_Service/01_AGL_Persistent_Storage_API.md"
-content_status: imported
+title: Persistent storage API
+source_path: 06_Component_Documentation/04_Misc_Service/01_AGL_Persistent_Storage_API.md
+content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Persistent storage API
@@ -21,7 +23,7 @@ write operations. This impacts the choice of database; we have chosen to work
 with RocksDB as it is well-suited for embedded computing and tunable with
 respect to write amplification. In principle the API is flexible with
 respect to database used (pluggable backends), but only RocksDB is implemented. 
-This API is part of the AGL demo as of release 'Royal Ricefish'.
+The master Flutter IVI base installs this API through its image recipe; match generated clients to the version selected by that checkout.
 
 The AGL Persistent Storage API is constructed using a layered architecture:
 

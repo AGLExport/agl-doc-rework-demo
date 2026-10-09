@@ -1,8 +1,12 @@
 ---
-title: "Create a service"
-source_path: "04_Developer_Guides/02_AGL_Platform_Development/02_Modify_AGL_by_Yourself/02_Creating_a_New_Service.md"
-content_status: imported
+title: Create a service
+source_path: 04_Developer_Guides/02_AGL_Platform_Development/02_Modify_AGL_by_Yourself/02_Creating_a_New_Service.md
+content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
+
+# Create a service
 
 Services are software running in the background and providing, as their name suggests,
 various services to other software: access to specific system hardware, connectivity
@@ -14,7 +18,7 @@ management, and network servers. Services can be split into 2 categories:
 - **User services:** such services run as part of an unprivileged user's session and can
   only be called by said user
 
-# Create a service
+## Create a service
 
 The only mandatory requirement is that service packages provide a `.service` file
 so they can be properly managed by `systemd`. This file must be installed to a specific
@@ -44,7 +48,7 @@ restarted by `systemd` in case it crashes.
 More details about `systemd` service files can be found in the
 [systemd documentation](https://www.freedesktop.org/software/systemd/man/systemd.service.html).
 
-# D-Bus activation
+## D-Bus activation
 
 Services can also provide a D-Bus interface. In this case, they need not be started
 on system boot (or user session startup in the case of user services) but can be
@@ -85,13 +89,13 @@ More details about D-Bus activation can be found in the
 [D-Bus specification](https://dbus.freedesktop.org/doc/dbus-specification.html#message-bus-starting-services),
 under the "Message Bus Starting Services (Activation)" section.
 
-# Services startup
+## Services startup
 
 For D-Bus activated services, no additional action is required as those will be automatically
 started whenever needed. Other services, however, need a few more steps in order to be
 executed on system or session startup.
 
-## System services
+### System services
 
 System services can take advantage of the Yocto `systemd` class which automates the process of
 enabling such services.
@@ -118,7 +122,7 @@ FILES:${PN} = "\
 "
 ```
 
-## User services
+### User services
 
 The `systemd` class doesn't provide an equivalent mechanism for user services. This must
 therefore be done manually as part of the package's install process.

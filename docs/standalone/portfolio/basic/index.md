@@ -1,6 +1,8 @@
 ---
-title: "Basic demo system"
+title: Basic demo system
 content_status: authored
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Basic demo system

@@ -1,7 +1,9 @@
 ---
-title: "Flutter IVI homescreen"
-source_path: "06_Component_Documentation/40_Demo_Application/01_Flutter_Demo_IVI/01_Flutter_Homescreen.md"
+title: Flutter IVI homescreen
+source_path: 06_Component_Documentation/40_Demo_Application/01_Flutter_Demo_IVI/01_Flutter_Homescreen.md
 content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Flutter IVI homescreen

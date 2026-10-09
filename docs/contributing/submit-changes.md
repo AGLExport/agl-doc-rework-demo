@@ -1,8 +1,12 @@
 ---
-title: "Submit a change"
-source_path: "07_How_To_Contribute/04_Submitting_Changes.md"
-content_status: imported
+title: Submit a change
+source_path: 07_How_To_Contribute/04_Submitting_Changes.md
+content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
+
+# Submit a change
 
 Carefully review the following before submitting a change. These guidelines
 apply to developers that are new to open source, as well as to experienced open

@@ -1,6 +1,8 @@
 ---
-title: "Setup build environment"
+title: Setup build environment
 content_status: authored
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # Setup build environment
@@ -31,12 +33,7 @@ The [Slint guide](../cluster/slint.md) documents Raspberry Pi 4/5, NanoPC-T6, an
 
 ## Momi IVI with its container host
 
-~~~sh
-cd "$AGL_SOURCE"
-source meta-agl/scripts/aglsetup.sh -m raspberrypi4 -b build-extra-momi-rpi4 agl-ic-container
-~~~
-
-Select type 2a in the [container integration guide](../../../integrated/containers/build-guide.md). This profile supplies the host, guest multiconfig, and device-resource configuration. Follow its board-specific requirements and use its type 2b procedure only when adding the full IVI demos.
+Use the [Container integration Momi guide](../../../integrated/containers/demo/momi-ivi.md) for its complete master host/guest setup. This chapter's Qt/Slint build directories are dedicated cluster configurations.
 
 For Raspberry Pi 5, replace the machine with `raspberrypi5` and use a new directory. Other machines require the selected profile's own support and deployment procedure. Do not switch features inside an existing configured directory.
 

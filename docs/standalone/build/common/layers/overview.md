@@ -1,8 +1,12 @@
 ---
-title: "AGL Yocto layer structure"
-source_path: "04_Developer_Guides/02_AGL_Platform_Development/01_AGL_Yocto_Layers/01_Overview.md"
-content_status: imported
+title: AGL Yocto layer structure
+source_path: 04_Developer_Guides/02_AGL_Platform_Development/01_AGL_Yocto_Layers/01_Overview.md
+content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
+
+# AGL Yocto layer structure
 
 ## AGL layers
 

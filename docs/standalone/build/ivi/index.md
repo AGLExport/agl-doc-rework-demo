@@ -1,6 +1,8 @@
 ---
-title: "In-Vehicle Infotainment"
+title: In-Vehicle Infotainment
 content_status: authored
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
 # In-Vehicle Infotainment

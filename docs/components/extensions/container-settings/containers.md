@@ -1,14 +1,18 @@
 ---
-title: "Container configuration files"
-source_path: "06_Component_Documentation/61_Container/01_Container_Manager/02_Container_configuration_files.md"
-content_status: imported
+title: Container configuration files
+source_path: 06_Component_Documentation/61_Container/01_Container_Manager/02_Container_configuration_files.md
+content_status: adapted
+agl_branch: master
+last_reviewed: '2026-10-10'
 ---
 
-# Container Configuration Files Guide
+# Container configuration files
+
+## Container Configuration Files Guide
 
 This document describes the per-container configuration files used by Container Manager.
 
-## Overview
+### Overview
 
 **Container Configuration Files** contain detailed configuration for individual containers, specifying root filesystem, devices, network interfaces, resource limits, and other container-specific settings.
 
@@ -33,11 +37,11 @@ Container manager supports A/B boot.  It controls by 'aglabboot' in kernel comma
 
 ---
 
-## Container Configuration Files
+### Container Configuration Files
 
 Detailed configuration for individual containers.
 
-### Minimum Configuration Example
+#### Minimum Configuration Example
 
 ```json
 {
@@ -59,42 +63,42 @@ Detailed configuration for individual containers.
 }
 ```
 
-### Top-level Configuration Items
+#### Top-level Configuration Items
 
-#### `name` (Required)
+##### `name` (Required)
 - **Type**: String
 - **Description**: Container name
 - **Example**: `"cluster-demo"`,`"momi-ivi-demo"`
 
-#### `role` (Optional)
+##### `role` (Optional)
 - **Type**: String
 - **Description**: Container role (user-defined)
 - **Note**: When it not set, role is set container name
 - **Example**: `"cluster"`, `"ivi"`, `"rse"`
 
-#### `base` (Required)
+##### `base` (Required)
 - **Type**: Object
 - **Description**: Basic container configuration
 
-#### `fs` (Optional)
+##### `fs` (Optional)
 - **Type**: Object
 - **Description**: Filesystem configuration
 
-#### `device` (Optional)
+##### `device` (Optional)
 - **Type**: Object
 - **Description**: Device configuration
 
-#### `network` (Optional)
+##### `network` (Optional)
 - **Type**: Object
 - **Description**: Network configuration
 
-#### `resource` (Optional)
+##### `resource` (Optional)
 - **Type**: Array
 - **Description**: Resource limit configuration
 
 ---
 
-## Section 1: base (Basic Configuration)
+### Section 1: base (Basic Configuration)
 
 ```json
 "base": {
@@ -111,21 +115,21 @@ Detailed configuration for individual containers.
 }
 ```
 
-### base Configuration Items
+#### base Configuration Items
 
-#### `autoboot`
+##### `autoboot`
 - **Type**: Boolean
 - **Default**: `false`
 - **Description**: Whether to auto-start during boot
 - **Example**: `true`, `false`
 
-#### `bootpriority`
+##### `bootpriority`
 - **Type**: Number
 - **Default**: `1000`
 - **Description**: Boot priority (lower values have higher priority)
 - **Example**: `1`, `100`, `1000`
 
-#### `rootfs` (Required)
+##### `rootfs` (Required)
 - **Type**: Object
 - **Description**: Root filesystem configuration
 
@@ -158,7 +162,7 @@ Or host filesystem bind mount:
 	]
 }
 ```
-##### If you want to use block device mode.
+###### If you want to use block device mode.
 | Item | Type | Required | Description | Example Values |
 |------|------|----------|-------------|-----------------|
 | `path` | String | Required | Mount destination path | `"/opt/container/guests/xxx/rootfs"` |
@@ -174,7 +178,7 @@ If you do not use A/B mode, blockdev value should set 2nd value same as 1st valu
 
 
 
-##### If you want to use host filesystem bind mode.
+###### If you want to use host filesystem bind mode.
 | Item | Type | Required | Description | Example Values |
 |------|------|----------|-------------|-----------------|
 | `path` | String | Required | Mount destination path | `"/opt/container/guests/xxx/rootfs"` |
@@ -185,7 +189,7 @@ If you do not use A/B mode, blockdev value should set 2nd value same as 1st valu
 | `hostpath` | Array | Required | Host paths (up to 2 elements, mutually exclusive with blockdev) | `["/host/path"]` |
 
 
-#### `extradisk` (Optional)
+##### `extradisk` (Optional)
 - **Type**: Array
 - **Description**: Array of additional disk configurations
 
@@ -228,7 +232,7 @@ If mount operation is failed, it execs fsck. It uses only first device on `block
 If you set `mkfs` to `redundancy`:<br>
 If mount operation is failed, it execs mkfs. It uses only first device on `blockdev`.
 
-#### `extended` (Optional)
+##### `extended` (Optional)
 - **Type**: Object
 - **Description**: Extended configuration
 
@@ -240,7 +244,7 @@ If mount operation is failed, it execs mkfs. It uses only first device on `block
 
 **shmounts**: It sets to temporary directory for dynamic mount.  If it is set `"disable"`, the dynamic mount is disabled.
 
-#### `lifecycle` (Optional)
+##### `lifecycle` (Optional)
 - **Type**: Object
 - **Description**: Container startup and shutdown signal configuration
 
@@ -258,7 +262,7 @@ If mount operation is failed, it execs mkfs. It uses only first device on `block
 | `reboot` | String | Optional | Set reboot signal | default: `"SIGTERM"` |
 | `timeout` | Number | Optional | Set timeout (milliseconds) | default: `10000` |
 
-#### `cap` (Optional)
+##### `cap` (Optional)
 - **Type**: Object
 - **Description**: Linux capability configuration
 
@@ -276,7 +280,7 @@ If mount operation is failed, it execs mkfs. It uses only first device on `block
 
 Refer to [man page for capabilities](https://man7.org/linux/man-pages/man7/capabilities.7.html).
 
-#### `tty` (Optional)
+##### `tty` (Optional)
 - **Type**: Object
 - **Description**: TTY/PTY configuration
 
@@ -292,7 +296,7 @@ Refer to [man page for capabilities](https://man7.org/linux/man-pages/man7/capab
 | `tty` | Number | Optional | Maximum number of TTYs | `1`, `2`, ...,  default: `1` |
 | `pty` | Number | Optional | Maximum number of PTYs | `1`, `2`, ...,  default: `1` |
 
-#### `idmap` (Optional)
+##### `idmap` (Optional)
 - **Type**: Object
 - **Description**: UID/GID mapping configuration
 
@@ -311,7 +315,7 @@ Refer to [man page for capabilities](https://man7.org/linux/man-pages/man7/capab
 }
 ```
 
-##### `uid` (Optional)
+###### `uid` (Optional)
 - **Type**: Object
 - **Description**: UID mapping
 
@@ -321,7 +325,7 @@ Refer to [man page for capabilities](https://man7.org/linux/man-pages/man7/capab
 | `hostidstart` | Number | Required | Host starting ID | `100000`, `200000`, ... |
 | `num` | Number | Required | Number of mapping IDs | `10000`, `65536`, ... |
 
-##### `gid` (Optional)
+###### `gid` (Optional)
 - **Type**: Object
 - **Description**: GID mapping
 
@@ -332,7 +336,7 @@ Refer to [man page for capabilities](https://man7.org/linux/man-pages/man7/capab
 | `num` | Number | Required | Number of mapping IDs | `10000`, `65536`, ... |
 
 
-#### `environment` (Optional)
+##### `environment` (Optional)
 - **Type**: Array
 - **Description**: Environment variable configuration
 
@@ -348,7 +352,7 @@ The array for environment variable to set in guest.
 
 ---
 
-## Section 2: fs (Filesystem Configuration)
+### Section 2: fs (Filesystem Configuration)
 
 ```json
 "fs": {
@@ -376,7 +380,7 @@ The array for environment variable to set in guest.
 }
 ```
 
-### mount Configuration Items
+#### mount Configuration Items
 
 | Item | Type | Required | Description | Example Values |
 |------|------|----------|-------------|-----------------|
@@ -398,7 +402,7 @@ The array for environment variable to set in guest.
 
 ---
 
-## Section 3: device (Device Configuration)
+### Section 3: device (Device Configuration)
 
 ```json
 "device": {
@@ -408,12 +412,12 @@ The array for environment variable to set in guest.
 }
 ```
 
-### `protection`
+#### `protection`
 - **Type**: String
 - **Default**: Enabled (cgroup device protection)
 - **Value**: Set to `"disable"` to disable. Set to `"enable"` to enable.
 
-### 3.1 static (Static Devices)
+#### 3.1 static (Static Devices)
 
 ```json
 "static": [
@@ -456,7 +460,7 @@ The array for environment variable to set in guest.
 
 **Details by type**:
 
-#### devnode (Device Node)
+##### devnode (Device Node)
 - Single device node
 
 | Item | Type | Required | Description | Example Values |
@@ -469,7 +473,7 @@ The array for environment variable to set in guest.
 | `wideallow` | Number | Optional | Wide allow (0 or 1). If it set 0, gest get acceptance same major:miner number device. If it set 1, gest get acceptance same major number device. | `0` (default) |
 | `exclusive` | Number | Optional | Exclusive access (0 or 1). Do not use it now. | `0` (default) |
 
-#### devdir (Device Directory)
+##### devdir (Device Directory)
 - Entire device directory
 -
 | Item | Type | Required | Description | Example Values |
@@ -482,7 +486,7 @@ The array for environment variable to set in guest.
 | `wideallow` | Number | Optional | Wide allow (0 or 1). If it set 0, gest get acceptance same major:miner number device of `devnode`. If it set 1, gest get acceptance same major number device of `devnode`. | `0` (default) |
 | `exclusive` | Number | Optional | Exclusive access (0 or 1). Do not use it now. | `0` (default) |
 
-#### gpio (GPIO)
+##### gpio (GPIO)
 - GPIO pin assignment
 
 | Item | Type | Required | Description | Example Values |
@@ -493,7 +497,7 @@ The array for environment variable to set in guest.
 | `from` | String | Required | GPIO sysfs path in host | `"/sys/devices/platform/soc/e6055400.gpio/gpiochip6/gpio/gpio381"` |
 | `to` | String | Required | GPIO sysfs path in guest (Should remove '/' at top) | `"sys/devices/platform/soc/e6055400.gpio/gpiochip6/gpio/gpio381"` |
 
-#### iio (Industrial I/O)
+##### iio (Industrial I/O)
 - Industrial I/O device
 
 | Item | Type | Required | Description | Example Values |
@@ -506,13 +510,13 @@ The array for environment variable to set in guest.
 | `devnode` | String | Required | Device node. Same as `from` | `"/dev/iio:device0"` |
 | `optional` | Number | Optional | Optional (0 or 1). If `from` is not available, 0 is 'fail for container launch', 1 is 'fail through'. | `0` (default) |
 
-### 3.2 dynamic (Dynamic Devices)
+#### 3.2 dynamic (Dynamic Devices)
 
 T.B.D.
 
 ---
 
-## Section 4: network (Network Configuration)
+### Section 4: network (Network Configuration)
 
 ```json
 "network": {
@@ -540,9 +544,9 @@ T.B.D.
 }
 ```
 
-### static Network Interfaces
+#### static Network Interfaces
 
-#### veth (Virtual Ethernet)
+##### veth (Virtual Ethernet)
 
 ```json
 {
@@ -569,7 +573,7 @@ T.B.D.
 | `address` | String | Optional | IP address (CIDR notation) | `"192.168.1.100/24"` |
 | `gateway` | String | Optional | Default gateway | `"192.168.1.1"` |
 
-#### vxcan (Virtual CAN)
+##### vxcan (Virtual CAN)
 
 ```json
 {
@@ -590,7 +594,7 @@ TODO: Support CAN gateway filter.
 
 ---
 
-## Section 5: resource (Resource Limits)
+### Section 5: resource (Resource Limits)
 
 ```json
 "resource": [
@@ -617,7 +621,7 @@ TODO: Support CAN gateway filter.
 ]
 ```
 
-### resource Configuration Items
+#### resource Configuration Items
 
 | Item | Type | Required | Description | Example Values |
 |------|------|----------|-------------|-----------------|
@@ -633,41 +637,41 @@ TODO: Support CAN gateway filter.
 
 ---
 
-## Complete Container Configuration Example
+### Complete Container Configuration Example
 
 Refer to test/agl-data/*.json
 
 ---
 
-## Troubleshooting
+### Troubleshooting
 
-### Common Errors
+#### Common Errors
 
-#### 1. "Json file error"
+##### 1. "Json file error"
 - JSON file format is invalid
 - Verify that the file encoding is UTF-8
 - Use a JSON validator to check the schema
 
-#### 2. "mandatory value"
+##### 2. "mandatory value"
 - Required items are missing
 - Check the "Required" column in the documentation
 
-#### 3. Device not found
+##### 3. Device not found
 - Verify the paths in `blockdev`, `from`, and `to`
 - Check device existence: `ls -la /dev/`
 
-#### 4. Mount failure
+##### 4. Mount failure
 - Verify the filesystem is correctly specified
 - Ensure mount options are valid
 
-#### 5. Container not starting
+##### 5. Container not starting
 - Verify the rootfs path exists and is accessible
 - Check container name and role are set
 - Verify boot priority is set correctly (lower = higher priority)
 
 ---
 
-## References
+### References
 
 - **Root Filesystem**: The basic filesystem for containers
 - **Device Mapping**: Exposing host devices to containers
