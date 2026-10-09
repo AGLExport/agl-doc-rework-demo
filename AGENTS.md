@@ -13,80 +13,81 @@ Each document must be followed document structure as a follow.
 - Home
   - Introduction
   - Base platform for the distributed system
-    - Quick start
-      - Run Flutter IVI demo pre-build image 
-        - QEMU x86-64
-        - Raspberry Pi 4/5
+    - AGL Distribution
+      - Quick start
+        - Run Flutter IVI demo pre-build image 
+          - QEMU x86-64
+          - Raspberry Pi 4/5
 
-    - Portfolio
-      - Basic demo system 
-        - Flutter IVI demo
-        - Qt IVI demo
-        - IVI based Flutter Cluster demo
+      - Portfolio
+        - Basic demo system 
+          - Flutter IVI demo
+          - Qt IVI demo
+          - IVI based Flutter Cluster demo
 
-      - Extra demo system
-        - Qt based Cluster demo
-        - Slint based Cluster demo
-        - Momi IVI demo
+        - Extra demo system
+          - Qt based Cluster demo
+          - Slint based Cluster demo
+          - Momi IVI demo
 
-    - Architecture
-      - Basic demo system 
-      - Extra demo system
+      - Architecture
+        - Basic demo system 
+        - Extra demo system
 
-    - Build AGL system
-      - Basic AGL system 
-        - Setup build environment
-        - Build target image
-        - Deploy to board
+      - Build AGL system
+        - Basic AGL system 
+          - Setup build environment
+          - Build target image
+          - Deploy to board
 
-      - Extra AGL system
-        - Setup build environment
-        - Build target image
-        - Deploy to board
+        - Extra AGL system
+          - Setup build environment
+          - Build target image
+          - Deploy to board
 
-      - Supported the other boards
+        - Supported the other boards
 
-    - AGL Components
-      - AGL Reference Applications
-        - Flutter IVI homescreen
-        - Flutter Cluster
-        - Qt IVI homescreen
-        - Instrument Cluster reference GUI (Qt)
+      - AGL Components
+        - AGL Reference Applications
+          - Flutter IVI homescreen
+          - Flutter Cluster
+          - Qt IVI homescreen
+          - Instrument Cluster reference GUI (Qt)
 
-      - AGL Services
-        - Graphics
-          - The AGL compositor
-        - Sound
-          - Pipewire & Wireplumber
-        - Policies
-          - Rule based arbitrator
-        - Misc
-          - Voice agent assistant
-        - Instrument Cluster
-          - Instrument Cluster service
+        - AGL Services
+          - Graphics
+            - The AGL compositor
+          - Sound
+            - Pipewire & Wireplumber
+          - Policies
+            - Rule based arbitrator
+          - Misc
+            - Voice agent assistant
+          - Instrument Cluster
+            - Instrument Cluster service
 
-      - IVI Application Framework
-        - Application Lifecycle and Services
-          - Application Framework
+        - IVI Application Framework
+          - Application Lifecycle and Services
+            - Application Framework
 
-      - AGL API
-        - Table for APIs
-        - Generic APIs
-          - Redundancy file operation (librefop)
-        - In-Vehicle Infotainment APIs
-          - Persistent storage API
-        - Instrument Cluster APIs
-          - AGL Instrument Cluster API
-        - Gateway APIs
+        - AGL API
+          - Table for APIs
+          - Generic APIs
+            - Redundancy file operation (librefop)
+          - In-Vehicle Infotainment APIs
+            - Persistent storage API
+          - Instrument Cluster APIs
+            - AGL Instrument Cluster API
+          - Gateway APIs
 
-    - Platform Customize
-      - Create/Modify an AGL image
-      - Create a custom recipe
-      - Create a service 
+      - Platform Customize
+        - Create/Modify an AGL image
+        - Create a custom recipe
+        - Create a service 
 
-    - Application development
-      - Flutter application
-      - Qt application
+      - Application development
+        - Flutter application
+        - Qt application
 
   - Base platform for the small-scale integrated system
     - Container integration

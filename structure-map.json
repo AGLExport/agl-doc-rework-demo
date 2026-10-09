@@ -1,6 +1,6 @@
 {
   "instructions": "AGENTS.md",
-  "heading_count": 102,
+  "heading_count": 103,
   "required_pages": [
     {
       "breadcrumb": [
@@ -29,6 +29,16 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution"
+      ],
+      "heading": "AGL Distribution",
+      "page": "standalone/distribution/index.md"
+    },
+    {
+      "breadcrumb": [
+        "Home",
+        "Base platform for the distributed system",
+        "AGL Distribution",
         "Quick start"
       ],
       "heading": "Quick start",
@@ -38,6 +48,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "Quick start",
         "Run Flutter IVI demo pre-build image"
       ],
@@ -48,6 +59,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "Quick start",
         "Run Flutter IVI demo pre-build image",
         "QEMU x86-64"
@@ -59,6 +71,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "Quick start",
         "Run Flutter IVI demo pre-build image",
         "Raspberry Pi 4/5"
@@ -70,6 +83,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "Portfolio"
       ],
       "heading": "Portfolio",
@@ -79,6 +93,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "Portfolio",
         "Basic demo system"
       ],
@@ -89,6 +104,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "Portfolio",
         "Basic demo system",
         "Flutter IVI demo"
@@ -100,6 +116,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "Portfolio",
         "Basic demo system",
         "Qt IVI demo"
@@ -111,6 +128,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "Portfolio",
         "Basic demo system",
         "IVI based Flutter Cluster demo"
@@ -122,6 +140,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "Portfolio",
         "Extra demo system"
       ],
@@ -132,6 +151,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "Portfolio",
         "Extra demo system",
         "Qt based Cluster demo"
@@ -143,6 +163,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "Portfolio",
         "Extra demo system",
         "Slint based Cluster demo"
@@ -154,6 +175,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "Portfolio",
         "Extra demo system",
         "Momi IVI demo"
@@ -165,6 +187,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "Architecture"
       ],
       "heading": "Architecture",
@@ -174,6 +197,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "Architecture",
         "Basic demo system"
       ],
@@ -184,6 +208,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "Architecture",
         "Extra demo system"
       ],
@@ -194,6 +219,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "Build AGL system"
       ],
       "heading": "Build AGL system",
@@ -203,6 +229,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "Build AGL system",
         "Basic AGL system"
       ],
@@ -213,6 +240,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "Build AGL system",
         "Basic AGL system",
         "Setup build environment"
@@ -224,6 +252,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "Build AGL system",
         "Basic AGL system",
         "Build target image"
@@ -235,6 +264,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "Build AGL system",
         "Basic AGL system",
         "Deploy to board"
@@ -246,6 +276,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "Build AGL system",
         "Extra AGL system"
       ],
@@ -256,6 +287,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "Build AGL system",
         "Extra AGL system",
         "Setup build environment"
@@ -267,6 +299,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "Build AGL system",
         "Extra AGL system",
         "Build target image"
@@ -278,6 +311,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "Build AGL system",
         "Extra AGL system",
         "Deploy to board"
@@ -289,6 +323,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "Build AGL system",
         "Supported the other boards"
       ],
@@ -299,6 +334,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "AGL Components"
       ],
       "heading": "AGL Components",
@@ -308,6 +344,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "AGL Components",
         "AGL Reference Applications"
       ],
@@ -318,6 +355,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "AGL Components",
         "AGL Reference Applications",
         "Flutter IVI homescreen"
@@ -329,6 +367,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "AGL Components",
         "AGL Reference Applications",
         "Flutter Cluster"
@@ -340,6 +379,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "AGL Components",
         "AGL Reference Applications",
         "Qt IVI homescreen"
@@ -351,6 +391,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "AGL Components",
         "AGL Reference Applications",
         "Instrument Cluster reference GUI (Qt)"
@@ -362,6 +403,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "AGL Components",
         "AGL Services"
       ],
@@ -372,6 +414,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "AGL Components",
         "AGL Services",
         "Graphics"
@@ -383,6 +426,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "AGL Components",
         "AGL Services",
         "Graphics",
@@ -395,6 +439,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "AGL Components",
         "AGL Services",
         "Sound"
@@ -406,6 +451,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "AGL Components",
         "AGL Services",
         "Sound",
@@ -418,6 +464,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "AGL Components",
         "AGL Services",
         "Policies"
@@ -429,6 +476,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "AGL Components",
         "AGL Services",
         "Policies",
@@ -441,6 +489,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "AGL Components",
         "AGL Services",
         "Misc"
@@ -452,6 +501,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "AGL Components",
         "AGL Services",
         "Misc",
@@ -464,6 +514,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "AGL Components",
         "AGL Services",
         "Instrument Cluster"
@@ -475,6 +526,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "AGL Components",
         "AGL Services",
         "Instrument Cluster",
@@ -487,6 +539,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "AGL Components",
         "IVI Application Framework"
       ],
@@ -497,6 +550,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "AGL Components",
         "IVI Application Framework",
         "Application Lifecycle and Services"
@@ -508,6 +562,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "AGL Components",
         "IVI Application Framework",
         "Application Lifecycle and Services",
@@ -520,6 +575,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "AGL Components",
         "AGL API"
       ],
@@ -530,6 +586,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "AGL Components",
         "AGL API",
         "Table for APIs"
@@ -541,6 +598,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "AGL Components",
         "AGL API",
         "Generic APIs"
@@ -552,6 +610,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "AGL Components",
         "AGL API",
         "Generic APIs",
@@ -564,6 +623,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "AGL Components",
         "AGL API",
         "In-Vehicle Infotainment APIs"
@@ -575,6 +635,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "AGL Components",
         "AGL API",
         "In-Vehicle Infotainment APIs",
@@ -587,6 +648,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "AGL Components",
         "AGL API",
         "Instrument Cluster APIs"
@@ -598,6 +660,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "AGL Components",
         "AGL API",
         "Instrument Cluster APIs",
@@ -610,6 +673,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "AGL Components",
         "AGL API",
         "Gateway APIs"
@@ -621,6 +685,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "Platform Customize"
       ],
       "heading": "Platform Customize",
@@ -630,6 +695,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "Platform Customize",
         "Create/Modify an AGL image"
       ],
@@ -640,6 +706,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "Platform Customize",
         "Create a custom recipe"
       ],
@@ -650,6 +717,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "Platform Customize",
         "Create a service"
       ],
@@ -660,6 +728,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "Application development"
       ],
       "heading": "Application development",
@@ -669,6 +738,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "Application development",
         "Flutter application"
       ],
@@ -679,6 +749,7 @@
       "breadcrumb": [
         "Home",
         "Base platform for the distributed system",
+        "AGL Distribution",
         "Application development",
         "Qt application"
       ],

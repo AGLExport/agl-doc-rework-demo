@@ -140,93 +140,95 @@ nav:
   - Introduction: home/index.md
   - Base platform for the distributed system:
     - standalone/index.md
-    - Quick start:
-      - start/index.md
-      - Run Flutter IVI demo pre-build image:
-        - start/prebuilt/index.md
-        - QEMU x86-64: start/prebuilt/qemu-x86-64.md
-        - Raspberry Pi 4/5: start/prebuilt/raspberry-pi.md
-    - Portfolio:
-      - standalone/portfolio/index.md
-      - Basic demo system:
-        - standalone/portfolio/basic/index.md
-        - Flutter IVI demo: standalone/portfolio/basic/flutter-ivi.md
-        - Qt IVI demo: standalone/portfolio/basic/qt-ivi.md
-        - IVI based Flutter Cluster demo: standalone/portfolio/basic/flutter-cluster.md
-      - Extra demo system:
-        - standalone/portfolio/extra/index.md
-        - Qt based Cluster demo: standalone/portfolio/extra/qt-cluster.md
-        - Slint based Cluster demo: standalone/portfolio/extra/slint-cluster.md
-        - Momi IVI demo: standalone/portfolio/extra/momi-ivi.md
-    - Architecture:
-      - standalone/architecture/index.md
-      - Basic demo system: standalone/architecture/basic.md
-      - Extra demo system: standalone/architecture/extra.md
-    - Build AGL system:
-      - standalone/build/index.md
-      - Basic AGL system:
-        - standalone/build/basic/index.md
-        - Setup build environment: standalone/build/basic/setup.md
-        - Build target image: standalone/build/basic/image.md
-        - Deploy to board: standalone/build/basic/deploy.md
-      - Extra AGL system:
-        - standalone/build/extra/index.md
-        - Setup build environment: standalone/build/extra/setup.md
-        - Build target image: standalone/build/extra/image.md
-        - Deploy to board: standalone/build/extra/deploy.md
-      - Supported the other boards: standalone/build/other-boards.md
-    - AGL Components:
-      - components/index.md
-      - AGL Reference Applications:
-        - components/applications/index.md
-        - Flutter IVI homescreen: components/applications/flutter-homescreen.md
-        - Flutter Cluster: components/applications/flutter-cluster.md
-        - Qt IVI homescreen: components/applications/qt-homescreen.md
-        - Instrument Cluster reference GUI (Qt): components/applications/cluster-dashboard.md
-      - AGL Services:
-        - components/services/index.md
-        - Graphics:
-          - components/services/graphics/index.md
-          - The AGL compositor: components/services/graphics/agl-compositor.md
-        - Sound:
-          - components/services/sound/index.md
-          - Pipewire & Wireplumber: components/services/sound/pipewire-wireplumber.md
-        - Policies:
-          - components/services/policies/index.md
-          - Rule based arbitrator: components/services/policies/rule-based-arbitrator.md
-        - Misc:
-          - components/services/misc/index.md
-          - Voice agent assistant: components/services/misc/voice-agent.md
-        - Instrument Cluster:
-          - components/services/cluster/index.md
-          - Instrument Cluster service: components/services/cluster/cluster-service.md
-      - IVI Application Framework:
-        - components/framework/index.md
-        - Application Lifecycle and Services:
-          - components/framework/lifecycle/index.md
-          - Application Framework: components/framework/lifecycle/application-framework.md
-      - AGL API:
-        - components/api/index.md
-        - Table for APIs: components/api/table.md
-        - Generic APIs:
-          - components/api/generic/index.md
-          - Redundancy file operation (librefop): components/api/generic/librefop.md
-        - In-Vehicle Infotainment APIs:
-          - components/api/ivi/index.md
-          - Persistent storage API: components/api/ivi/persistent-storage.md
-        - Instrument Cluster APIs:
-          - components/api/cluster/index.md
-          - AGL Instrument Cluster API: components/api/cluster/instrument-cluster-api.md
-        - Gateway APIs: components/api/gateway.md
-    - Platform Customize:
-      - standalone/customize/index.md
-      - Create/Modify an AGL image: standalone/customize/image.md
-      - Create a custom recipe: standalone/customize/recipe.md
-      - Create a service: standalone/customize/service.md
-    - Application development:
-      - standalone/applications/index.md
-      - Flutter application: standalone/applications/flutter.md
-      - Qt application: standalone/applications/qt.md
+    - AGL Distribution:
+      - standalone/distribution/index.md
+      - Quick start:
+        - start/index.md
+        - Run Flutter IVI demo pre-build image:
+          - start/prebuilt/index.md
+          - QEMU x86-64: start/prebuilt/qemu-x86-64.md
+          - Raspberry Pi 4/5: start/prebuilt/raspberry-pi.md
+      - Portfolio:
+        - standalone/portfolio/index.md
+        - Basic demo system:
+          - standalone/portfolio/basic/index.md
+          - Flutter IVI demo: standalone/portfolio/basic/flutter-ivi.md
+          - Qt IVI demo: standalone/portfolio/basic/qt-ivi.md
+          - IVI based Flutter Cluster demo: standalone/portfolio/basic/flutter-cluster.md
+        - Extra demo system:
+          - standalone/portfolio/extra/index.md
+          - Qt based Cluster demo: standalone/portfolio/extra/qt-cluster.md
+          - Slint based Cluster demo: standalone/portfolio/extra/slint-cluster.md
+          - Momi IVI demo: standalone/portfolio/extra/momi-ivi.md
+      - Architecture:
+        - standalone/architecture/index.md
+        - Basic demo system: standalone/architecture/basic.md
+        - Extra demo system: standalone/architecture/extra.md
+      - Build AGL system:
+        - standalone/build/index.md
+        - Basic AGL system:
+          - standalone/build/basic/index.md
+          - Setup build environment: standalone/build/basic/setup.md
+          - Build target image: standalone/build/basic/image.md
+          - Deploy to board: standalone/build/basic/deploy.md
+        - Extra AGL system:
+          - standalone/build/extra/index.md
+          - Setup build environment: standalone/build/extra/setup.md
+          - Build target image: standalone/build/extra/image.md
+          - Deploy to board: standalone/build/extra/deploy.md
+        - Supported the other boards: standalone/build/other-boards.md
+      - AGL Components:
+        - components/index.md
+        - AGL Reference Applications:
+          - components/applications/index.md
+          - Flutter IVI homescreen: components/applications/flutter-homescreen.md
+          - Flutter Cluster: components/applications/flutter-cluster.md
+          - Qt IVI homescreen: components/applications/qt-homescreen.md
+          - Instrument Cluster reference GUI (Qt): components/applications/cluster-dashboard.md
+        - AGL Services:
+          - components/services/index.md
+          - Graphics:
+            - components/services/graphics/index.md
+            - The AGL compositor: components/services/graphics/agl-compositor.md
+          - Sound:
+            - components/services/sound/index.md
+            - Pipewire & Wireplumber: components/services/sound/pipewire-wireplumber.md
+          - Policies:
+            - components/services/policies/index.md
+            - Rule based arbitrator: components/services/policies/rule-based-arbitrator.md
+          - Misc:
+            - components/services/misc/index.md
+            - Voice agent assistant: components/services/misc/voice-agent.md
+          - Instrument Cluster:
+            - components/services/cluster/index.md
+            - Instrument Cluster service: components/services/cluster/cluster-service.md
+        - IVI Application Framework:
+          - components/framework/index.md
+          - Application Lifecycle and Services:
+            - components/framework/lifecycle/index.md
+            - Application Framework: components/framework/lifecycle/application-framework.md
+        - AGL API:
+          - components/api/index.md
+          - Table for APIs: components/api/table.md
+          - Generic APIs:
+            - components/api/generic/index.md
+            - Redundancy file operation (librefop): components/api/generic/librefop.md
+          - In-Vehicle Infotainment APIs:
+            - components/api/ivi/index.md
+            - Persistent storage API: components/api/ivi/persistent-storage.md
+          - Instrument Cluster APIs:
+            - components/api/cluster/index.md
+            - AGL Instrument Cluster API: components/api/cluster/instrument-cluster-api.md
+          - Gateway APIs: components/api/gateway.md
+      - Platform Customize:
+        - standalone/customize/index.md
+        - Create/Modify an AGL image: standalone/customize/image.md
+        - Create a custom recipe: standalone/customize/recipe.md
+        - Create a service: standalone/customize/service.md
+      - Application development:
+        - standalone/applications/index.md
+        - Flutter application: standalone/applications/flutter.md
+        - Qt application: standalone/applications/qt.md
   - Base platform for the small-scale integrated system:
     - integrated/index.md
     - Container integration:

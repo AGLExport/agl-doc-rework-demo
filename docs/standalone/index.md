@@ -7,29 +7,23 @@ last_reviewed: '2026-10-10'
 
 # Base platform for the distributed system
 
-AGL develops and provides a Linux distribution for automotive systems. It focuses on a standalone system built on a single Linux kernel and userland. Deploy it on an individual ECU, or connect several such systems across a vehicle network. Choose a demo from the portfolio, understand its architecture, and then build and deploy the selected image.
+AGL develops and provides a Linux distribution for automotive systems. It focuses on a standalone system built on a single Linux kernel and userland. Deploy it on an individual ECU, or connect several such systems across a vehicle network. Each deployment runs the software selected for its vehicle role and exchanges data through the configured interfaces.
 
-Basic and Extra are the documentation's groups for the demos below. They are not names of `aglsetup.sh` features; each target has its own actual feature list.
-
-| Goal | Chapter |
-| --- | --- |
-| Run a ready-made Flutter IVI image | [Quick start](../start/index.md) |
-| Compare demos and their intended roles | [Portfolio](portfolio/index.md) |
-| Understand runtimes, services, and display access | [Architecture](architecture/index.md) |
-| Prepare source, build an image, and boot a target | [Build AGL system](build/index.md) |
-| Understand reference applications, services, lifecycle, and APIs | [AGL Components](../components/index.md) |
-| Change image contents, recipes, and services | [Platform Customize](customize/index.md) |
-| Build and deploy Flutter or Qt applications | [Application development](applications/index.md) |
-
-<span id="platform"></span>
-<span id="hardware"></span>
-
-Follow the Basic or Extra build sequence after selecting a demo. The [board and image matrix](build/common/reference/matrix.md) provides supporting hardware information.
-
-<span id="apps"></span>
-
-Read [AGL Components](../components/index.md) for the reference applications, services, framework, and APIs used by a distributed system. Continue with the sibling chapters [Platform Customize](customize/index.md) or [Application development](applications/index.md) to change platform behavior or applications. For guest isolation and shared computing resources, use [Base platform for the small-scale integrated system](../integrated/index.md) or [Base platform for the large-scale integrated system](../integrated/large-scale.md).
+The [AGL Distribution](distribution/index.md) chapter describes this Linux platform and provides the complete path from running a prebuilt demo to building, customizing and developing applications. It contains Quick start, Portfolio, Architecture, Build AGL system, AGL Components, Platform Customize and Application development.
 
 ## Vehicle roles
 
 IVI and Instrument Cluster reference software is introduced in the [Basic demo system](portfolio/basic/index.md) and [Extra demo system](portfolio/extra/index.md) portfolios. AGL also provides a Connected Gateway platform; its detailed overview and setup remain **TBD**. Existing references are the [gateway image catalog entry](build/common/reference/images.md#agl-gateway-demo) and [Gateway APIs](../components/api/gateway.md).
+
+<span id="platform"></span>
+<span id="hardware"></span>
+
+Select a demo in [AGL Distribution](distribution/index.md), then follow its Basic or Extra build sequence. The [board and image matrix](build/common/reference/matrix.md) provides supporting hardware information.
+
+<span id="apps"></span>
+
+Use [AGL Components](../components/index.md) for reference applications, services, lifecycle and APIs. Continue with [Platform Customize](customize/index.md) or [Application development](applications/index.md) to change the distribution or its applications.
+
+## Integration with other platforms
+
+For guest isolation and shared computing resources, use [Base platform for the small-scale integrated system](../integrated/index.md) or [Base platform for the large-scale integrated system](../integrated/large-scale.md). An AGL distribution can provide an integrated system's guest userland; its kernel, device access and deployment format depend on the container or virtual-machine environment. Follow that integration's build procedure when assembling host and guest artifacts.

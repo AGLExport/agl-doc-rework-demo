@@ -17,4 +17,4 @@ Build the system selected in the portfolio. Each route separates source and host
 
 Use [Common build reference](common.md) for shared host, source, cache, layer, and hardware documentation. It supplements these routes. Container and KVM host/guest builds belong in [Base platform for the small-scale integrated system](../../integrated/index.md); SoDeV workspaces belong in [Base platform for the large-scale integrated system](../../integrated/large-scale.md).
 
-Before building, choose a release or snapshot through [Releases & migration](../../releases/index.md). Keep the source, SDK, and deployed artifacts aligned.
+Before building, record the resolved master manifest through [Releases & migration](../../releases/index.md). Keep the source, SDK, and deployed artifacts aligned.
