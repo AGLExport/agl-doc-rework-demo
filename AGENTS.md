@@ -139,6 +139,7 @@ Do not omit, rename, duplicate, or reorder these headings.
 
 
 "Introduction" section must include the following content:
+  The Software Defined Vehicle build on various vehicle technical trends. AGL is focusing on "Vehicle EE architecture" and "E2E Vehicle Data Processing".
 
   Vehicle EE architectures.
     Traditional distributed architecture.
