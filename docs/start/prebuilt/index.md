@@ -23,7 +23,7 @@ Run the complete Flutter IVI demo without building AGL from source. It includes 
 
 The QEMU procedure covers the launch command and VNC display. The Raspberry Pi procedure covers image selection, writing the card, and startup checks. Keep the kernel, image, and SDK on the same release or build.
 
-Continue with the [Flutter IVI portfolio entry](../../standalone/portfolio/basic/flutter-ivi.md) or [Flutter IVI homescreen](../../components/applications/flutter-homescreen.md).
+Continue with the [Flutter IVI portfolio entry](../../distributed/portfolio/basic/flutter-ivi.md) or [Flutter IVI homescreen](../../components/applications/flutter-homescreen.md).
 
 <span id="qemu-x86-64"></span>
 <span id="raspberry-pi-4"></span>

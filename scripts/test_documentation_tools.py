@@ -20,9 +20,9 @@ class SectionResolutionTests(unittest.TestCase):
         self.assertEqual(section_paths("AGL Coverage", [("Introduction", "home/index.md")], {}), ["home/index.md"])
 
     def test_hyphenated_content_rule_resolves_to_exact_navigation_spelling(self):
-        pages = [("Small scale integrated system", "integrated/index.md")]
-        self.assertEqual(section_paths("Small-scale integrated system", pages, {}), ["integrated/index.md"])
-        self.assertEqual(section_paths("AGL small-scale integrated system", pages, {}), ["integrated/index.md"])
+        pages = [("Small scale integrated system", "small-integrated/index.md")]
+        self.assertEqual(section_paths("Small-scale integrated system", pages, {}), ["small-integrated/index.md"])
+        self.assertEqual(section_paths("AGL small-scale integrated system", pages, {}), ["small-integrated/index.md"])
 
     def test_ambiguous_sections_are_not_silently_selected(self):
         pages = [("SoDeV", "first.md"), ("SoDeV", "second.md")]
@@ -44,7 +44,7 @@ class ContentRequirementTests(unittest.TestCase):
             (3, "Domain architecture."), (3, "Central/Zone architecture."),
             (2, "E2E Vehicle Data Processing."),
         ])
-        expected_paths = ["standalone/index.md", "integrated/index.md", "integrated/large-scale.md"]
+        expected_paths = ["distributed/index.md", "small-integrated/index.md", "large-integrated/index.md"]
         pages = [("Base platform for the distributed system", expected_paths[0]),
                  ("Base platform for the small-scale integrated system", expected_paths[1]),
                  ("Base platform for the large-scale integrated system", expected_paths[2])]
@@ -131,12 +131,12 @@ class MasterBaselineTests(unittest.TestCase):
                 validate_master_references({"outdated.md": url})
 
     def test_legacy_content_names_resolve_to_updated_platform_chapters(self):
-        pages = [("Base platform for the distributed system", "standalone/index.md"),
-                 ("Base platform for the small-scale integrated system", "integrated/index.md"),
-                 ("Base platform for the large-scale integrated system", "integrated/large-scale.md")]
-        for name, destination in [("AGL distributed system", "standalone/index.md"),
-                                  ("AGL small-scale integrated system", "integrated/index.md"),
-                                  ("AGL large-scale integrated system", "integrated/large-scale.md")]:
+        pages = [("Base platform for the distributed system", "distributed/index.md"),
+                 ("Base platform for the small-scale integrated system", "small-integrated/index.md"),
+                 ("Base platform for the large-scale integrated system", "large-integrated/index.md")]
+        for name, destination in [("AGL distributed system", "distributed/index.md"),
+                                  ("AGL small-scale integrated system", "small-integrated/index.md"),
+                                  ("AGL large-scale integrated system", "large-integrated/index.md")]:
             with self.subTest(name=name):
                 self.assertEqual(section_paths(name, pages, {}), [destination])
 
@@ -152,6 +152,53 @@ class SectionCleanupTests(unittest.TestCase):
 
 
 class ImportPreservationTests(unittest.TestCase):
+    def test_import_destinations_match_the_current_source_map(self):
+        project = Path(__file__).resolve().parents[1]
+        manifest = json.loads((project / "source-map.json").read_text(encoding="utf-8"))
+        destinations = {entry["source"]: entry["destination"]
+                        for entry in manifest["pages"] + manifest["excluded_pages"]}
+        self.assertEqual(import_docs.MAPPING, destinations)
+
+    def test_reimport_preserves_moved_pages_and_links_between_platforms(self):
+        with TemporaryDirectory() as directory:
+            base = Path(directory)
+            source, project = base / "source", base / "project"
+            source.mkdir()
+            project.mkdir()
+            mapping = {"quickstart.md": "start/prebuilt/index.md",
+                       "distributed.md": "distributed/guide.md",
+                       "small.md": "small-integrated/guide.md",
+                       "large.md": "large-integrated/guide.md"}
+            (project / "structure-map.json").write_text(json.dumps({
+                "required_pages": [], "moved_pages": [
+                    {"old": "standalone/guide.md", "new": "distributed/guide.md"},
+                    {"old": "integrated/guide.md", "new": "small-integrated/guide.md"},
+                ],
+            }), encoding="utf-8")
+            (source / "quickstart.md").write_text(
+                "### QEMU x86-64\n[Distributed](distributed.md)\n"
+                "[Small](small.md)\n[Large](large.md)\n", encoding="utf-8")
+            preserved = {}
+            for origin, destination in mapping.items():
+                if origin == "quickstart.md":
+                    continue
+                (source / origin).write_text("# Upstream guide\nUpdated source.\n", encoding="utf-8")
+                target = project / "docs" / destination
+                target.parent.mkdir(parents=True, exist_ok=True)
+                curated = ("---\ncontent_status: adapted\nsource_path: " + origin
+                           + "\n---\n# Curated guide\nKeep local corrections.\n")
+                target.write_text(curated, encoding="utf-8")
+                preserved[target] = curated
+            with patch.object(import_docs, "PROJECT", project), patch.object(import_docs, "MAPPING", mapping), patch.object(import_docs, "TITLES", {}), patch.object(import_docs, "REQUIRED_TITLES", {}), redirect_stdout(StringIO()):
+                import_docs.import_all(source)
+            for target, curated in preserved.items():
+                self.assertEqual(target.read_text(encoding="utf-8"), curated)
+            qemu = (project / "docs/start/prebuilt/qemu-x86-64.md").read_text(encoding="utf-8")
+            for destination in list(mapping.values())[1:]:
+                self.assertIn("(../../" + destination + ")", qemu)
+            self.assertFalse((project / "docs/standalone").exists())
+            self.assertFalse((project / "docs/integrated").exists())
+
     def test_default_import_preserves_adaptations_and_refreshes_unadapted_pages(self):
         with TemporaryDirectory() as directory:
             base = Path(directory)

@@ -8,7 +8,7 @@ last_reviewed: '2026-10-10'
 
 # Qt IVI homescreen
 
-The Qt IVI demo uses the `homescreen` shell application, a separate `launcher`, and individual Qt applications. The homescreen supplies the background and panels, reserves an area for application windows, and manages application activation and switching. Build the [Qt IVI demo](../../standalone/build/ivi/qt-ivi-demo.md) or read the [image catalog](../../standalone/build/common/reference/images.md#agl-ivi-demo-qt) for its variants. To add an ordinary Qt application to this shell, follow [Qt application development](../../standalone/applications/qt.md).
+The Qt IVI demo uses the `homescreen` shell application, a separate `launcher`, and individual Qt applications. The homescreen supplies the background and panels, reserves an area for application windows, and manages application activation and switching. Build the [Qt IVI demo](../../distributed/build/ivi/qt-ivi-demo.md) or read the [image catalog](../../distributed/build/common/reference/images.md#agl-ivi-demo-qt) for its variants. To add an ordinary Qt application to this shell, follow [Qt application development](../../distributed/applications/qt.md).
 
 ## Shell, launcher, and backends
 

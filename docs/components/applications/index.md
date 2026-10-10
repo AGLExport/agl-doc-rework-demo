@@ -16,4 +16,4 @@ These applications belong to the distributed AGL base platform. Select the match
 | [Qt IVI homescreen](qt-homescreen.md) | Qt IVI |
 | [Instrument Cluster reference GUI (Qt)](cluster-dashboard.md) | Dedicated Qt Cluster |
 
-The [Momi application catalog](../../integrated/containers/components/applications.md) belongs to Container integration. For its complete host and guests, follow the [Momi IVI demo](../../integrated/containers/demo/momi-ivi.md).
+The [Momi application catalog](../../small-integrated/containers/components/applications.md) belongs to Container integration. For its complete host and guests, follow the [Momi IVI demo](../../small-integrated/containers/demo/momi-ivi.md).

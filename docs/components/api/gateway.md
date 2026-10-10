@@ -7,11 +7,11 @@ last_reviewed: '2026-10-10'
 
 # Gateway APIs
 
-The gateway demo hosts the KUKSA.val databroker and CAN-input integration described in the [image catalog](../../standalone/build/common/reference/images.md#agl-gateway-demo). Coordinated IVI/cluster deployments configure the current master images and their network endpoints.
+The gateway demo hosts the KUKSA.val databroker and CAN-input integration described in the [image catalog](../../distributed/build/common/reference/images.md#agl-gateway-demo). Coordinated IVI/cluster deployments configure the current master images and their network endpoints.
 
 | Need | Reference |
 | --- | --- |
-| Databroker placement and networking | [Coordinated demo configuration](../../standalone/build/common/reference/images.md#coordinated-demo-configuration) |
+| Databroker placement and networking | [Coordinated demo configuration](../../distributed/build/common/reference/images.md#coordinated-demo-configuration) |
 | Demo CAN data | [Virtual Car CAN definition](../tools/virtual-car/index.md) |
 | Generate demonstration data | [Demo Control Panel](../tools/demo-control/panel.md) |
 | Platform services | [AGL Services](../services/index.md) |

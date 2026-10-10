@@ -14,7 +14,7 @@ The AGL master application framework uses systemd for process lifecycle and appl
 
 Package each service or application with its systemd unit and dependencies. Applications use system units with an explicit `User` setting when required; startup does not depend on creating a per-user desktop session. Unit configuration controls restart behavior, resource access and sandboxing.
 
-The [master applaunchd recipe](https://git.automotivelinux.org/AGL/meta-agl/tree/meta-app-framework/recipes-core/applaunchd/applaunchd_git.bb?h=master) installs its service, AGL application templates and sandboxing drop-ins. Read [Create a service](../../../standalone/customize/service.md) and [Package and register an application](../../../standalone/applications/create-application.md) for packaging and unit examples.
+The [master applaunchd recipe](https://git.automotivelinux.org/AGL/meta-agl/tree/meta-app-framework/recipes-core/applaunchd/applaunchd_git.bb?h=master) installs its service, AGL application templates and sandboxing drop-ins. Read [Create a service](../../../distributed/customize/service.md) and [Package and register an application](../../../distributed/applications/create-application.md) for packaging and unit examples.
 
 ## Application discovery and startup
 

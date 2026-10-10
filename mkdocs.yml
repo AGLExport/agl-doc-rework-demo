@@ -91,45 +91,45 @@ not_in_nav: |
   /contributing/general-guidelines.md
   /contributing/gerrit.md
   /contributing/submit-changes.md
-  /integrated/containers/build-guide.md
-  /integrated/kvm/images.md
-  /integrated/sodev/virtio-guest.md
-  /standalone/applications/build-apps.md
-  /standalone/applications/create-application.md
-  /standalone/applications/setup-sdk.md
-  /standalone/architecture/agl-ivi-architecture-notes.md
-  /standalone/build/cluster/index.md
-  /standalone/build/cluster/qt.md
-  /standalone/build/cluster/slint.md
-  /standalone/build/common.md
-  /standalone/build/common/build-image.md
-  /standalone/build/common/build-overview.md
-  /standalone/build/common/download-source.md
-  /standalone/build/common/hardware/aws-ec2.md
-  /standalone/build/common/hardware/raspberry-pi.md
-  /standalone/build/common/hardware/raspberry-pi/camera.md
-  /standalone/build/common/hardware/raspberry-pi/devices.md
-  /standalone/build/common/hardware/raspberry-pi/display.md
-  /standalone/build/common/hardware/renesas-rcar-gen3.md
-  /standalone/build/common/hardware/rockchip.md
-  /standalone/build/common/hardware/sparrow-hawk.md
-  /standalone/build/common/hardware/visionfive2.md
-  /standalone/build/common/hardware/x86.md
-  /standalone/build/common/initialize-build.md
-  /standalone/build/common/layers/meta-agl-demo.md
-  /standalone/build/common/layers/meta-agl-devel.md
-  /standalone/build/common/layers/meta-agl.md
-  /standalone/build/common/layers/overview.md
-  /standalone/build/common/prepare-host.md
-  /standalone/build/common/reference/hardware-images.md
-  /standalone/build/common/reference/hardware.md
-  /standalone/build/common/reference/images.md
-  /standalone/build/common/reference/matrix.md
-  /standalone/build/ivi/flutter-cluster.md
-  /standalone/build/ivi/flutter.md
-  /standalone/build/ivi/index.md
-  /standalone/build/ivi/qt-ivi-demo.md
-  /standalone/customize/build-output.md
+  /small-integrated/containers/build-guide.md
+  /small-integrated/kvm/images.md
+  /large-integrated/sodev/virtio-guest.md
+  /distributed/applications/build-apps.md
+  /distributed/applications/create-application.md
+  /distributed/applications/setup-sdk.md
+  /distributed/architecture/agl-ivi-architecture-notes.md
+  /distributed/build/cluster/index.md
+  /distributed/build/cluster/qt.md
+  /distributed/build/cluster/slint.md
+  /distributed/build/common.md
+  /distributed/build/common/build-image.md
+  /distributed/build/common/build-overview.md
+  /distributed/build/common/download-source.md
+  /distributed/build/common/hardware/aws-ec2.md
+  /distributed/build/common/hardware/raspberry-pi.md
+  /distributed/build/common/hardware/raspberry-pi/camera.md
+  /distributed/build/common/hardware/raspberry-pi/devices.md
+  /distributed/build/common/hardware/raspberry-pi/display.md
+  /distributed/build/common/hardware/renesas-rcar-gen3.md
+  /distributed/build/common/hardware/rockchip.md
+  /distributed/build/common/hardware/sparrow-hawk.md
+  /distributed/build/common/hardware/visionfive2.md
+  /distributed/build/common/hardware/x86.md
+  /distributed/build/common/initialize-build.md
+  /distributed/build/common/layers/meta-agl-demo.md
+  /distributed/build/common/layers/meta-agl-devel.md
+  /distributed/build/common/layers/meta-agl.md
+  /distributed/build/common/layers/overview.md
+  /distributed/build/common/prepare-host.md
+  /distributed/build/common/reference/hardware-images.md
+  /distributed/build/common/reference/hardware.md
+  /distributed/build/common/reference/images.md
+  /distributed/build/common/reference/matrix.md
+  /distributed/build/ivi/flutter-cluster.md
+  /distributed/build/ivi/flutter.md
+  /distributed/build/ivi/index.md
+  /distributed/build/ivi/qt-ivi-demo.md
+  /distributed/customize/build-output.md
   /start/prebuilt/flutter.md
   /troubleshooting/diagnostics.md
   /troubleshooting/getting-help.md
@@ -139,9 +139,9 @@ nav:
   - index.md
   - Introduction: home/index.md
   - Base platform for the distributed system:
-    - standalone/index.md
+    - distributed/index.md
     - AGL Distribution:
-      - standalone/distribution/index.md
+      - distributed/distribution/index.md
       - Quick start:
         - start/index.md
         - Run Flutter IVI demo pre-build image:
@@ -149,34 +149,34 @@ nav:
           - QEMU x86-64: start/prebuilt/qemu-x86-64.md
           - Raspberry Pi 4/5: start/prebuilt/raspberry-pi.md
       - Portfolio:
-        - standalone/portfolio/index.md
+        - distributed/portfolio/index.md
         - Basic demo system:
-          - standalone/portfolio/basic/index.md
-          - Flutter IVI demo: standalone/portfolio/basic/flutter-ivi.md
-          - Qt IVI demo: standalone/portfolio/basic/qt-ivi.md
-          - IVI based Flutter Cluster demo: standalone/portfolio/basic/flutter-cluster.md
+          - distributed/portfolio/basic/index.md
+          - Flutter IVI demo: distributed/portfolio/basic/flutter-ivi.md
+          - Qt IVI demo: distributed/portfolio/basic/qt-ivi.md
+          - IVI based Flutter Cluster demo: distributed/portfolio/basic/flutter-cluster.md
         - Extra demo system:
-          - standalone/portfolio/extra/index.md
-          - Qt based Cluster demo: standalone/portfolio/extra/qt-cluster.md
-          - Slint based Cluster demo: standalone/portfolio/extra/slint-cluster.md
-          - Momi IVI demo: standalone/portfolio/extra/momi-ivi.md
+          - distributed/portfolio/extra/index.md
+          - Qt based Cluster demo: distributed/portfolio/extra/qt-cluster.md
+          - Slint based Cluster demo: distributed/portfolio/extra/slint-cluster.md
+          - Momi IVI demo: distributed/portfolio/extra/momi-ivi.md
       - Architecture:
-        - standalone/architecture/index.md
-        - Basic demo system: standalone/architecture/basic.md
-        - Extra demo system: standalone/architecture/extra.md
+        - distributed/architecture/index.md
+        - Basic demo system: distributed/architecture/basic.md
+        - Extra demo system: distributed/architecture/extra.md
       - Build AGL system:
-        - standalone/build/index.md
+        - distributed/build/index.md
         - Basic AGL system:
-          - standalone/build/basic/index.md
-          - Setup build environment: standalone/build/basic/setup.md
-          - Build target image: standalone/build/basic/image.md
-          - Deploy to board: standalone/build/basic/deploy.md
+          - distributed/build/basic/index.md
+          - Setup build environment: distributed/build/basic/setup.md
+          - Build target image: distributed/build/basic/image.md
+          - Deploy to board: distributed/build/basic/deploy.md
         - Extra AGL system:
-          - standalone/build/extra/index.md
-          - Setup build environment: standalone/build/extra/setup.md
-          - Build target image: standalone/build/extra/image.md
-          - Deploy to board: standalone/build/extra/deploy.md
-        - Supported the other boards: standalone/build/other-boards.md
+          - distributed/build/extra/index.md
+          - Setup build environment: distributed/build/extra/setup.md
+          - Build target image: distributed/build/extra/image.md
+          - Deploy to board: distributed/build/extra/deploy.md
+        - Supported the other boards: distributed/build/other-boards.md
       - AGL Components:
         - components/index.md
         - AGL Reference Applications:
@@ -221,54 +221,54 @@ nav:
             - AGL Instrument Cluster API: components/api/cluster/instrument-cluster-api.md
           - Gateway APIs: components/api/gateway.md
       - Platform Customize:
-        - standalone/customize/index.md
-        - Create/Modify an AGL image: standalone/customize/image.md
-        - Create a custom recipe: standalone/customize/recipe.md
-        - Create a service: standalone/customize/service.md
+        - distributed/customize/index.md
+        - Create/Modify an AGL image: distributed/customize/image.md
+        - Create a custom recipe: distributed/customize/recipe.md
+        - Create a service: distributed/customize/service.md
       - Application development:
-        - standalone/applications/index.md
-        - Flutter application: standalone/applications/flutter.md
-        - Qt application: standalone/applications/qt.md
+        - distributed/applications/index.md
+        - Flutter application: distributed/applications/flutter.md
+        - Qt application: distributed/applications/qt.md
   - Base platform for the small-scale integrated system:
-    - integrated/index.md
+    - small-integrated/index.md
     - Container integration:
-      - integrated/containers/index.md
-      - Architecture: integrated/containers/architecture.md
-      - Build Container integration: integrated/containers/build.md
+      - small-integrated/containers/index.md
+      - Architecture: small-integrated/containers/architecture.md
+      - Build Container integration: small-integrated/containers/build.md
       - Container integration Customize:
-        - integrated/containers/customize/index.md
-        - Create and Run Guest Container: integrated/containers/customize/guest-container.md
+        - small-integrated/containers/customize/index.md
+        - Create and Run Guest Container: small-integrated/containers/customize/guest-container.md
       - Demo image for container integration:
-        - integrated/containers/demo/index.md
-        - Momi IVI demo: integrated/containers/demo/momi-ivi.md
+        - small-integrated/containers/demo/index.md
+        - Momi IVI demo: small-integrated/containers/demo/momi-ivi.md
       - AGL Components:
-        - integrated/containers/components/index.md
+        - small-integrated/containers/components/index.md
         - Platform extension:
-          - integrated/containers/extensions.md
+          - small-integrated/containers/extensions.md
           - DRM lease manager: components/services/graphics/drm-lease-manager.md
           - Container Manager: components/extensions/container-manager.md
         - AGL Reference Applications for IC demo:
-          - integrated/containers/components/applications.md
+          - small-integrated/containers/components/applications.md
           - Momi Screen: components/applications/momi-screen.md
           - Momi navigation: components/applications/momi-navigation.md
           - Momi Weather: components/applications/momi-weather.md
           - Momi Player: components/applications/momi-player.md
     - KVM based integration:
-      - integrated/kvm/index.md
-      - Build Platform: integrated/kvm/build.md
+      - small-integrated/kvm/index.md
+      - Build Platform: small-integrated/kvm/build.md
   - Base platform for the large-scale integrated system:
-    - integrated/large-scale.md
+    - large-integrated/index.md
     - SoDeV:
-      - integrated/sodev/index.md
-      - Architecture: integrated/sodev/architecture.md
-      - Build SoDeV: integrated/sodev/build.md
+      - large-integrated/sodev/index.md
+      - Architecture: large-integrated/sodev/architecture.md
+      - Build SoDeV: large-integrated/sodev/build.md
       - SoDeV Customize:
-        - integrated/sodev/customize/index.md
-        - Create and Run Guest VM: integrated/sodev/customize/guest-vm.md
+        - large-integrated/sodev/customize/index.md
+        - Create and Run Guest VM: large-integrated/sodev/customize/guest-vm.md
       - AGL Components:
-        - integrated/sodev/components/index.md
+        - large-integrated/sodev/components/index.md
         - Platform extension:
-          - integrated/sodev/extensions.md
+          - large-integrated/sodev/extensions.md
           - Unified HMI: components/extensions/unified-hmi.md
   - AGL Development tools:
     - components/tools/index.md

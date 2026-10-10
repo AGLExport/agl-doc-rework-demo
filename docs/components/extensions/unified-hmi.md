@@ -77,7 +77,7 @@ Json files need to be created correctly for your execution environment.
 
 ## How to install Unified HMI frameworks in your Build
 
-Follow the [AGL documentation](../../standalone/build/common/build-overview.md) for the build process, and set up the "[Initializing Your Build Environment](../../standalone/build/common/initialize-build.md)" section as described below to enable the AGL feature 'agl-uhmi'.
+Follow the [AGL documentation](../../distributed/build/common/build-overview.md) for the build process, and set up the "[Initializing Your Build Environment](../../distributed/build/common/initialize-build.md)" section as described below to enable the AGL feature 'agl-uhmi'.
 
 For example:
 ```
@@ -105,8 +105,8 @@ Replace the `<image_name>` with the appropriate values you want. We have confirm
 ## How to setup and boot
 
 For Environment setup instructions for each platform, refer to the following links in the AGL Documentation:
-* [Building for x86(Emulation and Hardware)](../../standalone/build/common/hardware/x86.md)
-* [Building for Raspberry Pi 4](../../standalone/build/common/hardware/raspberry-pi.md)
+* [Building for x86(Emulation and Hardware)](../../distributed/build/common/hardware/x86.md)
+* [Building for Raspberry Pi 4](../../distributed/build/common/hardware/raspberry-pi.md)
 * [Building for Supported Renesas Boards](https://docs.automotivelinux.org/en/master/01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/04_Building_for_Supported_Renesas_Boards/)
 
 ## Preconfigured Images for using Unified HMI

@@ -43,7 +43,7 @@ sync
 
 ## Boot and check
 
-Insert the card, connect the display/network, and power on the board. Confirm that the Flutter homescreen appears. Use the [board build/boot guide](../../standalone/build/common/hardware/raspberry-pi.md) for display and board-specific notes. The presence of a downloaded artifact does not establish validation for every display or peripheral combination.
+Insert the card, connect the display/network, and power on the board. Confirm that the Flutter homescreen appears. Use the [board build/boot guide](../../distributed/build/common/hardware/raspberry-pi.md) for display and board-specific notes. The presence of a downloaded artifact does not establish validation for every display or peripheral combination.
 
 When the target has a network address, connect from the host if the image's login configuration permits it:
 

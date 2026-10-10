@@ -14,7 +14,7 @@
       "description": "Original editorial reconstruction of the IC/IVI LXC reference architecture; not a reproduced official slide",
       "reviewed_on": "2026-10-10",
       "sha256": "959eaa8ac8d1704d1f51d95099d546798e50a7c44353c202860856f69f6c334f",
-      "documentation_page": "integrated/containers/architecture.md",
+      "documentation_page": "small-integrated/containers/architecture.md",
       "source_references": [
         {
           "title": "AGL Tech Day, April 2022",
@@ -85,7 +85,7 @@
       "description": "Logical IVI architecture reviewed against AGL master recipes and their selected component revisions",
       "reviewed_on": "2026-10-10",
       "sha256": "ad543ceaf348b37479cd5d1bfde8a44f052fd03b926031de22419f63cb0bb73a",
-      "documentation_page": "standalone/architecture/agl-ivi-architecture-notes.md",
+      "documentation_page": "distributed/architecture/agl-ivi-architecture-notes.md",
       "source_references": [
         {
           "title": "Master image recipes",
@@ -122,7 +122,7 @@
       "description": "Logical IVI architecture reviewed against AGL master recipes and their selected component revisions",
       "reviewed_on": "2026-10-10",
       "sha256": "6baa3f3fafd695012f168c17509de989a95456819ba137314d648549ffec5ce2",
-      "documentation_page": "standalone/architecture/agl-ivi-architecture-notes.md",
+      "documentation_page": "distributed/architecture/agl-ivi-architecture-notes.md",
       "source_references": [
         {
           "title": "Master image recipes",

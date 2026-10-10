@@ -18,205 +18,205 @@
       "sha256": "f0c67817633cfd0dba60a4ea5f531374ea8a07defca68e1920181a49ba161cd7"
     },
     {
-      "page": "standalone/build/common/build-overview.md",
+      "page": "distributed/build/common/build-overview.md",
       "source": "01_Getting_Started/02_Building_AGL_Image/01_Build_Process_Overview.md",
       "url": "https://git.automotivelinux.org/AGL/documentation/plain/docs/01_Getting_Started/02_Building_AGL_Image/01_Build_Process_Overview.md?h=master",
       "sha256": "e65a297b4ae148ae3668d146e268bc5eb05476423da672c23e68a227f1b960df"
     },
     {
-      "page": "standalone/build/common/prepare-host.md",
+      "page": "distributed/build/common/prepare-host.md",
       "source": "01_Getting_Started/02_Building_AGL_Image/02_Preparing_Your_Build_Host.md",
       "url": "https://git.automotivelinux.org/AGL/documentation/plain/docs/01_Getting_Started/02_Building_AGL_Image/02_Preparing_Your_Build_Host.md?h=master",
       "sha256": "cda75cf179c27c7d40c32f8e030167de421e006cb928ed1cdc0cf0e0afc016a1"
     },
     {
-      "page": "standalone/build/common/download-source.md",
+      "page": "distributed/build/common/download-source.md",
       "source": "01_Getting_Started/02_Building_AGL_Image/03_Downloading_AGL_Software.md",
       "url": "https://git.automotivelinux.org/AGL/documentation/plain/docs/01_Getting_Started/02_Building_AGL_Image/03_Downloading_AGL_Software.md?h=master",
       "sha256": "f7074e2aca671f59f6c5a15277905a2ee24ed03e1b73c91bc33bbc599563e9ca"
     },
     {
-      "page": "standalone/build/common/initialize-build.md",
+      "page": "distributed/build/common/initialize-build.md",
       "source": "01_Getting_Started/02_Building_AGL_Image/04_Initializing_Your_Build_Environment.md",
       "url": "https://git.automotivelinux.org/AGL/documentation/plain/docs/01_Getting_Started/02_Building_AGL_Image/04_Initializing_Your_Build_Environment.md?h=master",
       "sha256": "0396a0fba4209a38d7d771a30b6119f78fe2daa932d35a0013e26461af4214a2"
     },
     {
-      "page": "standalone/customize/build-output.md",
+      "page": "distributed/customize/build-output.md",
       "source": "01_Getting_Started/02_Building_AGL_Image/05_Customizing_Your_Build.md",
       "url": "https://git.automotivelinux.org/AGL/documentation/plain/docs/01_Getting_Started/02_Building_AGL_Image/05_Customizing_Your_Build.md?h=master",
       "sha256": "d6470aa9d8b283a32b60ef9ecff1aa73808b477dabb9607708d9ccd6f23edf01"
     },
     {
-      "page": "standalone/build/common/build-image.md",
+      "page": "distributed/build/common/build-image.md",
       "source": "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/01_Building_the_AGL_Image.md",
       "url": "https://git.automotivelinux.org/AGL/documentation/plain/docs/01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/01_Building_the_AGL_Image.md?h=master",
       "sha256": "b987c4e6f4d6f7b471feee2f266307481cf9496022d781cba43efbd411743f1d"
     },
     {
-      "page": "standalone/build/common/hardware/x86.md",
+      "page": "distributed/build/common/hardware/x86.md",
       "source": "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/02_Building_for_x86_(Emulation_and_Hardware).md",
       "url": "https://git.automotivelinux.org/AGL/documentation/plain/docs/01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/02_Building_for_x86_(Emulation_and_Hardware).md?h=master",
       "sha256": "bce71c3fd23c380c6dcdbabe64a22d64791cad9dadc68b62c2c0a5fa0fa602d4"
     },
     {
-      "page": "standalone/build/common/hardware/raspberry-pi.md",
+      "page": "distributed/build/common/hardware/raspberry-pi.md",
       "source": "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/03_Building_for_Raspberry_Pi_x.md",
       "url": "https://git.automotivelinux.org/AGL/documentation/plain/docs/01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/03_Building_for_Raspberry_Pi_x.md?h=master",
       "sha256": "d9c6e9bae45c9c3577c4405a49ce0ac223c8002e549ab03d8f298f7e6e1c3c03"
     },
     {
-      "page": "standalone/build/common/hardware/renesas-rcar-gen3.md",
+      "page": "distributed/build/common/hardware/renesas-rcar-gen3.md",
       "source": "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/04_01_Building_for_Renesas_RCar_Gen3_Boards.md",
       "url": "https://git.automotivelinux.org/AGL/documentation/plain/docs/01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/04_01_Building_for_Renesas_RCar_Gen3_Boards.md?h=master",
       "sha256": "6b1c6fbbe9d6eb0ab9906884feb482d05a7795fb6828e4c21139d824abb204ef"
     },
     {
-      "page": "standalone/build/common/hardware/sparrow-hawk.md",
+      "page": "distributed/build/common/hardware/sparrow-hawk.md",
       "source": "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/04_Building_for_Retronix_Sparrow_Hawk_Board.md",
       "url": "https://git.automotivelinux.org/AGL/documentation/plain/docs/01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/04_Building_for_Retronix_Sparrow_Hawk_Board.md?h=master",
       "sha256": "cfb74c9f6fd2273363abf3ea47b349c8ebc3e64406dde7c1fc86f220be933d53"
     },
     {
-      "page": "standalone/build/common/hardware/rockchip.md",
+      "page": "distributed/build/common/hardware/rockchip.md",
       "source": "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/05_Building_for_Supported_Rockchip_Boards.md",
       "url": "https://git.automotivelinux.org/AGL/documentation/plain/docs/01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/05_Building_for_Supported_Rockchip_Boards.md?h=master",
       "sha256": "9d76608d67171ef7d7f0556b0bc65a13d98855903b0f70fb5659c2a4bc02ceaf"
     },
     {
-      "page": "integrated/sodev/virtio-guest.md",
+      "page": "large-integrated/sodev/virtio-guest.md",
       "source": "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/06_Building_for_Virtio.md",
       "url": "https://git.automotivelinux.org/AGL/documentation/plain/docs/01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/06_Building_for_Virtio.md?h=master",
       "sha256": "87301e3cbb71798ff04622e074f19934e210163bbb8c531961b161128c21e12b"
     },
     {
-      "page": "standalone/build/common/hardware/aws-ec2.md",
+      "page": "distributed/build/common/hardware/aws-ec2.md",
       "source": "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/07_Building_for_EC2_arm64_and_x86-64.md",
       "url": "https://git.automotivelinux.org/AGL/documentation/plain/docs/01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/07_Building_for_EC2_arm64_and_x86-64.md?h=master",
       "sha256": "2486bc40f0ddf6254d0f62a0f9138e7a3752460ea692b05fda0c052b27758422"
     },
     {
-      "page": "standalone/build/common/hardware/visionfive2.md",
+      "page": "distributed/build/common/hardware/visionfive2.md",
       "source": "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/08_Building_for_VisionFive2_Boards.md",
       "url": "https://git.automotivelinux.org/AGL/documentation/plain/docs/01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/08_Building_for_VisionFive2_Boards.md?h=master",
       "sha256": "a868ca10a68031f6e6a0ccb48e2d1366d8f1b7c056f36354b2a8be1debf05f2d"
     },
     {
-      "page": "standalone/build/common/reference/images.md",
+      "page": "distributed/build/common/reference/images.md",
       "source": "01_Getting_Started/02_Building_AGL_Image/07_Available_Demo_Images.md",
       "url": "https://git.automotivelinux.org/AGL/documentation/plain/docs/01_Getting_Started/02_Building_AGL_Image/07_Available_Demo_Images.md?h=master",
       "sha256": "987a267a7f6e0b078023612a5c66ed8fdbf94d85765f27fa5a0dd2097b51d02f"
     },
     {
-      "page": "integrated/containers/build-guide.md",
+      "page": "small-integrated/containers/build-guide.md",
       "source": "01_Getting_Started/03_Build_and_Boot_guide_Profile/01_Instrument_Cluster_(IC-IVI_with_Container_isolation).md",
       "url": "https://git.automotivelinux.org/AGL/documentation/plain/docs/01_Getting_Started/03_Build_and_Boot_guide_Profile/01_Instrument_Cluster_(IC-IVI_with_Container_isolation).md?h=master",
       "sha256": "2a97ac2e01481bc0ad842879bb7b5359f6ac78d550acefee68e6fe45106898f4"
     },
     {
-      "page": "integrated/kvm/images.md",
+      "page": "small-integrated/kvm/images.md",
       "source": "01_Getting_Started/03_Build_and_Boot_guide_Profile/02_KVM_Demo_Images.md",
       "url": "https://git.automotivelinux.org/AGL/documentation/plain/docs/01_Getting_Started/03_Build_and_Boot_guide_Profile/02_KVM_Demo_Images.md?h=master",
       "sha256": "f12f5cf38dfe24fe52557b59aa68d5c2f005815edb829e78635597d22e98bd0d"
     },
     {
-      "page": "standalone/build/cluster/slint.md",
+      "page": "distributed/build/cluster/slint.md",
       "source": "01_Getting_Started/03_Build_and_Boot_guide_Profile/03_Slint_Demo_Image.md",
       "url": "https://git.automotivelinux.org/AGL/documentation/plain/docs/01_Getting_Started/03_Build_and_Boot_guide_Profile/03_Slint_Demo_Image.md?h=master",
       "sha256": "845f83739b133920e620e1998db3b28d64d187a12751acc423e68e8395edfa5f"
     },
     {
-      "page": "standalone/build/common/reference/hardware.md",
+      "page": "distributed/build/common/reference/hardware.md",
       "source": "02_Hardware_Support/01_Supported_Hardware_Overview.md",
       "url": "https://git.automotivelinux.org/AGL/documentation/plain/docs/02_Hardware_Support/01_Supported_Hardware_Overview.md?h=master",
       "sha256": "b0ab840f59a22b24ce8c8cefc8d0c3cf87175e60f1d6090eb8c3014da73907c5"
     },
     {
-      "page": "standalone/build/common/reference/hardware-images.md",
+      "page": "distributed/build/common/reference/hardware-images.md",
       "source": "02_Hardware_Support/02_Supported_Hardware_Images.md",
       "url": "https://git.automotivelinux.org/AGL/documentation/plain/docs/02_Hardware_Support/02_Supported_Hardware_Images.md?h=master",
       "sha256": "182d089e93227a454c2360285e10852e4c9b139c8e9af8be499a0950e08d1660"
     },
     {
-      "page": "standalone/applications/setup-sdk.md",
+      "page": "distributed/applications/setup-sdk.md",
       "source": "04_Developer_Guides/01_Basic/02_Setting_Up_AGL_SDK.md",
       "url": "https://git.automotivelinux.org/AGL/documentation/plain/docs/04_Developer_Guides/01_Basic/02_Setting_Up_AGL_SDK.md?h=master",
       "sha256": "fd173d36b2ac9138ffb4170a03ee586125dc50dd12c157beccabffb9bbf5476f"
     },
     {
-      "page": "standalone/applications/build-apps.md",
+      "page": "distributed/applications/build-apps.md",
       "source": "04_Developer_Guides/01_Basic/03_How_to_Build.md",
       "url": "https://git.automotivelinux.org/AGL/documentation/plain/docs/04_Developer_Guides/01_Basic/03_How_to_Build.md?h=master",
       "sha256": "638351a475e2da6444a2e747c90aa7c39b03986df406647b0a6d31f0200fe98c"
     },
     {
-      "page": "standalone/build/common/layers/overview.md",
+      "page": "distributed/build/common/layers/overview.md",
       "source": "04_Developer_Guides/02_AGL_Platform_Development/01_AGL_Yocto_Layers/01_Overview.md",
       "url": "https://git.automotivelinux.org/AGL/documentation/plain/docs/04_Developer_Guides/02_AGL_Platform_Development/01_AGL_Yocto_Layers/01_Overview.md?h=master",
       "sha256": "ebe8a389d315dc08785bc1790b09a58a40f083aac4fbcd1f3285892ca30ed1f1"
     },
     {
-      "page": "standalone/build/common/layers/meta-agl.md",
+      "page": "distributed/build/common/layers/meta-agl.md",
       "source": "04_Developer_Guides/02_AGL_Platform_Development/01_AGL_Yocto_Layers/02_meta_agl.md",
       "url": "https://git.automotivelinux.org/AGL/documentation/plain/docs/04_Developer_Guides/02_AGL_Platform_Development/01_AGL_Yocto_Layers/02_meta_agl.md?h=master",
       "sha256": "c92d55883735357af2f085348bf5860949edfbbc89cb4ee2cd3301001782620c"
     },
     {
-      "page": "standalone/build/common/layers/meta-agl-demo.md",
+      "page": "distributed/build/common/layers/meta-agl-demo.md",
       "source": "04_Developer_Guides/02_AGL_Platform_Development/01_AGL_Yocto_Layers/03_meta_agl_demo.md",
       "url": "https://git.automotivelinux.org/AGL/documentation/plain/docs/04_Developer_Guides/02_AGL_Platform_Development/01_AGL_Yocto_Layers/03_meta_agl_demo.md?h=master",
       "sha256": "13bb9480dfc4ea0b31d249d3d3cc90895c2a859343ee896a29a4ff0de4d77a10"
     },
     {
-      "page": "standalone/build/common/layers/meta-agl-devel.md",
+      "page": "distributed/build/common/layers/meta-agl-devel.md",
       "source": "04_Developer_Guides/02_AGL_Platform_Development/01_AGL_Yocto_Layers/04_meta_agl_devel.md",
       "url": "https://git.automotivelinux.org/AGL/documentation/plain/docs/04_Developer_Guides/02_AGL_Platform_Development/01_AGL_Yocto_Layers/04_meta_agl_devel.md?h=master",
       "sha256": "f7ea57792a8725e6b8a04f9ed94c3def7831699f3f5e5463667af5f41850c3a4"
     },
     {
-      "page": "standalone/customize/image.md",
+      "page": "distributed/customize/image.md",
       "source": "04_Developer_Guides/02_AGL_Platform_Development/02_Modify_AGL_by_Yourself/01_Customizing_AGL_Image.md",
       "url": "https://git.automotivelinux.org/AGL/documentation/plain/docs/04_Developer_Guides/02_AGL_Platform_Development/02_Modify_AGL_by_Yourself/01_Customizing_AGL_Image.md?h=master",
       "sha256": "27ac3c3c19e1ddb827651361a2dab19084dcded0086bf15e857ead8d28656fad"
     },
     {
-      "page": "standalone/customize/service.md",
+      "page": "distributed/customize/service.md",
       "source": "04_Developer_Guides/02_AGL_Platform_Development/02_Modify_AGL_by_Yourself/02_Creating_a_New_Service.md",
       "url": "https://git.automotivelinux.org/AGL/documentation/plain/docs/04_Developer_Guides/02_AGL_Platform_Development/02_Modify_AGL_by_Yourself/02_Creating_a_New_Service.md?h=master",
       "sha256": "136ced7d5309a5791f9c5430c41a50b7952bbb71ff503e363642852a4e6a281a"
     },
     {
-      "page": "standalone/customize/recipe.md",
+      "page": "distributed/customize/recipe.md",
       "source": "04_Developer_Guides/02_AGL_Platform_Development/02_Modify_AGL_by_Yourself/03_Creating_a_custom_recipe.md",
       "url": "https://git.automotivelinux.org/AGL/documentation/plain/docs/04_Developer_Guides/02_AGL_Platform_Development/02_Modify_AGL_by_Yourself/03_Creating_a_custom_recipe.md?h=master",
       "sha256": "394080f620664aa97b0de1542f7fd03c1efd2f3e45a768d7272403a779cfe655"
     },
     {
-      "page": "standalone/applications/qt.md",
+      "page": "distributed/applications/qt.md",
       "source": "04_Developer_Guides/03_AGL_Application_Development/Develop_using_Qt/01_AGL-SDK_for_Qt.md",
       "url": "https://git.automotivelinux.org/AGL/documentation/plain/docs/04_Developer_Guides/03_AGL_Application_Development/Develop_using_Qt/01_AGL-SDK_for_Qt.md?h=master",
       "sha256": "563d9a5f9ba6d59ae680521096704c99045490b59273fa86592c0e54a732532b"
     },
     {
-      "page": "standalone/applications/flutter.md",
+      "page": "distributed/applications/flutter.md",
       "source": "04_Developer_Guides/03_AGL_Application_Development/Develop_using_Flutter/01_Flutter_Workspace.md",
       "url": "https://git.automotivelinux.org/AGL/documentation/plain/docs/04_Developer_Guides/03_AGL_Application_Development/Develop_using_Flutter/01_Flutter_Workspace.md?h=master",
       "sha256": "17b0a73dc1e7f939e7e0d0e6fd77a85a3a2ae1172a9f0df818b4ab3392702c72"
     },
     {
-      "page": "standalone/build/common/hardware/raspberry-pi/devices.md",
+      "page": "distributed/build/common/hardware/raspberry-pi/devices.md",
       "source": "04_Developer_Guides/10_Board_Specific_Guide/04_Raspberry_Pi/01_Generic_devices_setup.md",
       "url": "https://git.automotivelinux.org/AGL/documentation/plain/docs/04_Developer_Guides/10_Board_Specific_Guide/04_Raspberry_Pi/01_Generic_devices_setup.md?h=master",
       "sha256": "6a1daff79d2ef8c9825262eea21251c2b41023184209ad3cf1e2cf0262c1496e"
     },
     {
-      "page": "standalone/build/common/hardware/raspberry-pi/camera.md",
+      "page": "distributed/build/common/hardware/raspberry-pi/camera.md",
       "source": "04_Developer_Guides/10_Board_Specific_Guide/04_Raspberry_Pi/02_Camera_setup.md",
       "url": "https://git.automotivelinux.org/AGL/documentation/plain/docs/04_Developer_Guides/10_Board_Specific_Guide/04_Raspberry_Pi/02_Camera_setup.md?h=master",
       "sha256": "124b1df8d2cec4d071e5f7a5faf75a850ae48c35c2b5b2deb1e4d1439000026b"
     },
     {
-      "page": "standalone/build/common/hardware/raspberry-pi/display.md",
+      "page": "distributed/build/common/hardware/raspberry-pi/display.md",
       "source": "04_Developer_Guides/10_Board_Specific_Guide/04_Raspberry_Pi/03_Display_Setup.md",
       "url": "https://git.automotivelinux.org/AGL/documentation/plain/docs/04_Developer_Guides/10_Board_Specific_Guide/04_Raspberry_Pi/03_Display_Setup.md?h=master",
       "sha256": "5a4fcbd1f7e3daebc9e9e645552e517af62a7661107bb57ecc6670b1b0774c79"
@@ -306,7 +306,7 @@
       "sha256": "a19165acaa898dfa7f62bb7825e724f9ff114773cf71d88446d19054aa983767"
     },
     {
-      "page": "standalone/applications/create-application.md",
+      "page": "distributed/applications/create-application.md",
       "source": "06_Component_Documentation/20_IVI_Application_Framework/03_Creating_a_New_Application.md",
       "url": "https://git.automotivelinux.org/AGL/documentation/plain/docs/06_Component_Documentation/20_IVI_Application_Framework/03_Creating_a_New_Application.md?h=master",
       "sha256": "f419a5457c12ec431190edf6226b3ec12d377e482fdcb80101e66b2f39447255"

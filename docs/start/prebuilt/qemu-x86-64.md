@@ -37,7 +37,7 @@ cd ~/agl-demo
 xz -dk agl-ivi-demo-flutter-qemux86-64.ext4.xz
 ```
 
-The launch command needs the extracted `.ext4` file. The separately provided `.wic.zst` image contains a partitioned disk and uses a different boot procedure; see [Build and boot on x86](../../standalone/build/common/hardware/x86.md).
+The launch command needs the extracted `.ext4` file. The separately provided `.wic.zst` image contains a partitioned disk and uses a different boot procedure; see [Build and boot on x86](../../distributed/build/common/hardware/x86.md).
 
 ## Start AGL
 
@@ -83,4 +83,4 @@ To stop the guest, run `poweroff` at its console. For a launch failure, record t
 
 - [Flutter IVI demo](flutter.md)
 - [Troubleshooting](../../troubleshooting/index.md)
-- [Application development](../../standalone/applications/index.md)
+- [Application development](../../distributed/applications/index.md)

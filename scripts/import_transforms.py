@@ -34,17 +34,17 @@ def frontmatter(title, source):
 
 def adapt_page(body, path):
     prefixes = {
-        'components/applications/flutter-homescreen.md': '''The Flutter IVI homescreen is the main application in `agl-ivi-demo-flutter`. The [complete demo overview](../../start/prebuilt/flutter.md) explains the user experience; the [Flutter application guide](../../standalone/applications/flutter.md) explains development.
+        'components/applications/flutter-homescreen.md': '''The Flutter IVI homescreen is the main application in `agl-ivi-demo-flutter`. The [complete demo overview](../../start/prebuilt/flutter.md) explains the user experience; the [Flutter application guide](../../distributed/applications/flutter.md) explains development.
 
-The [image catalog](../../standalone/build/common/reference/images.md#agl-ivi-demo-flutter) identifies `flutter-ics-homescreen`. Its [upstream source](https://git.automotivelinux.org/apps/flutter-ics-homescreen/) is the implementation reference. The imported source records a pending detailed-documentation issue below.
+The [image catalog](../../distributed/build/common/reference/images.md#agl-ivi-demo-flutter) identifies `flutter-ics-homescreen`. Its [upstream source](https://git.automotivelinux.org/apps/flutter-ics-homescreen/) is the implementation reference. The imported source records a pending detailed-documentation issue below.
 
 ''',
-        'components/applications/qt-homescreen.md': '''The Qt IVI image uses a homescreen and launcher together with Qt applications. See the [image catalog](../../standalone/build/common/reference/images.md#agl-ivi-demo-qt), [Qt IVI build](../../standalone/build/ivi/qt-ivi-demo.md), and [Qt application development](../../standalone/applications/qt.md).
+        'components/applications/qt-homescreen.md': '''The Qt IVI image uses a homescreen and launcher together with Qt applications. See the [image catalog](../../distributed/build/common/reference/images.md#agl-ivi-demo-qt), [Qt IVI build](../../distributed/build/ivi/qt-ivi-demo.md), and [Qt application development](../../distributed/applications/qt.md).
 
 Read [Application Framework](../framework/lifecycle/application-framework.md) for lifecycle integration. The imported source records a pending detailed-documentation issue below.
 
 ''',
-        'standalone/applications/qt.md': '''Use the SDK and target image from the same AGL release. Read the [SDK setup](setup-sdk.md) and [build applications guide](build-apps.md), then [package/register the application](create-application.md).
+        'distributed/applications/qt.md': '''Use the SDK and target image from the same AGL release. Read the [SDK setup](setup-sdk.md) and [build applications guide](build-apps.md), then [package/register the application](create-application.md).
 
 For the reference UI and image, see [Qt IVI homescreen](../../components/applications/qt-homescreen.md) and [Qt IVI demo build](../build/ivi/qt-ivi-demo.md). The supplied Qt-specific source page is incomplete; the SDK guides provide the documented preparation and deployment route.
 
@@ -63,7 +63,7 @@ def render_quickstarts(imported, source):
     body = match[1].strip().replace('agl-ivi-demo-qt-', 'agl-ivi-demo-flutter-')
     qemu = frontmatter('QEMU x86-64',source)+'# QEMU x86-64\n\n'
     qemu += 'Use a Linux host with QEMU, KVM access, and a VNC client. This guide boots the Flutter IVI demo. Keep its image and kernel on the same release/build.\n\n## Start AGL\n\n'+body+'\n\n'
-    qemu += '## Confirm the result\n\nConfirm that the console or Flutter demo UI starts. Record the build identifier and launch command if it fails.\n\n## Next steps\n\n- [Flutter IVI demo](flutter.md)\n- [Troubleshooting](../../troubleshooting/index.md)\n- [Application development](../../standalone/applications/index.md)\n'
+    qemu += '## Confirm the result\n\nConfirm that the console or Flutter demo UI starts. Record the build identifier and launch command if it fails.\n\n## Next steps\n\n- [Flutter IVI demo](flutter.md)\n- [Troubleshooting](../../troubleshooting/index.md)\n- [Application development](../../distributed/applications/index.md)\n'
     raspberry = frontmatter('Raspberry Pi 4/5',source)+'''# Raspberry Pi 4/5
 
 Use a Raspberry Pi 4 or 5, a suitable display, network access, and a microSD card. Select the image for the exact board; Pi 4 and Pi 5 images are not interchangeable.
@@ -101,7 +101,7 @@ sync
 
 ## Boot and check
 
-Insert the card, connect the display/network, and power on the board. Confirm that the Flutter homescreen appears. Use the [board build/boot guide](../../standalone/build/common/hardware/raspberry-pi.md) for display and board-specific notes. The presence of a downloaded artifact does not establish validation for every display or peripheral combination.
+Insert the card, connect the display/network, and power on the board. Confirm that the Flutter homescreen appears. Use the [board build/boot guide](../../distributed/build/common/hardware/raspberry-pi.md) for display and board-specific notes. The presence of a downloaded artifact does not establish validation for every display or peripheral combination.
 
 When the target has a network address, connect from the host if the image's login configuration permits it:
 
@@ -119,7 +119,7 @@ Evaluate AGL with the Flutter IVI demo before preparing a full source build. Rea
 - [QEMU x86-64](qemu-x86-64.md): run the image on a Linux host.
 - [Raspberry Pi 4/5](raspberry-pi.md): write the board-specific image to a microSD card.
 
-Use [Releases & migration](../../releases/index.md) to choose a version and the [board/image reference](../../standalone/build/common/reference/matrix.md) to check target requirements.
+Use [Releases & migration](../../releases/index.md) to choose a version and the [board/image reference](../../distributed/build/common/reference/matrix.md) to check target requirements.
 
 <span id="qemu-x86-64"></span>
 <span id="raspberry-pi-4"></span>

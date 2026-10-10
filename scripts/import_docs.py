@@ -32,48 +32,48 @@ index.md|home/about-source.md|About Automotive Grade Linux
 """)
 group("01_Getting_Started/", """
 01_Quickstart/01_Using_Ready_Made_Images.md|start/prebuilt/index.md|Choose a prebuilt image
-02_Building_AGL_Image/01_Build_Process_Overview.md|standalone/build/common/build-overview.md|AGL image build workflow
-02_Building_AGL_Image/02_Preparing_Your_Build_Host.md|standalone/build/common/prepare-host.md|Prepare a build host
-02_Building_AGL_Image/03_Downloading_AGL_Software.md|standalone/build/common/download-source.md|Download AGL source
-02_Building_AGL_Image/04_Initializing_Your_Build_Environment.md|standalone/build/common/initialize-build.md|Initialize the AGL build environment
-02_Building_AGL_Image/05_Customizing_Your_Build.md|standalone/customize/build-output.md|Configure caches and build output
-02_Building_AGL_Image/06_Building_the_AGL_Image/01_Building_the_AGL_Image.md|standalone/build/common/build-image.md|Build an AGL image
-02_Building_AGL_Image/06_Building_the_AGL_Image/02_Building_for_x86_(Emulation_and_Hardware).md|standalone/build/common/hardware/x86.md|Build and boot on x86
-02_Building_AGL_Image/06_Building_the_AGL_Image/03_Building_for_Raspberry_Pi_x.md|standalone/build/common/hardware/raspberry-pi.md|Build and boot on Raspberry Pi
-02_Building_AGL_Image/06_Building_the_AGL_Image/04_01_Building_for_Renesas_RCar_Gen3_Boards.md|standalone/build/common/hardware/renesas-rcar-gen3.md|Build and boot on R-Car Gen3
-02_Building_AGL_Image/06_Building_the_AGL_Image/04_Building_for_Retronix_Sparrow_Hawk_Board.md|standalone/build/common/hardware/sparrow-hawk.md|Build and boot on Sparrow Hawk
-02_Building_AGL_Image/06_Building_the_AGL_Image/05_Building_for_Supported_Rockchip_Boards.md|standalone/build/common/hardware/rockchip.md|Build and boot on Rockchip boards
-02_Building_AGL_Image/06_Building_the_AGL_Image/06_Building_for_Virtio.md|integrated/sodev/virtio-guest.md|Build a virtio guest
-02_Building_AGL_Image/06_Building_the_AGL_Image/07_Building_for_EC2_arm64_and_x86-64.md|standalone/build/common/hardware/aws-ec2.md|Build and run on AWS EC2
-02_Building_AGL_Image/06_Building_the_AGL_Image/08_Building_for_VisionFive2_Boards.md|standalone/build/common/hardware/visionfive2.md|Build and boot on VisionFive2
-02_Building_AGL_Image/07_Available_Demo_Images.md|standalone/build/common/reference/images.md|AGL image targets
-03_Build_and_Boot_guide_Profile/01_Instrument_Cluster_(IC-IVI_with_Container_isolation).md|integrated/containers/build-guide.md|Instrument Cluster with container isolation
-03_Build_and_Boot_guide_Profile/02_KVM_Demo_Images.md|integrated/kvm/images.md|KVM demo images
-03_Build_and_Boot_guide_Profile/03_Slint_Demo_Image.md|standalone/build/cluster/slint.md|Rust and Slint Instrument Cluster demo
+02_Building_AGL_Image/01_Build_Process_Overview.md|distributed/build/common/build-overview.md|AGL image build workflow
+02_Building_AGL_Image/02_Preparing_Your_Build_Host.md|distributed/build/common/prepare-host.md|Prepare a build host
+02_Building_AGL_Image/03_Downloading_AGL_Software.md|distributed/build/common/download-source.md|Download AGL source
+02_Building_AGL_Image/04_Initializing_Your_Build_Environment.md|distributed/build/common/initialize-build.md|Initialize the AGL build environment
+02_Building_AGL_Image/05_Customizing_Your_Build.md|distributed/customize/build-output.md|Configure caches and build output
+02_Building_AGL_Image/06_Building_the_AGL_Image/01_Building_the_AGL_Image.md|distributed/build/common/build-image.md|Build an AGL image
+02_Building_AGL_Image/06_Building_the_AGL_Image/02_Building_for_x86_(Emulation_and_Hardware).md|distributed/build/common/hardware/x86.md|Build and boot on x86
+02_Building_AGL_Image/06_Building_the_AGL_Image/03_Building_for_Raspberry_Pi_x.md|distributed/build/common/hardware/raspberry-pi.md|Build and boot on Raspberry Pi
+02_Building_AGL_Image/06_Building_the_AGL_Image/04_01_Building_for_Renesas_RCar_Gen3_Boards.md|distributed/build/common/hardware/renesas-rcar-gen3.md|Build and boot on R-Car Gen3
+02_Building_AGL_Image/06_Building_the_AGL_Image/04_Building_for_Retronix_Sparrow_Hawk_Board.md|distributed/build/common/hardware/sparrow-hawk.md|Build and boot on Sparrow Hawk
+02_Building_AGL_Image/06_Building_the_AGL_Image/05_Building_for_Supported_Rockchip_Boards.md|distributed/build/common/hardware/rockchip.md|Build and boot on Rockchip boards
+02_Building_AGL_Image/06_Building_the_AGL_Image/06_Building_for_Virtio.md|large-integrated/sodev/virtio-guest.md|Build a virtio guest
+02_Building_AGL_Image/06_Building_the_AGL_Image/07_Building_for_EC2_arm64_and_x86-64.md|distributed/build/common/hardware/aws-ec2.md|Build and run on AWS EC2
+02_Building_AGL_Image/06_Building_the_AGL_Image/08_Building_for_VisionFive2_Boards.md|distributed/build/common/hardware/visionfive2.md|Build and boot on VisionFive2
+02_Building_AGL_Image/07_Available_Demo_Images.md|distributed/build/common/reference/images.md|AGL image targets
+03_Build_and_Boot_guide_Profile/01_Instrument_Cluster_(IC-IVI_with_Container_isolation).md|small-integrated/containers/build-guide.md|Instrument Cluster with container isolation
+03_Build_and_Boot_guide_Profile/02_KVM_Demo_Images.md|small-integrated/kvm/images.md|KVM demo images
+03_Build_and_Boot_guide_Profile/03_Slint_Demo_Image.md|distributed/build/cluster/slint.md|Rust and Slint Instrument Cluster demo
 """)
 group("02_Hardware_Support/", """
-01_Supported_Hardware_Overview.md|standalone/build/common/reference/hardware.md|Hardware support levels and boards
-02_Supported_Hardware_Images.md|standalone/build/common/reference/hardware-images.md|Hardware image configurations
+01_Supported_Hardware_Overview.md|distributed/build/common/reference/hardware.md|Hardware support levels and boards
+02_Supported_Hardware_Images.md|distributed/build/common/reference/hardware-images.md|Hardware image configurations
 """)
 group("03_Architecture_Guides/01_Introduction/", """
 01_Overview.md|home/architecture.md|AGL system architecture
 """)
 group("04_Developer_Guides/", """
-01_Basic/01_Overview.md|standalone/applications/sdk-overview.md|Application development and SDK workflow
-01_Basic/02_Setting_Up_AGL_SDK.md|standalone/applications/setup-sdk.md|Set up the AGL SDK
-01_Basic/03_How_to_Build.md|standalone/applications/build-apps.md|Build applications with the SDK
-02_AGL_Platform_Development/01_AGL_Yocto_Layers/01_Overview.md|standalone/build/common/layers/overview.md|AGL Yocto layer structure
-02_AGL_Platform_Development/01_AGL_Yocto_Layers/02_meta_agl.md|standalone/build/common/layers/meta-agl.md
-02_AGL_Platform_Development/01_AGL_Yocto_Layers/03_meta_agl_demo.md|standalone/build/common/layers/meta-agl-demo.md
-02_AGL_Platform_Development/01_AGL_Yocto_Layers/04_meta_agl_devel.md|standalone/build/common/layers/meta-agl-devel.md
-02_AGL_Platform_Development/02_Modify_AGL_by_Yourself/01_Customizing_AGL_Image.md|standalone/customize/image.md|Customize an AGL image
-02_AGL_Platform_Development/02_Modify_AGL_by_Yourself/02_Creating_a_New_Service.md|standalone/customize/service.md|Create a service
-02_AGL_Platform_Development/02_Modify_AGL_by_Yourself/03_Creating_a_custom_recipe.md|standalone/customize/recipe.md|Create a custom recipe
-03_AGL_Application_Development/Develop_using_Qt/01_AGL-SDK_for_Qt.md|standalone/applications/qt.md|Qt application development
-03_AGL_Application_Development/Develop_using_Flutter/01_Flutter_Workspace.md|standalone/applications/flutter.md|Set up a Flutter workspace
-10_Board_Specific_Guide/04_Raspberry_Pi/01_Generic_devices_setup.md|standalone/build/common/hardware/raspberry-pi/devices.md|Raspberry Pi peripheral setup
-10_Board_Specific_Guide/04_Raspberry_Pi/02_Camera_setup.md|standalone/build/common/hardware/raspberry-pi/camera.md|Raspberry Pi camera setup
-10_Board_Specific_Guide/04_Raspberry_Pi/03_Display_Setup.md|standalone/build/common/hardware/raspberry-pi/display.md|Raspberry Pi display setup
+01_Basic/01_Overview.md|distributed/applications/sdk-overview.md|Application development and SDK workflow
+01_Basic/02_Setting_Up_AGL_SDK.md|distributed/applications/setup-sdk.md|Set up the AGL SDK
+01_Basic/03_How_to_Build.md|distributed/applications/build-apps.md|Build applications with the SDK
+02_AGL_Platform_Development/01_AGL_Yocto_Layers/01_Overview.md|distributed/build/common/layers/overview.md|AGL Yocto layer structure
+02_AGL_Platform_Development/01_AGL_Yocto_Layers/02_meta_agl.md|distributed/build/common/layers/meta-agl.md
+02_AGL_Platform_Development/01_AGL_Yocto_Layers/03_meta_agl_demo.md|distributed/build/common/layers/meta-agl-demo.md
+02_AGL_Platform_Development/01_AGL_Yocto_Layers/04_meta_agl_devel.md|distributed/build/common/layers/meta-agl-devel.md
+02_AGL_Platform_Development/02_Modify_AGL_by_Yourself/01_Customizing_AGL_Image.md|distributed/customize/image.md|Customize an AGL image
+02_AGL_Platform_Development/02_Modify_AGL_by_Yourself/02_Creating_a_New_Service.md|distributed/customize/service.md|Create a service
+02_AGL_Platform_Development/02_Modify_AGL_by_Yourself/03_Creating_a_custom_recipe.md|distributed/customize/recipe.md|Create a custom recipe
+03_AGL_Application_Development/Develop_using_Qt/01_AGL-SDK_for_Qt.md|distributed/applications/qt.md|Qt application development
+03_AGL_Application_Development/Develop_using_Flutter/01_Flutter_Workspace.md|distributed/applications/flutter.md|Set up a Flutter workspace
+10_Board_Specific_Guide/04_Raspberry_Pi/01_Generic_devices_setup.md|distributed/build/common/hardware/raspberry-pi/devices.md|Raspberry Pi peripheral setup
+10_Board_Specific_Guide/04_Raspberry_Pi/02_Camera_setup.md|distributed/build/common/hardware/raspberry-pi/camera.md|Raspberry Pi camera setup
+10_Board_Specific_Guide/04_Raspberry_Pi/03_Display_Setup.md|distributed/build/common/hardware/raspberry-pi/display.md|Raspberry Pi display setup
 20_Tools_Guide/01_CAN/01_USB_CAN_Adaptor.md|components/tools/usb-can-adapter.md|Use a USB CAN adapter
 """)
 group("05_APIs_and_Services/", """
@@ -92,7 +92,7 @@ group("06_Component_Documentation/", """
 10_IC_Service/01_Instrument_Cluster_Service.md|components/services/cluster/cluster-service.md|Instrument Cluster service
 20_IVI_Application_Framework/01_Introduction.md|components/framework/lifecycle/application-framework.md|AGL application framework
 20_IVI_Application_Framework/02_Application_Startup.md|components/framework/lifecycle/application-startup.md|Application startup and applaunchd
-20_IVI_Application_Framework/03_Creating_a_New_Application.md|standalone/applications/create-application.md|Package and register an AGL application
+20_IVI_Application_Framework/03_Creating_a_New_Application.md|distributed/applications/create-application.md|Package and register an AGL application
 20_IVI_Application_Framework/04_Application_Sandboxing.md|components/framework/sandboxing.md|Application sandboxing
 40_Demo_Application/01_Flutter_Demo_IVI/01_Flutter_Homescreen.md|components/applications/flutter-homescreen.md|Flutter IVI homescreen
 40_Demo_Application/02_Qt_Demo_IVI/01_Qt_Homescreen.md|components/applications/qt-homescreen.md|Qt IVI homescreen
@@ -186,7 +186,7 @@ def import_all(source_root: Path, overwrite_adapted: bool = False) -> None:
                 if fragment in ("_top", ""):
                     fragment = ""
                 if fragment in ("3-r-car-h3sk-h3ulcb-board",):
-                    canonical = next(k for k, v in MAPPING.items() if v == "standalone/build/common/hardware/renesas-rcar-gen3.md")
+                    canonical = next(k for k, v in MAPPING.items() if v == "distributed/build/common/hardware/renesas-rcar-gen3.md")
                     fragment = ""
                 if fragment == "2-raspberry-pi-4":
                     fragment = "raspberry-pi-4"
@@ -285,7 +285,7 @@ def import_all(source_root: Path, overwrite_adapted: bool = False) -> None:
         title = TITLES.get(new) or (existing_title.group(1).strip("\"'") if existing_title else heading.group(1) if heading else Path(new).stem)
         TITLES[new] = title
         body = rewrite(body, old, new)
-        if new == "standalone/build/common/prepare-host.md":
+        if new == "distributed/build/common/prepare-host.md":
             body = body.replace("Tar 1.27 or greater", "Tar 1.28 or greater").replace("Python 3.4.0 or greater", "Python 3.9.0 or greater")
             body = body.replace("- Python 3.9.0 or greater", "- Python 3.9.0 or greater\n      - GNU make 4.0 or greater\n      - GCC 10.1 or greater")
         target = docs_root / new

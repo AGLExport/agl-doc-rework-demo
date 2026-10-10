@@ -12,11 +12,11 @@ Start with [Diagnose common problems](diagnostics.md) for symptom checks and com
 
 | Problem | Information to check first |
 | --- | --- |
-| An image is missing or a target is unclear | [Version selection](../releases/index.md), [board and image matrix](../standalone/build/common/reference/matrix.md), [image types](../standalone/build/common/reference/images.md) |
-| QEMU or hardware does not boot | [Prebuilt image guide](../start/prebuilt/index.md), [hardware support](../standalone/build/common/reference/hardware.md) |
-| Required build tools are missing | [Prepare your build host](../standalone/build/common/prepare-host.md) |
-| Source checkout or build initialization fails | [Download AGL source](../standalone/build/common/download-source.md), [initialize the build environment](../standalone/build/common/initialize-build.md) |
-| An application does not build or run | [SDK setup](../standalone/applications/setup-sdk.md), [build applications](../standalone/applications/build-apps.md), [create a new application](../standalone/applications/create-application.md) |
+| An image is missing or a target is unclear | [Version selection](../releases/index.md), [board and image matrix](../distributed/build/common/reference/matrix.md), [image types](../distributed/build/common/reference/images.md) |
+| QEMU or hardware does not boot | [Prebuilt image guide](../start/prebuilt/index.md), [hardware support](../distributed/build/common/reference/hardware.md) |
+| Required build tools are missing | [Prepare your build host](../distributed/build/common/prepare-host.md) |
+| Source checkout or build initialization fails | [Download AGL source](../distributed/build/common/download-source.md), [initialize the build environment](../distributed/build/common/initialize-build.md) |
+| An application does not build or run | [SDK setup](../distributed/applications/setup-sdk.md), [build applications](../distributed/applications/build-apps.md), [create a new application](../distributed/applications/create-application.md) |
 | An API's usage is unclear | [API and service catalog](../components/services/index.md) |
 
 Also check the [official release notes](https://wiki.automotivelinux.org/agl-distro/release-notes) for known issues and limitations in your version.

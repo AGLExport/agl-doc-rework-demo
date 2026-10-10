@@ -23,7 +23,7 @@
         "Base platform for the distributed system"
       ],
       "heading": "Base platform for the distributed system",
-      "page": "standalone/index.md"
+      "page": "distributed/index.md"
     },
     {
       "breadcrumb": [
@@ -32,7 +32,7 @@
         "AGL Distribution"
       ],
       "heading": "AGL Distribution",
-      "page": "standalone/distribution/index.md"
+      "page": "distributed/distribution/index.md"
     },
     {
       "breadcrumb": [
@@ -87,7 +87,7 @@
         "Portfolio"
       ],
       "heading": "Portfolio",
-      "page": "standalone/portfolio/index.md"
+      "page": "distributed/portfolio/index.md"
     },
     {
       "breadcrumb": [
@@ -98,7 +98,7 @@
         "Basic demo system"
       ],
       "heading": "Basic demo system",
-      "page": "standalone/portfolio/basic/index.md"
+      "page": "distributed/portfolio/basic/index.md"
     },
     {
       "breadcrumb": [
@@ -110,7 +110,7 @@
         "Flutter IVI demo"
       ],
       "heading": "Flutter IVI demo",
-      "page": "standalone/portfolio/basic/flutter-ivi.md"
+      "page": "distributed/portfolio/basic/flutter-ivi.md"
     },
     {
       "breadcrumb": [
@@ -122,7 +122,7 @@
         "Qt IVI demo"
       ],
       "heading": "Qt IVI demo",
-      "page": "standalone/portfolio/basic/qt-ivi.md"
+      "page": "distributed/portfolio/basic/qt-ivi.md"
     },
     {
       "breadcrumb": [
@@ -134,7 +134,7 @@
         "IVI based Flutter Cluster demo"
       ],
       "heading": "IVI based Flutter Cluster demo",
-      "page": "standalone/portfolio/basic/flutter-cluster.md"
+      "page": "distributed/portfolio/basic/flutter-cluster.md"
     },
     {
       "breadcrumb": [
@@ -145,7 +145,7 @@
         "Extra demo system"
       ],
       "heading": "Extra demo system",
-      "page": "standalone/portfolio/extra/index.md"
+      "page": "distributed/portfolio/extra/index.md"
     },
     {
       "breadcrumb": [
@@ -157,7 +157,7 @@
         "Qt based Cluster demo"
       ],
       "heading": "Qt based Cluster demo",
-      "page": "standalone/portfolio/extra/qt-cluster.md"
+      "page": "distributed/portfolio/extra/qt-cluster.md"
     },
     {
       "breadcrumb": [
@@ -169,7 +169,7 @@
         "Slint based Cluster demo"
       ],
       "heading": "Slint based Cluster demo",
-      "page": "standalone/portfolio/extra/slint-cluster.md"
+      "page": "distributed/portfolio/extra/slint-cluster.md"
     },
     {
       "breadcrumb": [
@@ -181,7 +181,7 @@
         "Momi IVI demo"
       ],
       "heading": "Momi IVI demo",
-      "page": "standalone/portfolio/extra/momi-ivi.md"
+      "page": "distributed/portfolio/extra/momi-ivi.md"
     },
     {
       "breadcrumb": [
@@ -191,7 +191,7 @@
         "Architecture"
       ],
       "heading": "Architecture",
-      "page": "standalone/architecture/index.md"
+      "page": "distributed/architecture/index.md"
     },
     {
       "breadcrumb": [
@@ -202,7 +202,7 @@
         "Basic demo system"
       ],
       "heading": "Basic demo system",
-      "page": "standalone/architecture/basic.md"
+      "page": "distributed/architecture/basic.md"
     },
     {
       "breadcrumb": [
@@ -213,7 +213,7 @@
         "Extra demo system"
       ],
       "heading": "Extra demo system",
-      "page": "standalone/architecture/extra.md"
+      "page": "distributed/architecture/extra.md"
     },
     {
       "breadcrumb": [
@@ -223,7 +223,7 @@
         "Build AGL system"
       ],
       "heading": "Build AGL system",
-      "page": "standalone/build/index.md"
+      "page": "distributed/build/index.md"
     },
     {
       "breadcrumb": [
@@ -234,7 +234,7 @@
         "Basic AGL system"
       ],
       "heading": "Basic AGL system",
-      "page": "standalone/build/basic/index.md"
+      "page": "distributed/build/basic/index.md"
     },
     {
       "breadcrumb": [
@@ -246,7 +246,7 @@
         "Setup build environment"
       ],
       "heading": "Setup build environment",
-      "page": "standalone/build/basic/setup.md"
+      "page": "distributed/build/basic/setup.md"
     },
     {
       "breadcrumb": [
@@ -258,7 +258,7 @@
         "Build target image"
       ],
       "heading": "Build target image",
-      "page": "standalone/build/basic/image.md"
+      "page": "distributed/build/basic/image.md"
     },
     {
       "breadcrumb": [
@@ -270,7 +270,7 @@
         "Deploy to board"
       ],
       "heading": "Deploy to board",
-      "page": "standalone/build/basic/deploy.md"
+      "page": "distributed/build/basic/deploy.md"
     },
     {
       "breadcrumb": [
@@ -281,7 +281,7 @@
         "Extra AGL system"
       ],
       "heading": "Extra AGL system",
-      "page": "standalone/build/extra/index.md"
+      "page": "distributed/build/extra/index.md"
     },
     {
       "breadcrumb": [
@@ -293,7 +293,7 @@
         "Setup build environment"
       ],
       "heading": "Setup build environment",
-      "page": "standalone/build/extra/setup.md"
+      "page": "distributed/build/extra/setup.md"
     },
     {
       "breadcrumb": [
@@ -305,7 +305,7 @@
         "Build target image"
       ],
       "heading": "Build target image",
-      "page": "standalone/build/extra/image.md"
+      "page": "distributed/build/extra/image.md"
     },
     {
       "breadcrumb": [
@@ -317,7 +317,7 @@
         "Deploy to board"
       ],
       "heading": "Deploy to board",
-      "page": "standalone/build/extra/deploy.md"
+      "page": "distributed/build/extra/deploy.md"
     },
     {
       "breadcrumb": [
@@ -328,7 +328,7 @@
         "Supported the other boards"
       ],
       "heading": "Supported the other boards",
-      "page": "standalone/build/other-boards.md"
+      "page": "distributed/build/other-boards.md"
     },
     {
       "breadcrumb": [
@@ -689,7 +689,7 @@
         "Platform Customize"
       ],
       "heading": "Platform Customize",
-      "page": "standalone/customize/index.md"
+      "page": "distributed/customize/index.md"
     },
     {
       "breadcrumb": [
@@ -700,7 +700,7 @@
         "Create/Modify an AGL image"
       ],
       "heading": "Create/Modify an AGL image",
-      "page": "standalone/customize/image.md"
+      "page": "distributed/customize/image.md"
     },
     {
       "breadcrumb": [
@@ -711,7 +711,7 @@
         "Create a custom recipe"
       ],
       "heading": "Create a custom recipe",
-      "page": "standalone/customize/recipe.md"
+      "page": "distributed/customize/recipe.md"
     },
     {
       "breadcrumb": [
@@ -722,7 +722,7 @@
         "Create a service"
       ],
       "heading": "Create a service",
-      "page": "standalone/customize/service.md"
+      "page": "distributed/customize/service.md"
     },
     {
       "breadcrumb": [
@@ -732,7 +732,7 @@
         "Application development"
       ],
       "heading": "Application development",
-      "page": "standalone/applications/index.md"
+      "page": "distributed/applications/index.md"
     },
     {
       "breadcrumb": [
@@ -743,7 +743,7 @@
         "Flutter application"
       ],
       "heading": "Flutter application",
-      "page": "standalone/applications/flutter.md"
+      "page": "distributed/applications/flutter.md"
     },
     {
       "breadcrumb": [
@@ -754,7 +754,7 @@
         "Qt application"
       ],
       "heading": "Qt application",
-      "page": "standalone/applications/qt.md"
+      "page": "distributed/applications/qt.md"
     },
     {
       "breadcrumb": [
@@ -762,7 +762,7 @@
         "Base platform for the small-scale integrated system"
       ],
       "heading": "Base platform for the small-scale integrated system",
-      "page": "integrated/index.md"
+      "page": "small-integrated/index.md"
     },
     {
       "breadcrumb": [
@@ -771,7 +771,7 @@
         "Container integration"
       ],
       "heading": "Container integration",
-      "page": "integrated/containers/index.md"
+      "page": "small-integrated/containers/index.md"
     },
     {
       "breadcrumb": [
@@ -781,7 +781,7 @@
         "Architecture"
       ],
       "heading": "Architecture",
-      "page": "integrated/containers/architecture.md"
+      "page": "small-integrated/containers/architecture.md"
     },
     {
       "breadcrumb": [
@@ -791,7 +791,7 @@
         "Build Container integration"
       ],
       "heading": "Build Container integration",
-      "page": "integrated/containers/build.md"
+      "page": "small-integrated/containers/build.md"
     },
     {
       "breadcrumb": [
@@ -801,7 +801,7 @@
         "Container integration Customize"
       ],
       "heading": "Container integration Customize",
-      "page": "integrated/containers/customize/index.md"
+      "page": "small-integrated/containers/customize/index.md"
     },
     {
       "breadcrumb": [
@@ -812,7 +812,7 @@
         "Create and Run Guest Container"
       ],
       "heading": "Create and Run Guest Container",
-      "page": "integrated/containers/customize/guest-container.md"
+      "page": "small-integrated/containers/customize/guest-container.md"
     },
     {
       "breadcrumb": [
@@ -822,7 +822,7 @@
         "Demo image for container integration"
       ],
       "heading": "Demo image for container integration",
-      "page": "integrated/containers/demo/index.md"
+      "page": "small-integrated/containers/demo/index.md"
     },
     {
       "breadcrumb": [
@@ -833,7 +833,7 @@
         "Momi IVI demo"
       ],
       "heading": "Momi IVI demo",
-      "page": "integrated/containers/demo/momi-ivi.md"
+      "page": "small-integrated/containers/demo/momi-ivi.md"
     },
     {
       "breadcrumb": [
@@ -843,7 +843,7 @@
         "AGL Components"
       ],
       "heading": "AGL Components",
-      "page": "integrated/containers/components/index.md"
+      "page": "small-integrated/containers/components/index.md"
     },
     {
       "breadcrumb": [
@@ -854,7 +854,7 @@
         "Platform extension"
       ],
       "heading": "Platform extension",
-      "page": "integrated/containers/extensions.md"
+      "page": "small-integrated/containers/extensions.md"
     },
     {
       "breadcrumb": [
@@ -889,7 +889,7 @@
         "AGL Reference Applications for IC demo"
       ],
       "heading": "AGL Reference Applications for IC demo",
-      "page": "integrated/containers/components/applications.md"
+      "page": "small-integrated/containers/components/applications.md"
     },
     {
       "breadcrumb": [
@@ -946,7 +946,7 @@
         "KVM based integration"
       ],
       "heading": "KVM based integration",
-      "page": "integrated/kvm/index.md"
+      "page": "small-integrated/kvm/index.md"
     },
     {
       "breadcrumb": [
@@ -956,7 +956,7 @@
         "Build Platform"
       ],
       "heading": "Build Platform",
-      "page": "integrated/kvm/build.md"
+      "page": "small-integrated/kvm/build.md"
     },
     {
       "breadcrumb": [
@@ -964,7 +964,7 @@
         "Base platform for the large-scale integrated system"
       ],
       "heading": "Base platform for the large-scale integrated system",
-      "page": "integrated/large-scale.md"
+      "page": "large-integrated/index.md"
     },
     {
       "breadcrumb": [
@@ -973,7 +973,7 @@
         "SoDeV"
       ],
       "heading": "SoDeV",
-      "page": "integrated/sodev/index.md"
+      "page": "large-integrated/sodev/index.md"
     },
     {
       "breadcrumb": [
@@ -983,7 +983,7 @@
         "Architecture"
       ],
       "heading": "Architecture",
-      "page": "integrated/sodev/architecture.md"
+      "page": "large-integrated/sodev/architecture.md"
     },
     {
       "breadcrumb": [
@@ -993,7 +993,7 @@
         "Build SoDeV"
       ],
       "heading": "Build SoDeV",
-      "page": "integrated/sodev/build.md"
+      "page": "large-integrated/sodev/build.md"
     },
     {
       "breadcrumb": [
@@ -1003,7 +1003,7 @@
         "SoDeV Customize"
       ],
       "heading": "SoDeV Customize",
-      "page": "integrated/sodev/customize/index.md"
+      "page": "large-integrated/sodev/customize/index.md"
     },
     {
       "breadcrumb": [
@@ -1014,7 +1014,7 @@
         "Create and Run Guest VM"
       ],
       "heading": "Create and Run Guest VM",
-      "page": "integrated/sodev/customize/guest-vm.md"
+      "page": "large-integrated/sodev/customize/guest-vm.md"
     },
     {
       "breadcrumb": [
@@ -1024,7 +1024,7 @@
         "AGL Components"
       ],
       "heading": "AGL Components",
-      "page": "integrated/sodev/components/index.md"
+      "page": "large-integrated/sodev/components/index.md"
     },
     {
       "breadcrumb": [
@@ -1035,7 +1035,7 @@
         "Platform extension"
       ],
       "heading": "Platform extension",
-      "page": "integrated/sodev/extensions.md"
+      "page": "large-integrated/sodev/extensions.md"
     },
     {
       "breadcrumb": [
@@ -1133,7 +1133,7 @@
   "moved_pages": [
     {
       "old": "develop/index.md",
-      "new": "standalone/index.md",
+      "new": "distributed/index.md",
       "previous_sha256": "5804197d0cad1cc1181c6a1e24191a5d05583e75b6d6503f37d680a5f5f45f66"
     },
     {
@@ -1183,17 +1183,17 @@
     },
     {
       "old": "reference/hardware-images.md",
-      "new": "standalone/build/common/reference/hardware-images.md",
+      "new": "distributed/build/common/reference/hardware-images.md",
       "previous_sha256": "e3be7a503853e0e73bebd3928bea2c1229086c44f2d5cc6de58369bcf9fc156e"
     },
     {
       "old": "reference/hardware.md",
-      "new": "standalone/build/common/reference/hardware.md",
+      "new": "distributed/build/common/reference/hardware.md",
       "previous_sha256": "e556b20d7bd72af0681628556af8cf3dc04c41fcb5192e067c8f6cc21c78a817"
     },
     {
       "old": "reference/images.md",
-      "new": "standalone/build/common/reference/images.md",
+      "new": "distributed/build/common/reference/images.md",
       "previous_sha256": "96400b6dd271996e9463b729a00b392c43b21d017ca89a3b841ee0c2f97db5b8"
     },
     {
@@ -1203,7 +1203,7 @@
     },
     {
       "old": "reference/matrix.md",
-      "new": "standalone/build/common/reference/matrix.md",
+      "new": "distributed/build/common/reference/matrix.md",
       "previous_sha256": "51ae4575eef9385cc25320612f8856c2febc3e6ecea63f245f3c6be5ca3a1211"
     },
     {
@@ -1223,132 +1223,132 @@
     },
     {
       "old": "develop/apps/build-apps.md",
-      "new": "standalone/applications/build-apps.md",
+      "new": "distributed/applications/build-apps.md",
       "previous_sha256": "66ad31475a5fe91b6b9553654d593be9795de06f9c7b5d6f78702343b73d2407"
     },
     {
       "old": "develop/apps/create-application.md",
-      "new": "standalone/applications/create-application.md",
+      "new": "distributed/applications/create-application.md",
       "previous_sha256": "fac5e8225396a5f18d2cea43bed91e23f72b3188fbd532414c49a3cb5a92a243"
     },
     {
       "old": "develop/apps/flutter-workspace.md",
-      "new": "standalone/applications/flutter.md",
+      "new": "distributed/applications/flutter.md",
       "previous_sha256": "5aec5283003240b7b60256b1e5b4bdacad3b6a15e39d722a555d09dfbf42a2d1"
     },
     {
       "old": "develop/apps/qt-sdk.md",
-      "new": "standalone/applications/qt.md",
+      "new": "distributed/applications/qt.md",
       "previous_sha256": "e71acbb19f51196424a86140e3337ad2cfea594b109a6eecb15c03adad29ddcd"
     },
     {
       "old": "develop/apps/sdk-overview.md",
-      "new": "standalone/applications/sdk-overview.md",
+      "new": "distributed/applications/sdk-overview.md",
       "previous_sha256": "21a6efca442e08a4955d28f70afbd3a0b670045223d14e2e6da0606ed8e00d30"
     },
     {
       "old": "develop/apps/setup-sdk.md",
-      "new": "standalone/applications/setup-sdk.md",
+      "new": "distributed/applications/setup-sdk.md",
       "previous_sha256": "f54fdaacb29148d355a4d48953c156ee294a28d2d38670a2052dcee904f38943"
     },
     {
       "old": "develop/demos/instrument-cluster.md",
-      "new": "integrated/containers/build-guide.md",
+      "new": "small-integrated/containers/build-guide.md",
       "previous_sha256": "ae0634f84bdbdf476628c0abb8d0dbb3e7d9f305d992d4897747c22f9075eb73"
     },
     {
       "old": "develop/demos/kvm.md",
-      "new": "integrated/kvm/images.md",
+      "new": "small-integrated/kvm/images.md",
       "previous_sha256": "fb1a6a7f1ae67e6ec0a27603dba12a48e928230e35b35b2ea1ebf51f9da7c37f"
     },
     {
       "old": "develop/demos/slint.md",
-      "new": "standalone/build/cluster/slint.md",
+      "new": "distributed/build/cluster/slint.md",
       "previous_sha256": "359ceb5ece731e28141c187d62983ce020f522d02e069f7f81ea33ad66dc41d2"
     },
     {
       "old": "develop/hardware/aws-ec2.md",
-      "new": "standalone/build/common/hardware/aws-ec2.md",
+      "new": "distributed/build/common/hardware/aws-ec2.md",
       "previous_sha256": "b068a19ae360a3ec86337f4b948cc164b29ff02a698201f53a0c5d35d6efae1f"
     },
     {
       "old": "develop/hardware/raspberry-pi.md",
-      "new": "standalone/build/common/hardware/raspberry-pi.md",
+      "new": "distributed/build/common/hardware/raspberry-pi.md",
       "previous_sha256": "d887ed58ca052ff59c7b71f5fe46b15c81c1721ad9bf3588f914614866e9a754"
     },
     {
       "old": "develop/hardware/renesas-rcar-gen3.md",
-      "new": "standalone/build/common/hardware/renesas-rcar-gen3.md",
+      "new": "distributed/build/common/hardware/renesas-rcar-gen3.md",
       "previous_sha256": "7fe9f7c7ebabd5c0631a52cf8a13444521a4b96520adebc6ad7ea68c4bf313ab"
     },
     {
       "old": "develop/hardware/rockchip.md",
-      "new": "standalone/build/common/hardware/rockchip.md",
+      "new": "distributed/build/common/hardware/rockchip.md",
       "previous_sha256": "e19e748b571c9e6a0973de2dd2cfa93758701d3edba3a6157253c5447c049b06"
     },
     {
       "old": "develop/hardware/sparrow-hawk.md",
-      "new": "standalone/build/common/hardware/sparrow-hawk.md",
+      "new": "distributed/build/common/hardware/sparrow-hawk.md",
       "previous_sha256": "17e367cff6b7ea0ebd962f22db5846648e381e469f09447e86441f8920f330db"
     },
     {
       "old": "develop/hardware/virtio.md",
-      "new": "integrated/sodev/virtio-guest.md",
+      "new": "large-integrated/sodev/virtio-guest.md",
       "previous_sha256": "99b980173e569154eb74245f843aa8a668f0414f83b5930ced15bdf4dbe1b51e"
     },
     {
       "old": "develop/hardware/visionfive2.md",
-      "new": "standalone/build/common/hardware/visionfive2.md",
+      "new": "distributed/build/common/hardware/visionfive2.md",
       "previous_sha256": "71c47f3fbf9261040f0242d5ae657ed452b7f3772814c1957a693c9d1b04794a"
     },
     {
       "old": "develop/hardware/x86.md",
-      "new": "standalone/build/common/hardware/x86.md",
+      "new": "distributed/build/common/hardware/x86.md",
       "previous_sha256": "33a3f8b83e0f57db42f5eb2644bb9868176a5bc284dfdcaeb603f4abadbc2c88"
     },
     {
       "old": "develop/platform/build-image.md",
-      "new": "standalone/build/common/build-image.md",
+      "new": "distributed/build/common/build-image.md",
       "previous_sha256": "288eee3b3ddca41c8e88db746ff5d06b12fd5bcb8c3beb7f02c32afa1add422d"
     },
     {
       "old": "develop/platform/build-overview.md",
-      "new": "standalone/build/common/build-overview.md",
+      "new": "distributed/build/common/build-overview.md",
       "previous_sha256": "06a204887aaf43dd420e63ead88567596105c24e250b0097cd3373f90c805493"
     },
     {
       "old": "develop/platform/custom-recipe.md",
-      "new": "standalone/customize/recipe.md",
+      "new": "distributed/customize/recipe.md",
       "previous_sha256": "6529970fcca4e078383f0bac9d654b1561342b2e0d111e04cfea60d36765bd21"
     },
     {
       "old": "develop/platform/customize-build.md",
-      "new": "standalone/customize/build-output.md",
+      "new": "distributed/customize/build-output.md",
       "previous_sha256": "248abcc170d72519c283a3539952308bad5f4b007150dec8f40e475be9282309"
     },
     {
       "old": "develop/platform/customize-image.md",
-      "new": "standalone/customize/image.md",
+      "new": "distributed/customize/image.md",
       "previous_sha256": "269682c193d14b7deceb8cc3c7ef5e5a59522259d6eaffce1aacae02b22ae554"
     },
     {
       "old": "develop/platform/download-source.md",
-      "new": "standalone/build/common/download-source.md",
+      "new": "distributed/build/common/download-source.md",
       "previous_sha256": "2b83874b09611119d463d94ec28ada157dab0b7657c2db9d01735cfbd417f55b"
     },
     {
       "old": "develop/platform/initialize-build.md",
-      "new": "standalone/build/common/initialize-build.md",
+      "new": "distributed/build/common/initialize-build.md",
       "previous_sha256": "6c4be8df67f1309fe9534d820f75f0242409eb3b92d2383f17d90818dda511c1"
     },
     {
       "old": "develop/platform/new-service.md",
-      "new": "standalone/customize/service.md",
+      "new": "distributed/customize/service.md",
       "previous_sha256": "52c66165998e449d0255c99d922c3d0940faa400062f642529a7beeb66340d4b"
     },
     {
       "old": "develop/platform/prepare-host.md",
-      "new": "standalone/build/common/prepare-host.md",
+      "new": "distributed/build/common/prepare-host.md",
       "previous_sha256": "fbd9c6ca9f3b105d102bb328a5e4a4394b03d45c979296707b1e6e422be3b7c0"
     },
     {
@@ -1373,17 +1373,17 @@
     },
     {
       "old": "develop/hardware/raspberry-pi/camera.md",
-      "new": "standalone/build/common/hardware/raspberry-pi/camera.md",
+      "new": "distributed/build/common/hardware/raspberry-pi/camera.md",
       "previous_sha256": "6bca43965d1c0b3546d7e267cc3059d6d44cd8555e53789f538a216b00c16010"
     },
     {
       "old": "develop/hardware/raspberry-pi/devices.md",
-      "new": "standalone/build/common/hardware/raspberry-pi/devices.md",
+      "new": "distributed/build/common/hardware/raspberry-pi/devices.md",
       "previous_sha256": "4f9dee72b5cd2077354c4cfddf63155a1e69f51fb98891b8dd86e54a79f06671"
     },
     {
       "old": "develop/hardware/raspberry-pi/display.md",
-      "new": "standalone/build/common/hardware/raspberry-pi/display.md",
+      "new": "distributed/build/common/hardware/raspberry-pi/display.md",
       "previous_sha256": "be85c8ec021196b8f01f94c25a43986ab3dd8cab49b46539fa3584170c2afc70"
     },
     {
@@ -1483,22 +1483,22 @@
     },
     {
       "old": "reference/build/layers/meta-agl-demo.md",
-      "new": "standalone/build/common/layers/meta-agl-demo.md",
+      "new": "distributed/build/common/layers/meta-agl-demo.md",
       "previous_sha256": "81faca0d09e4169d004cfac52ffedbaccdb2b337c827ece29be30c8c821da274"
     },
     {
       "old": "reference/build/layers/meta-agl-devel.md",
-      "new": "standalone/build/common/layers/meta-agl-devel.md",
+      "new": "distributed/build/common/layers/meta-agl-devel.md",
       "previous_sha256": "72322815085e404b2911b2538e8ecd5dac5b26fade96081e0a3a6ba47062a393"
     },
     {
       "old": "reference/build/layers/meta-agl.md",
-      "new": "standalone/build/common/layers/meta-agl.md",
+      "new": "distributed/build/common/layers/meta-agl.md",
       "previous_sha256": "a4031b9e90af3d9edf3e53a9b2bc9325ab4c255c35d2b4c80c14569cfdf1c729"
     },
     {
       "old": "reference/build/layers/overview.md",
-      "new": "standalone/build/common/layers/overview.md",
+      "new": "distributed/build/common/layers/overview.md",
       "previous_sha256": "e4b26c63128da58dc950f14ef159f7ac021774935116e8e54af50c0dcf4338b3"
     },
     {
@@ -1543,43 +1543,589 @@
     },
     {
       "old": "home/standalone/index.md",
-      "new": "standalone/index.md",
+      "new": "distributed/index.md",
       "previous_sha256": "402997ab2024100d4d28672be58f0fa5f5ee4b0f204bc43bf645e5c12e8bf6af"
     },
     {
       "old": "home/standalone/ivi.md",
-      "new": "standalone/portfolio/basic/index.md",
+      "new": "distributed/portfolio/basic/index.md",
       "previous_sha256": "af43f56b2237339b2199f9813dc292fdbac4c9978e90fedfe2a5ac10ae652760"
     },
     {
       "old": "home/standalone/cluster.md",
-      "new": "standalone/portfolio/extra/index.md",
+      "new": "distributed/portfolio/extra/index.md",
       "previous_sha256": "8728f3ad06b04554e82fbb04ed05f44d6d63dde9a71fd63284dcd2d65ee040ac"
     },
     {
       "old": "home/standalone/gateway.md",
-      "new": "standalone/index.md",
+      "new": "distributed/index.md",
       "previous_sha256": "2ce7ba84d51953ebcc6ecfdec310e32a3f004eb50516e22210dd38fe0a74bd67"
     },
     {
       "old": "home/integrated/index.md",
-      "new": "integrated/index.md",
+      "new": "small-integrated/index.md",
       "previous_sha256": "b19d8e70b7a4ba1a61db8017a0fb4ab356b2a1dffb3bc0ae1837cd98cc7b16a1"
     },
     {
       "old": "home/integrated/sodev.md",
-      "new": "integrated/large-scale.md",
+      "new": "large-integrated/index.md",
       "previous_sha256": "8faed27343047af2f0b2f2fce90a26e0596a10efbf9e1b0c7376e3f1d752aba9"
     },
     {
       "old": "home/integrated/containers.md",
-      "new": "integrated/containers/index.md",
+      "new": "small-integrated/containers/index.md",
       "previous_sha256": "ba7c1a00e0127eec1ec5f0cba9a69c5d55f1e517fd9967b7fb104e054bf14737"
     },
     {
       "old": "home/integrated/kvm.md",
-      "new": "integrated/kvm/index.md",
+      "new": "small-integrated/kvm/index.md",
       "previous_sha256": "5447b2677dcad6a9f1868969c9d965a2f8d9c05200ac07bc959aaa5bde8c3ed4"
+    },
+    {
+      "old": "standalone/index.md",
+      "new": "distributed/index.md",
+      "previous_sha256": "dbf0a22f86996eb20272e24002d7637f914d8890dbd66d51f1c3e3867ee4c687",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "integrated/large-scale.md",
+      "new": "large-integrated/index.md",
+      "previous_sha256": "83e3a0251a8b4b6ca961008f1b7db35add9813d081ec3974b97a232c54da34db",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "integrated/index.md",
+      "new": "small-integrated/index.md",
+      "previous_sha256": "54e014ada2cdf8f8e4985ba00ada4ff83aad50de9b1bb1657d80dcae3843f404",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/applications/build-apps.md",
+      "new": "distributed/applications/build-apps.md",
+      "previous_sha256": "ffeca3bb6298380be3aa80d185d100dc8ab880a45f3b855d9602dc6e8a1626ca",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/applications/create-application.md",
+      "new": "distributed/applications/create-application.md",
+      "previous_sha256": "1af6042fd3a32f8743b315404cedf8c42b452d644fcaa39202f6a47378c7ad4b",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/applications/flutter.md",
+      "new": "distributed/applications/flutter.md",
+      "previous_sha256": "e89cbcffbd6d7b1c672c90762291e81f3b1b2734e3a046833c4d95b563f4effd",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/applications/index.md",
+      "new": "distributed/applications/index.md",
+      "previous_sha256": "c2443e4e4c9811030a474340910e70dd55a6eb06a2a8c48a423716c1e3002d4b",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/applications/qt.md",
+      "new": "distributed/applications/qt.md",
+      "previous_sha256": "e9e6ea7f355f72f8dce687c7732b00e140c4cf6dcf1322e86b4a10c50b93eead",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/applications/setup-sdk.md",
+      "new": "distributed/applications/setup-sdk.md",
+      "previous_sha256": "1cfb4033b60e041e4fb389fd89f8c1f6236d307904b802a84cffed656e597d12",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/architecture/agl-ivi-architecture-notes.md",
+      "new": "distributed/architecture/agl-ivi-architecture-notes.md",
+      "previous_sha256": "e40d81b97b6783bae41b5f60b9e322f1659f6b5b698ff6d94efac69a0708c01c",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/architecture/basic.md",
+      "new": "distributed/architecture/basic.md",
+      "previous_sha256": "0566cc041b08fc4715feb274f46fd97b93721c3cbcd6a800301baa4958920571",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/architecture/extra.md",
+      "new": "distributed/architecture/extra.md",
+      "previous_sha256": "9e9bedc37d2e9a1c4281802fdb868d91eae152b8f97181f5dd865246c02851ef",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/architecture/index.md",
+      "new": "distributed/architecture/index.md",
+      "previous_sha256": "c9cb853829b317ecba4edca86367409fd67dad9b0837211e6f77334b5f5cf6fe",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/common.md",
+      "new": "distributed/build/common.md",
+      "previous_sha256": "0f71e34dd2d3c8ee7e6d34701a03df6e2cd368f78a8f21aa61ef79b2e1f13385",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/index.md",
+      "new": "distributed/build/index.md",
+      "previous_sha256": "e0dddb5ee5a213546c3b9947c78addc4a2d82a11e1c9e3cbbc19f5b2a68b57d5",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/other-boards.md",
+      "new": "distributed/build/other-boards.md",
+      "previous_sha256": "e061021095842d23a9e9ea39f2e629b424d4d360eb9653e524912b1336c56bd4",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/customize/build-output.md",
+      "new": "distributed/customize/build-output.md",
+      "previous_sha256": "15f76886e524635f813398ade14feba0e8b22fbf4649e875b7d73d8b0385fc87",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/customize/image.md",
+      "new": "distributed/customize/image.md",
+      "previous_sha256": "522dc9e20fa974daafbbe6ccd7ced1f8b02ebab51e7a60a55f27313ae933ca40",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/customize/index.md",
+      "new": "distributed/customize/index.md",
+      "previous_sha256": "01259a50fe9f71baf44b52b1cc24c91bee2e73ea147af492d8213987134b94a9",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/customize/recipe.md",
+      "new": "distributed/customize/recipe.md",
+      "previous_sha256": "be740b2c4055db1adb77eeb8cddf3c600a2c422369524f5a85d84f9058085de5",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/customize/service.md",
+      "new": "distributed/customize/service.md",
+      "previous_sha256": "7eff744aa54882221e1f6b936fbd7810a2b0e5a1aa04341a274740dd5f671ba3",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/distribution/index.md",
+      "new": "distributed/distribution/index.md",
+      "previous_sha256": "a1edbd10d5efd59372956238b3db8e33ac4359fac1adcd512f5143a2769295bc",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/portfolio/index.md",
+      "new": "distributed/portfolio/index.md",
+      "previous_sha256": "3ae145d58710c8c2fa353ba3baef6bd6897674bb2a3f2853ef9f34297312935e",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/basic/deploy.md",
+      "new": "distributed/build/basic/deploy.md",
+      "previous_sha256": "8dc1d9c27484df333c042c4d50a66b8e4aa1adb2f3c188dac5ec58ef7f2c659e",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/basic/image.md",
+      "new": "distributed/build/basic/image.md",
+      "previous_sha256": "43a6f801f161eec000292d57a691ee429101756f8e48c0059a920b6a83823093",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/basic/index.md",
+      "new": "distributed/build/basic/index.md",
+      "previous_sha256": "4600ebfcdee15fbd831f8d7d28046a843acb7a3a32ab20d1aa0e9512e0c12241",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/basic/setup.md",
+      "new": "distributed/build/basic/setup.md",
+      "previous_sha256": "8434649ee7b4b9d5c38cc359b5436aacbedae344002e68f946893e8160715b34",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/cluster/index.md",
+      "new": "distributed/build/cluster/index.md",
+      "previous_sha256": "79614521fc2fed37797ae9eb1e5641e3da41b115aa6c978b665a23d852135a89",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/cluster/qt.md",
+      "new": "distributed/build/cluster/qt.md",
+      "previous_sha256": "8fb747c5811a60c8dceb597bdee04c6c342f4c87705627d9ff5b58443233bdb0",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/cluster/slint.md",
+      "new": "distributed/build/cluster/slint.md",
+      "previous_sha256": "b83e1a617bfa839af4bf20e2b4ac8e1a7f44c178668205c2cb95069eea99dcbd",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/common/build-image.md",
+      "new": "distributed/build/common/build-image.md",
+      "previous_sha256": "e18846fc59e9c829042b42be95e1d70c8e65012423d0c45eb253a4bfb91f28b3",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/common/build-overview.md",
+      "new": "distributed/build/common/build-overview.md",
+      "previous_sha256": "41b6eddfd19ab33e55c4ab36ca17ffe92db1abb480fe70c98689ef7fdeab3103",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/common/download-source.md",
+      "new": "distributed/build/common/download-source.md",
+      "previous_sha256": "741206f4ef99dc8b43077f59fea10f89f359c96ba594db31fc17218503b87eef",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/common/initialize-build.md",
+      "new": "distributed/build/common/initialize-build.md",
+      "previous_sha256": "818f953e039f8c52cd70ba53c088771a2bcca75f9e59023171c9f1b2a871983f",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/common/prepare-host.md",
+      "new": "distributed/build/common/prepare-host.md",
+      "previous_sha256": "d7e106a55d133086d6af459e5c5b9aa40d915c95e8f9d563907eab23c63699a3",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/extra/deploy.md",
+      "new": "distributed/build/extra/deploy.md",
+      "previous_sha256": "18344687f2f947a6b04263bd1ae836bbe95f1bb2188501b860c09b4fe1ca7071",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/extra/image.md",
+      "new": "distributed/build/extra/image.md",
+      "previous_sha256": "75affa5b1ba88f3c8ec37e10aac66fd0cea482f9fcd381ac89536d33aee000e5",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/extra/index.md",
+      "new": "distributed/build/extra/index.md",
+      "previous_sha256": "a47cdbf1a6287fd26890e1e6953dddaf06c81674ba89c451c005ad8e29369cdf",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/extra/setup.md",
+      "new": "distributed/build/extra/setup.md",
+      "previous_sha256": "183eacbee2658f49ea757fdb0b6ad469b7219e99fc15a41f523b364665f13ca0",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/ivi/flutter-cluster.md",
+      "new": "distributed/build/ivi/flutter-cluster.md",
+      "previous_sha256": "4f98582eabf52bbd14da6a2c4f0269185570b3d133f50b93a775c78d60ef3621",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/ivi/flutter.md",
+      "new": "distributed/build/ivi/flutter.md",
+      "previous_sha256": "fe27360dc1521d9bb92af487a871cb163783e9d6c689c242359d8a0f8a66c00c",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/ivi/index.md",
+      "new": "distributed/build/ivi/index.md",
+      "previous_sha256": "2c7dbd50bc54e94ea8c9bb6c0f51310ae5d6f4def37e19212fef614e2cce4ea2",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/ivi/qt-ivi-demo.md",
+      "new": "distributed/build/ivi/qt-ivi-demo.md",
+      "previous_sha256": "85fa729566689da5a54c8207a535d696729a7b466a22ff353c7fb2aac9cbde04",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/common/hardware/aws-ec2.md",
+      "new": "distributed/build/common/hardware/aws-ec2.md",
+      "previous_sha256": "45758c83b87e88886ed43b1e28991ac9063e7cb2e911acd00a470f6dcee73e4a",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/common/hardware/raspberry-pi.md",
+      "new": "distributed/build/common/hardware/raspberry-pi.md",
+      "previous_sha256": "e489ec5d227158ffab8767f57d61283f6a10902567a2176801d32bae76f6c585",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/common/hardware/renesas-rcar-gen3.md",
+      "new": "distributed/build/common/hardware/renesas-rcar-gen3.md",
+      "previous_sha256": "6ea196fc2b84e177176441d6cbcf4ca5216719f367637ad2f7d0640abf60ed6a",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/common/hardware/rockchip.md",
+      "new": "distributed/build/common/hardware/rockchip.md",
+      "previous_sha256": "1d3aa53459e07d848784836f40ee857d45234e15c85432111fbb0aa36c9990be",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/common/hardware/sparrow-hawk.md",
+      "new": "distributed/build/common/hardware/sparrow-hawk.md",
+      "previous_sha256": "50f6ca216b966a91ec41babbf5ad3ca436e6f74cd7931d2ad7f768370719c795",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/common/hardware/visionfive2.md",
+      "new": "distributed/build/common/hardware/visionfive2.md",
+      "previous_sha256": "a5acd616d8d9cd111fa425767a7d1e2ab9385611482c93fa71fb524d3f28fa79",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/common/hardware/x86.md",
+      "new": "distributed/build/common/hardware/x86.md",
+      "previous_sha256": "befc69258f5f97c71f672994b45d5f9c4a7bd6324c7a9de9bb87d54b3b573392",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/common/layers/meta-agl-demo.md",
+      "new": "distributed/build/common/layers/meta-agl-demo.md",
+      "previous_sha256": "4da7a488dc52269aaac0fad4f90088fc04ee19ba8eb39e048adef9813b2bcdaf",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/common/layers/meta-agl-devel.md",
+      "new": "distributed/build/common/layers/meta-agl-devel.md",
+      "previous_sha256": "a4878c37b22964b83843f22223e1f1902806a680a10eb4b5d456b18be90ae949",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/common/layers/meta-agl.md",
+      "new": "distributed/build/common/layers/meta-agl.md",
+      "previous_sha256": "2a4e71284d135f11da1ea7624eec7393822f2681730cf0ee0597d33adf76ca93",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/common/layers/overview.md",
+      "new": "distributed/build/common/layers/overview.md",
+      "previous_sha256": "23b5224988514bda63ca2a14cad70e8900bbffdb1052d46c88147390f4ac84d9",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/common/reference/hardware-images.md",
+      "new": "distributed/build/common/reference/hardware-images.md",
+      "previous_sha256": "f927e663fc7ebee6486b62f9777a6e53fdbc186e92b8cc59ca9f83d4e064c242",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/common/reference/hardware.md",
+      "new": "distributed/build/common/reference/hardware.md",
+      "previous_sha256": "20683ee1bceedc45ed8be4ac2a1dc53dfbf496981de08d6f6ea07d153f259672",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/common/reference/images.md",
+      "new": "distributed/build/common/reference/images.md",
+      "previous_sha256": "a0200cfe41fb2e18bde88e60b85d6a9abdea4adac77ef3799d01793a60ba44e9",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/common/reference/matrix.md",
+      "new": "distributed/build/common/reference/matrix.md",
+      "previous_sha256": "1a9d0fb6e63f4822eed9dc03e1a7c66cb3fc15a21abf4f72e9b9a901da4cc826",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/common/hardware/raspberry-pi/camera.md",
+      "new": "distributed/build/common/hardware/raspberry-pi/camera.md",
+      "previous_sha256": "3c9e0114bcf7aaf122ba424f10ed2c0c7af4fde03d0eaba600c4f9b2f422ef89",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/common/hardware/raspberry-pi/devices.md",
+      "new": "distributed/build/common/hardware/raspberry-pi/devices.md",
+      "previous_sha256": "c54295c9ddd2b1f8f10c3dc6808db4cd27e13fe583c6cd46afb1309e0270dcd1",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/build/common/hardware/raspberry-pi/display.md",
+      "new": "distributed/build/common/hardware/raspberry-pi/display.md",
+      "previous_sha256": "3875de70de14ec66552bef3d36f2da81cfaa24e85ed490c3c3f155287412dcd6",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/portfolio/basic/flutter-cluster.md",
+      "new": "distributed/portfolio/basic/flutter-cluster.md",
+      "previous_sha256": "8ac37e817e2b168c0b672bd3a8c9ac011003a76cf3e00dc23b98e103d653c955",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/portfolio/basic/flutter-ivi.md",
+      "new": "distributed/portfolio/basic/flutter-ivi.md",
+      "previous_sha256": "2bcd487f9d6530037bb0103175c4488369f67f687d1571416f0ad7cb9ea60de5",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/portfolio/basic/index.md",
+      "new": "distributed/portfolio/basic/index.md",
+      "previous_sha256": "fedeecc6c0257e8886b53ce89ce71c22699c9673b1cc4ab46fb3f0a42a8d88f1",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/portfolio/basic/qt-ivi.md",
+      "new": "distributed/portfolio/basic/qt-ivi.md",
+      "previous_sha256": "1e07bcb68d0d236a51561160963695fa89fb093cc9f93b28ea730098ef56e9af",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/portfolio/extra/index.md",
+      "new": "distributed/portfolio/extra/index.md",
+      "previous_sha256": "5340466169be0f1ca9f0a6227b89791154c0596d6d1bc253a35ece7f2fb4614e",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/portfolio/extra/momi-ivi.md",
+      "new": "distributed/portfolio/extra/momi-ivi.md",
+      "previous_sha256": "e375cc6177754933ccfc7a0dd8599b23f5bf8c8b89e97af40c1259417bdf2e89",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/portfolio/extra/qt-cluster.md",
+      "new": "distributed/portfolio/extra/qt-cluster.md",
+      "previous_sha256": "174a21d561556ea3764ca81d255b77be1df012520319aad84d75c4971cbda561",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "standalone/portfolio/extra/slint-cluster.md",
+      "new": "distributed/portfolio/extra/slint-cluster.md",
+      "previous_sha256": "5443d813d0aa44a211400370bca29739a62f8e58588e1c00c71afd668955b8ec",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "integrated/sodev/architecture.md",
+      "new": "large-integrated/sodev/architecture.md",
+      "previous_sha256": "b4f855e74d19ae5372e8f899ab583033831c3d8cdc065fd6e71e5d106f6093fa",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "integrated/sodev/build.md",
+      "new": "large-integrated/sodev/build.md",
+      "previous_sha256": "e8d1b663f16ae8a083d6f375867f956d94c6cb7c23e18fa7c806049c4135182d",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "integrated/sodev/extensions.md",
+      "new": "large-integrated/sodev/extensions.md",
+      "previous_sha256": "dd4f4d933c71219bbc25580359890aa481309dd67b0ef8d95c7dc38892414892",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "integrated/sodev/index.md",
+      "new": "large-integrated/sodev/index.md",
+      "previous_sha256": "89214a74d5f5e1459b31a403dee8bfa06d220ca634675963bd8a570a4bb4a56d",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "integrated/sodev/virtio-guest.md",
+      "new": "large-integrated/sodev/virtio-guest.md",
+      "previous_sha256": "c3a51cede612d96a2feed2a4e3d5dbfda27ae6da7943766110f8e35d5d7dfa93",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "integrated/sodev/components/index.md",
+      "new": "large-integrated/sodev/components/index.md",
+      "previous_sha256": "a0c4e60b37b9176f8e282955577ecd275722d935fbbb80a028a198806832a415",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "integrated/sodev/customize/guest-vm.md",
+      "new": "large-integrated/sodev/customize/guest-vm.md",
+      "previous_sha256": "b038587c21d4eb9199916acbfc702dc32d26b0d504db0aaf3f9e81eabbb62c89",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "integrated/sodev/customize/index.md",
+      "new": "large-integrated/sodev/customize/index.md",
+      "previous_sha256": "ab1b474c294b6db6810465a0803e0bf31dd6000f84c1d401b87f4b349aca7512",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "integrated/containers/build.md",
+      "new": "small-integrated/containers/build.md",
+      "previous_sha256": "ba8b7ace7c67cbfdb35cf5643ee8b3c5331814ff0f87844b0f65472aa4e98ad6",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "integrated/containers/index.md",
+      "new": "small-integrated/containers/index.md",
+      "previous_sha256": "b9e77a92a1c31d30d0ce5bb2c20722968b16111679f203a9ebc0ebc3a23e3f5b",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "integrated/containers/extensions.md",
+      "new": "small-integrated/containers/extensions.md",
+      "previous_sha256": "0de02f164c3dee16a5c5b76996c776dd64372e4b0ed1dc63b7309d29d5997216",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "integrated/containers/build-guide.md",
+      "new": "small-integrated/containers/build-guide.md",
+      "previous_sha256": "d7b68d4b528caf2e83b234d88449481e18dbd7fd4cb7832a077a30f0c83cfe65",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "integrated/containers/architecture.md",
+      "new": "small-integrated/containers/architecture.md",
+      "previous_sha256": "56bc765cc97a1d1e13c1b1e268f2ab5d62f9ee346c4349650d3a25404ab41a60",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "integrated/kvm/build.md",
+      "new": "small-integrated/kvm/build.md",
+      "previous_sha256": "05f7695a585770ef9475d8f66c6d898e45ec15ab68c9c207e859b02a04de2ec0",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "integrated/kvm/images.md",
+      "new": "small-integrated/kvm/images.md",
+      "previous_sha256": "a45f42f386d18764a5c6d34d46fcb505ec23e3cb04c2791440353311af959d39",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "integrated/kvm/index.md",
+      "new": "small-integrated/kvm/index.md",
+      "previous_sha256": "08edcc84a00538fe5eaf3126a09ab22947e5081fd28bdc74f3541a67ead48fed",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "integrated/containers/components/applications.md",
+      "new": "small-integrated/containers/components/applications.md",
+      "previous_sha256": "1f8d206fe67abb08fdd72a11c2bc4b6d6d04285f69731018fa05862afc295009",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "integrated/containers/components/index.md",
+      "new": "small-integrated/containers/components/index.md",
+      "previous_sha256": "65d7ad53c2e3b93595e8f144c4db387acf018b5988d4dc7d578fefeb8d1ec7d6",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "integrated/containers/customize/guest-container.md",
+      "new": "small-integrated/containers/customize/guest-container.md",
+      "previous_sha256": "cf6341f1eb655fa45f45ccc31e2f6a70520db2f348e23ab2584c5672f620ae02",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "integrated/containers/customize/index.md",
+      "new": "small-integrated/containers/customize/index.md",
+      "previous_sha256": "44dad116f4ecbc7aeea0e60549508d17fe654e3987494938ff3e0de494548bd7",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "integrated/containers/demo/index.md",
+      "new": "small-integrated/containers/demo/index.md",
+      "previous_sha256": "4e72154272bd3d08f5297f3bf48fcbc82e71bcb25a8853b44cdc9adbc2a849c3",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
+    },
+    {
+      "old": "integrated/containers/demo/momi-ivi.md",
+      "new": "small-integrated/containers/demo/momi-ivi.md",
+      "previous_sha256": "0cbe73e5ae4f2b7cf0a98b0c6169c8f7b54fbc2d84d136dc557be099d52d1700",
+      "reason": "Directory reorganization into distributed, small-integrated and large-integrated"
     }
   ],
   "removed_files": [
@@ -1672,6 +2218,11 @@
       "path": "home/architecture.md",
       "reason": "Removed by user; stale references cleaned up",
       "previous_sha256": "a04a2d2c2cd3241047618497895fc13872e86c0834aa292e1dbc93271ab57257"
+    },
+    {
+      "path": "distributed/applications/sdk-overview.md",
+      "reason": "Unreferenced after removing Further reading sections; removal retained after directory reorganization",
+      "previous_sha256": "d754c5242859f4596637f24d05508afb3b39702fe64be2754a62b03825e7935b"
     }
   ]
 }

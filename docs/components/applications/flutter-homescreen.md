@@ -8,7 +8,7 @@ last_reviewed: '2026-10-10'
 
 # Flutter IVI homescreen
 
-`flutter-ics-homescreen` is the main user interface in `agl-ivi-demo-flutter`. It combines the homescreen, dashboard, HVAC, media, weather, settings, and application list in a Flutter application. It also launches separately installed applications and asks the compositor to display their windows. Read the [demo overview](../../start/prebuilt/flutter.md) for the user experience and the [Flutter application guide](../../standalone/applications/flutter.md) for the development workspace.
+`flutter-ics-homescreen` is the main user interface in `agl-ivi-demo-flutter`. It combines the homescreen, dashboard, HVAC, media, weather, settings, and application list in a Flutter application. It also launches separately installed applications and asks the compositor to display their windows. Read the [demo overview](../../start/prebuilt/flutter.md) for the user experience and the [Flutter application guide](../../distributed/applications/flutter.md) for the development workspace.
 
 ## Components and service connections
 
@@ -55,6 +55,6 @@ journalctl -b -u flutter-ics-homescreen.service
 systemctl status agl-compositor.service applaunchd.service agl-persistent-storage-api.service
 ```
 
-If a vehicle value remains unavailable, inspect the configured databroker connection and VSS path before changing the widget. If an external application is missing, check its `agl-app*@*.service` registration and matching Wayland ID using [Package and register an AGL application](../../standalone/applications/create-application.md).
+If a vehicle value remains unavailable, inspect the configured databroker connection and VSS path before changing the widget. If an external application is missing, check its `agl-app*@*.service` registration and matching Wayland ID using [Package and register an AGL application](../../distributed/applications/create-application.md).
 
-For a visual change, start with the relevant page under `lib/presentation/screens/`, the shared widgets, or theme/assets. For a new vehicle value, add the appropriate VSS path and provider subscription, then connect the provider state to the page. For a new backend, add its client/configuration in `lib/data/data_providers/` and retain the UI's asynchronous state and error handling. Validate the change with the [Flutter workspace](../../standalone/applications/flutter.md), then integrate it through a recipe override rather than modifying files only on a running target.
+For a visual change, start with the relevant page under `lib/presentation/screens/`, the shared widgets, or theme/assets. For a new vehicle value, add the appropriate VSS path and provider subscription, then connect the provider state to the page. For a new backend, add its client/configuration in `lib/data/data_providers/` and retain the UI's asynchronous state and error handling. Validate the change with the [Flutter workspace](../../distributed/applications/flutter.md), then integrate it through a recipe override rather than modifying files only on a running target.

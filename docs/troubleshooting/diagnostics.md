@@ -11,11 +11,11 @@ Choose the symptom below, then capture enough context to identify the image and 
 | Symptom | First checks | Related guide |
 | --- | --- | --- |
 | QEMU does not start | Host virtualization access, installed QEMU version, file paths, matching kernel and root filesystem. | [QEMU x86-64](../start/prebuilt/qemu-x86-64.md) |
-| No display or unexpected resolution | The image's display requirements, selected graphics device, and board/display configuration. | [QEMU x86-64](../start/prebuilt/qemu-x86-64.md), [Raspberry Pi display](../standalone/build/common/hardware/raspberry-pi/display.md) |
+| No display or unexpected resolution | The image's display requirements, selected graphics device, and board/display configuration. | [QEMU x86-64](../start/prebuilt/qemu-x86-64.md), [Raspberry Pi display](../distributed/build/common/hardware/raspberry-pi/display.md) |
 | SSH connection fails | Target address and network connection. The supplied x86 QEMU command forwards host port 2222 to target port 22. | [Prebuilt environments](../start/prebuilt/index.md) |
-| Source build fails early | Supported host distribution, required tools/packages, free storage, MACHINE, and selected features. | [Prepare a host](../standalone/build/common/prepare-host.md), [Initialize the build](../standalone/build/common/initialize-build.md) |
-| An application does not appear in the launcher | Application identifier, matching service unit, and packaging configuration. | [Register an application](../standalone/applications/create-application.md), [Application startup](../components/framework/lifecycle/application-startup.md) |
-| A multi-board demo cannot exchange data | Image variant, expected network addresses, and where the databroker runs. | [Coordinated demo configuration](../standalone/build/common/reference/images.md#coordinated-demo-configuration) |
+| Source build fails early | Supported host distribution, required tools/packages, free storage, MACHINE, and selected features. | [Prepare a host](../distributed/build/common/prepare-host.md), [Initialize the build](../distributed/build/common/initialize-build.md) |
+| An application does not appear in the launcher | Application identifier, matching service unit, and packaging configuration. | [Register an application](../distributed/applications/create-application.md), [Application startup](../components/framework/lifecycle/application-startup.md) |
+| A multi-board demo cannot exchange data | Image variant, expected network addresses, and where the databroker runs. | [Coordinated demo configuration](../distributed/build/common/reference/images.md#coordinated-demo-configuration) |
 
 ## Collect target information
 

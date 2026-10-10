@@ -26,7 +26,7 @@ The [distribution configuration](https://git.automotivelinux.org/AGL/meta-agl/tr
 
 ## Record a reproducible master checkout
 
-Follow [Download AGL source](../standalone/build/common/download-source.md), then save the resolved revisions:
+Follow [Download AGL source](../distributed/build/common/download-source.md), then save the resolved revisions:
 
 ```sh
 cd "$AGL_SOURCE"
@@ -44,10 +44,10 @@ Use the same resolved manifest for the image, SDK and any separately assembled A
 4. Rebuild the image and matching SDK. Align protobuf definitions, VSS mappings and runtime client/server configuration.
 5. Deploy matching artifacts and verify boot, UI, service health, vehicle-data exchange and any required guest/device boundaries.
 
-External SoDeV board/hypervisor workspaces have their own branches and pins. The [SoDeV build guide](../integrated/sodev/build.md) states how AGL master guests relate to those integrations; do not assume a workspace's default AGL branch is master.
+External SoDeV board/hypervisor workspaces have their own branches and pins. The [SoDeV build guide](../large-integrated/sodev/build.md) states how AGL master guests relate to those integrations; do not assume a workspace's default AGL branch is master.
 
 ## Choose the next task
 
 - [Quick start](../start/index.md) runs a master snapshot.
-- [Build AGL system](../standalone/build/index.md) builds a master source checkout.
+- [Build AGL system](../distributed/build/index.md) builds a master source checkout.
 - [Diagnose common problems](../troubleshooting/diagnostics.md) identifies version, configuration and service failures.
