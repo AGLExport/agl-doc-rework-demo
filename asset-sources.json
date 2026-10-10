@@ -1,12 +1,34 @@
 {
   "assets": [
     {
-      "path": "assets/diagrams/sodev-official-architecture.png",
-      "source_url": "https://www.automotivelinux.org/wp-content/uploads/sites/61/2025/12/image.png",
-      "source_page": "https://www.automotivelinux.org/announcements/sodev/",
+      "path": "assets/diagrams/sodev-arch-overview.drawio.svg",
       "publisher": "Automotive Grade Linux",
-      "description": "Official SoDeV reference architecture, reproduced unchanged",
-      "sha256": "a9cbec55b10055c40c05083ed076a4cc18214cb07e7e336162814cc6f8e4d9c9"
+      "description": "Official SoDeV system overview",
+      "source_kind": "user-provided-official",
+      "source_file": "sodev-arch-overview.drawio.svg",
+      "official_status": "confirmed-by-user",
+      "confirmed_on": "2026-10-10",
+      "source_note": "Supplied official SVG; its official status was confirmed by the user. The supplied file is the source asset for the recorded hash.",
+      "documentation_pages": [
+        "vehicle-controller/large-integrated/index.md",
+        "vehicle-controller/large-integrated/sodev/architecture/index.md"
+      ],
+      "sha256": "c3c8b7b7f00a88f972f055f9fba79e6eb2147d22e326cf24772d03a73eb3c36b"
+    },
+    {
+      "path": "assets/diagrams/sodev-arch-details.drawio.svg",
+      "publisher": "Automotive Grade Linux",
+      "description": "Official SoDeV domain and device architecture",
+      "source_kind": "user-provided-official",
+      "source_file": "sodev-arch-details.drawio.svg",
+      "official_status": "confirmed-by-user",
+      "confirmed_on": "2026-10-10",
+      "source_note": "Supplied official SVG; its official status was confirmed by the user. The supplied file is the source asset for the recorded hash.",
+      "documentation_pages": [
+        "vehicle-controller/large-integrated/index.md",
+        "vehicle-controller/large-integrated/sodev/architecture/index.md"
+      ],
+      "sha256": "1dc2f259936215c3d99521006448edfbd062d82ff04168f77c24cc0ccf348fd2"
     },
     {
       "path": "assets/diagrams/container-integration.svg",

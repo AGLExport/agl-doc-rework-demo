@@ -40,3 +40,15 @@
 @media (max-width: 44.9375em) {
   .md-typeset .grid.cards > ul > li { padding: 1rem; }
 }
+
+/* Official SoDeV diagrams use transparent backgrounds and white labels. */
+.md-typeset a.sodev-architecture {
+  display: block;
+  padding: .5rem;
+  border-radius: .25rem;
+  background: #101214;
+}
+.md-typeset a.sodev-architecture img {
+  display: block;
+  width: 100%;
+}

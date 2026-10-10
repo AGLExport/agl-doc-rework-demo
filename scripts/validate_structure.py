@@ -211,15 +211,22 @@ def validate_official_figure(project, docs, page, text):
         parsed = urlsplit(url)
         if not parsed.scheme and not parsed.netloc:
             images.add(posixpath.normpath(posixpath.join(posixpath.dirname(page), unquote(parsed.path))))
+    verified = 0
     for entry in entries:
-        if entry['path'] in images and entry.get('publisher') == 'Automotive Grade Linux' and entry.get('source_url') and entry.get('source_page'):
+        downloaded_source = bool(entry.get('source_url') and entry.get('source_page'))
+        supplied_source = (entry.get('source_kind') == 'user-provided-official'
+                           and entry.get('official_status') == 'confirmed-by-user'
+                           and entry.get('source_file') == posixpath.basename(entry['path'])
+                           and bool(entry.get('confirmed_on') and entry.get('source_note')))
+        if entry['path'] in images and entry.get('publisher') == 'Automotive Grade Linux' and (downloaded_source or supplied_source):
             image = (docs / entry['path']).resolve()
             if not image.is_relative_to(docs.resolve()) or not image.is_file():
                 raise ValueError('Official architecture asset is missing: ' + entry['path'])
             if hashlib.sha256(image.read_bytes()).hexdigest() != entry['sha256']:
                 raise ValueError('Official architecture asset differs from its recorded source: ' + entry['path'])
-            return
-    raise ValueError('Required official architecture diagram is missing: ' + page)
+            verified += 1
+    if not verified:
+        raise ValueError('Required official architecture diagram is missing: ' + page)
 
 
 def validate_master_references(text_by_path):

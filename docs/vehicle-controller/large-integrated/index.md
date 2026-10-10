@@ -15,12 +15,14 @@ The availability announcement describes Sparrow Hawk reference hardware, virtual
 
 ## Official architecture
 
-[![Official AGL SoDeV architecture overview .](../../assets/diagrams/sodev-arch-overview.drawio.svg)](../../assets/diagrams/sodev-arch-overview.drawio.svg)
+[![Official AGL SoDeV architecture overview.](../../assets/diagrams/sodev-arch-overview.drawio.svg)](../../assets/diagrams/sodev-arch-overview.drawio.svg){ .sodev-architecture }
 
-[![Official AGL SoDeV architecture details.](../../assets/diagrams/sodev-arch-details.drawio.svg)](../../assets/diagrams/sodev-arch-details.drawio.svg)
+[![Official AGL SoDeV architecture details.](../../assets/diagrams/sodev-arch-details.drawio.svg)](../../assets/diagrams/sodev-arch-details.drawio.svg){ .sodev-architecture }
 
-*Official AGL SoDeV architecture, reproduced unchanged from the [December 2025 launch announcement](https://www.automotivelinux.org/announcements/sodev/), which is linked from the availability announcement. [Original image](https://www.automotivelinux.org/wp-content/uploads/sites/61/2025/12/image.png). Select the figure for a larger view.*
+*Official AGL SoDeV architecture overview and detailed design. Select either figure for a larger view.*
 
-The diagram separates platform management, device backends, and functional guests. It shows multiple guest platforms and their virtual device interfaces above the hypervisor, with Unified HMI serving the graphical guests.
+The overview places the control, driver and guest domains above a type 1 hypervisor on a high-performance SoC. It distinguishes general-purpose and soft real-time guest operating environments, and shows a microcontroller part and hard real-time domains alongside the SoDeV subsystem.
+
+The detailed design shows VM management in Dom 0, hardware access and VirtIO backends in Dom D, and functional workloads in Dom U. Its examples include infotainment, cluster, gateway and ADAS/AD guests, with Unified HMI connecting their display integration. Read [SoDeV Architecture](sodev/architecture/index.md) for the domain and device responsibilities.
 
 Continue with [SoDeV development](sodev/index.md), [Build SoDeV](sodev/build/index.md), and [Create and Run Guest VM](sodev/customize/guest-vm/index.md). Target-specific workspaces define the concrete guest configuration.

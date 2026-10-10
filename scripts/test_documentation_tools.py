@@ -150,6 +150,58 @@ Show the architecture diagram "required.svg".
                 validate(project)
 
 
+
+class OfficialAssetTests(unittest.TestCase):
+    def test_supplied_official_svgs_are_accepted_and_every_figure_is_verified(self):
+        import hashlib
+        from validate_structure import validate_official_figure
+        with TemporaryDirectory() as directory:
+            project = Path(directory)
+            docs = project / 'docs'
+            assets = docs / 'assets'
+            assets.mkdir(parents=True)
+            entries = []
+            for name in ['overview.svg', 'details.svg']:
+                content = ('<svg xmlns="http://www.w3.org/2000/svg"><title>' + name + '</title></svg>').encode()
+                (assets / name).write_bytes(content)
+                entries.append({'path': 'assets/' + name, 'publisher': 'Automotive Grade Linux',
+                                'source_kind': 'user-provided-official', 'source_file': name,
+                                'official_status': 'confirmed-by-user', 'confirmed_on': '2026-10-10',
+                                'source_note': 'Supplied official diagram, confirmed by its provider.',
+                                'sha256': hashlib.sha256(content).hexdigest()})
+            (project / 'asset-sources.json').write_text(json.dumps({'assets': entries}), encoding='utf-8')
+            page, body = 'platform/index.md', '![Overview](../assets/overview.svg)\n![Details](../assets/details.svg)'
+            validate_official_figure(project, docs, page, body)
+            (assets / 'details.svg').write_text('<svg>Changed figure</svg>', encoding='utf-8')
+            with self.assertRaisesRegex(ValueError, 'differs from its recorded source'):
+                validate_official_figure(project, docs, page, body)
+            (assets / 'details.svg').unlink()
+            with self.assertRaisesRegex(ValueError, 'Official architecture asset is missing'):
+                validate_official_figure(project, docs, page, body)
+
+    def test_supplied_assets_need_confirmation_and_downloaded_assets_keep_their_source_requirement(self):
+        import hashlib
+        from validate_structure import validate_official_figure
+        with TemporaryDirectory() as directory:
+            project = Path(directory)
+            docs = project / 'docs'
+            docs.mkdir()
+            content = b'<svg xmlns="http://www.w3.org/2000/svg"/>'
+            (docs / 'figure.svg').write_bytes(content)
+            entry = {'path': 'figure.svg', 'publisher': 'Automotive Grade Linux',
+                     'source_kind': 'user-provided-official', 'source_file': 'figure.svg',
+                     'confirmed_on': '2026-10-10', 'source_note': 'Supplied diagram.',
+                     'sha256': hashlib.sha256(content).hexdigest()}
+            manifest = project / 'asset-sources.json'
+            manifest.write_text(json.dumps({'assets': [entry]}), encoding='utf-8')
+            with self.assertRaisesRegex(ValueError, 'Required official architecture diagram is missing'):
+                validate_official_figure(project, docs, 'index.md', '![Figure](figure.svg)')
+            entry.update({'source_kind': 'downloaded', 'source_url': 'https://example.org/figure.svg',
+                          'source_page': 'https://example.org/architecture/'})
+            manifest.write_text(json.dumps({'assets': [entry]}), encoding='utf-8')
+            validate_official_figure(project, docs, 'index.md', '![Figure](figure.svg)')
+
+
 class MasterBaselineTests(unittest.TestCase):
     def test_named_release_links_are_rejected_but_recipe_selected_components_are_allowed(self):
         validate_master_references({"current.md":

@@ -3319,6 +3319,11 @@
       "path": "vehicle-controller/distributed/agl-distribution/applications/reference/sdk-overview.md",
       "reason": "Unreferenced after removing Further reading sections; removal retained after directory reorganization",
       "previous_sha256": "d754c5242859f4596637f24d05508afb3b39702fe64be2754a62b03825e7935b"
+    },
+    {
+      "path": "assets/diagrams/sodev-official-architecture.png",
+      "reason": "Superseded by the supplied official SoDeV overview and detailed-design SVGs.",
+      "sha256": "a9cbec55b10055c40c05083ed076a4cc18214cb07e7e336162814cc6f8e4d9c9"
     }
   ],
   "documentation_layout": "hierarchy"

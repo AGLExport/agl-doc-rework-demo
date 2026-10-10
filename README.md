@@ -58,7 +58,7 @@ docs/
   assets/                 # Shared assets; no chapter index
 ```
 
-The Introduction figures and editable Flutter/Qt IVI, Container integration and Connected Gateway SVGs accompany the platform explanations. The Gateway architecture separates the reviewed master CAN/VSS path from optional vehicle-to-cloud integration. The IVI figures and container source references use reviewed master recipes. The official SoDeV figure is reproduced unchanged with its announcement attribution. The shared page banner displays the master baseline and source-review date. Source inspection and documentation checks do not report hardware or emulator runtime validation.
+The Introduction figures and editable Flutter/Qt IVI, Container integration and Connected Gateway SVGs accompany the platform explanations. The Gateway architecture separates the reviewed master CAN/VSS path from optional vehicle-to-cloud integration. The IVI figures and container source references use reviewed master recipes. The official SoDeV overview and detailed-design SVGs are the supplied official assets, preserved unchanged. Their provenance is recorded as user-provided official figures, with confirmation date and SHA-256 hashes, in `asset-sources.json`. The shared page banner displays the master baseline and source-review date. Source inspection and documentation checks do not report hardware or emulator runtime validation.
 
 ## Contents
 
@@ -66,8 +66,8 @@ The Introduction figures and editable Flutter/Qt IVI, Container integration and 
 | --- | --- |
 | `mkdocs.yml` | Navigation, theme, master variables, and build configuration |
 | `docs/` | Documentation articles, task-oriented entry pages, and copied assets |
-| `docs/assets/diagrams/` | Vehicle and runtime architecture SVGs and the official SoDeV image |
-| `asset-sources.json` | Attribution and SHA-256 for the official SoDeV image and authored IVI/container/gateway diagrams |
+| `docs/assets/diagrams/` | Vehicle and runtime architecture SVGs, including the two official SoDeV figures |
+| `asset-sources.json` | Provenance and SHA-256 for the official SoDeV SVGs and authored IVI/container/gateway diagrams |
 | `AGENTS.md` | Required documentation headings, hierarchy, language, and section content |
 | `structure-map.json` | Required heading-to-page mapping, previous page locations, and explicitly removed files |
 | `source-map.json` | Active source-to-destination mappings, excluded files, and SHA-256 hashes for the 84 source articles |
