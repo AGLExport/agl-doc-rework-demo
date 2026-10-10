@@ -12,11 +12,13 @@ The gateway demo hosts the KUKSA.val databroker and CAN-input integration descri
 | Need | Reference |
 | --- | --- |
 | Databroker placement and networking | [Coordinated demo configuration](../../distributed/build/common/reference/images.md#coordinated-demo-configuration) |
-| Demo CAN data | [Virtual Car CAN definition](../tools/virtual-car/index.md) |
+| Demo CAN data | [CAN message definition](../tools/virtual-car/index.md) |
 | Generate demonstration data | [Demo Control Panel](../tools/demo-control/panel.md) |
 | Platform services | [AGL Services](../services/index.md) |
 
-The imported source does not define an independent gateway request/response API. Use the selected release's [KUKSA interface documentation](https://github.com/eclipse-kuksa/kuksa-databroker) and the CAN provider's DBC/VSS mappings. Keep signal names and schema versions consistent between gateway and clients.
+The imported source does not define an independent gateway request/response API. Use the component revision selected by the master recipe and its [KUKSA interface documentation](https://github.com/eclipse-kuksa/kuksa-databroker) and the CAN provider's DBC/VSS mappings. Keep signal names and schema versions consistent between gateway and clients.
+
+Read [Connected Gateway architecture](../../vehicle-data/gateway/architecture.md) for the complete signal path and configuration boundaries.
 
 ## Current master interface sources
 

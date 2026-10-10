@@ -1,11 +1,11 @@
 ---
-title: Base platform for the distributed system
+title: Distributed system
 content_status: authored
 agl_branch: master
 last_reviewed: '2026-10-10'
 ---
 
-# Base platform for the distributed system
+# Distributed system
 
 AGL develops and provides a Linux distribution for automotive systems. It focuses on a standalone system built on a single Linux kernel and userland. Deploy it on an individual ECU, or connect several such systems across a vehicle network. Each deployment runs the software selected for its vehicle role and exchanges data through the configured interfaces.
 
@@ -13,7 +13,7 @@ The [AGL Distribution](distribution/index.md) chapter describes this Linux platf
 
 ## Vehicle roles
 
-IVI and Instrument Cluster reference software is introduced in the [Basic demo system](portfolio/basic/index.md) and [Extra demo system](portfolio/extra/index.md) portfolios. AGL also provides a Connected Gateway platform; its detailed overview and setup remain **TBD**. Existing references are the [gateway image catalog entry](build/common/reference/images.md#agl-gateway-demo) and [Gateway APIs](../components/api/gateway.md).
+IVI and Instrument Cluster reference software is introduced in the [Basic demo system](portfolio/basic/index.md) and [Extra demo system](portfolio/extra/index.md) portfolios. The [Connected Gateway](../vehicle-data/gateway/index.md) chapter describes the vehicle-data role of the AGL gateway image. Its [Architecture](../vehicle-data/gateway/architecture.md) explains how CAN input becomes shared VSS data.
 
 <span id="platform"></span>
 <span id="hardware"></span>
@@ -26,4 +26,4 @@ Use [AGL Components](../components/index.md) for reference applications, service
 
 ## Integration with other platforms
 
-For guest isolation and shared computing resources, use [Base platform for the small-scale integrated system](../small-integrated/index.md) or [Base platform for the large-scale integrated system](../large-integrated/index.md). An AGL distribution can provide an integrated system's guest userland; its kernel, device access and deployment format depend on the container or virtual-machine environment. Follow that integration's build procedure when assembling host and guest artifacts.
+For guest isolation and shared computing resources, use [Small-scale integrated system](../small-integrated/index.md) or [Large-scale integrated system](../large-integrated/index.md). An AGL distribution can provide an integrated system's guest userland; its kernel, device access and deployment format depend on the container or virtual-machine environment. Follow that integration's build procedure when assembling host and guest artifacts.

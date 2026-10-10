@@ -1,10 +1,10 @@
 ---
-title: Contribute
+title: Contribution gide
 agl_branch: master
 last_reviewed: '2026-10-10'
 ---
 
-# Contribute
+# Contribution gide
 
 You can participate in AGL through code, documentation, and bug reports. Choose the guide that matches the contribution you want to make.
 
@@ -28,4 +28,4 @@ When improving a procedure, include its version and environment, prerequisites, 
 
 ## Related information
 
-Depending on your task, refer to [Base platform for the distributed system](../distributed/index.md), [API & configuration](../components/index.md), and [Releases & migration](../releases/index.md).
+Depending on your task, refer to [Distributed system](../distributed/index.md), [API & configuration](../components/index.md), and [Releases & migration](../releases/index.md).

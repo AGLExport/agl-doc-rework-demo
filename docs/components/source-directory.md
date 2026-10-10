@@ -84,6 +84,6 @@ last_reviewed: '2026-10-10'
 - [Demo Control Panel](tools/demo-control/panel.md)
 - [CARLA with AGL](tools/demo-control/carla.md)
 
-#### Virtual Car CAN definition
+#### CAN message definition
 
 - [AGL virtual car](tools/virtual-car/virtual-car.md)

@@ -9,7 +9,7 @@ last_reviewed: '2026-10-10'
 
 The Extra demo system includes an Instrument Cluster platform with demo software and a minimal-footprint IVI demo. Its Qt-based Instrument Cluster starts from minimal userland, providing a foundation for a small-footprint cluster system. The Slint-based Instrument Cluster is an early example implemented in Rust using the Slint UI toolkit.
 
-Momi IVI provides a lightweight Qt/QML infotainment guest. Its demonstrated deployment uses a container host together with a Cluster guest, so follow the [Base platform for the small-scale integrated system](../../../small-integrated/index.md) route for the complete integration. Select the profile before initializing its build directory.
+Momi IVI provides a lightweight Qt/QML infotainment guest. Its demonstrated deployment uses a container host together with a Cluster guest, so follow the [Small-scale integrated system](../../../small-integrated/index.md) route for the complete integration. Select the profile before initializing its build directory.
 
 | Demo | Runtime and deployment | Image or integration target |
 | --- | --- | --- |

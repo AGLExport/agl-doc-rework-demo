@@ -8,7 +8,7 @@ last_reviewed: '2026-10-10'
 
 # AGL image targets
 
-This catalog describes the recipes in the [AGL master image directory](https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-platform/images/?h=master). Use the recipes and resolved manifest from the same release as the image or SDK. The site's build guides can track a development branch; see [Releases & migration](../../../../releases/index.md) for that distinction.
+This catalog describes the recipes in the [AGL master image directory](https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-platform/images/?h=master). Use the same resolved master manifest for the image, SDK and separately built guests. See [Releases & migration](../../../../releases/index.md) to record and update that baseline.
 
 ## 1. Demo Images
 
@@ -52,7 +52,7 @@ IVI-derived Qt Instrument Cluster image selected by `packagegroup-agl-cluster-de
 
 ### agl-gateway-demo
 
-Minimal gateway demo image hosting the KUKSA.val databroker and CAN provider. The [recipe](https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-platform/images/agl-gateway-demo.bb?h=master) also installs `agl-vss-proxy` and the open databroker environment; development tools are conditional on `agl-devel`. Configure network access and CAN interfaces for the selected deployment.
+Minimal gateway demo image hosting the KUKSA.val databroker and CAN provider. The [recipe](https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-platform/images/agl-gateway-demo.bb?h=master) also installs `agl-vss-proxy` and the open databroker environment; development tools are conditional on `agl-devel`. Configure network access and CAN interfaces for the selected deployment. Read [Connected Gateway architecture](../../../../vehicle-data/gateway/architecture.md) for the reviewed data path.
 
 ### agl-telematics-demo
 

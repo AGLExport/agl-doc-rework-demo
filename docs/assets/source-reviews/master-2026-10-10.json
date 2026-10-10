@@ -682,6 +682,30 @@
     {
       "url": "https://git.automotivelinux.org/AGL/meta-agl-demo/plain/meta-agl-demo-shared/recipes-platform/packagegroups/packagegroup-agl-momi-ivi-qt.bb?h=master",
       "sha256": "eec2a991fff34f0b18dab2af565dd723a979dbfc524b15a7ca2bb9ea47a6e5e9"
+    },
+    {
+      "url": "https://git.automotivelinux.org/AGL/meta-agl-demo/plain/recipes-connectivity/kuksa-val/kuksa-can-provider-conf-agl.bb?h=master",
+      "sha256": "112038208148926a56ccb735aeedeeef87d79911bc8f78ec89a9ab61935d2f26"
+    },
+    {
+      "url": "https://git.automotivelinux.org/AGL/meta-agl-demo/plain/recipes-connectivity/kuksa-val/kuksa-databroker-env.bb?h=master",
+      "sha256": "12b540b07ffbd1b80e1242318df0437fc4576a50627f7acfa7d0d63a7415aea6"
+    },
+    {
+      "url": "https://git.automotivelinux.org/AGL/meta-agl-demo/plain/recipes-connectivity/kuksa-val/kuksa-databroker-env/kuksa-databroker.open?h=master",
+      "sha256": "77a8bdf8cba212a531c45a2656f95eb4400ea597642c5e1412af483be6ec230c"
+    },
+    {
+      "url": "https://git.automotivelinux.org/AGL/meta-agl-demo/plain/recipes-connectivity/kuksa-val/kuksa-databroker-env/kuksa-databroker.default?h=master",
+      "sha256": "3883ac452c2b6a66ff202f7d6b75fd70203edc3ee321c8c69c7174a7896edb3b"
+    },
+    {
+      "url": "https://git.automotivelinux.org/AGL/meta-agl-demo/plain/recipes-connectivity/kuksa-val/kuksa-can-provider-conf-gw-control-panel.bb?h=master",
+      "sha256": "33bffe30ed7ef121b5613dedda058b57cf6add12cc162896ae8fa7060f8eeef8"
+    },
+    {
+      "url": "https://git.automotivelinux.org/AGL/meta-agl-demo/plain/recipes-connectivity/kuksa-val/kuksa-can-provider-conf-gw-hardware.bb?h=master",
+      "sha256": "eb02c3080fddb8885e9328dc422edc29412f8c7e30d7049dcaad630186571493"
     }
   ]
 }

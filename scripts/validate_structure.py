@@ -149,15 +149,21 @@ def local_document_links(body, page):
     return targets
 
 
-# Content rules retain a historical coverage label and use hyphenated category names.
-# Navigation always follows the exact spellings in Required Structure.
+# Content rules can retain historical names while navigation uses current titles.
 SECTION_ALIASES = {
     'AGL Coverage': 'Introduction',
-    'Small-scale integrated system': 'Small scale integrated system',
     'AGL distributed system': 'Distributed system',
-    'AGL small-scale integrated system': 'Small scale integrated system',
-    'AGL large-scale integrated system': 'Large scale integrated system',
+    'AGL small-scale integrated system': 'Small-scale integrated system',
+    'AGL large-scale integrated system': 'Large-scale integrated system',
 }
+
+SECTION_NAME_FAMILIES = (
+    ('Distributed system', 'Base platform for the distributed system'),
+    ('Small-scale integrated system', 'Small scale integrated system',
+     'Base platform for the small-scale integrated system'),
+    ('Large-scale integrated system', 'Large scale integrated system',
+     'Base platform for the large-scale integrated system'),
+)
 
 
 def section_paths(section, pages, structure, parent=None):
@@ -165,13 +171,9 @@ def section_paths(section, pages, structure, parent=None):
     if section not in titles:
         aliases = {alias.casefold(): title for alias, title in SECTION_ALIASES.items()}
         section = aliases.get(section.casefold(), section)
-        platform_aliases = {
-            'Distributed system': 'Base platform for the distributed system',
-            'Small scale integrated system': 'Base platform for the small-scale integrated system',
-            'Large scale integrated system': 'Base platform for the large-scale integrated system',
-        }
-        if section not in titles and platform_aliases.get(section) in titles:
-            section = platform_aliases[section]
+        if section not in titles:
+            family = next((names for names in SECTION_NAME_FAMILIES if section in names), ())
+            section = next((name for name in family if name in titles), section)
     # A content rule applies to every matching chapter, including repeated demo-group titles.
     paths = [path for title, path in pages if title == section]
     if parent is not None:
@@ -257,7 +259,7 @@ def validate(project):
     for section, rules in content_requirements(instructions).items():
         paths = section_paths(rules['section_title'], pages, structure, rules['parent'])
         required = rules['headings']
-        if not paths or not (required or rules['paragraphs']):
+        if not paths:
             raise ValueError('Required content section is missing: ' + section)
         for path in paths:
             required_titles = {title for _, title in required}

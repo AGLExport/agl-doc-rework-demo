@@ -105,7 +105,7 @@ has been maintained for this site.
 Use relative Markdown links, including a fragment when linking to a section:
 
 ```markdown
-[Contribute](index.md)
+[Contribution gide](index.md)
 [Collect diagnostic information](../troubleshooting/index.md#gather-context)
 ```
 

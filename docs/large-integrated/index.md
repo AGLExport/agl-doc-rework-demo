@@ -1,11 +1,11 @@
 ---
-title: Base platform for the large-scale integrated system
+title: Large-scale integrated system
 content_status: authored
 agl_branch: master
 last_reviewed: '2026-10-10'
 ---
 
-# Base platform for the large-scale integrated system
+# Large-scale integrated system
 
 AGL's large-scale integrated system is based on SoDeV. It mainly addresses central/zone consolidation and supports combining guest systems and workloads with different criticality requirements. Start with the reference platform overview below, then follow the [SoDeV development chapter](sodev/index.md).
 

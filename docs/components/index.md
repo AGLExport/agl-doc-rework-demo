@@ -16,6 +16,6 @@ This chapter of [AGL Distribution](../distributed/distribution/index.md) explain
 
 For implementation changes, continue with the sibling chapters [Platform Customize](../distributed/customize/index.md) or [Application development](../distributed/applications/index.md).
 
-Build and deploy a system first through [AGL Distribution](../distributed/distribution/index.md), [Base platform for the small-scale integrated system](../small-integrated/index.md), or [Base platform for the large-scale integrated system](../large-integrated/index.md). System-specific extensions are under [SoDeV](../large-integrated/sodev/extensions.md) and [Container integration](../small-integrated/containers/extensions.md).
+Build and deploy a system first through [AGL Distribution](../distributed/distribution/index.md), [Small-scale integrated system](../small-integrated/index.md), or [Large-scale integrated system](../large-integrated/index.md). System-specific extensions are under [SoDeV](../large-integrated/sodev/extensions.md) and [Container integration](../small-integrated/containers/extensions.md).
 
 Use [AGL Development tools](tools/index.md) for demo control and vehicle-signal definitions. The supporting [component directory](source-directory.md) links additional implementation material.

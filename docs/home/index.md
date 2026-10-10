@@ -9,10 +9,10 @@ last_reviewed: '2026-10-10'
 
 Software-Defined Vehicles (SDVs) build on several automotive technology trends: the consolidation of computing, changes to vehicle networks, shared software platforms, continuous software updates and connected data services. These developments shape both the hardware architecture and the way software is developed and maintained.
 
-Within this transition, AGL focuses on two related areas introduced in this chapter:
+Within this transition, AGL focuses on vehicle E/E architecture and E2E vehicle data processing. Both are suited to open-source development: shared interfaces and reusable software let teams collaborate on common infrastructure while adapting applications and deployments to their vehicles. This chapter introduces the two areas:
 
 - [Vehicle EE architectures](#vehicle-ee-architectures): where vehicle functions run, how controllers and devices connect, and how individual systems can be integrated on shared computing resources.
-- [E2E Vehicle Data Processing](#e2e-vehicle-data-processing): how data processing is shared between the vehicle, communication networks and cloud services, with optimization across the complete end-to-end path.
+- [Vehicle Data Processing](#vehicle-data-processing): how data processing is shared between the vehicle, communication networks and cloud services, with optimization across the complete end-to-end path.
 
 ## Vehicle EE architectures.
 
@@ -26,7 +26,7 @@ In a traditional distributed design, individual electronic control units (ECUs) 
 
 *Figure 1. Functions run on separate ECUs that communicate over the vehicle network.*
 
-AGL's [Base platform for the distributed system](../distributed/index.md) mainly focuses on this architecture. Each standalone deployment supplies one Linux kernel and userland for its selected role, and several deployments can exchange vehicle data.
+AGL's [Distributed system](../distributed/index.md) mainly focuses on this architecture. Each standalone deployment supplies one Linux kernel and userland for its selected role, and several deployments can exchange vehicle data.
 
 ### Domain architecture.
 
@@ -36,7 +36,7 @@ A domain design groups related functions, such as cockpit, body control, or powe
 
 *Figure 2. Functions are grouped into logical domains with their own controllers.*
 
-AGL's [Base platform for the small-scale integrated system](../small-integrated/index.md) mainly focuses on this architecture. Container integration and KVM combine two or more features, such as IVI and Instrument Cluster, on shared computing resources.
+AGL's [Small-scale integrated system](../small-integrated/index.md) mainly focuses on this architecture. Container integration and KVM combine two or more features, such as IVI and Instrument Cluster, on shared computing resources.
 
 ### Central/Zone architecture.
 
@@ -46,10 +46,12 @@ A central/zone design combines central computing with controllers organized by p
 
 *Figure 3. Central computing hosts workloads while zones organize local device connections.*
 
-AGL's [Base platform for the large-scale integrated system](../large-integrated/index.md) mainly focuses on this architecture. SoDeV provides a platform for consolidating guest systems and workloads with different criticality requirements. Base platform for the distributed systems and small-scale integrations can be incorporated as part of that larger system.
+AGL's [Large-scale integrated system](../large-integrated/index.md) mainly focuses on this architecture. SoDeV provides a platform for consolidating guest systems and workloads with different criticality requirements. Distributed systems and small-scale integrations can be incorporated as part of that larger system.
 
 
-## E2E Vehicle Data Processing.
+<span id="e2e-vehicle-data-processing"></span>
+
+## Vehicle Data Processing.
 
 For roughly the past 10-15 years, connected-vehicle services have collected vehicle data over cellular networks for processing in the cloud. The history extends to at least 2011: [Toyota's announcement of cloud-based telematics](https://global.toyota/en/detail/213386) describes a cloud platform for services delivered through wireless networks and data centers. In this model, vehicle signals are collected onboard and uploaded for functions such as fleet analysis, remote diagnostics and traffic services.
 
@@ -73,4 +75,6 @@ An E2E (End-to-End) design evaluates the complete path from signal acquisition t
 
 For example, a diagnostic service might evaluate a condition locally, retain a bounded interval of relevant signals and upload the event with its context. Assess the resulting diagnostic quality, onboard load, upload volume and cloud cost together. A smaller upload alone does not establish a better E2E design.
 
-These processing choices apply across AGL's [Base platform for the distributed system](../distributed/index.md), [Base platform for the small-scale integrated system](../small-integrated/index.md) and [Base platform for the large-scale integrated system](../large-integrated/index.md). Their E/E architecture determines where vehicle-side workloads can run; the network and cloud parts still require integration for the intended service.
+Read [Base platform for Vehicle Data Processing](../vehicle-data/index.md) for the vehicle-side platform, and [Connected Gateway architecture](../vehicle-data/gateway/architecture.md) for the master demo's CAN-to-VSS data path. Cloud connectivity and analytics depend on the system integration chosen for the service.
+
+These processing choices apply across AGL's [Distributed system](../distributed/index.md), [Small-scale integrated system](../small-integrated/index.md) and [Large-scale integrated system](../large-integrated/index.md). Their E/E architecture determines where vehicle-side workloads can run; the network and cloud parts still require integration for the intended service.

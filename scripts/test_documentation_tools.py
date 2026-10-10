@@ -16,6 +16,16 @@ from import_transforms import remove_further_reading
 
 
 class SectionResolutionTests(unittest.TestCase):
+    def test_focus_references_resolve_to_current_vehicle_controller_systems(self):
+        pages = [("Distributed system", "distributed/index.md"),
+                 ("Small-scale integrated system", "small-integrated/index.md"),
+                 ("Large-scale integrated system", "large-integrated/index.md")]
+        for alias, expected in [("AGL distributed system", pages[0][1]),
+                                ("AGL small-scale integrated system", pages[1][1]),
+                                ("AGL large-scale integrated system", pages[2][1])]:
+            with self.subTest(alias=alias):
+                self.assertEqual(section_paths(alias, pages, {}), [expected])
+
     def test_historical_coverage_reference_resolves_to_introduction(self):
         self.assertEqual(section_paths("AGL Coverage", [("Introduction", "home/index.md")], {}), ["home/index.md"])
 
@@ -30,6 +40,26 @@ class SectionResolutionTests(unittest.TestCase):
 
 
 class ContentRequirementTests(unittest.TestCase):
+    def test_empty_content_declaration_requires_the_section_but_no_extra_content(self):
+        with TemporaryDirectory() as directory:
+            project = Path(directory)
+            (project / "docs").mkdir()
+            instructions = ('## Required Structure\n- Home\n'
+                            '## Required Contents at Section\n'
+                            '"Home" section must include the following content:\n')
+            (project / "AGENTS.md").write_text(instructions, encoding="utf-8")
+            (project / "mkdocs.yml").write_text(yaml.safe_dump({"nav": [{"Home": "index.md"}], "not_in_nav": ""}), encoding="utf-8")
+            (project / "structure-map.json").write_text(json.dumps({"required_pages": [
+                {"heading": "Home", "page": "index.md", "breadcrumb": ["Home"]},
+            ]}), encoding="utf-8")
+            (project / "source-map.json").write_text(json.dumps({"pages": []}), encoding="utf-8")
+            (project / "docs/index.md").write_text("# Home\n", encoding="utf-8")
+            with redirect_stdout(StringIO()):
+                validate(project)
+            (project / "AGENTS.md").write_text(instructions.replace('"Home" section', '"Missing" section'), encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "Required content section is missing"):
+                validate(project)
+
     def test_updated_instructions_require_figures_and_matching_system_links(self):
         instructions = (Path(__file__).resolve().parents[1] / "AGENTS.md").read_text(encoding="utf-8-sig")
         rules = content_requirements(instructions)
@@ -42,22 +72,22 @@ class ContentRequirementTests(unittest.TestCase):
         self.assertEqual(introduction["headings"], [
             (2, "Vehicle EE architectures."), (3, "Traditional distributed architecture."),
             (3, "Domain architecture."), (3, "Central/Zone architecture."),
-            (2, "E2E Vehicle Data Processing."),
+            (2, "Vehicle Data Processing."),
         ])
         expected_paths = ["distributed/index.md", "small-integrated/index.md", "large-integrated/index.md"]
-        pages = [("Base platform for the distributed system", expected_paths[0]),
-                 ("Base platform for the small-scale integrated system", expected_paths[1]),
-                 ("Base platform for the large-scale integrated system", expected_paths[2])]
+        pages = [("Distributed system", expected_paths[0]),
+                 ("Small-scale integrated system", expected_paths[1]),
+                 ("Large-scale integrated system", expected_paths[2])]
         self.assertEqual([section_paths(name, pages, {})[0]
                           for name in introduction["section_references"].values()], expected_paths)
 
     def test_official_figure_and_source_requirement_belong_to_large_scale(self):
         instructions = (Path(__file__).resolve().parents[1] / "AGENTS.md").read_text(encoding="utf-8-sig")
         rules = content_requirements(instructions)
-        self.assertTrue(rules["Base platform for the large-scale integrated system"]["official_figure"])
-        self.assertEqual(len(rules["Base platform for the large-scale integrated system"]["source_links"]), 1)
+        self.assertTrue(rules["Large-scale integrated system"]["official_figure"])
+        self.assertEqual(len(rules["Large-scale integrated system"]["source_links"]), 1)
         self.assertFalse(rules["SoDeV"]["official_figure"])
-        self.assertIn("Base platform for the small-scale integrated system", rules)
+        self.assertIn("Small-scale integrated system", rules)
 
     def test_scoped_rule_selects_architecture_and_requires_both_named_diagrams(self):
         instructions = (Path(__file__).resolve().parents[1] / "AGENTS.md").read_text(encoding="utf-8-sig")

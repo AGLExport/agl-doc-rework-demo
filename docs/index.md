@@ -15,7 +15,7 @@ The AGL Unified Code Base (UCB) is the project's common Linux distribution, buil
 
 AGL began with infotainment and has a broader goal of supporting automotive software across vehicle roles. This documentation covers In-Vehicle Infotainment, Instrument Cluster, and Connected Gateway, alongside platforms that integrate several workloads. A product team selects the relevant software, adds its own applications, and integrates it with the intended vehicle environment.
 
-Read [Introduction](home/index.md) for AGL coverage and its relationship to vehicle E/E architectures. It connects traditional distributed architecture to [Base platform for the distributed system](distributed/index.md), domain architecture to [Base platform for the small-scale integrated system](small-integrated/index.md), and central/zone architecture to [Base platform for the large-scale integrated system](large-integrated/index.md). Introduction also explains [E2E Vehicle Data Processing](home/index.md#e2e-vehicle-data-processing), including the placement of processing across the vehicle, network and cloud. The system chapters explain the relevant platforms and provide build and development routes. [AGL Distribution](distributed/distribution/index.md) groups the distributed platform's demo, build, component and application guides.
+Read [Introduction](home/index.md) for AGL coverage and the relationship between vehicle E/E architecture and [Vehicle Data Processing](home/index.md#vehicle-data-processing). [Base platform for Vehicle Controller](vehicle-controller/index.md) groups distributed, small-scale and large-scale vehicle systems; [Base platform for Vehicle Data Processing](vehicle-data/index.md) introduces Connected Gateway and its data interfaces. [AGL Distribution](distributed/distribution/index.md) provides the demo, build, component and application guides for a distributed Linux system.
 
 ## AGL Community information.
 
@@ -24,5 +24,9 @@ The AGL community develops software, discusses requirements, and maintains the p
 - [Mailing lists](https://lists.automotivelinux.org/g/agl-main) provide topic-specific discussions and public archives.
 - [Community meetings](https://www.automotivelinux.org/developer-meetings/) provide meeting information and ways to participate.
 - [AGL Expert Groups](https://lf-automotivelinux.atlassian.net/wiki/spaces/HOME/overview) provide technical collaboration spaces.
-- [Contribute](contributing/index.md) explains accounts, code review, and documentation contributions.
+- [Community standard](community/index.md) groups source-version guidance and the [Contribution gide](contributing/index.md) for accounts, code review and documentation contributions.
 - [Get community help](troubleshooting/getting-help.md) explains how to ask questions and report useful diagnostic information.
+
+## Develop and operate an AGL system
+
+Use [Development & Usage](development/index.md) to select development workflows and demo-control tools. The [AGL Virtual Car definition](virtual-car/index.md) describes the CAN data shared by the demonstrations. Use [Troubleshooting](troubleshooting/index.md) to diagnose setup, boot and service problems.

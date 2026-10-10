@@ -64,6 +64,6 @@ bitbake "$RECIPE"
 IMAGE_INSTALL:append = " my-service"
 ```
 
-Then rebuild the selected image with `bitbake`. Check the layer into version control and follow [Contribute](../../contributing/index.md) when submitting it upstream. For service registration, continue with [Create a service](service.md).
+Then rebuild the selected image with `bitbake`. Check the layer into version control and follow [Contribution gide](../../contributing/index.md) when submitting it upstream. For service registration, continue with [Create a service](service.md).
 
 ![Example of adding a recipe to an AGL layer](../../assets/source/04_Developer_Guides/02_AGL_Platform_Development/02_Modify_AGL_by_Yourself/images/AGL_add_recipe.png)

@@ -12,4 +12,4 @@ Architecture describes what runs in each demo and how applications reach platfor
 - [Basic demo system](basic.md): the IVI/compositor family with Flutter or Qt.
 - [Extra demo system](extra.md): dedicated Qt/Slint clusters and the Momi IVI container guest.
 
-These groups describe software composition. For the placement of ECUs in a vehicle, use [Introduction](../../home/index.md). For container and KVM hosts, use [Base platform for the small-scale integrated system](../../small-integrated/index.md). For SoDeV domains and mixed-criticality integration, use [Base platform for the large-scale integrated system](../../large-integrated/index.md).
+These groups describe software composition. For the placement of ECUs in a vehicle, use [Introduction](../../home/index.md). For container and KVM hosts, use [Small-scale integrated system](../../small-integrated/index.md). For SoDeV domains and mixed-criticality integration, use [Large-scale integrated system](../../large-integrated/index.md).

@@ -12,130 +12,138 @@ Each document must be followed document structure as a follow.
 
 - Home
   - Introduction
-  - Base platform for the distributed system
-    - AGL Distribution
-      - Quick start
-        - Run Flutter IVI demo pre-build image 
-          - QEMU x86-64
-          - Raspberry Pi 4/5
+  - Base platform for Vehicle Controller
+    - Distributed system
+      - AGL Distribution
+        - Quick start
+          - Run Flutter IVI demo pre-build image 
+            - QEMU x86-64
+            - Raspberry Pi 4/5
 
-      - Portfolio
-        - Basic demo system 
-          - Flutter IVI demo
-          - Qt IVI demo
-          - IVI based Flutter Cluster demo
+        - Portfolio
+          - Basic demo system 
+            - Flutter IVI demo
+            - Qt IVI demo
+            - IVI based Flutter Cluster demo
 
-        - Extra demo system
-          - Qt based Cluster demo
-          - Slint based Cluster demo
+          - Extra demo system
+            - Qt based Cluster demo
+            - Slint based Cluster demo
+            - Momi IVI demo
+
+        - Architecture
+          - Basic demo system 
+          - Extra demo system
+
+        - Build AGL system
+          - Basic AGL system 
+            - Setup build environment
+            - Build target image
+            - Deploy to board
+
+          - Extra AGL system
+            - Setup build environment
+            - Build target image
+            - Deploy to board
+
+          - Supported the other boards
+
+        - AGL Components
+          - AGL Reference Applications
+            - Flutter IVI homescreen
+            - Flutter Cluster
+            - Qt IVI homescreen
+            - Instrument Cluster reference GUI (Qt)
+
+          - AGL Services
+            - Graphics
+              - The AGL compositor
+            - Sound
+              - Pipewire & Wireplumber
+            - Policies
+              - Rule based arbitrator
+            - Misc
+              - Voice agent assistant
+            - Instrument Cluster
+              - Instrument Cluster service
+
+          - IVI Application Framework
+            - Application Lifecycle and Services
+              - Application Framework
+
+          - AGL API
+            - Table for APIs
+            - Generic APIs
+              - Redundancy file operation (librefop)
+            - In-Vehicle Infotainment APIs
+              - Persistent storage API
+            - Instrument Cluster APIs
+              - AGL Instrument Cluster API
+            - Gateway APIs
+
+        - Platform Customize
+          - Create/Modify an AGL image
+          - Create a custom recipe
+          - Create a service 
+
+        - Application development
+          - Flutter application
+          - Qt application
+
+    - Small-scale integrated system
+      - Container integration
+        - Architecture
+        - Build Container integration
+        - Container integration Customize
+          - Create and Run Guest Container
+
+        - Demo image for container integration
           - Momi IVI demo
 
+        - AGL Components
+          - Platform extension
+            - DRM lease manager
+            - Container Manager
+          - AGL Reference Applications for IC demo
+            - Momi Screen
+            - Momi navigation
+            - Momi Weather
+            - Momi Player
+    
+      - KVM based integration
+        - Build Platform
+
+
+    - Large-scale integrated system
+      - SoDeV
+        - Architecture
+        - Build SoDeV
+        - SoDeV Customize
+          - Create and Run Guest VM
+
+        - AGL Components
+          - Platform extension
+            - Unified HMI
+
+  - Base platform for Vehicle Data Processing
+    - Connected Gateway
       - Architecture
-        - Basic demo system 
-        - Extra demo system
 
-      - Build AGL system
-        - Basic AGL system 
-          - Setup build environment
-          - Build target image
-          - Deploy to board
+  - Development & Usage
+    - AGL Development tools
+      - Demo Control
+        - Demo Control Panel
+        - CARLA with AGL
 
-        - Extra AGL system
-          - Setup build environment
-          - Build target image
-          - Deploy to board
-
-        - Supported the other boards
-
-      - AGL Components
-        - AGL Reference Applications
-          - Flutter IVI homescreen
-          - Flutter Cluster
-          - Qt IVI homescreen
-          - Instrument Cluster reference GUI (Qt)
-
-        - AGL Services
-          - Graphics
-            - The AGL compositor
-          - Sound
-            - Pipewire & Wireplumber
-          - Policies
-            - Rule based arbitrator
-          - Misc
-            - Voice agent assistant
-          - Instrument Cluster
-            - Instrument Cluster service
-
-        - IVI Application Framework
-          - Application Lifecycle and Services
-            - Application Framework
-
-        - AGL API
-          - Table for APIs
-          - Generic APIs
-            - Redundancy file operation (librefop)
-          - In-Vehicle Infotainment APIs
-            - Persistent storage API
-          - Instrument Cluster APIs
-            - AGL Instrument Cluster API
-          - Gateway APIs
-
-      - Platform Customize
-        - Create/Modify an AGL image
-        - Create a custom recipe
-        - Create a service 
-
-      - Application development
-        - Flutter application
-        - Qt application
-
-  - Base platform for the small-scale integrated system
-    - Container integration
-      - Architecture
-      - Build Container integration
-      - Container integration Customize
-        - Create and Run Guest Container
-
-      - Demo image for container integration
-        - Momi IVI demo
-
-      - AGL Components
-        - Platform extension
-          - DRM lease manager
-          - Container Manager
-        - AGL Reference Applications for IC demo
-          - Momi Screen
-          - Momi navigation
-          - Momi Weather
-          - Momi Player
-  
-    - KVM based integration
-      - Build Platform
-
-
-  - Base platform for the large-scale integrated system
-    - SoDeV
-      - Architecture
-      - Build SoDeV
-      - SoDeV Customize
-        - Create and Run Guest VM
-
-      - AGL Components
-        - Platform extension
-          - Unified HMI
-
-
-  - AGL Development tools
-    - Demo Control
-      - Demo Control Panel
-      - CARLA with AGL
-
-    - Virtual Car CAN definition
+  - AGL Virtual Car definition
+    - CAN message definition
       - AGL virtual car
 
   - Troubleshooting
-  - Releases & migration
-  - Contribute 
+
+  - Community standard
+    - Releases & migration
+    - Contribution gide
 
 Do not omit, rename, duplicate, or reorder these headings.
 
@@ -149,7 +157,7 @@ Do not omit, rename, duplicate, or reorder these headings.
 
 
 "Introduction" section must include the following content:
-  The Software Defined Vehicle build on various vehicle technical trends. AGL is focusing on "Vehicle EE architecture" and "E2E Vehicle Data Processing".
+  The Software Defined Vehicle builds on various vehicle technical trends. AGL focuses on "Vehicle EE architecture" and "E2E Vehicle Data Processing." These are friendly to open-source development.
 
   Vehicle EE architectures.
     Traditional distributed architecture.
@@ -164,12 +172,15 @@ Do not omit, rename, duplicate, or reorder these headings.
     Figure out the Central/Zone architecture.
     AGL large-scale integrated system mainly focuses on this.
 
-  E2E Vehicle Data Processing.
+  Vehicle Data Processing.
     Vehicle data has been processed in the cloud for 10-15 years by collecting it via the cellular network. Now, there are proposals to offload data processing to the vehicle side (Device Edge computing concept).
     This scenario needs to be considered based on E2E (End-to-End) optimization, including the network/cloud sides.
 
 
-"Base platform for the distributed system" section must be include the following content:
+"Base platform for Vehicle Controller" section must be include the following content:
+
+
+"Distributed system" section must be include the following content:
   AGL develops and provides a Linux distribution for automotive systems.  It focuses on a standalone system built on a single Linux Kernel and userland.
 
 
@@ -191,7 +202,7 @@ Show the Flutter IVI demo detail with architecture diagram "agl-flutter-ivi-arch
 Show the Qt IVI demo detail with architecture diagram "agl-qt-ivi-architecture.svg".
 
 
-"Base platform for the small-scale integrated system" section must include the following content:
+"Small-scale integrated system" section must include the following content:
   AGL develops and provides a base platform for small-scale integrated systems. It focuses on integrating two or more features into a single system. This base platform integrates one or more AGL Linux distributions and/or other platforms.
   It uses Linux Container technology or Kernel-based Virtual Machine.
 
@@ -200,7 +211,7 @@ Show the Qt IVI demo detail with architecture diagram "agl-qt-ivi-architecture.s
   AGL Container integration realize light weight integrated system built on Linux.
 
 
-"Base platform for the large-scale integrated system" section must be include the following content:
+"Large-scale integrated system" section must be include the following content:
   SoDeV details shall import from https://www.automotivelinux.org/announcements/automotive-grade-linux-releases-open-source-sodev-reference-platform-for-software-defined-vehicles-and-welcomes-five-new-members/.
   Must be include official architecture diagram.
 

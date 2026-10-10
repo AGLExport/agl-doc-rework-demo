@@ -7,7 +7,7 @@ last_reviewed: '2026-10-10'
 
 # AGL Distribution
 
-The AGL Unified Code Base (UCB) is a Linux distribution built with the Yocto Project for automotive software. It provides the operating-system foundation, platform services and reference applications used by the [Base platform for the distributed system](../index.md). An image selects the packages and configuration needed for a particular vehicle role and board. See the official [Unified Code Base overview](https://www.automotivelinux.org/software/unified-code-base/).
+The AGL Unified Code Base (UCB) is a Linux distribution built with the Yocto Project for automotive software. It provides the operating-system foundation, platform services and reference applications used by the [Distributed system](../index.md). An image selects the packages and configuration needed for a particular vehicle role and board. See the official [Unified Code Base overview](https://www.automotivelinux.org/software/unified-code-base/).
 
 This documentation follows **AGL master**. The [master manifest](https://git.automotivelinux.org/AGL/AGL-repo/tree/default.xml?h=master) selects the AGL layers and external dependencies. AGL layers follow master; external projects retain the revisions selected by that manifest. Build the image, SDK and separately assembled AGL guests from one resolved source manifest, or take matching prebuilt artifacts from one master snapshot. [Releases & migration](../../releases/index.md) explains the reviewed baseline and how to record and update it.
 
