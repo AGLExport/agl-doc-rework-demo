@@ -65,6 +65,7 @@ validation:
 extra_css:
 - assets/stylesheets/extra.css
 extra:
+  documentation_layout: hierarchy
   source_review_date: 2026-10-10
   agl:
     codename: master
@@ -75,223 +76,223 @@ extra:
   qt_layer_branch: '6.12'
   artifact_kind: snapshots
 not_in_nav: |
-  /components/api/source-api-coverage.md
-  /components/extensions/container-settings/containers.md
-  /components/extensions/container-settings/global.md
-  /components/extensions/index.md
-  /components/framework/lifecycle/application-startup.md
-  /components/services/sound/cluster-sound.md
-  /components/source-directory.md
-  /components/tools/usb-can-adapter.md
-  /components/tools/virtual-car/signals/body.md
-  /components/tools/virtual-car/signals/sensors.md
-  /components/tools/virtual-car/signals/vehicle.md
-  /contributing/checklist.md
-  /contributing/documentation.md
-  /contributing/general-guidelines.md
-  /contributing/gerrit.md
-  /contributing/submit-changes.md
-  /small-integrated/containers/build-guide.md
-  /small-integrated/kvm/images.md
-  /large-integrated/sodev/virtio-guest.md
-  /distributed/applications/build-apps.md
-  /distributed/applications/create-application.md
-  /distributed/applications/setup-sdk.md
-  /distributed/architecture/agl-ivi-architecture-notes.md
-  /distributed/build/cluster/index.md
-  /distributed/build/cluster/qt.md
-  /distributed/build/cluster/slint.md
-  /distributed/build/common.md
-  /distributed/build/common/build-image.md
-  /distributed/build/common/build-overview.md
-  /distributed/build/common/download-source.md
-  /distributed/build/common/hardware/aws-ec2.md
-  /distributed/build/common/hardware/raspberry-pi.md
-  /distributed/build/common/hardware/raspberry-pi/camera.md
-  /distributed/build/common/hardware/raspberry-pi/devices.md
-  /distributed/build/common/hardware/raspberry-pi/display.md
-  /distributed/build/common/hardware/renesas-rcar-gen3.md
-  /distributed/build/common/hardware/rockchip.md
-  /distributed/build/common/hardware/sparrow-hawk.md
-  /distributed/build/common/hardware/visionfive2.md
-  /distributed/build/common/hardware/x86.md
-  /distributed/build/common/initialize-build.md
-  /distributed/build/common/layers/meta-agl-demo.md
-  /distributed/build/common/layers/meta-agl-devel.md
-  /distributed/build/common/layers/meta-agl.md
-  /distributed/build/common/layers/overview.md
-  /distributed/build/common/prepare-host.md
-  /distributed/build/common/reference/hardware-images.md
-  /distributed/build/common/reference/hardware.md
-  /distributed/build/common/reference/images.md
-  /distributed/build/common/reference/matrix.md
-  /distributed/build/ivi/flutter-cluster.md
-  /distributed/build/ivi/flutter.md
-  /distributed/build/ivi/index.md
-  /distributed/build/ivi/qt-ivi-demo.md
-  /distributed/customize/build-output.md
-  /start/prebuilt/flutter.md
-  /troubleshooting/diagnostics.md
-  /troubleshooting/getting-help.md
-  /troubleshooting/reporting-bugs.md
+  /community/contributing/reference/checklist.md
+  /community/contributing/reference/documentation.md
+  /community/contributing/reference/general-guidelines.md
+  /community/contributing/reference/gerrit.md
+  /community/contributing/reference/submit-changes.md
+  /development/tools/reference/usb-can-adapter.md
+  /troubleshooting/reference/diagnostics.md
+  /troubleshooting/reference/getting-help.md
+  /troubleshooting/reference/reporting-bugs.md
+  /vehicle-controller/distributed/agl-distribution/applications/reference/build-apps.md
+  /vehicle-controller/distributed/agl-distribution/applications/reference/create-application.md
+  /vehicle-controller/distributed/agl-distribution/applications/reference/setup-sdk.md
+  /vehicle-controller/distributed/agl-distribution/architecture/reference/agl-ivi-architecture-notes.md
+  /vehicle-controller/distributed/agl-distribution/build/basic/reference/ivi/flutter-cluster.md
+  /vehicle-controller/distributed/agl-distribution/build/basic/reference/ivi/flutter.md
+  /vehicle-controller/distributed/agl-distribution/build/basic/reference/ivi/index.md
+  /vehicle-controller/distributed/agl-distribution/build/basic/reference/ivi/qt-ivi-demo.md
+  /vehicle-controller/distributed/agl-distribution/build/extra/reference/cluster/index.md
+  /vehicle-controller/distributed/agl-distribution/build/extra/reference/cluster/qt.md
+  /vehicle-controller/distributed/agl-distribution/build/extra/reference/cluster/slint.md
+  /vehicle-controller/distributed/agl-distribution/build/reference/common.md
+  /vehicle-controller/distributed/agl-distribution/build/reference/common/build-image.md
+  /vehicle-controller/distributed/agl-distribution/build/reference/common/build-overview.md
+  /vehicle-controller/distributed/agl-distribution/build/reference/common/download-source.md
+  /vehicle-controller/distributed/agl-distribution/build/reference/common/hardware/aws-ec2.md
+  /vehicle-controller/distributed/agl-distribution/build/reference/common/hardware/raspberry-pi.md
+  /vehicle-controller/distributed/agl-distribution/build/reference/common/hardware/raspberry-pi/camera.md
+  /vehicle-controller/distributed/agl-distribution/build/reference/common/hardware/raspberry-pi/devices.md
+  /vehicle-controller/distributed/agl-distribution/build/reference/common/hardware/raspberry-pi/display.md
+  /vehicle-controller/distributed/agl-distribution/build/reference/common/hardware/renesas-rcar-gen3.md
+  /vehicle-controller/distributed/agl-distribution/build/reference/common/hardware/rockchip.md
+  /vehicle-controller/distributed/agl-distribution/build/reference/common/hardware/sparrow-hawk.md
+  /vehicle-controller/distributed/agl-distribution/build/reference/common/hardware/visionfive2.md
+  /vehicle-controller/distributed/agl-distribution/build/reference/common/hardware/x86.md
+  /vehicle-controller/distributed/agl-distribution/build/reference/common/initialize-build.md
+  /vehicle-controller/distributed/agl-distribution/build/reference/common/layers/meta-agl-demo.md
+  /vehicle-controller/distributed/agl-distribution/build/reference/common/layers/meta-agl-devel.md
+  /vehicle-controller/distributed/agl-distribution/build/reference/common/layers/meta-agl.md
+  /vehicle-controller/distributed/agl-distribution/build/reference/common/layers/overview.md
+  /vehicle-controller/distributed/agl-distribution/build/reference/common/prepare-host.md
+  /vehicle-controller/distributed/agl-distribution/build/reference/common/reference/hardware-images.md
+  /vehicle-controller/distributed/agl-distribution/build/reference/common/reference/hardware.md
+  /vehicle-controller/distributed/agl-distribution/build/reference/common/reference/images.md
+  /vehicle-controller/distributed/agl-distribution/build/reference/common/reference/matrix.md
+  /vehicle-controller/distributed/agl-distribution/components/api/reference/source-api-coverage.md
+  /vehicle-controller/distributed/agl-distribution/components/application-framework/lifecycle-services/reference/application-startup.md
+  /vehicle-controller/distributed/agl-distribution/components/reference/source-directory.md
+  /vehicle-controller/distributed/agl-distribution/components/services/sound/reference/cluster-sound.md
+  /vehicle-controller/distributed/agl-distribution/customize/reference/build-output.md
+  /vehicle-controller/distributed/agl-distribution/quick-start/prebuilt/reference/flutter.md
+  /vehicle-controller/large-integrated/sodev/reference/virtio-guest.md
+  /vehicle-controller/reference/platform-extensions.md
+  /vehicle-controller/small-integrated/container-integration/components/platform-extensions/container-manager/reference/containers.md
+  /vehicle-controller/small-integrated/container-integration/components/platform-extensions/container-manager/reference/global.md
+  /vehicle-controller/small-integrated/container-integration/reference/build-guide.md
+  /vehicle-controller/small-integrated/kvm/reference/images.md
+  /virtual-car/can-messages/agl-virtual-car/reference/signals/body.md
+  /virtual-car/can-messages/agl-virtual-car/reference/signals/sensors.md
+  /virtual-car/can-messages/agl-virtual-car/reference/signals/vehicle.md
 nav:
 - Home:
   - index.md
-  - Introduction: home/index.md
+  - Introduction: introduction/index.md
   - Base platform for Vehicle Controller:
     - vehicle-controller/index.md
     - Distributed system:
-      - distributed/index.md
+      - vehicle-controller/distributed/index.md
       - AGL Distribution:
-        - distributed/distribution/index.md
+        - vehicle-controller/distributed/agl-distribution/index.md
         - Quick start:
-          - start/index.md
+          - vehicle-controller/distributed/agl-distribution/quick-start/index.md
           - Run Flutter IVI demo pre-build image:
-            - start/prebuilt/index.md
-            - QEMU x86-64: start/prebuilt/qemu-x86-64.md
-            - Raspberry Pi 4/5: start/prebuilt/raspberry-pi.md
+            - vehicle-controller/distributed/agl-distribution/quick-start/prebuilt/index.md
+            - QEMU x86-64: vehicle-controller/distributed/agl-distribution/quick-start/prebuilt/qemu-x86-64/index.md
+            - Raspberry Pi 4/5: vehicle-controller/distributed/agl-distribution/quick-start/prebuilt/raspberry-pi/index.md
         - Portfolio:
-          - distributed/portfolio/index.md
+          - vehicle-controller/distributed/agl-distribution/portfolio/index.md
           - Basic demo system:
-            - distributed/portfolio/basic/index.md
-            - Flutter IVI demo: distributed/portfolio/basic/flutter-ivi.md
-            - Qt IVI demo: distributed/portfolio/basic/qt-ivi.md
-            - IVI based Flutter Cluster demo: distributed/portfolio/basic/flutter-cluster.md
+            - vehicle-controller/distributed/agl-distribution/portfolio/basic-demo/index.md
+            - Flutter IVI demo: vehicle-controller/distributed/agl-distribution/portfolio/basic-demo/flutter-ivi/index.md
+            - Qt IVI demo: vehicle-controller/distributed/agl-distribution/portfolio/basic-demo/qt-ivi/index.md
+            - IVI based Flutter Cluster demo: vehicle-controller/distributed/agl-distribution/portfolio/basic-demo/flutter-cluster/index.md
           - Extra demo system:
-            - distributed/portfolio/extra/index.md
-            - Qt based Cluster demo: distributed/portfolio/extra/qt-cluster.md
-            - Slint based Cluster demo: distributed/portfolio/extra/slint-cluster.md
-            - Momi IVI demo: distributed/portfolio/extra/momi-ivi.md
+            - vehicle-controller/distributed/agl-distribution/portfolio/extra-demo/index.md
+            - Qt based Cluster demo: vehicle-controller/distributed/agl-distribution/portfolio/extra-demo/qt-cluster/index.md
+            - Slint based Cluster demo: vehicle-controller/distributed/agl-distribution/portfolio/extra-demo/slint-cluster/index.md
+            - Momi IVI demo: vehicle-controller/distributed/agl-distribution/portfolio/extra-demo/momi-ivi/index.md
         - Architecture:
-          - distributed/architecture/index.md
-          - Basic demo system: distributed/architecture/basic.md
-          - Extra demo system: distributed/architecture/extra.md
+          - vehicle-controller/distributed/agl-distribution/architecture/index.md
+          - Basic demo system: vehicle-controller/distributed/agl-distribution/architecture/basic-demo/index.md
+          - Extra demo system: vehicle-controller/distributed/agl-distribution/architecture/extra-demo/index.md
         - Build AGL system:
-          - distributed/build/index.md
+          - vehicle-controller/distributed/agl-distribution/build/index.md
           - Basic AGL system:
-            - distributed/build/basic/index.md
-            - Setup build environment: distributed/build/basic/setup.md
-            - Build target image: distributed/build/basic/image.md
-            - Deploy to board: distributed/build/basic/deploy.md
+            - vehicle-controller/distributed/agl-distribution/build/basic/index.md
+            - Setup build environment: vehicle-controller/distributed/agl-distribution/build/basic/setup/index.md
+            - Build target image: vehicle-controller/distributed/agl-distribution/build/basic/image/index.md
+            - Deploy to board: vehicle-controller/distributed/agl-distribution/build/basic/deploy/index.md
           - Extra AGL system:
-            - distributed/build/extra/index.md
-            - Setup build environment: distributed/build/extra/setup.md
-            - Build target image: distributed/build/extra/image.md
-            - Deploy to board: distributed/build/extra/deploy.md
-          - Supported the other boards: distributed/build/other-boards.md
+            - vehicle-controller/distributed/agl-distribution/build/extra/index.md
+            - Setup build environment: vehicle-controller/distributed/agl-distribution/build/extra/setup/index.md
+            - Build target image: vehicle-controller/distributed/agl-distribution/build/extra/image/index.md
+            - Deploy to board: vehicle-controller/distributed/agl-distribution/build/extra/deploy/index.md
+          - Supported the other boards: vehicle-controller/distributed/agl-distribution/build/other-boards/index.md
         - AGL Components:
-          - components/index.md
+          - vehicle-controller/distributed/agl-distribution/components/index.md
           - AGL Reference Applications:
-            - components/applications/index.md
-            - Flutter IVI homescreen: components/applications/flutter-homescreen.md
-            - Flutter Cluster: components/applications/flutter-cluster.md
-            - Qt IVI homescreen: components/applications/qt-homescreen.md
-            - Instrument Cluster reference GUI (Qt): components/applications/cluster-dashboard.md
+            - vehicle-controller/distributed/agl-distribution/components/reference-applications/index.md
+            - Flutter IVI homescreen: vehicle-controller/distributed/agl-distribution/components/reference-applications/flutter-homescreen/index.md
+            - Flutter Cluster: vehicle-controller/distributed/agl-distribution/components/reference-applications/flutter-cluster/index.md
+            - Qt IVI homescreen: vehicle-controller/distributed/agl-distribution/components/reference-applications/qt-homescreen/index.md
+            - Instrument Cluster reference GUI (Qt): vehicle-controller/distributed/agl-distribution/components/reference-applications/cluster-dashboard/index.md
           - AGL Services:
-            - components/services/index.md
+            - vehicle-controller/distributed/agl-distribution/components/services/index.md
             - Graphics:
-              - components/services/graphics/index.md
-              - The AGL compositor: components/services/graphics/agl-compositor.md
+              - vehicle-controller/distributed/agl-distribution/components/services/graphics/index.md
+              - The AGL compositor: vehicle-controller/distributed/agl-distribution/components/services/graphics/agl-compositor/index.md
             - Sound:
-              - components/services/sound/index.md
-              - Pipewire & Wireplumber: components/services/sound/pipewire-wireplumber.md
+              - vehicle-controller/distributed/agl-distribution/components/services/sound/index.md
+              - Pipewire & Wireplumber: vehicle-controller/distributed/agl-distribution/components/services/sound/pipewire-wireplumber/index.md
             - Policies:
-              - components/services/policies/index.md
-              - Rule based arbitrator: components/services/policies/rule-based-arbitrator.md
+              - vehicle-controller/distributed/agl-distribution/components/services/policies/index.md
+              - Rule based arbitrator: vehicle-controller/distributed/agl-distribution/components/services/policies/rule-based-arbitrator/index.md
             - Misc:
-              - components/services/misc/index.md
-              - Voice agent assistant: components/services/misc/voice-agent.md
+              - vehicle-controller/distributed/agl-distribution/components/services/misc/index.md
+              - Voice agent assistant: vehicle-controller/distributed/agl-distribution/components/services/misc/voice-agent/index.md
             - Instrument Cluster:
-              - components/services/cluster/index.md
-              - Instrument Cluster service: components/services/cluster/cluster-service.md
+              - vehicle-controller/distributed/agl-distribution/components/services/cluster/index.md
+              - Instrument Cluster service: vehicle-controller/distributed/agl-distribution/components/services/cluster/cluster-service/index.md
           - IVI Application Framework:
-            - components/framework/index.md
+            - vehicle-controller/distributed/agl-distribution/components/application-framework/index.md
             - Application Lifecycle and Services:
-              - components/framework/lifecycle/index.md
-              - Application Framework: components/framework/lifecycle/application-framework.md
+              - vehicle-controller/distributed/agl-distribution/components/application-framework/lifecycle-services/index.md
+              - Application Framework: vehicle-controller/distributed/agl-distribution/components/application-framework/lifecycle-services/application-framework/index.md
           - AGL API:
-            - components/api/index.md
-            - Table for APIs: components/api/table.md
+            - vehicle-controller/distributed/agl-distribution/components/api/index.md
+            - Table for APIs: vehicle-controller/distributed/agl-distribution/components/api/table/index.md
             - Generic APIs:
-              - components/api/generic/index.md
-              - Redundancy file operation (librefop): components/api/generic/librefop.md
+              - vehicle-controller/distributed/agl-distribution/components/api/generic/index.md
+              - Redundancy file operation (librefop): vehicle-controller/distributed/agl-distribution/components/api/generic/librefop/index.md
             - In-Vehicle Infotainment APIs:
-              - components/api/ivi/index.md
-              - Persistent storage API: components/api/ivi/persistent-storage.md
+              - vehicle-controller/distributed/agl-distribution/components/api/ivi/index.md
+              - Persistent storage API: vehicle-controller/distributed/agl-distribution/components/api/ivi/persistent-storage/index.md
             - Instrument Cluster APIs:
-              - components/api/cluster/index.md
-              - AGL Instrument Cluster API: components/api/cluster/instrument-cluster-api.md
-            - Gateway APIs: components/api/gateway.md
+              - vehicle-controller/distributed/agl-distribution/components/api/cluster/index.md
+              - AGL Instrument Cluster API: vehicle-controller/distributed/agl-distribution/components/api/cluster/instrument-cluster-api/index.md
+            - Gateway APIs: vehicle-controller/distributed/agl-distribution/components/api/gateway/index.md
         - Platform Customize:
-          - distributed/customize/index.md
-          - Create/Modify an AGL image: distributed/customize/image.md
-          - Create a custom recipe: distributed/customize/recipe.md
-          - Create a service: distributed/customize/service.md
+          - vehicle-controller/distributed/agl-distribution/customize/index.md
+          - Create/Modify an AGL image: vehicle-controller/distributed/agl-distribution/customize/image/index.md
+          - Create a custom recipe: vehicle-controller/distributed/agl-distribution/customize/recipe/index.md
+          - Create a service: vehicle-controller/distributed/agl-distribution/customize/service/index.md
         - Application development:
-          - distributed/applications/index.md
-          - Flutter application: distributed/applications/flutter.md
-          - Qt application: distributed/applications/qt.md
+          - vehicle-controller/distributed/agl-distribution/applications/index.md
+          - Flutter application: vehicle-controller/distributed/agl-distribution/applications/flutter/index.md
+          - Qt application: vehicle-controller/distributed/agl-distribution/applications/qt/index.md
     - Small-scale integrated system:
-      - small-integrated/index.md
+      - vehicle-controller/small-integrated/index.md
       - Container integration:
-        - small-integrated/containers/index.md
-        - Architecture: small-integrated/containers/architecture.md
-        - Build Container integration: small-integrated/containers/build.md
+        - vehicle-controller/small-integrated/container-integration/index.md
+        - Architecture: vehicle-controller/small-integrated/container-integration/architecture/index.md
+        - Build Container integration: vehicle-controller/small-integrated/container-integration/build/index.md
         - Container integration Customize:
-          - small-integrated/containers/customize/index.md
-          - Create and Run Guest Container: small-integrated/containers/customize/guest-container.md
+          - vehicle-controller/small-integrated/container-integration/customize/index.md
+          - Create and Run Guest Container: vehicle-controller/small-integrated/container-integration/customize/guest-container/index.md
         - Demo image for container integration:
-          - small-integrated/containers/demo/index.md
-          - Momi IVI demo: small-integrated/containers/demo/momi-ivi.md
+          - vehicle-controller/small-integrated/container-integration/demo-image/index.md
+          - Momi IVI demo: vehicle-controller/small-integrated/container-integration/demo-image/momi-ivi/index.md
         - AGL Components:
-          - small-integrated/containers/components/index.md
+          - vehicle-controller/small-integrated/container-integration/components/index.md
           - Platform extension:
-            - small-integrated/containers/extensions.md
-            - DRM lease manager: components/services/graphics/drm-lease-manager.md
-            - Container Manager: components/extensions/container-manager.md
+            - vehicle-controller/small-integrated/container-integration/components/platform-extensions/index.md
+            - DRM lease manager: vehicle-controller/small-integrated/container-integration/components/platform-extensions/drm-lease-manager/index.md
+            - Container Manager: vehicle-controller/small-integrated/container-integration/components/platform-extensions/container-manager/index.md
           - AGL Reference Applications for IC demo:
-            - small-integrated/containers/components/applications.md
-            - Momi Screen: components/applications/momi-screen.md
-            - Momi navigation: components/applications/momi-navigation.md
-            - Momi Weather: components/applications/momi-weather.md
-            - Momi Player: components/applications/momi-player.md
+            - vehicle-controller/small-integrated/container-integration/components/reference-applications/index.md
+            - Momi Screen: vehicle-controller/small-integrated/container-integration/components/reference-applications/momi-screen/index.md
+            - Momi navigation: vehicle-controller/small-integrated/container-integration/components/reference-applications/momi-navigation/index.md
+            - Momi Weather: vehicle-controller/small-integrated/container-integration/components/reference-applications/momi-weather/index.md
+            - Momi Player: vehicle-controller/small-integrated/container-integration/components/reference-applications/momi-player/index.md
       - KVM based integration:
-        - small-integrated/kvm/index.md
-        - Build Platform: small-integrated/kvm/build.md
+        - vehicle-controller/small-integrated/kvm/index.md
+        - Build Platform: vehicle-controller/small-integrated/kvm/build/index.md
     - Large-scale integrated system:
-      - large-integrated/index.md
+      - vehicle-controller/large-integrated/index.md
       - SoDeV:
-        - large-integrated/sodev/index.md
-        - Architecture: large-integrated/sodev/architecture.md
-        - Build SoDeV: large-integrated/sodev/build.md
+        - vehicle-controller/large-integrated/sodev/index.md
+        - Architecture: vehicle-controller/large-integrated/sodev/architecture/index.md
+        - Build SoDeV: vehicle-controller/large-integrated/sodev/build/index.md
         - SoDeV Customize:
-          - large-integrated/sodev/customize/index.md
-          - Create and Run Guest VM: large-integrated/sodev/customize/guest-vm.md
+          - vehicle-controller/large-integrated/sodev/customize/index.md
+          - Create and Run Guest VM: vehicle-controller/large-integrated/sodev/customize/guest-vm/index.md
         - AGL Components:
-          - large-integrated/sodev/components/index.md
+          - vehicle-controller/large-integrated/sodev/components/index.md
           - Platform extension:
-            - large-integrated/sodev/extensions.md
-            - Unified HMI: components/extensions/unified-hmi.md
+            - vehicle-controller/large-integrated/sodev/components/platform-extensions/index.md
+            - Unified HMI: vehicle-controller/large-integrated/sodev/components/platform-extensions/unified-hmi/index.md
   - Base platform for Vehicle Data Processing:
     - vehicle-data/index.md
     - Connected Gateway:
-      - vehicle-data/gateway/index.md
-      - Architecture: vehicle-data/gateway/architecture.md
+      - vehicle-data/connected-gateway/index.md
+      - Architecture: vehicle-data/connected-gateway/architecture/index.md
   - Development & Usage:
     - development/index.md
     - AGL Development tools:
-      - components/tools/index.md
+      - development/tools/index.md
       - Demo Control:
-        - components/tools/demo-control/index.md
-        - Demo Control Panel: components/tools/demo-control/panel.md
-        - CARLA with AGL: components/tools/demo-control/carla.md
+        - development/tools/demo-control/index.md
+        - Demo Control Panel: development/tools/demo-control/panel/index.md
+        - CARLA with AGL: development/tools/demo-control/carla/index.md
   - AGL Virtual Car definition:
     - virtual-car/index.md
     - CAN message definition:
-      - components/tools/virtual-car/index.md
-      - AGL virtual car: components/tools/virtual-car/virtual-car.md
+      - virtual-car/can-messages/index.md
+      - AGL virtual car: virtual-car/can-messages/agl-virtual-car/index.md
   - Troubleshooting: troubleshooting/index.md
   - Community standard:
     - community/index.md
-    - Releases & migration: releases/index.md
-    - Contribution gide: contributing/index.md
+    - Releases & migration: community/releases/index.md
+    - Contribution gide: community/contributing/index.md

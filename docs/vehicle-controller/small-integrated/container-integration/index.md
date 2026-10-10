@@ -1,0 +1,17 @@
+---
+title: Container integration
+content_status: authored
+agl_branch: master
+last_reviewed: '2026-10-10'
+---
+
+# Container integration
+
+AGL Container integration provides a lightweight integrated system built on Linux. It combines guest userlands under one host Linux kernel. The demo profile can run an Instrument Cluster and Momi IVI with controlled display and device access.
+
+1. [Architecture](architecture/index.md).
+2. [Build Container integration](build/index.md).
+3. [Container integration Customize](customize/index.md), including guest creation and registration.
+4. [Platform extension](components/platform-extensions/index.md), including DRM lease manager and Container Manager.
+
+The [detailed build guide](reference/build-guide.md) separates the minimal host, type 2a Momi demonstration, and type 2b full IVI variants. Select a type before changing storage, displays, or guest registration.

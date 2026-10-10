@@ -15,7 +15,7 @@ The AGL Unified Code Base (UCB) is the project's common Linux distribution, buil
 
 AGL began with infotainment and has a broader goal of supporting automotive software across vehicle roles. This documentation covers In-Vehicle Infotainment, Instrument Cluster, and Connected Gateway, alongside platforms that integrate several workloads. A product team selects the relevant software, adds its own applications, and integrates it with the intended vehicle environment.
 
-Read [Introduction](home/index.md) for AGL coverage and the relationship between vehicle E/E architecture and [Vehicle Data Processing](home/index.md#vehicle-data-processing). [Base platform for Vehicle Controller](vehicle-controller/index.md) groups distributed, small-scale and large-scale vehicle systems; [Base platform for Vehicle Data Processing](vehicle-data/index.md) introduces Connected Gateway and its data interfaces. [AGL Distribution](distributed/distribution/index.md) provides the demo, build, component and application guides for a distributed Linux system.
+Read [Introduction](introduction/index.md) for AGL coverage and the relationship between vehicle E/E architecture and [Vehicle Data Processing](introduction/index.md#vehicle-data-processing). [Base platform for Vehicle Controller](vehicle-controller/index.md) groups distributed, small-scale and large-scale vehicle systems; [Base platform for Vehicle Data Processing](vehicle-data/index.md) introduces Connected Gateway and its data interfaces. [AGL Distribution](vehicle-controller/distributed/agl-distribution/index.md) provides the demo, build, component and application guides for a distributed Linux system.
 
 ## AGL Community information.
 
@@ -24,8 +24,8 @@ The AGL community develops software, discusses requirements, and maintains the p
 - [Mailing lists](https://lists.automotivelinux.org/g/agl-main) provide topic-specific discussions and public archives.
 - [Community meetings](https://www.automotivelinux.org/developer-meetings/) provide meeting information and ways to participate.
 - [AGL Expert Groups](https://lf-automotivelinux.atlassian.net/wiki/spaces/HOME/overview) provide technical collaboration spaces.
-- [Community standard](community/index.md) groups source-version guidance and the [Contribution gide](contributing/index.md) for accounts, code review and documentation contributions.
-- [Get community help](troubleshooting/getting-help.md) explains how to ask questions and report useful diagnostic information.
+- [Community standard](community/index.md) groups source-version guidance and the [Contribution gide](community/contributing/index.md) for accounts, code review and documentation contributions.
+- [Get community help](troubleshooting/reference/getting-help.md) explains how to ask questions and report useful diagnostic information.
 
 ## Develop and operate an AGL system
 

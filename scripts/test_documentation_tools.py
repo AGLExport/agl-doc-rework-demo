@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 from tempfile import TemporaryDirectory
 import unittest
+import posixpath
 from unittest.mock import patch
 
 import import_docs
@@ -17,9 +18,9 @@ from import_transforms import remove_further_reading
 
 class SectionResolutionTests(unittest.TestCase):
     def test_focus_references_resolve_to_current_vehicle_controller_systems(self):
-        pages = [("Distributed system", "distributed/index.md"),
-                 ("Small-scale integrated system", "small-integrated/index.md"),
-                 ("Large-scale integrated system", "large-integrated/index.md")]
+        pages = [("Distributed system", "vehicle-controller/distributed/index.md"),
+                 ("Small-scale integrated system", "vehicle-controller/small-integrated/index.md"),
+                 ("Large-scale integrated system", "vehicle-controller/large-integrated/index.md")]
         for alias, expected in [("AGL distributed system", pages[0][1]),
                                 ("AGL small-scale integrated system", pages[1][1]),
                                 ("AGL large-scale integrated system", pages[2][1])]:
@@ -27,12 +28,12 @@ class SectionResolutionTests(unittest.TestCase):
                 self.assertEqual(section_paths(alias, pages, {}), [expected])
 
     def test_historical_coverage_reference_resolves_to_introduction(self):
-        self.assertEqual(section_paths("AGL Coverage", [("Introduction", "home/index.md")], {}), ["home/index.md"])
+        self.assertEqual(section_paths("AGL Coverage", [("Introduction", "introduction/index.md")], {}), ["introduction/index.md"])
 
     def test_hyphenated_content_rule_resolves_to_exact_navigation_spelling(self):
-        pages = [("Small scale integrated system", "small-integrated/index.md")]
-        self.assertEqual(section_paths("Small-scale integrated system", pages, {}), ["small-integrated/index.md"])
-        self.assertEqual(section_paths("AGL small-scale integrated system", pages, {}), ["small-integrated/index.md"])
+        pages = [("Small scale integrated system", "vehicle-controller/small-integrated/index.md")]
+        self.assertEqual(section_paths("Small-scale integrated system", pages, {}), ["vehicle-controller/small-integrated/index.md"])
+        self.assertEqual(section_paths("AGL small-scale integrated system", pages, {}), ["vehicle-controller/small-integrated/index.md"])
 
     def test_ambiguous_sections_are_not_silently_selected(self):
         pages = [("SoDeV", "first.md"), ("SoDeV", "second.md")]
@@ -74,7 +75,7 @@ class ContentRequirementTests(unittest.TestCase):
             (3, "Domain architecture."), (3, "Central/Zone architecture."),
             (2, "Vehicle Data Processing."),
         ])
-        expected_paths = ["distributed/index.md", "small-integrated/index.md", "large-integrated/index.md"]
+        expected_paths = ["vehicle-controller/distributed/index.md", "vehicle-controller/small-integrated/index.md", "vehicle-controller/large-integrated/index.md"]
         pages = [("Distributed system", expected_paths[0]),
                  ("Small-scale integrated system", expected_paths[1]),
                  ("Large-scale integrated system", expected_paths[2])]
@@ -161,12 +162,12 @@ class MasterBaselineTests(unittest.TestCase):
                 validate_master_references({"outdated.md": url})
 
     def test_legacy_content_names_resolve_to_updated_platform_chapters(self):
-        pages = [("Base platform for the distributed system", "distributed/index.md"),
-                 ("Base platform for the small-scale integrated system", "small-integrated/index.md"),
-                 ("Base platform for the large-scale integrated system", "large-integrated/index.md")]
-        for name, destination in [("AGL distributed system", "distributed/index.md"),
-                                  ("AGL small-scale integrated system", "small-integrated/index.md"),
-                                  ("AGL large-scale integrated system", "large-integrated/index.md")]:
+        pages = [("Base platform for the distributed system", "vehicle-controller/distributed/index.md"),
+                 ("Base platform for the small-scale integrated system", "vehicle-controller/small-integrated/index.md"),
+                 ("Base platform for the large-scale integrated system", "vehicle-controller/large-integrated/index.md")]
+        for name, destination in [("AGL distributed system", "vehicle-controller/distributed/index.md"),
+                                  ("AGL small-scale integrated system", "vehicle-controller/small-integrated/index.md"),
+                                  ("AGL large-scale integrated system", "vehicle-controller/large-integrated/index.md")]:
             with self.subTest(name=name):
                 self.assertEqual(section_paths(name, pages, {}), [destination])
 
@@ -195,7 +196,7 @@ class ImportPreservationTests(unittest.TestCase):
             source, project = base / "source", base / "project"
             source.mkdir()
             project.mkdir()
-            mapping = {"quickstart.md": "start/prebuilt/index.md",
+            mapping = {"quickstart.md": "vehicle-controller/distributed/agl-distribution/quick-start/prebuilt/index.md",
                        "distributed.md": "distributed/guide.md",
                        "small.md": "small-integrated/guide.md",
                        "large.md": "large-integrated/guide.md"}
@@ -223,9 +224,9 @@ class ImportPreservationTests(unittest.TestCase):
                 import_docs.import_all(source)
             for target, curated in preserved.items():
                 self.assertEqual(target.read_text(encoding="utf-8"), curated)
-            qemu = (project / "docs/start/prebuilt/qemu-x86-64.md").read_text(encoding="utf-8")
+            qemu = (project / "docs/vehicle-controller/distributed/agl-distribution/quick-start/prebuilt/qemu-x86-64/index.md").read_text(encoding="utf-8")
             for destination in list(mapping.values())[1:]:
-                self.assertIn("(../../" + destination + ")", qemu)
+                self.assertIn("(" + posixpath.relpath(destination, "vehicle-controller/distributed/agl-distribution/quick-start/prebuilt/qemu-x86-64") + ")", qemu)
             self.assertFalse((project / "docs/standalone").exists())
             self.assertFalse((project / "docs/integrated").exists())
 
@@ -236,16 +237,17 @@ class ImportPreservationTests(unittest.TestCase):
             project = base / "project"
             project.mkdir()
             (project / "structure-map.json").write_text(json.dumps({"required_pages": [], "moved_pages": []}), encoding="utf-8")
-            mapping = {"quickstart.md": "start/prebuilt/index.md", "ordinary.md": "ordinary.md"}
+            mapping = {"quickstart.md": "vehicle-controller/distributed/agl-distribution/quick-start/prebuilt/index.md", "ordinary.md": "ordinary.md"}
             source.mkdir()
             (source / "quickstart.md").write_text("### QEMU x86-64\nqemu-system-x86_64 --version\n", encoding="utf-8")
             (source / "ordinary.md").write_text("# Updated source\nNew imported content.\n", encoding="utf-8")
-            overview = project / "docs/start/prebuilt/index.md"
+            overview = project / "docs/vehicle-controller/distributed/agl-distribution/quick-start/prebuilt/index.md"
             overview.parent.mkdir(parents=True)
             curated = "---\ncontent_status: adapted\nsource_path: quickstart.md\n---\n# Curated overview\nPreserve the corrected procedure.\n"
             overview.write_text(curated, encoding="utf-8")
-            qemu = project / "docs/start/prebuilt/qemu-x86-64.md"
+            qemu = project / "docs/vehicle-controller/distributed/agl-distribution/quick-start/prebuilt/qemu-x86-64/index.md"
             corrected = "---\ncontent_status: adapted\nsource_path: quickstart.md\n---\n# Corrected QEMU\nModern command.\n"
+            qemu.parent.mkdir(parents=True, exist_ok=True)
             qemu.write_text(corrected, encoding="utf-8")
             ordinary = project / "docs/ordinary.md"
             ordinary.write_text("---\ncontent_status: imported\nsource_path: ordinary.md\n---\nOld content.\n", encoding="utf-8")
@@ -254,7 +256,7 @@ class ImportPreservationTests(unittest.TestCase):
             self.assertEqual(overview.read_text(encoding="utf-8"), curated)
             self.assertEqual(qemu.read_text(encoding="utf-8"), corrected)
             self.assertIn("New imported content.", ordinary.read_text(encoding="utf-8"))
-            self.assertTrue((project / "docs/start/prebuilt/raspberry-pi.md").is_file())
+            self.assertTrue((project / "docs/vehicle-controller/distributed/agl-distribution/quick-start/prebuilt/raspberry-pi/index.md").is_file())
             manifest = json.loads((project / "source-map.json").read_text(encoding="utf-8"))
             self.assertEqual(manifest["source_markdown_count"], 2)
             self.assertEqual({page["source"] for page in manifest["pages"]}, set(mapping))
@@ -276,13 +278,13 @@ class ImportPreservationTests(unittest.TestCase):
             (project / "docs").mkdir()
             (project / "docs/ordinary.md").write_text("# Stale output\n", encoding="utf-8")
             with patch.object(import_docs, "PROJECT", project), patch.object(import_docs, "MAPPING", {
-                    "quickstart.md": "start/prebuilt/index.md", "ordinary.md": "ordinary.md",
+                    "quickstart.md": "vehicle-controller/distributed/agl-distribution/quick-start/prebuilt/index.md", "ordinary.md": "ordinary.md",
                 }), patch.object(import_docs, "TITLES", {}), patch.object(import_docs, "REQUIRED_TITLES", {}), redirect_stdout(StringIO()):
                 import_docs.import_all(source)
             self.assertFalse((project / "docs/ordinary.md").exists())
             self.assertFalse((project / "docs/assets/source/unused.png").exists())
             self.assertTrue((project / "docs/assets/source/retained.png").is_file())
-            quickstart = (project / "docs/start/prebuilt/qemu-x86-64.md").read_text(encoding="utf-8")
+            quickstart = (project / "docs/vehicle-controller/distributed/agl-distribution/quick-start/prebuilt/qemu-x86-64/index.md").read_text(encoding="utf-8")
             self.assertIn("https://docs.automotivelinux.org/en/{{ agl.codename }}/ordinary/", quickstart)
             self.assertIn("https://docs.automotivelinux.org/en/{{ agl.codename }}/unused.png)", quickstart)
             manifest = json.loads((project / "source-map.json").read_text(encoding="utf-8"))
@@ -300,16 +302,16 @@ class ImportPreservationTests(unittest.TestCase):
             source.mkdir()
             project.mkdir()
             title = "Run Flutter IVI demo pre-build image"
-            required = {"start/prebuilt/index.md": title}
+            required = {"vehicle-controller/distributed/agl-distribution/quick-start/prebuilt/index.md": title}
             (project / "structure-map.json").write_text(json.dumps({
                 "required_pages": [{"page": path, "heading": heading} for path, heading in required.items()],
                 "moved_pages": [],
             }), encoding="utf-8")
             (source / "quickstart.md").write_text("### QEMU x86-64\nqemu-system-x86_64 --version\n", encoding="utf-8")
-            with patch.object(import_docs, "PROJECT", project), patch.object(import_docs, "MAPPING", {"quickstart.md": "start/prebuilt/index.md"}), patch.object(import_docs, "TITLES", {}), patch.object(import_docs, "REQUIRED_TITLES", required), redirect_stdout(StringIO()):
+            with patch.object(import_docs, "PROJECT", project), patch.object(import_docs, "MAPPING", {"quickstart.md": "vehicle-controller/distributed/agl-distribution/quick-start/prebuilt/index.md"}), patch.object(import_docs, "TITLES", {}), patch.object(import_docs, "REQUIRED_TITLES", required), redirect_stdout(StringIO()):
                 import_docs.import_all(source)
             from validate_structure import first_heading
-            self.assertEqual(first_heading((project / "docs/start/prebuilt/index.md").read_text(encoding="utf-8")), title)
+            self.assertEqual(first_heading((project / "docs/vehicle-controller/distributed/agl-distribution/quick-start/prebuilt/index.md").read_text(encoding="utf-8")), title)
 
     def test_overwriting_an_adaptation_requires_the_explicit_option(self):
         with TemporaryDirectory() as directory:
@@ -326,6 +328,35 @@ class ImportPreservationTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "source_path"):
                 import_docs.write_imported_page(target, "New content", "source.md")
             self.assertIn("Curated content.", target.read_text(encoding="utf-8"))
+
+
+
+class DirectoryLayoutTests(unittest.TestCase):
+    def test_required_directories_follow_the_navigation_parent(self):
+        from validate_structure import validate_directory_layout
+        validate_directory_layout([{"Home": ["index.md", {"Platform": ["platform/index.md", {"Build": "platform/build/index.md"}]}]}])
+        with self.assertRaisesRegex(ValueError, "navigation parent"):
+            validate_directory_layout([{"Home": ["index.md", {"Platform": ["platform/index.md", {"Build": "elsewhere/build/index.md"}]}]}])
+        with self.assertRaisesRegex(ValueError, "index.md"):
+            validate_directory_layout([{"Home": ["index.md", {"Build": "build.md"}]}])
+
+    def test_rebased_markdown_keeps_assets_queries_fragments_and_fenced_examples(self):
+        from documentation_paths import rebase_links
+        fence = chr(96) * 3
+        body = '[Guide](../guide.md?mode=1#step "Title")\n![Image](../assets/figure_(1).svg)\n[External](https://example.com/a)\n[ref]: <../guide.md#step>\n' + fence + '\n[Example](../guide.md)\n' + fence + '\n'
+        rebased = rebase_links(body, 'old/page.md', 'platform/chapter/index.md', {'guide.md': 'platform/guide/index.md'})
+        self.assertIn('[Guide](../guide/index.md?mode=1#step "Title")', rebased)
+        self.assertIn('![Image](../../assets/figure_(1).svg)', rebased)
+        self.assertIn('[External](https://example.com/a)', rebased)
+        self.assertIn('[ref]: <../guide/index.md#step>', rebased)
+        self.assertIn(fence + '\n[Example](../guide.md)\n' + fence, rebased)
+
+    def test_html_urls_are_relative_to_rendered_pages(self):
+        from documentation_paths import rebase_links
+        body = '<a href="../../guide/#step">Guide</a><img src="../../assets/image.svg">'
+        rebased = rebase_links(body, 'old/page.md', 'platform/chapter/index.md', {'guide.md': 'platform/guide/index.md'})
+        self.assertIn('href="../guide/#step"', rebased)
+        self.assertIn('src="../../assets/image.svg"', rebased)
 
 
 if __name__ == "__main__":

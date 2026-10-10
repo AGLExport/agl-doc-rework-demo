@@ -4,434 +4,434 @@
   "pages": [
     {
       "source": "01_Getting_Started/01_Quickstart/01_Using_Ready_Made_Images.md",
-      "destination": "start/prebuilt/index.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/quick-start/prebuilt/index.md",
       "source_sha256": "f0c67817633cfd0dba60a4ea5f531374ea8a07defca68e1920181a49ba161cd7"
     },
     {
       "source": "01_Getting_Started/02_Building_AGL_Image/01_Build_Process_Overview.md",
-      "destination": "distributed/build/common/build-overview.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/build/reference/common/build-overview.md",
       "source_sha256": "e65a297b4ae148ae3668d146e268bc5eb05476423da672c23e68a227f1b960df"
     },
     {
       "source": "01_Getting_Started/02_Building_AGL_Image/02_Preparing_Your_Build_Host.md",
-      "destination": "distributed/build/common/prepare-host.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/build/reference/common/prepare-host.md",
       "source_sha256": "cda75cf179c27c7d40c32f8e030167de421e006cb928ed1cdc0cf0e0afc016a1"
     },
     {
       "source": "01_Getting_Started/02_Building_AGL_Image/03_Downloading_AGL_Software.md",
-      "destination": "distributed/build/common/download-source.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/build/reference/common/download-source.md",
       "source_sha256": "f7074e2aca671f59f6c5a15277905a2ee24ed03e1b73c91bc33bbc599563e9ca"
     },
     {
       "source": "01_Getting_Started/02_Building_AGL_Image/04_Initializing_Your_Build_Environment.md",
-      "destination": "distributed/build/common/initialize-build.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/build/reference/common/initialize-build.md",
       "source_sha256": "0396a0fba4209a38d7d771a30b6119f78fe2daa932d35a0013e26461af4214a2"
     },
     {
       "source": "01_Getting_Started/02_Building_AGL_Image/05_Customizing_Your_Build.md",
-      "destination": "distributed/customize/build-output.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/customize/reference/build-output.md",
       "source_sha256": "d6470aa9d8b283a32b60ef9ecff1aa73808b477dabb9607708d9ccd6f23edf01"
     },
     {
       "source": "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/01_Building_the_AGL_Image.md",
-      "destination": "distributed/build/common/build-image.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/build/reference/common/build-image.md",
       "source_sha256": "b987c4e6f4d6f7b471feee2f266307481cf9496022d781cba43efbd411743f1d"
     },
     {
       "source": "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/02_Building_for_x86_(Emulation_and_Hardware).md",
-      "destination": "distributed/build/common/hardware/x86.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/build/reference/common/hardware/x86.md",
       "source_sha256": "bce71c3fd23c380c6dcdbabe64a22d64791cad9dadc68b62c2c0a5fa0fa602d4"
     },
     {
       "source": "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/03_Building_for_Raspberry_Pi_x.md",
-      "destination": "distributed/build/common/hardware/raspberry-pi.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/build/reference/common/hardware/raspberry-pi.md",
       "source_sha256": "d9c6e9bae45c9c3577c4405a49ce0ac223c8002e549ab03d8f298f7e6e1c3c03"
     },
     {
       "source": "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/04_01_Building_for_Renesas_RCar_Gen3_Boards.md",
-      "destination": "distributed/build/common/hardware/renesas-rcar-gen3.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/build/reference/common/hardware/renesas-rcar-gen3.md",
       "source_sha256": "6b1c6fbbe9d6eb0ab9906884feb482d05a7795fb6828e4c21139d824abb204ef"
     },
     {
       "source": "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/04_Building_for_Retronix_Sparrow_Hawk_Board.md",
-      "destination": "distributed/build/common/hardware/sparrow-hawk.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/build/reference/common/hardware/sparrow-hawk.md",
       "source_sha256": "cfb74c9f6fd2273363abf3ea47b349c8ebc3e64406dde7c1fc86f220be933d53"
     },
     {
       "source": "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/05_Building_for_Supported_Rockchip_Boards.md",
-      "destination": "distributed/build/common/hardware/rockchip.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/build/reference/common/hardware/rockchip.md",
       "source_sha256": "9d76608d67171ef7d7f0556b0bc65a13d98855903b0f70fb5659c2a4bc02ceaf"
     },
     {
       "source": "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/06_Building_for_Virtio.md",
-      "destination": "large-integrated/sodev/virtio-guest.md",
+      "destination": "vehicle-controller/large-integrated/sodev/reference/virtio-guest.md",
       "source_sha256": "87301e3cbb71798ff04622e074f19934e210163bbb8c531961b161128c21e12b"
     },
     {
       "source": "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/07_Building_for_EC2_arm64_and_x86-64.md",
-      "destination": "distributed/build/common/hardware/aws-ec2.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/build/reference/common/hardware/aws-ec2.md",
       "source_sha256": "2486bc40f0ddf6254d0f62a0f9138e7a3752460ea692b05fda0c052b27758422"
     },
     {
       "source": "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/08_Building_for_VisionFive2_Boards.md",
-      "destination": "distributed/build/common/hardware/visionfive2.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/build/reference/common/hardware/visionfive2.md",
       "source_sha256": "a868ca10a68031f6e6a0ccb48e2d1366d8f1b7c056f36354b2a8be1debf05f2d"
     },
     {
       "source": "01_Getting_Started/02_Building_AGL_Image/07_Available_Demo_Images.md",
-      "destination": "distributed/build/common/reference/images.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/build/reference/common/reference/images.md",
       "source_sha256": "987a267a7f6e0b078023612a5c66ed8fdbf94d85765f27fa5a0dd2097b51d02f"
     },
     {
       "source": "01_Getting_Started/03_Build_and_Boot_guide_Profile/01_Instrument_Cluster_(IC-IVI_with_Container_isolation).md",
-      "destination": "small-integrated/containers/build-guide.md",
+      "destination": "vehicle-controller/small-integrated/container-integration/reference/build-guide.md",
       "source_sha256": "2a97ac2e01481bc0ad842879bb7b5359f6ac78d550acefee68e6fe45106898f4"
     },
     {
       "source": "01_Getting_Started/03_Build_and_Boot_guide_Profile/02_KVM_Demo_Images.md",
-      "destination": "small-integrated/kvm/images.md",
+      "destination": "vehicle-controller/small-integrated/kvm/reference/images.md",
       "source_sha256": "f12f5cf38dfe24fe52557b59aa68d5c2f005815edb829e78635597d22e98bd0d"
     },
     {
       "source": "01_Getting_Started/03_Build_and_Boot_guide_Profile/03_Slint_Demo_Image.md",
-      "destination": "distributed/build/cluster/slint.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/build/extra/reference/cluster/slint.md",
       "source_sha256": "845f83739b133920e620e1998db3b28d64d187a12751acc423e68e8395edfa5f"
     },
     {
       "source": "02_Hardware_Support/01_Supported_Hardware_Overview.md",
-      "destination": "distributed/build/common/reference/hardware.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/build/reference/common/reference/hardware.md",
       "source_sha256": "b0ab840f59a22b24ce8c8cefc8d0c3cf87175e60f1d6090eb8c3014da73907c5"
     },
     {
       "source": "02_Hardware_Support/02_Supported_Hardware_Images.md",
-      "destination": "distributed/build/common/reference/hardware-images.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/build/reference/common/reference/hardware-images.md",
       "source_sha256": "182d089e93227a454c2360285e10852e4c9b139c8e9af8be499a0950e08d1660"
     },
     {
       "source": "04_Developer_Guides/01_Basic/02_Setting_Up_AGL_SDK.md",
-      "destination": "distributed/applications/setup-sdk.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/applications/reference/setup-sdk.md",
       "source_sha256": "fd173d36b2ac9138ffb4170a03ee586125dc50dd12c157beccabffb9bbf5476f"
     },
     {
       "source": "04_Developer_Guides/01_Basic/03_How_to_Build.md",
-      "destination": "distributed/applications/build-apps.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/applications/reference/build-apps.md",
       "source_sha256": "638351a475e2da6444a2e747c90aa7c39b03986df406647b0a6d31f0200fe98c"
     },
     {
       "source": "04_Developer_Guides/02_AGL_Platform_Development/01_AGL_Yocto_Layers/01_Overview.md",
-      "destination": "distributed/build/common/layers/overview.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/build/reference/common/layers/overview.md",
       "source_sha256": "ebe8a389d315dc08785bc1790b09a58a40f083aac4fbcd1f3285892ca30ed1f1"
     },
     {
       "source": "04_Developer_Guides/02_AGL_Platform_Development/01_AGL_Yocto_Layers/02_meta_agl.md",
-      "destination": "distributed/build/common/layers/meta-agl.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/build/reference/common/layers/meta-agl.md",
       "source_sha256": "c92d55883735357af2f085348bf5860949edfbbc89cb4ee2cd3301001782620c"
     },
     {
       "source": "04_Developer_Guides/02_AGL_Platform_Development/01_AGL_Yocto_Layers/03_meta_agl_demo.md",
-      "destination": "distributed/build/common/layers/meta-agl-demo.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/build/reference/common/layers/meta-agl-demo.md",
       "source_sha256": "13bb9480dfc4ea0b31d249d3d3cc90895c2a859343ee896a29a4ff0de4d77a10"
     },
     {
       "source": "04_Developer_Guides/02_AGL_Platform_Development/01_AGL_Yocto_Layers/04_meta_agl_devel.md",
-      "destination": "distributed/build/common/layers/meta-agl-devel.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/build/reference/common/layers/meta-agl-devel.md",
       "source_sha256": "f7ea57792a8725e6b8a04f9ed94c3def7831699f3f5e5463667af5f41850c3a4"
     },
     {
       "source": "04_Developer_Guides/02_AGL_Platform_Development/02_Modify_AGL_by_Yourself/01_Customizing_AGL_Image.md",
-      "destination": "distributed/customize/image.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/customize/image/index.md",
       "source_sha256": "27ac3c3c19e1ddb827651361a2dab19084dcded0086bf15e857ead8d28656fad"
     },
     {
       "source": "04_Developer_Guides/02_AGL_Platform_Development/02_Modify_AGL_by_Yourself/02_Creating_a_New_Service.md",
-      "destination": "distributed/customize/service.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/customize/service/index.md",
       "source_sha256": "136ced7d5309a5791f9c5430c41a50b7952bbb71ff503e363642852a4e6a281a"
     },
     {
       "source": "04_Developer_Guides/02_AGL_Platform_Development/02_Modify_AGL_by_Yourself/03_Creating_a_custom_recipe.md",
-      "destination": "distributed/customize/recipe.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/customize/recipe/index.md",
       "source_sha256": "394080f620664aa97b0de1542f7fd03c1efd2f3e45a768d7272403a779cfe655"
     },
     {
       "source": "04_Developer_Guides/03_AGL_Application_Development/Develop_using_Qt/01_AGL-SDK_for_Qt.md",
-      "destination": "distributed/applications/qt.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/applications/qt/index.md",
       "source_sha256": "563d9a5f9ba6d59ae680521096704c99045490b59273fa86592c0e54a732532b"
     },
     {
       "source": "04_Developer_Guides/03_AGL_Application_Development/Develop_using_Flutter/01_Flutter_Workspace.md",
-      "destination": "distributed/applications/flutter.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/applications/flutter/index.md",
       "source_sha256": "17b0a73dc1e7f939e7e0d0e6fd77a85a3a2ae1172a9f0df818b4ab3392702c72"
     },
     {
       "source": "04_Developer_Guides/10_Board_Specific_Guide/04_Raspberry_Pi/01_Generic_devices_setup.md",
-      "destination": "distributed/build/common/hardware/raspberry-pi/devices.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/build/reference/common/hardware/raspberry-pi/devices.md",
       "source_sha256": "6a1daff79d2ef8c9825262eea21251c2b41023184209ad3cf1e2cf0262c1496e"
     },
     {
       "source": "04_Developer_Guides/10_Board_Specific_Guide/04_Raspberry_Pi/02_Camera_setup.md",
-      "destination": "distributed/build/common/hardware/raspberry-pi/camera.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/build/reference/common/hardware/raspberry-pi/camera.md",
       "source_sha256": "124b1df8d2cec4d071e5f7a5faf75a850ae48c35c2b5b2deb1e4d1439000026b"
     },
     {
       "source": "04_Developer_Guides/10_Board_Specific_Guide/04_Raspberry_Pi/03_Display_Setup.md",
-      "destination": "distributed/build/common/hardware/raspberry-pi/display.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/build/reference/common/hardware/raspberry-pi/display.md",
       "source_sha256": "5a4fcbd1f7e3daebc9e9e645552e517af62a7661107bb57ecc6670b1b0774c79"
     },
     {
       "source": "04_Developer_Guides/20_Tools_Guide/01_CAN/01_USB_CAN_Adaptor.md",
-      "destination": "components/tools/usb-can-adapter.md",
+      "destination": "development/tools/reference/usb-can-adapter.md",
       "source_sha256": "aea127deae53d8c6caa80acaaa0d79b7a4a3aeeb04df50b6cadf3dfe297d73ec"
     },
     {
       "source": "05_APIs_and_Services/01_Introduction.md",
-      "destination": "components/api/source-api-coverage.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/components/api/reference/source-api-coverage.md",
       "source_sha256": "ddfd9e1dc51c926ef4b6eda020871aa9259359c236226ff0c461d8d52368c8ac"
     },
     {
       "source": "05_APIs_and_Services/instrument-cluster/AGL-Instrument-Cluster-API-en.md",
-      "destination": "components/api/cluster/instrument-cluster-api.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/components/api/cluster/instrument-cluster-api/index.md",
       "source_sha256": "f3130c6ba16d88a74196c0c19a7159185133c7cc534e82dcdb820886b708ce90"
     },
     {
       "source": "06_Component_Documentation/00_AGL_components.md",
-      "destination": "components/source-directory.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/components/reference/source-directory.md",
       "source_sha256": "350717d822cf2e4dae426fccf2218eb35df65c536e460512e22fb42a3da6e01b"
     },
     {
       "source": "06_Component_Documentation/01_Graphics_Service/01_agl_compositor.md",
-      "destination": "components/services/graphics/agl-compositor.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/components/services/graphics/agl-compositor/index.md",
       "source_sha256": "54f967efab95cc3e685ea36a403ccecede1c45498c254367acf87e5574289e79"
     },
     {
       "source": "06_Component_Documentation/01_Graphics_Service/02_drm_lease_manager.md",
-      "destination": "components/services/graphics/drm-lease-manager.md",
+      "destination": "vehicle-controller/small-integrated/container-integration/components/platform-extensions/drm-lease-manager/index.md",
       "source_sha256": "f05d6a0300bec4f2196149421c9d364e2f35ca02c52b22bd32c4913911577c29"
     },
     {
       "source": "06_Component_Documentation/02_Sound_Service/01_pipewire_wireplumber.md",
-      "destination": "components/services/sound/pipewire-wireplumber.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/components/services/sound/pipewire-wireplumber/index.md",
       "source_sha256": "8278ea5f8ffbcebd7674e0b22e8adb1c26ffdb575f59a0423611d73801800635"
     },
     {
       "source": "06_Component_Documentation/02_Sound_Service/02_Instrument_Cluster_Sound_Management.md",
-      "destination": "components/services/sound/cluster-sound.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/components/services/sound/reference/cluster-sound.md",
       "source_sha256": "b78a618e1ba6d9273276075732459b426b66918eb945e64febf77b4b1e5b1cce"
     },
     {
       "source": "06_Component_Documentation/03_Policies_Service/01_Rule_Based_Arbitrator.md",
-      "destination": "components/services/policies/rule-based-arbitrator.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/components/services/policies/rule-based-arbitrator/index.md",
       "source_sha256": "5ac85ffe461f813b8469a7b3b9cb10d5e4d4afdf3d22ae182515e03ad4339492"
     },
     {
       "source": "06_Component_Documentation/04_Misc_Service/01_AGL_Persistent_Storage_API.md",
-      "destination": "components/api/ivi/persistent-storage.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/components/api/ivi/persistent-storage/index.md",
       "source_sha256": "947ecbc4723466f511ad719d5e7a24d38d352e5e4f8ae4f7462f1e280b99e666"
     },
     {
       "source": "06_Component_Documentation/04_Misc_Service/02_agl_voice_agent_assistant.md",
-      "destination": "components/services/misc/voice-agent.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/components/services/misc/voice-agent/index.md",
       "source_sha256": "45da04ab8d8cf55777f397d772467cac6b04a47df76062a05cfe1d5da22c8018"
     },
     {
       "source": "06_Component_Documentation/10_IC_Service/01_Instrument_Cluster_Service.md",
-      "destination": "components/services/cluster/cluster-service.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/components/services/cluster/cluster-service/index.md",
       "source_sha256": "c1eca8845230dbc34356c986e92dbd04bb14b3d972c3bd775fd2705a215f3635"
     },
     {
       "source": "06_Component_Documentation/20_IVI_Application_Framework/01_Introduction.md",
-      "destination": "components/framework/lifecycle/application-framework.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/components/application-framework/lifecycle-services/application-framework/index.md",
       "source_sha256": "2ea54f58f45ea464ff39c4ae769336a0bbf98ee280cd2bd14044911d38aee646"
     },
     {
       "source": "06_Component_Documentation/20_IVI_Application_Framework/02_Application_Startup.md",
-      "destination": "components/framework/lifecycle/application-startup.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/components/application-framework/lifecycle-services/reference/application-startup.md",
       "source_sha256": "a19165acaa898dfa7f62bb7825e724f9ff114773cf71d88446d19054aa983767"
     },
     {
       "source": "06_Component_Documentation/20_IVI_Application_Framework/03_Creating_a_New_Application.md",
-      "destination": "distributed/applications/create-application.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/applications/reference/create-application.md",
       "source_sha256": "f419a5457c12ec431190edf6226b3ec12d377e482fdcb80101e66b2f39447255"
     },
     {
       "source": "06_Component_Documentation/40_Demo_Application/01_Flutter_Demo_IVI/01_Flutter_Homescreen.md",
-      "destination": "components/applications/flutter-homescreen.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/components/reference-applications/flutter-homescreen/index.md",
       "source_sha256": "eca807e7075e8f88bdbeb8318b19f20a5b805772dbcf466733871d1ac920aa6e"
     },
     {
       "source": "06_Component_Documentation/40_Demo_Application/02_Qt_Demo_IVI/01_Qt_Homescreen.md",
-      "destination": "components/applications/qt-homescreen.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/components/reference-applications/qt-homescreen/index.md",
       "source_sha256": "1b580f2302f4378ea59f1e1d38cde0a9e67dc93bac45902c80d63e95068b5fd8"
     },
     {
       "source": "06_Component_Documentation/40_Demo_Application/03_Instrument_Cluster/01_Cluster_Ref_GUI.md",
-      "destination": "components/applications/cluster-dashboard.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/components/reference-applications/cluster-dashboard/index.md",
       "source_sha256": "ccabff13450c30e12db048a8d0c4d9327311f43c1cfd2ece03d2a17ec9735826"
     },
     {
       "source": "06_Component_Documentation/40_Demo_Application/04_Momi_IVI_Demo/01_Momi_Screen.md",
-      "destination": "components/applications/momi-screen.md",
+      "destination": "vehicle-controller/small-integrated/container-integration/components/reference-applications/momi-screen/index.md",
       "source_sha256": "dfb36012f87d004a5b777960d02a9caef75827f3d2febd1a2a36e020cde7d8af"
     },
     {
       "source": "06_Component_Documentation/40_Demo_Application/04_Momi_IVI_Demo/02_Momi_Navi.md",
-      "destination": "components/applications/momi-navigation.md",
+      "destination": "vehicle-controller/small-integrated/container-integration/components/reference-applications/momi-navigation/index.md",
       "source_sha256": "ec6669b633350219f436f4d1fa74efc1f756393013193213f1c8809e028534a4"
     },
     {
       "source": "06_Component_Documentation/40_Demo_Application/04_Momi_IVI_Demo/04_Momi_Weather.md",
-      "destination": "components/applications/momi-weather.md",
+      "destination": "vehicle-controller/small-integrated/container-integration/components/reference-applications/momi-weather/index.md",
       "source_sha256": "8af47bd44c417b9b66810f15eecd15a5d0808c9b60e4fb7352b2aec02c355a2f"
     },
     {
       "source": "06_Component_Documentation/60_Unified_HMI/01_Unified_HMI.md",
-      "destination": "components/extensions/unified-hmi.md",
+      "destination": "vehicle-controller/large-integrated/sodev/components/platform-extensions/unified-hmi/index.md",
       "source_sha256": "94dad4b8056b9374e30cf338fe714e9043dac0cd6aedacd264786c47c2d44c12"
     },
     {
       "source": "06_Component_Documentation/61_Container/01_Container_Manager.md",
-      "destination": "components/extensions/container-manager.md",
+      "destination": "vehicle-controller/small-integrated/container-integration/components/platform-extensions/container-manager/index.md",
       "source_sha256": "c46ff7b9e830b2a2b0e3f0d4223ade3b0b90b6b3daa121c9dee68f9456f57665"
     },
     {
       "source": "06_Component_Documentation/61_Container/01_Container_Manager/01_Container_manager_global_config.md",
-      "destination": "components/extensions/container-settings/global.md",
+      "destination": "vehicle-controller/small-integrated/container-integration/components/platform-extensions/container-manager/reference/global.md",
       "source_sha256": "4dc49759e8494c25d120c48dc93da43211ec2083f02e8ca45ba96868dace4f8d"
     },
     {
       "source": "06_Component_Documentation/61_Container/01_Container_Manager/02_Container_configuration_files.md",
-      "destination": "components/extensions/container-settings/containers.md",
+      "destination": "vehicle-controller/small-integrated/container-integration/components/platform-extensions/container-manager/reference/containers.md",
       "source_sha256": "6582368dc33b873f4cd4fd5c8e38944e0fe5e7d6afb3402c53e8d088e1de470a"
     },
     {
       "source": "06_Component_Documentation/80_DevTools/01_AGL_Demo_Control_Panel.md",
-      "destination": "components/tools/demo-control/panel.md",
+      "destination": "development/tools/demo-control/panel/index.md",
       "source_sha256": "8fdde08ee72a37365153057aa55badff0279e4e98b3ba3688b9c8f3d0066b815"
     },
     {
       "source": "06_Component_Documentation/80_DevTools/02_CARLA_with_AGL.md",
-      "destination": "components/tools/demo-control/carla.md",
+      "destination": "development/tools/demo-control/carla/index.md",
       "source_sha256": "0143930ca0dd83353487b97e179a34a54e6aa5a4cb3b32236d02f53b26fa6450"
     },
     {
       "source": "06_Component_Documentation/80_DevTools/03_AGL_Virtual_Car_CAN/01_agl-vcar.md",
-      "destination": "components/tools/virtual-car/virtual-car.md",
+      "destination": "virtual-car/can-messages/agl-virtual-car/index.md",
       "source_sha256": "869cdc27d8e6d4153a540304ce0ccfe97c3fb663102c2d5e623348bee5e7df2e"
     },
     {
       "source": "06_Component_Documentation/80_DevTools/03_AGL_Virtual_Car_CAN/02_vehicle_signal.md",
-      "destination": "components/tools/virtual-car/signals/vehicle.md",
+      "destination": "virtual-car/can-messages/agl-virtual-car/reference/signals/vehicle.md",
       "source_sha256": "d3cd6f03f0513eff6f0caa8bcd024fbdcd5aaaee97bd4900b11e7eaa8206948d"
     },
     {
       "source": "06_Component_Documentation/80_DevTools/03_AGL_Virtual_Car_CAN/03_body.md",
-      "destination": "components/tools/virtual-car/signals/body.md",
+      "destination": "virtual-car/can-messages/agl-virtual-car/reference/signals/body.md",
       "source_sha256": "3c8089d71c223af83a4d76bf7c6fc807580fc3f60145441cc3600652b2712d56"
     },
     {
       "source": "06_Component_Documentation/80_DevTools/03_AGL_Virtual_Car_CAN/04_sensor.md",
-      "destination": "components/tools/virtual-car/signals/sensors.md",
+      "destination": "virtual-car/can-messages/agl-virtual-car/reference/signals/sensors.md",
       "source_sha256": "538c44f5ecc329eb424fb3be2377f346869b3fcc7e69db504b3c666633d70305"
     },
     {
       "source": "07_How_To_Contribute/03_Working_with_Gerrit.md",
-      "destination": "contributing/gerrit.md",
+      "destination": "community/contributing/reference/gerrit.md",
       "source_sha256": "c71eec05e5ec5caa70259ba15f57a00ceaae22f03676a0f91a062440b92f05aa"
     },
     {
       "source": "07_How_To_Contribute/04_Submitting_Changes.md",
-      "destination": "contributing/submit-changes.md",
+      "destination": "community/contributing/reference/submit-changes.md",
       "source_sha256": "38e8f09fcd6bfdfe86d9798f86d93ee34fef2131c516c03761094d00f171aed6"
     },
     {
       "source": "07_How_To_Contribute/07_General_Guidelines.md",
-      "destination": "contributing/general-guidelines.md",
+      "destination": "community/contributing/reference/general-guidelines.md",
       "source_sha256": "0e7e7adb26299ba77a972d3c0e0c11093d8666366d74969d5b3f28c746f08800"
     },
     {
       "source": "07_How_To_Contribute/08_Reporting_bugs.md",
-      "destination": "troubleshooting/reporting-bugs.md",
+      "destination": "troubleshooting/reference/reporting-bugs.md",
       "source_sha256": "e9dd170adc09766bf9a5d23f0177a54fb19622ffc6a68791767cf6398d451300"
     },
     {
       "source": "07_How_To_Contribute/08_Getting_help.md",
-      "destination": "troubleshooting/getting-help.md",
+      "destination": "troubleshooting/reference/getting-help.md",
       "source_sha256": "102e7a3f5b3b341769faf93d2e7083d5e765e29a2adf9985cedd6c63736ab248"
     },
     {
       "source": "07_How_To_Contribute/09_Adding_Documentation.md",
-      "destination": "contributing/documentation.md",
+      "destination": "community/contributing/reference/documentation.md",
       "source_sha256": "59ff80f0446281ea716f76cc1e4b9ddd9977d80c2559aaae387ff7c36c97696b"
     },
     {
       "source": "07_How_To_Contribute/10_Contribution_Checklist.md",
-      "destination": "contributing/checklist.md",
+      "destination": "community/contributing/reference/checklist.md",
       "source_sha256": "0dc5c82aa1c0c75823c0fe2a8b9e4b227a4a8acb802cb035c24567a07ad55985"
     }
   ],
   "excluded_pages": [
     {
       "source": "index.md",
-      "destination": "home/about-source.md",
+      "destination": "introduction/reference/about-source.md",
       "source_sha256": "92f87a359cf0ffe5553625a36e35fc56ba4fa0f7b91a6c98b33f2278b878f349",
       "reason": "Unreferenced after removing Further reading sections"
     },
     {
       "source": "04_Developer_Guides/01_Basic/01_Overview.md",
-      "destination": "distributed/applications/sdk-overview.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/applications/reference/sdk-overview.md",
       "source_sha256": "03b00a48eb723735da4ed1bd2bd1fe4f7d218b83277a141fcc80bc82022e8eac",
       "reason": "Unreferenced after removing Further reading sections"
     },
     {
       "source": "06_Component_Documentation/20_IVI_Application_Framework/04_Application_Sandboxing.md",
-      "destination": "components/framework/sandboxing.md",
+      "destination": "vehicle-controller/distributed/agl-distribution/components/application-framework/reference/sandboxing.md",
       "source_sha256": "b6b94cbd4eeeb75a0d87916c440bcecb54f97c89f71340fcd543fac0a0a69852",
       "reason": "Unreferenced after removing Further reading sections"
     },
     {
       "source": "07_How_To_Contribute/01_Getting_Linux_Foundation_account.md",
-      "destination": "contributing/linux-foundation-account.md",
+      "destination": "community/contributing/reference/linux-foundation-account.md",
       "source_sha256": "d630d79a7e7eb5ee05df57ea09b85077b520aa65f36d3ce19a584e9705d8ee67",
       "reason": "Unreferenced after removing Further reading sections"
     },
     {
       "source": "07_How_To_Contribute/02_Using_Jira_for_current_work_items.md",
-      "destination": "contributing/jira.md",
+      "destination": "community/contributing/reference/jira.md",
       "source_sha256": "ff9c76b9b10d7cb47b33b8a2fb1c3336d07c34996672417b0958255b233e8fc5",
       "reason": "Unreferenced after removing Further reading sections"
     },
     {
       "source": "07_How_To_Contribute/05_Reviewing_Changes.md",
-      "destination": "contributing/review-changes.md",
+      "destination": "community/contributing/reference/review-changes.md",
       "source_sha256": "af836d383c6fd98ba7f33c4e14bcd1e6eedcd6451092d4bd86ce435f708164a1",
       "reason": "Unreferenced after removing Further reading sections"
     },
     {
       "source": "07_How_To_Contribute/06_Gerrit_Recommended_Practices.md",
-      "destination": "contributing/gerrit-practices.md",
+      "destination": "community/contributing/reference/gerrit-practices.md",
       "source_sha256": "dea558b4a8ff36fb6ef4b831472caff3eb0ffdf4d532eaddb95a1985c9255cc1",
       "reason": "Unreferenced after removing Further reading sections"
     },
     {
       "source": "07_How_To_Contribute/08_Code_contribution_guidelines.md",
-      "destination": "contributing/code-guidelines.md",
+      "destination": "community/contributing/reference/code-guidelines.md",
       "source_sha256": "141559ad67e659d12a53581817a293d2538e4ef34543e0c3ee2b174229cc3e52",
       "reason": "Unreferenced after removing Further reading sections"
     },
     {
       "source": "07_How_To_Contribute/08_AI-coding-assistants.md",
-      "destination": "contributing/ai-coding-assistants.md",
+      "destination": "community/contributing/reference/ai-coding-assistants.md",
       "source_sha256": "1753f7b877910e63540ebabdd37aa3be89c970f8c08f8ec1c5255452213f7ab8",
       "reason": "Unreferenced after removing Further reading sections"
     },
     {
       "source": "07_How_To_Contribute/11_Setup_AGL_LAVA_Lab.md",
-      "destination": "contributing/lava-lab.md",
+      "destination": "community/contributing/reference/lava-lab.md",
       "source_sha256": "35c7cffab8dfa6efaa72302f3e74a80617c6076189f3bf1c4638e4313f74b718",
       "reason": "Unreferenced after removing Further reading sections"
     },
     {
       "source": "03_Architecture_Guides/01_Introduction/01_Overview.md",
-      "destination": "home/architecture.md",
+      "destination": "introduction/reference/architecture.md",
       "source_sha256": "38d6997a828fb761099ee16f25ca5e2af09493e0b897185503db949e7e2408d7",
       "reason": "Removed by user; stale references cleaned up"
     }

@@ -11,11 +11,11 @@ Start with a running AGL target, then choose whether to operate a demonstration,
 
 | Task | Guide |
 | --- | --- |
-| Run a prebuilt Flutter IVI demonstration | [Quick start](../start/index.md) |
-| Generate demo vehicle inputs and connect a simulator | [AGL Development tools](../components/tools/index.md) |
-| Build and deploy a system | [Build AGL system](../distributed/build/index.md) or the selected [Vehicle Controller platform](../vehicle-controller/index.md) |
-| Change images, recipes and services | [Platform Customize](../distributed/customize/index.md) |
-| Develop Flutter or Qt applications | [Application development](../distributed/applications/index.md) |
-| Understand signal acquisition and data interfaces | [Connected Gateway architecture](../vehicle-data/gateway/architecture.md) and [Gateway APIs](../components/api/gateway.md) |
+| Run a prebuilt Flutter IVI demonstration | [Quick start](../vehicle-controller/distributed/agl-distribution/quick-start/index.md) |
+| Generate demo vehicle inputs and connect a simulator | [AGL Development tools](tools/index.md) |
+| Build and deploy a system | [Build AGL system](../vehicle-controller/distributed/agl-distribution/build/index.md) or the selected [Vehicle Controller platform](../vehicle-controller/index.md) |
+| Change images, recipes and services | [Platform Customize](../vehicle-controller/distributed/agl-distribution/customize/index.md) |
+| Develop Flutter or Qt applications | [Application development](../vehicle-controller/distributed/agl-distribution/applications/index.md) |
+| Understand signal acquisition and data interfaces | [Connected Gateway architecture](../vehicle-data/connected-gateway/architecture/index.md) and [Gateway APIs](../vehicle-controller/distributed/agl-distribution/components/api/gateway/index.md) |
 
 Check the [AGL Virtual Car definition](../virtual-car/index.md) before connecting demo generators to the target. Use [Troubleshooting](../troubleshooting/index.md) when setup or runtime checks fail. Follow [Community standard](../community/index.md) when recording revisions or contributing changes.

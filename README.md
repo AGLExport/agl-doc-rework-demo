@@ -6,7 +6,57 @@ The navigation contains 110 required headings. All 169 articles are reachable, i
 
 All AGL implementation guidance uses **master**. The 73 active original article sources were checked against official documentation master on 10 October 2026. Current recipe inspection governs image availability and composition where the upstream prose still lists older targets. [The source-review record](docs/assets/source-reviews/master-2026-10-10.json) contains checked URLs, content hashes and the reviewed manifest/layer commits. Component implementation links can use the SRCREV selected by a master recipe. External SoDeV platform workspaces retain their own integration pins, and the SoDeV guide makes the required master guest adaptation explicit.
 
-The platform chapters are stored in `docs/distributed/`, `docs/small-integrated/` and `docs/large-integrated/`. The grouping page is `docs/vehicle-controller/index.md`; vehicle-data pages are in `docs/vehicle-data/`. Shared components remain in `docs/components/`. The distributed base platform contains AGL Distribution, which groups Quick start, the Basic/Extra portfolios, architecture, build sequence, shared components, platform customization and application development. Momi remains an Extra portfolio example; its complete build/deployment procedure is maintained under Container integration > Demo image for container integration. Momi application references and host extensions are under that integration's AGL Components chapter. SoDeV has its own AGL Components > Platform extension chapter for Unified HMI.
+The file hierarchy mirrors the navigation. Home uses `docs/index.md`; every other required heading has its own directory and `index.md`, directly below its parent chapter. The Vehicle Controller branches live under `docs/vehicle-controller/`, and the distributed platform's AGL Distribution contains its quickstarts, portfolio, architecture, build, components, customization and application guides. Container integration owns the Momi application references, DRM lease manager and Container Manager; SoDeV owns Unified HMI. Development tools and Virtual Car definitions are stored under their respective top-level chapters. Supporting articles live in the relevant chapter's `reference/` directory. Shared images, diagrams, styles and source-review records remain in `docs/assets/`.
+
+The main directories are shown below. Every chapter directory shown contains `index.md`; deeper directories follow the same rule for required headings.
+
+```text
+docs/
+  index.md
+  introduction/
+  vehicle-controller/
+    distributed/
+      agl-distribution/
+        quick-start/
+          prebuilt/
+        portfolio/
+        architecture/
+        build/
+        components/
+        customize/
+        applications/
+    small-integrated/
+      container-integration/
+        architecture/
+        build/
+        customize/
+        demo-image/
+        components/
+          platform-extensions/
+          reference-applications/
+      kvm/
+    large-integrated/
+      sodev/
+        architecture/
+        build/
+        customize/
+        components/
+          platform-extensions/
+  vehicle-data/
+    connected-gateway/
+      architecture/
+  development/
+    tools/
+      demo-control/
+  virtual-car/
+    can-messages/
+      agl-virtual-car/
+  troubleshooting/
+  community/
+    releases/
+    contributing/
+  assets/                 # Shared assets; no chapter index
+```
 
 The Introduction figures and editable Flutter/Qt IVI, Container integration and Connected Gateway SVGs accompany the platform explanations. The Gateway architecture separates the reviewed master CAN/VSS path from optional vehicle-to-cloud integration. The IVI figures and container source references use reviewed master recipes. The official SoDeV figure is reproduced unchanged with its announcement attribution. The shared page banner displays the master baseline and source-review date. Source inspection and documentation checks do not report hardware or emulator runtime validation.
 
@@ -22,9 +72,10 @@ The Introduction figures and editable Flutter/Qt IVI, Container integration and 
 | `structure-map.json` | Required heading-to-page mapping, previous page locations, and explicitly removed files |
 | `source-map.json` | Active source-to-destination mappings, excluded files, and SHA-256 hashes for the 84 source articles |
 | `scripts/import_docs.py` | Re-import the original articles and assets |
+| `scripts/documentation_paths.py` | Rebase local Markdown and HTML links for moved pages and generated guides |
 | `scripts/import_transforms.py` | Preserve required titles, adapted introductions, and Flutter quickstarts on re-import |
 | `scripts/test_documentation_tools.py` | Regression checks for section resolution and import preservation |
-| `scripts/validate_structure.py` | Check the exact required hierarchy, article reachability, and source mappings |
+| `scripts/validate_structure.py` | Check the required navigation and directory hierarchy, article reachability, and source mappings |
 | `scripts/validate_site.py` | Check generated local links, assets, and anchors |
 | `requirements.txt` | Pinned Python build dependencies |
 | `.github/workflows/pages.yml` | GitHub Actions build, validation, and deployment workflow |
@@ -80,7 +131,7 @@ export MKDOCS_SITE_URL=http://127.0.0.1:8000/
 .venv/bin/python scripts/validate_site.py site --site-url "$MKDOCS_SITE_URL"
 ```
 
-The structure validator rejects Further reading sections and files recorded as removed, and checks the navigation against AGENTS.md, first-level page titles, required section contents, architecture figures, subsection links, required references between sections, supporting-page declarations, article reachability, and source mappings. The build checks MkDocs configuration and document references. The validator checks generated local page links, images and other assets, and fragment anchors. External URLs are not checked. The workflow repeats these checks before deployment.
+The structure validator rejects Further reading sections and files recorded as removed, and checks the navigation against AGENTS.md, matching parent/child directories, chapter index pages, supporting reference locations, first-level page titles, required section contents, architecture figures, subsection links, required references between sections, supporting-page declarations, article reachability, and source mappings. The build checks MkDocs configuration and document references. The validator checks generated local page links, images and other assets, and fragment anchors. External URLs are not checked. The workflow repeats these checks before deployment.
 
 ## Publish on GitHub Pages
 
@@ -126,7 +177,7 @@ When updating an existing parent repository, copy the revised workflow to its ro
 
 ## Edit and maintain the documentation
 
-Edit articles in docs/ while preserving the required navigation in AGENTS.md. Do not omit, rename, duplicate, or reorder its headings. Each required page uses its required heading as its first H1. Preserve every Required Contents at Section rule, including the Introduction E/E architecture figures and their links to the corresponding system categories, Vehicle Data Processing with E2E optimization, the Home coverage reference, and the official SoDeV diagram and source in Large-scale integrated system. The historical AGL Coverage reference resolves to Introduction, and historical system names in content rules resolve to the current Vehicle Controller system headings. Add supporting articles through relative Markdown links from the appropriate chapter and declare their paths in not_in_nav in mkdocs.yml. Update structure-map.json when changing required page locations, and keep the importer mapping consistent. Keep the shared master baseline in mkdocs.yml and the source-review record synchronized when reviewing newer master revisions. Rebuild and run both validators after changes.
+Edit articles in docs/ while preserving the required navigation in AGENTS.md. Do not omit, rename, duplicate, or reorder its headings. Each required page uses its required heading as its first H1 and is stored as `index.md` in a directory directly below its navigation parent. Store supporting articles in that chapter's `reference/` directory, and shared assets in `docs/assets/`. Preserve every Required Contents at Section rule, including the Introduction E/E architecture figures and their links to the corresponding system categories, Vehicle Data Processing with E2E optimization, the Home coverage reference, and the official SoDeV diagram and source in Large-scale integrated system. The historical AGL Coverage reference resolves to Introduction, and historical system names in content rules resolve to the current Vehicle Controller system headings. Add supporting articles through relative Markdown links from the appropriate chapter and declare their paths in not_in_nav in mkdocs.yml. Update structure-map.json when changing required page locations, and keep the importer mapping consistent. Keep the shared master baseline in mkdocs.yml and the source-review record synchronized when reviewing newer master revisions. Rebuild and run both validators after changes.
 
 The importer is a manual migration utility, not part of the normal site build. From this directory inside the original repository:
 

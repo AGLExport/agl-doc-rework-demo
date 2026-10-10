@@ -51,6 +51,24 @@ def navigation_tree(items, pages):
     return result
 
 
+
+def validate_directory_layout(items, parent=None):
+    """Require one index.md directory per navigation node with identical ancestry."""
+    for item in items:
+        title, value = next(iter(item.items()))
+        page = value[0] if isinstance(value, list) else value
+        folder = posixpath.dirname(page)
+        if posixpath.basename(page) != 'index.md':
+            raise ValueError('Required heading must use its directory index.md: ' + title)
+        if parent is None:
+            if page != 'index.md':
+                raise ValueError('Home must use docs/index.md')
+        elif posixpath.dirname(folder) != parent or folder == parent:
+            raise ValueError('Document directory differs from navigation parent: ' + page)
+        if isinstance(value, list):
+            validate_directory_layout(value[1:], folder)
+
+
 def markdown_sections(text):
     lines = text.splitlines()
     headings, fence = [], None
@@ -228,6 +246,8 @@ def validate(project):
     actual = navigation_tree(config['nav'],pages)
     if actual != expected:
         raise ValueError('Navigation differs from AGENTS.md: headings, order, or nesting changed')
+    if config.get('extra', {}).get('documentation_layout') == 'hierarchy':
+        validate_directory_layout(config['nav'])
     nav_paths = [path for _,path in pages]
     if len(set(nav_paths)) != len(nav_paths):
         raise ValueError('A document is duplicated in the required navigation')
@@ -301,6 +321,12 @@ def validate(project):
                     if not targets & descendants:
                         raise ValueError('Required subsection link is missing: ' + title)
     secondary = set(text_by_path)-set(nav_paths)
+    if config.get('extra', {}).get('documentation_layout') == 'hierarchy':
+        chapter_dirs = {posixpath.dirname(path) for path in nav_paths}
+        for path in secondary:
+            prefix, separator, _ = path.partition('/reference/')
+            if not separator or prefix not in chapter_dirs:
+                raise ValueError('Supporting article must use a chapter reference directory: ' + path)
     declared = {line.strip().removeprefix('/') for line in config.get('not_in_nav','').splitlines() if line.strip()}
     if secondary != declared:
         raise ValueError('Supporting-page declarations do not match the actual documents')
