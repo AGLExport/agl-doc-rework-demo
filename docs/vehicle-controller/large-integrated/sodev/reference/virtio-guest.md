@@ -109,4 +109,4 @@ Log in using the guest image's configured account. Shut down from the guest with
 
 ## 5. Verify and record the result
 
-Check the guest console, network, and required virtio devices. Record the guest build identifier, host board and kernel, QEMU version, complete command, and observed result. These commands have not been validated on target hardware as part of this documentation correction. See [Troubleshooting](../../../../troubleshooting/index.md).
+Check the guest console, network, and required virtio devices. Record the guest build identifier, host board and kernel, QEMU version, complete command, and observed result. These commands have not been validated on target hardware as part of this documentation correction. See [Troubleshooting](../../../../development/troubleshooting/index.md).

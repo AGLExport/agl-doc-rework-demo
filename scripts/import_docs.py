@@ -106,10 +106,10 @@ group("06_Component_Documentation/", """
 61_Container/01_Container_Manager/02_Container_configuration_files.md|vehicle-controller/small-integrated/container-integration/components/platform-extensions/container-manager/reference/containers.md|Container configuration files
 80_DevTools/01_AGL_Demo_Control_Panel.md|development/tools/demo-control/panel/index.md|AGL Demo Control Panel
 80_DevTools/02_CARLA_with_AGL.md|development/tools/demo-control/carla/index.md|Use CARLA with AGL
-80_DevTools/03_AGL_Virtual_Car_CAN/01_agl-vcar.md|virtual-car/can-messages/agl-virtual-car/index.md|AGL virtual car
-80_DevTools/03_AGL_Virtual_Car_CAN/02_vehicle_signal.md|virtual-car/can-messages/agl-virtual-car/reference/signals/vehicle.md|Virtual car vehicle signals
-80_DevTools/03_AGL_Virtual_Car_CAN/03_body.md|virtual-car/can-messages/agl-virtual-car/reference/signals/body.md|Virtual car body signals
-80_DevTools/03_AGL_Virtual_Car_CAN/04_sensor.md|virtual-car/can-messages/agl-virtual-car/reference/signals/sensors.md|Virtual car sensor signals
+80_DevTools/03_AGL_Virtual_Car_CAN/01_agl-vcar.md|development/virtual-car/can-messages/agl-virtual-car/index.md|AGL virtual car
+80_DevTools/03_AGL_Virtual_Car_CAN/02_vehicle_signal.md|development/virtual-car/can-messages/agl-virtual-car/reference/signals/vehicle.md|Virtual car vehicle signals
+80_DevTools/03_AGL_Virtual_Car_CAN/03_body.md|development/virtual-car/can-messages/agl-virtual-car/reference/signals/body.md|Virtual car body signals
+80_DevTools/03_AGL_Virtual_Car_CAN/04_sensor.md|development/virtual-car/can-messages/agl-virtual-car/reference/signals/sensors.md|Virtual car sensor signals
 """)
 group("07_How_To_Contribute/", """
 01_Getting_Linux_Foundation_account.md|community/contributing/reference/linux-foundation-account.md|Get a Linux Foundation account
@@ -119,8 +119,8 @@ group("07_How_To_Contribute/", """
 05_Reviewing_Changes.md|community/contributing/reference/review-changes.md|Review changes
 06_Gerrit_Recommended_Practices.md|community/contributing/reference/gerrit-practices.md|Gerrit recommended practices
 07_General_Guidelines.md|community/contributing/reference/general-guidelines.md|Contribution guidelines
-08_Reporting_bugs.md|troubleshooting/reference/reporting-bugs.md|Report a bug
-08_Getting_help.md|troubleshooting/reference/getting-help.md|Get community help
+08_Reporting_bugs.md|development/troubleshooting/reference/reporting-bugs.md|Report a bug
+08_Getting_help.md|development/troubleshooting/reference/getting-help.md|Get community help
 08_Code_contribution_guidelines.md|community/contributing/reference/code-guidelines.md|Code contribution guidelines
 08_AI-coding-assistants.md|community/contributing/reference/ai-coding-assistants.md|AI coding assistants
 09_Adding_Documentation.md|community/contributing/reference/documentation.md|Contribute to the original AGL documentation

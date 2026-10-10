@@ -33,4 +33,4 @@ bitbake-getvar -r agl-kvm-demo IMAGE_LINK_NAME
 
 Follow the board's host flashing and boot procedure with the resulting artifacts. Confirm the QEMU guests start, then check the IVI UI, Cluster UI and the broker connection between them. Record the resolved master manifest, host machine, guest machine, guest targets and QEMU configuration.
 
-Display/input devices and network endpoints are configuration-specific. Inspect their packages in the selected checkout when adapting another board. Use [Troubleshooting](../../../../troubleshooting/index.md) to collect separate host/guest logs. This source-reviewed route does not report a new board runtime test.
+Display/input devices and network endpoints are configuration-specific. Inspect their packages in the selected checkout when adapting another board. Use [Troubleshooting](../../../../development/troubleshooting/index.md) to collect separate host/guest logs. This source-reviewed route does not report a new board runtime test.

@@ -13,7 +13,7 @@ The [Connected Gateway](connected-gateway/index.md) chapter describes AGL's vehi
 
 | Processing stage | Platform responsibility | Reference |
 | --- | --- | --- |
-| Acquisition | Receive CAN frames through the configured Linux interface | [CAN message definition](../virtual-car/can-messages/index.md) |
+| Acquisition | Receive CAN frames through the configured Linux interface | [CAN message definition](../development/virtual-car/can-messages/index.md) |
 | Signal conversion | Decode the configured DBC and map values to VSS paths | [Connected Gateway architecture](connected-gateway/architecture/index.md#can-to-vss-data-path) |
 | Vehicle-side sharing | Publish vehicle signals through the databroker and configure its clients | [Gateway APIs](../vehicle-controller/distributed/agl-distribution/components/api/gateway/index.md) |
 | Edge and cloud integration | Select data, manage buffering and add the application's network/cloud connector | [E2E processing context](../introduction/index.md#vehicle-data-processing) |

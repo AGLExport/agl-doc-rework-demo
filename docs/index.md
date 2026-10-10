@@ -25,8 +25,8 @@ The AGL community develops software, discusses requirements, and maintains the p
 - [Community meetings](https://www.automotivelinux.org/developer-meetings/) provide meeting information and ways to participate.
 - [AGL Expert Groups](https://lf-automotivelinux.atlassian.net/wiki/spaces/HOME/overview) provide technical collaboration spaces.
 - [Community standard](community/index.md) groups source-version guidance and the [Contribution gide](community/contributing/index.md) for accounts, code review and documentation contributions.
-- [Get community help](troubleshooting/reference/getting-help.md) explains how to ask questions and report useful diagnostic information.
+- [Get community help](development/troubleshooting/reference/getting-help.md) explains how to ask questions and report useful diagnostic information.
 
 ## Develop and operate an AGL system
 
-Use [Development & Usage](development/index.md) to select development workflows and demo-control tools. The [AGL Virtual Car definition](virtual-car/index.md) describes the CAN data shared by the demonstrations. Use [Troubleshooting](troubleshooting/index.md) to diagnose setup, boot and service problems.
+[Development & Usage](development/index.md) groups [AGL Development tools](development/tools/index.md), [AGL Virtual Car definition](development/virtual-car/index.md) and [Troubleshooting](development/troubleshooting/index.md). Use these guides to operate demonstrations, match their shared CAN data and diagnose setup, boot and service problems.

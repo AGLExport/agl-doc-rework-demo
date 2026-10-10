@@ -53,7 +53,7 @@ This software focuses to base software, not a final software. User can use refer
 - **Multiple data sources**: Supports demo data generator and SocketCAN input. Plugin at build-time.
 - **Comprehensive telltales**: 50+ warning/indicator signals
 - **Alarm sound**: Play builtin sound if it necessary. Plugin at build-time.
-- **AGL CAN definition Support**: Support [AGL CAN definition](../../../../../../../virtual-car/can-messages/agl-virtual-car/index.md) to control instrument cluster.
+- **AGL CAN definition Support**: Support [AGL CAN definition](../../../../../../../development/virtual-car/can-messages/agl-virtual-car/index.md) to control instrument cluster.
 
 ### Dependency
 

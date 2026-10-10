@@ -203,4 +203,4 @@ On the serial console, log in with the "root" account (no password required).
 
 ## 3. Troubleshooting
 
-Check the serial boot log, power supply, cooling, and display connection. Record the image build identifier and firmware version. Use [Troubleshooting](../../../../../../../troubleshooting/index.md) for log collection and issue reporting.
+Check the serial boot log, power supply, cooling, and display connection. Record the image build identifier and firmware version. Use [Troubleshooting](../../../../../../../development/troubleshooting/index.md) for log collection and issue reporting.

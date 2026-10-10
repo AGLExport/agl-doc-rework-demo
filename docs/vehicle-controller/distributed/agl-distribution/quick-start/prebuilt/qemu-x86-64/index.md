@@ -82,5 +82,5 @@ To stop the guest, run `poweroff` at its console. For a launch failure, record t
 ## Next steps
 
 - [Flutter IVI demo](../reference/flutter.md)
-- [Troubleshooting](../../../../../../troubleshooting/index.md)
+- [Troubleshooting](../../../../../../development/troubleshooting/index.md)
 - [Application development](../../../applications/index.md)

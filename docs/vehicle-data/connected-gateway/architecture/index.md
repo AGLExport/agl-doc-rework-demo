@@ -26,7 +26,7 @@ The [databroker package group](https://git.automotivelinux.org/AGL/meta-agl-demo
 3. The provider publishes values to the local KUKSA databroker.
 4. Configured IVI, Cluster or data applications access vehicle signals through the broker's client interface.
 
-The [default provider configuration](https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-connectivity/kuksa-val/kuksa-can-provider-conf-agl/config.ini?h=master) selects `can0`, `/usr/share/dbc/agl-vcar.dbc` and `/usr/share/vss/vss.json`. Its broker endpoint is `localhost:55555`, with TLS enabled and a configured authorization token. These are reviewed defaults; image configuration and coordinated demo packages can select a different interface or mapping. Match the [AGL Virtual Car definition](../../../virtual-car/index.md) with the files deployed on the gateway.
+The [default provider configuration](https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-connectivity/kuksa-val/kuksa-can-provider-conf-agl/config.ini?h=master) selects `can0`, `/usr/share/dbc/agl-vcar.dbc` and `/usr/share/vss/vss.json`. Its broker endpoint is `localhost:55555`, with TLS enabled and a configured authorization token. These are reviewed defaults; image configuration and coordinated demo packages can select a different interface or mapping. Match the [AGL Virtual Car definition](../../../development/virtual-car/index.md) with the files deployed on the gateway.
 
 ## Network and configuration boundaries
 

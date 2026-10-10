@@ -1228,37 +1228,41 @@
     {
       "breadcrumb": [
         "Home",
+        "Development & Usage",
         "AGL Virtual Car definition"
       ],
       "heading": "AGL Virtual Car definition",
-      "page": "virtual-car/index.md"
+      "page": "development/virtual-car/index.md"
     },
     {
       "breadcrumb": [
         "Home",
+        "Development & Usage",
         "AGL Virtual Car definition",
         "CAN message definition"
       ],
       "heading": "CAN message definition",
-      "page": "virtual-car/can-messages/index.md"
+      "page": "development/virtual-car/can-messages/index.md"
     },
     {
       "breadcrumb": [
         "Home",
+        "Development & Usage",
         "AGL Virtual Car definition",
         "CAN message definition",
         "AGL virtual car"
       ],
       "heading": "AGL virtual car",
-      "page": "virtual-car/can-messages/agl-virtual-car/index.md"
+      "page": "development/virtual-car/can-messages/agl-virtual-car/index.md"
     },
     {
       "breadcrumb": [
         "Home",
+        "Development & Usage",
         "Troubleshooting"
       ],
       "heading": "Troubleshooting",
-      "page": "troubleshooting/index.md"
+      "page": "development/troubleshooting/index.md"
     },
     {
       "breadcrumb": [
@@ -1525,7 +1529,7 @@
     },
     {
       "old": "develop/tools/virtual-car.md",
-      "new": "virtual-car/can-messages/agl-virtual-car/index.md",
+      "new": "development/virtual-car/can-messages/agl-virtual-car/index.md",
       "previous_sha256": "5dd9c5cdef09fe9f49cdb91b1715fea68b05e30df82494c6c4a872299f7e416b"
     },
     {
@@ -1625,17 +1629,17 @@
     },
     {
       "old": "reference/vehicle-signals/body.md",
-      "new": "virtual-car/can-messages/agl-virtual-car/reference/signals/body.md",
+      "new": "development/virtual-car/can-messages/agl-virtual-car/reference/signals/body.md",
       "previous_sha256": "bd5b13517aca8af52dae94d38b8ca95dc989ea5f02adbe859388b4400715e904"
     },
     {
       "old": "reference/vehicle-signals/sensors.md",
-      "new": "virtual-car/can-messages/agl-virtual-car/reference/signals/sensors.md",
+      "new": "development/virtual-car/can-messages/agl-virtual-car/reference/signals/sensors.md",
       "previous_sha256": "17e515318c85074ba310631e1c026ea3ad7b27d189da39ad3c6e2fa2ccf2e975"
     },
     {
       "old": "reference/vehicle-signals/vehicle.md",
-      "new": "virtual-car/can-messages/agl-virtual-car/reference/signals/vehicle.md",
+      "new": "development/virtual-car/can-messages/agl-virtual-car/reference/signals/vehicle.md",
       "previous_sha256": "3655f606f20084e39cf08ac522e6cc07f576f35ead68e487540393e84eda6d0e"
     },
     {
@@ -2781,12 +2785,12 @@
     },
     {
       "old": "components/tools/virtual-car/index.md",
-      "new": "virtual-car/can-messages/index.md",
+      "new": "development/virtual-car/can-messages/index.md",
       "sha256_before_move": "fe7411ea3d5b4c3e1c1f61569aeddecbdd625f4994d5472d740249160442b8a2"
     },
     {
       "old": "components/tools/virtual-car/virtual-car.md",
-      "new": "virtual-car/can-messages/agl-virtual-car/index.md",
+      "new": "development/virtual-car/can-messages/agl-virtual-car/index.md",
       "sha256_before_move": "1a830ee3e22a47f43a9503035ef133125f68bded064efe14e78861018aa969c7"
     },
     {
@@ -2831,17 +2835,17 @@
     },
     {
       "old": "troubleshooting/diagnostics.md",
-      "new": "troubleshooting/reference/diagnostics.md",
+      "new": "development/troubleshooting/reference/diagnostics.md",
       "sha256_before_move": "2a6cc087206a1be91b2612bd62824c436714c31178403b79ac0cb7c39002eea2"
     },
     {
       "old": "troubleshooting/getting-help.md",
-      "new": "troubleshooting/reference/getting-help.md",
+      "new": "development/troubleshooting/reference/getting-help.md",
       "sha256_before_move": "df6f207e42db4f1a13783292024a8746324e239bc29969ec73fb0a2d0be7b602"
     },
     {
       "old": "troubleshooting/reporting-bugs.md",
-      "new": "troubleshooting/reference/reporting-bugs.md",
+      "new": "development/troubleshooting/reference/reporting-bugs.md",
       "sha256_before_move": "e374b6d26ede646a46b2aaf4eb5d1ec461dc0e7302d9af46f7e6f8bbc8d4c39c"
     },
     {
@@ -2881,17 +2885,17 @@
     },
     {
       "old": "components/tools/virtual-car/signals/body.md",
-      "new": "virtual-car/can-messages/agl-virtual-car/reference/signals/body.md",
+      "new": "development/virtual-car/can-messages/agl-virtual-car/reference/signals/body.md",
       "sha256_before_move": "42ae1b0010d23157e8de9e0163f19b1a1e702ed46ec70d0f489ec6627dde042c"
     },
     {
       "old": "components/tools/virtual-car/signals/sensors.md",
-      "new": "virtual-car/can-messages/agl-virtual-car/reference/signals/sensors.md",
+      "new": "development/virtual-car/can-messages/agl-virtual-car/reference/signals/sensors.md",
       "sha256_before_move": "8a8620239aa1ae82f29b7ff6e767e50b25fa6f8b494a4f898045a1b6c0749cd6"
     },
     {
       "old": "components/tools/virtual-car/signals/vehicle.md",
-      "new": "virtual-car/can-messages/agl-virtual-car/reference/signals/vehicle.md",
+      "new": "development/virtual-car/can-messages/agl-virtual-car/reference/signals/vehicle.md",
       "sha256_before_move": "6aa4409d1fe0229a47f761864754e9431e935f32601c66288f1cf9b269e12dfe"
     },
     {
@@ -3093,6 +3097,56 @@
       "old": "start/prebuilt/flutter.md",
       "new": "vehicle-controller/distributed/agl-distribution/quick-start/prebuilt/reference/flutter.md",
       "sha256_before_move": "589c6792fc1f8293df1e5fb99665684ae4c344c2160e55cf34b4a7afff66b8e6"
+    },
+    {
+      "old": "troubleshooting/index.md",
+      "new": "development/troubleshooting/index.md",
+      "sha256_before_move": "3dd04afcd67da512d58714b9b6a48460c3eef44e00eb0396af105409c2c532da"
+    },
+    {
+      "old": "virtual-car/index.md",
+      "new": "development/virtual-car/index.md",
+      "sha256_before_move": "7e1dbe2975a478eadd499e166dd4823a7b4b759af58ce01961e12858e6f65736"
+    },
+    {
+      "old": "troubleshooting/reference/diagnostics.md",
+      "new": "development/troubleshooting/reference/diagnostics.md",
+      "sha256_before_move": "222bda01b3f31e896af419eab8160d1a8d9d9ceb159ba4a81c4c0f81377b6ac4"
+    },
+    {
+      "old": "troubleshooting/reference/getting-help.md",
+      "new": "development/troubleshooting/reference/getting-help.md",
+      "sha256_before_move": "df6f207e42db4f1a13783292024a8746324e239bc29969ec73fb0a2d0be7b602"
+    },
+    {
+      "old": "troubleshooting/reference/reporting-bugs.md",
+      "new": "development/troubleshooting/reference/reporting-bugs.md",
+      "sha256_before_move": "e374b6d26ede646a46b2aaf4eb5d1ec461dc0e7302d9af46f7e6f8bbc8d4c39c"
+    },
+    {
+      "old": "virtual-car/can-messages/index.md",
+      "new": "development/virtual-car/can-messages/index.md",
+      "sha256_before_move": "38c255e0044d4daacbf3a683c5472dc64a96fa8f1b856e846d0e53a3e5eae6ed"
+    },
+    {
+      "old": "virtual-car/can-messages/agl-virtual-car/index.md",
+      "new": "development/virtual-car/can-messages/agl-virtual-car/index.md",
+      "sha256_before_move": "98f088fad3fdd1a62783350c3dc3c3de9059039a1e6f3ff44b09e59942c12085"
+    },
+    {
+      "old": "virtual-car/can-messages/agl-virtual-car/reference/signals/body.md",
+      "new": "development/virtual-car/can-messages/agl-virtual-car/reference/signals/body.md",
+      "sha256_before_move": "c2a17c1f5c0f33b10ded8237b5ca4aa78298489c6411b77186461cc6540cde9a"
+    },
+    {
+      "old": "virtual-car/can-messages/agl-virtual-car/reference/signals/sensors.md",
+      "new": "development/virtual-car/can-messages/agl-virtual-car/reference/signals/sensors.md",
+      "sha256_before_move": "5e66ff41eba867dd0961dc663686a2cd19a8a33e72608db1c3316c38a533d2e8"
+    },
+    {
+      "old": "virtual-car/can-messages/agl-virtual-car/reference/signals/vehicle.md",
+      "new": "development/virtual-car/can-messages/agl-virtual-car/reference/signals/vehicle.md",
+      "sha256_before_move": "9a61eb1ff4698ea5998f74b2e5691524ca33cb8b492613d597a64ccae6fb811e"
     }
   ],
   "removed_files": [

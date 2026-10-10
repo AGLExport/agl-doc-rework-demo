@@ -48,9 +48,10 @@ change into `GitHubPages/` first.
 | `docs/vehicle-controller/small-integrated/` | Container and KVM integration, including their components |
 | `docs/vehicle-controller/large-integrated/sodev/` | SoDeV architecture, builds, customization and Unified HMI |
 | `docs/vehicle-data/` | Connected Gateway and vehicle data processing |
-| `docs/development/` | Development tools and demo control |
-| `docs/virtual-car/` | CAN definitions and virtual-car signal references |
-| `docs/troubleshooting/`, `docs/community/` | Troubleshooting, releases, migration and contribution guides |
+| `docs/development/` | Development & Usage: tools, CAN definitions and troubleshooting |
+| `docs/development/virtual-car/` | CAN definitions and virtual-car signal references |
+| `docs/development/troubleshooting/` | Diagnostics, community help and bug reports |
+| `docs/community/` | Releases, migration and contribution guides |
 | `docs/assets/` | Site images and other assets |
 | `structure-map.json` | Required heading-to-page mapping |
 | `source-map.json` | Original article paths and source hashes |
@@ -110,7 +111,7 @@ Use relative Markdown links, including a fragment when linking to a section:
 
 ```markdown
 [Contribution gide](../index.md)
-[Collect diagnostic information](../../../troubleshooting/reference/diagnostics.md)
+[Collect diagnostic information](../../../development/troubleshooting/reference/diagnostics.md)
 ```
 
 Include prerequisites, the relevant AGL release or source revision, exact

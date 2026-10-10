@@ -135,11 +135,11 @@ Each document must be followed document structure as a follow.
         - Demo Control Panel
         - CARLA with AGL
 
-  - AGL Virtual Car definition
-    - CAN message definition
-      - AGL virtual car
+    - AGL Virtual Car definition
+      - CAN message definition
+        - AGL virtual car
 
-  - Troubleshooting
+    - Troubleshooting
 
   - Community standard
     - Releases & migration

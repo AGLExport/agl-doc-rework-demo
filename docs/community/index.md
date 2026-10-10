@@ -14,4 +14,4 @@ Use the community's source-version and contribution procedures when maintaining 
 
 Keep the image, SDK, guest artifacts and signal definitions tied to a recorded source configuration. Describe prerequisites, the change's behavior and relevant validation when submitting a contribution.
 
-The [Home community information](../index.md#agl-community-information) links discussion and participation channels. For usage questions and diagnostic information, see [Troubleshooting](../troubleshooting/index.md).
+The [Home community information](../index.md#agl-community-information) links discussion and participation channels. For usage questions and diagnostic information, see [Troubleshooting](../development/troubleshooting/index.md).

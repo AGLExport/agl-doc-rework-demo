@@ -1,12 +1,12 @@
 # AGL documentation for GitHub Pages
 
-This English site follows the exact headings, order and hierarchy in [AGENTS.md](AGENTS.md). Home contains Introduction, Base platform for Vehicle Controller, Base platform for Vehicle Data Processing, Development & Usage, AGL Virtual Car definition, Troubleshooting and Community standard. The Vehicle Controller chapter groups Distributed system, Small-scale integrated system and Large-scale integrated system. Community standard contains Releases & migration and Contribution gide. Introduction connects vehicle E/E architectures and end-to-end vehicle data processing to those platform choices.
+This English site follows the exact headings, order and hierarchy in [AGENTS.md](AGENTS.md). Home contains Introduction, Base platform for Vehicle Controller, Base platform for Vehicle Data Processing, Development & Usage and Community standard. Development & Usage groups AGL Development tools, AGL Virtual Car definition and Troubleshooting. The Vehicle Controller chapter groups Distributed system, Small-scale integrated system and Large-scale integrated system. Community standard contains Releases & migration and Contribution gide. Introduction connects vehicle E/E architectures and end-to-end vehicle data processing to those platform choices.
 
 The navigation contains 110 required headings. All 169 articles are reachable, including 59 supporting articles linked from the chapters. The original `../docs/` directory remains unchanged. `source-map.json` records 84 original articles: 73 active mappings and 11 excluded articles, plus 101 imported assets and three excluded screenshots. `structure-map.json` records current navigation and prior moves/removals; removed pages remain removed.
 
 All AGL implementation guidance uses **master**. The 73 active original article sources were checked against official documentation master on 10 October 2026. Current recipe inspection governs image availability and composition where the upstream prose still lists older targets. [The source-review record](docs/assets/source-reviews/master-2026-10-10.json) contains checked URLs, content hashes and the reviewed manifest/layer commits. Component implementation links can use the SRCREV selected by a master recipe. External SoDeV platform workspaces retain their own integration pins, and the SoDeV guide makes the required master guest adaptation explicit.
 
-The file hierarchy mirrors the navigation. Home uses `docs/index.md`; every other required heading has its own directory and `index.md`, directly below its parent chapter. The Vehicle Controller branches live under `docs/vehicle-controller/`, and the distributed platform's AGL Distribution contains its quickstarts, portfolio, architecture, build, components, customization and application guides. Container integration owns the Momi application references, DRM lease manager and Container Manager; SoDeV owns Unified HMI. Development tools and Virtual Car definitions are stored under their respective top-level chapters. Supporting articles live in the relevant chapter's `reference/` directory. Shared images, diagrams, styles and source-review records remain in `docs/assets/`.
+The file hierarchy mirrors the navigation. Home uses `docs/index.md`; every other required heading has its own directory and `index.md`, directly below its parent chapter. The Vehicle Controller branches live under `docs/vehicle-controller/`, and the distributed platform's AGL Distribution contains its quickstarts, portfolio, architecture, build, components, customization and application guides. Container integration owns the Momi application references, DRM lease manager and Container Manager; SoDeV owns Unified HMI. Development tools, Virtual Car definitions and troubleshooting guides are stored together under `docs/development/`, matching the Development & Usage chapter. Supporting articles live in the relevant chapter's `reference/` directory. Shared images, diagrams, styles and source-review records remain in `docs/assets/`.
 
 The main directories are shown below. Every chapter directory shown contains `index.md`; deeper directories follow the same rule for required headings.
 
@@ -48,10 +48,10 @@ docs/
   development/
     tools/
       demo-control/
-  virtual-car/
-    can-messages/
-      agl-virtual-car/
-  troubleshooting/
+    virtual-car/
+      can-messages/
+        agl-virtual-car/
+    troubleshooting/
   community/
     releases/
     contributing/

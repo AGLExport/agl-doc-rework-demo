@@ -12,7 +12,7 @@ The gateway demo hosts the KUKSA.val databroker and CAN-input integration descri
 | Need | Reference |
 | --- | --- |
 | Databroker placement and networking | [Coordinated demo configuration](../../../build/reference/common/reference/images.md#coordinated-demo-configuration) |
-| Demo CAN data | [CAN message definition](../../../../../../virtual-car/can-messages/index.md) |
+| Demo CAN data | [CAN message definition](../../../../../../development/virtual-car/can-messages/index.md) |
 | Generate demonstration data | [Demo Control Panel](../../../../../../development/tools/demo-control/panel/index.md) |
 | Platform services | [AGL Services](../../services/index.md) |
 

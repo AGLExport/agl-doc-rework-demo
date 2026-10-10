@@ -314,22 +314,22 @@
     },
     {
       "source": "06_Component_Documentation/80_DevTools/03_AGL_Virtual_Car_CAN/01_agl-vcar.md",
-      "destination": "virtual-car/can-messages/agl-virtual-car/index.md",
+      "destination": "development/virtual-car/can-messages/agl-virtual-car/index.md",
       "source_sha256": "869cdc27d8e6d4153a540304ce0ccfe97c3fb663102c2d5e623348bee5e7df2e"
     },
     {
       "source": "06_Component_Documentation/80_DevTools/03_AGL_Virtual_Car_CAN/02_vehicle_signal.md",
-      "destination": "virtual-car/can-messages/agl-virtual-car/reference/signals/vehicle.md",
+      "destination": "development/virtual-car/can-messages/agl-virtual-car/reference/signals/vehicle.md",
       "source_sha256": "d3cd6f03f0513eff6f0caa8bcd024fbdcd5aaaee97bd4900b11e7eaa8206948d"
     },
     {
       "source": "06_Component_Documentation/80_DevTools/03_AGL_Virtual_Car_CAN/03_body.md",
-      "destination": "virtual-car/can-messages/agl-virtual-car/reference/signals/body.md",
+      "destination": "development/virtual-car/can-messages/agl-virtual-car/reference/signals/body.md",
       "source_sha256": "3c8089d71c223af83a4d76bf7c6fc807580fc3f60145441cc3600652b2712d56"
     },
     {
       "source": "06_Component_Documentation/80_DevTools/03_AGL_Virtual_Car_CAN/04_sensor.md",
-      "destination": "virtual-car/can-messages/agl-virtual-car/reference/signals/sensors.md",
+      "destination": "development/virtual-car/can-messages/agl-virtual-car/reference/signals/sensors.md",
       "source_sha256": "538c44f5ecc329eb424fb3be2377f346869b3fcc7e69db504b3c666633d70305"
     },
     {
@@ -349,12 +349,12 @@
     },
     {
       "source": "07_How_To_Contribute/08_Reporting_bugs.md",
-      "destination": "troubleshooting/reference/reporting-bugs.md",
+      "destination": "development/troubleshooting/reference/reporting-bugs.md",
       "source_sha256": "e9dd170adc09766bf9a5d23f0177a54fb19622ffc6a68791767cf6398d451300"
     },
     {
       "source": "07_How_To_Contribute/08_Getting_help.md",
-      "destination": "troubleshooting/reference/getting-help.md",
+      "destination": "development/troubleshooting/reference/getting-help.md",
       "source_sha256": "102e7a3f5b3b341769faf93d2e7083d5e765e29a2adf9985cedd6c63736ab248"
     },
     {

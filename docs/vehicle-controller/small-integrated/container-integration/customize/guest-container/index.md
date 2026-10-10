@@ -27,4 +27,4 @@ cmcontrol --shutdown-guest-role=ivi
 
 The second command shuts down the active IVI guest so the requested replacement can start. Check that the selected name exists in your configuration.
 
-Verify the UI, audio, network, and restart behavior. Use [Container Manager](../../components/platform-extensions/container-manager/index.md) for lifecycle details and [Troubleshooting](../../../../../troubleshooting/index.md) for logs.
+Verify the UI, audio, network, and restart behavior. Use [Container Manager](../../components/platform-extensions/container-manager/index.md) for lifecycle details and [Troubleshooting](../../../../../development/troubleshooting/index.md) for logs.

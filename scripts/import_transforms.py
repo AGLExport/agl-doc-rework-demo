@@ -76,7 +76,7 @@ Confirm that the console or Flutter demo UI starts. Record the build identifier 
 ## Next steps
 
 - [Flutter IVI demo](../reference/flutter.md)
-- [Troubleshooting](../../../../../../troubleshooting/index.md)
+- [Troubleshooting](../../../../../../development/troubleshooting/index.md)
 - [Application development](../../../applications/index.md)
 '''
     raspberry = frontmatter('Raspberry Pi 4/5',source)+'''# Raspberry Pi 4/5
@@ -124,7 +124,7 @@ When the target has a network address, connect from the host if the image's logi
 ssh root@<target-ip-address>
 ```
 
-See [Flutter IVI demo](../reference/flutter.md) for an explanation of the UI and [Troubleshooting](../../../../../../troubleshooting/index.md) for logs and boot diagnosis.
+See [Flutter IVI demo](../reference/flutter.md) for an explanation of the UI and [Troubleshooting](../../../../../../development/troubleshooting/index.md) for logs and boot diagnosis.
 '''
     overview = frontmatter('Run Flutter IVI demo pre-build image', source)+'''# Run Flutter IVI demo pre-build image
 

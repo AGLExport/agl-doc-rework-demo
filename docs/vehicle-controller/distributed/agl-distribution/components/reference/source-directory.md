@@ -86,4 +86,4 @@ last_reviewed: '2026-10-10'
 
 #### CAN message definition
 
-- [AGL virtual car](../../../../../virtual-car/can-messages/agl-virtual-car/index.md)
+- [AGL virtual car](../../../../../development/virtual-car/can-messages/agl-virtual-car/index.md)

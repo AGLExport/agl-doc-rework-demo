@@ -36,4 +36,4 @@ journalctl -b -u cluster-service.service -u agl-slint-cluster.service
 
 Deploy and verify Momi using the [Container integration Momi guide](../../../../../small-integrated/container-integration/demo-image/momi-ivi/index.md), including its host and guest checks.
 
-Record the source revision, profile, machine, image filename, and logs. Read [Troubleshooting](../../../../../../troubleshooting/index.md) before changing graphics devices or guest registration.
+Record the source revision, profile, machine, image filename, and logs. Read [Troubleshooting](../../../../../../development/troubleshooting/index.md) before changing graphics devices or guest registration.

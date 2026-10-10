@@ -31,7 +31,7 @@ Coordinated IVI/cluster/gateway deployments configure the current images and the
 1. Read [Releases & migration](../../../../../../community/releases/index.md) to record the selected snapshot/build identifier.
 2. Boot with the chosen board's quick-start procedure and confirm the homescreen appears.
 3. Check vehicle-data, audio and device services for the functions you want to exercise.
-4. Collect logs with [Diagnose common problems](../../../../../../troubleshooting/reference/diagnostics.md) if a function fails.
+4. Collect logs with [Diagnose common problems](../../../../../../development/troubleshooting/reference/diagnostics.md) if a function fails.
 
 To build an image, use [Basic AGL system](../../../build/basic/index.md). To modify the UI, use [Flutter application development](../../../applications/flutter/index.md) with the workspace configuration matching the master image.
 

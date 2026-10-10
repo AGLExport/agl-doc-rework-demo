@@ -82,9 +82,12 @@ not_in_nav: |
   /community/contributing/reference/gerrit.md
   /community/contributing/reference/submit-changes.md
   /development/tools/reference/usb-can-adapter.md
-  /troubleshooting/reference/diagnostics.md
-  /troubleshooting/reference/getting-help.md
-  /troubleshooting/reference/reporting-bugs.md
+  /development/troubleshooting/reference/diagnostics.md
+  /development/troubleshooting/reference/getting-help.md
+  /development/troubleshooting/reference/reporting-bugs.md
+  /development/virtual-car/can-messages/agl-virtual-car/reference/signals/body.md
+  /development/virtual-car/can-messages/agl-virtual-car/reference/signals/sensors.md
+  /development/virtual-car/can-messages/agl-virtual-car/reference/signals/vehicle.md
   /vehicle-controller/distributed/agl-distribution/applications/reference/build-apps.md
   /vehicle-controller/distributed/agl-distribution/applications/reference/create-application.md
   /vehicle-controller/distributed/agl-distribution/applications/reference/setup-sdk.md
@@ -132,9 +135,6 @@ not_in_nav: |
   /vehicle-controller/small-integrated/container-integration/components/platform-extensions/container-manager/reference/global.md
   /vehicle-controller/small-integrated/container-integration/reference/build-guide.md
   /vehicle-controller/small-integrated/kvm/reference/images.md
-  /virtual-car/can-messages/agl-virtual-car/reference/signals/body.md
-  /virtual-car/can-messages/agl-virtual-car/reference/signals/sensors.md
-  /virtual-car/can-messages/agl-virtual-car/reference/signals/vehicle.md
 nav:
 - Home:
   - index.md
@@ -286,12 +286,12 @@ nav:
         - development/tools/demo-control/index.md
         - Demo Control Panel: development/tools/demo-control/panel/index.md
         - CARLA with AGL: development/tools/demo-control/carla/index.md
-  - AGL Virtual Car definition:
-    - virtual-car/index.md
-    - CAN message definition:
-      - virtual-car/can-messages/index.md
-      - AGL virtual car: virtual-car/can-messages/agl-virtual-car/index.md
-  - Troubleshooting: troubleshooting/index.md
+    - AGL Virtual Car definition:
+      - development/virtual-car/index.md
+      - CAN message definition:
+        - development/virtual-car/can-messages/index.md
+        - AGL virtual car: development/virtual-car/can-messages/agl-virtual-car/index.md
+    - Troubleshooting: development/troubleshooting/index.md
   - Community standard:
     - community/index.md
     - Releases & migration: community/releases/index.md

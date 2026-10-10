@@ -50,4 +50,4 @@ External SoDeV board/hypervisor workspaces have their own branches and pins. The
 
 - [Quick start](../../vehicle-controller/distributed/agl-distribution/quick-start/index.md) runs a master snapshot.
 - [Build AGL system](../../vehicle-controller/distributed/agl-distribution/build/index.md) builds a master source checkout.
-- [Diagnose common problems](../../troubleshooting/reference/diagnostics.md) identifies version, configuration and service failures.
+- [Diagnose common problems](../../development/troubleshooting/reference/diagnostics.md) identifies version, configuration and service failures.

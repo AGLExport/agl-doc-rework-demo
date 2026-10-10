@@ -22,9 +22,9 @@ When improving a procedure, include its version and environment, prerequisites, 
 
 ## Ask a question or report a bug
 
-- For usage or development questions: [Getting help](../../troubleshooting/reference/getting-help.md).
-- For reproducible defects: [Reporting bugs](../../troubleshooting/reference/reporting-bugs.md).
-- For information to collect before reporting: [Gather context](../../troubleshooting/index.md#gather-context) and [Diagnose common problems](../../troubleshooting/reference/diagnostics.md).
+- For usage or development questions: [Getting help](../../development/troubleshooting/reference/getting-help.md).
+- For reproducible defects: [Reporting bugs](../../development/troubleshooting/reference/reporting-bugs.md).
+- For information to collect before reporting: [Gather context](../../development/troubleshooting/index.md#gather-context) and [Diagnose common problems](../../development/troubleshooting/reference/diagnostics.md).
 
 ## Related information
 

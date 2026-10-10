@@ -106,4 +106,4 @@ Check the AGL image's console device and baud rate in its generated kernel comma
 sudo screen /dev/ttyUSB0 115200
 ```
 
-Record the board model, image build identifier, and complete boot log when diagnosing a failure. See [Troubleshooting](../../../../../../../troubleshooting/index.md).
+Record the board model, image build identifier, and complete boot log when diagnosing a failure. See [Troubleshooting](../../../../../../../development/troubleshooting/index.md).
