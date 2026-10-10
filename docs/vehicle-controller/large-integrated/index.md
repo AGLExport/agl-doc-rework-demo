@@ -15,7 +15,9 @@ The availability announcement describes Sparrow Hawk reference hardware, virtual
 
 ## Official architecture
 
-[![Official AGL SoDeV architecture showing an optional control domain, a driver domain, guest and function domains, VirtIO interfaces, Unified HMI, and a type 1 hypervisor on automotive hardware or a virtual environment.](../../assets/diagrams/sodev-official-architecture.png)](../../assets/diagrams/sodev-official-architecture.png)
+[![Official AGL SoDeV architecture overview .](../../assets/diagrams/sodev-arch-overview.drawio.svg)](../../assets/diagrams/sodev-arch-overview.drawio.svg)
+
+[![Official AGL SoDeV architecture details.](../../assets/diagrams/sodev-arch-details.drawio.svg)](../../assets/diagrams/sodev-arch-details.drawio.svg)
 
 *Official AGL SoDeV architecture, reproduced unchanged from the [December 2025 launch announcement](https://www.automotivelinux.org/announcements/sodev/), which is linked from the availability announcement. [Original image](https://www.automotivelinux.org/wp-content/uploads/sites/61/2025/12/image.png). Select the figure for a larger view.*
 
