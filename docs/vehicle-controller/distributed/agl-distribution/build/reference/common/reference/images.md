@@ -52,7 +52,7 @@ IVI-derived Qt Instrument Cluster image selected by `packagegroup-agl-cluster-de
 
 ### agl-gateway-demo
 
-Minimal gateway demo image hosting the KUKSA.val databroker and CAN provider. The [recipe](https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-platform/images/agl-gateway-demo.bb?h=master) also installs `agl-vss-proxy` and the open databroker environment; development tools are conditional on `agl-devel`. Configure network access and CAN interfaces for the selected deployment. Read [Connected Gateway architecture](../../../../../../../vehicle-data/connected-gateway/architecture/index.md) for the reviewed data path.
+Minimal gateway demo image hosting the KUKSA.val databroker and CAN provider. The [recipe](https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-platform/images/agl-gateway-demo.bb?h=master) also installs `agl-vss-proxy` and the open databroker environment; development tools are conditional on `agl-devel`. Configure network access and CAN interfaces for the selected deployment. [Connected Gateway architecture](../../../../../../../vehicle-data/connected-gateway/architecture/index.md) is TBD.
 
 ### agl-telematics-demo
 

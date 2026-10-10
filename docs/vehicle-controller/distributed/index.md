@@ -13,7 +13,7 @@ The [AGL Distribution](agl-distribution/index.md) chapter describes this Linux p
 
 ## Vehicle roles
 
-IVI and Instrument Cluster reference software is introduced in the [Basic demo system](agl-distribution/portfolio/basic-demo/index.md) and [Extra demo system](agl-distribution/portfolio/extra-demo/index.md) portfolios. The [Connected Gateway](../../vehicle-data/connected-gateway/index.md) chapter describes the vehicle-data role of the AGL gateway image. Its [Architecture](../../vehicle-data/connected-gateway/architecture/index.md) explains how CAN input becomes shared VSS data.
+IVI and Instrument Cluster reference software is introduced in the [Basic demo system](agl-distribution/portfolio/basic-demo/index.md) and [Extra demo system](agl-distribution/portfolio/extra-demo/index.md) portfolios. The [Connected Gateway](../../vehicle-data/connected-gateway/index.md) chapter describes the vehicle-data role of the AGL gateway image. Its [Architecture](../../vehicle-data/connected-gateway/architecture/index.md) is TBD.
 
 <span id="platform"></span>
 <span id="hardware"></span>

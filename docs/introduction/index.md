@@ -75,6 +75,6 @@ An E2E (End-to-End) design evaluates the complete path from signal acquisition t
 
 For example, a diagnostic service might evaluate a condition locally, retain a bounded interval of relevant signals and upload the event with its context. Assess the resulting diagnostic quality, onboard load, upload volume and cloud cost together. A smaller upload alone does not establish a better E2E design.
 
-Read [Base platform for Vehicle Data Processing](../vehicle-data/index.md) for the vehicle-side platform, and [Connected Gateway architecture](../vehicle-data/connected-gateway/architecture/index.md) for the master demo's CAN-to-VSS data path. Cloud connectivity and analytics depend on the system integration chosen for the service.
+Read [Base platform for Vehicle Data Processing](../vehicle-data/index.md) for the vehicle-side platform. [Connected Gateway architecture](../vehicle-data/connected-gateway/architecture/index.md) is TBD. Cloud connectivity and analytics depend on the system integration chosen for the service.
 
 These processing choices apply across AGL's [Distributed system](../vehicle-controller/distributed/index.md), [Small-scale integrated system](../vehicle-controller/small-integrated/index.md) and [Large-scale integrated system](../vehicle-controller/large-integrated/index.md). Their E/E architecture determines where vehicle-side workloads can run; the network and cloud parts still require integration for the intended service.

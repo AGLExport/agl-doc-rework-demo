@@ -454,8 +454,194 @@
       "destination": "assets/source/07_How_To_Contribute/images/review.png",
       "source_sha256": "7a3ab5eebff995d265fdeb262d958828cda5a4a9f83a1946f7542d9bf6cb6527",
       "reason": "Unreferenced after removing Further reading sections"
+    },
+    {
+      "source": "01_Getting_Started/01_Quickstart/images/RaspberryPi2-ModelB-debug-serial-cable.png",
+      "destination": "assets/source/01_Getting_Started/01_Quickstart/images/RaspberryPi2-ModelB-debug-serial-cable.png",
+      "source_sha256": "20965d3daacfc5c42ee10b5dece5cd2a53039a94d7d4882760bc3d3d13fc584f",
+      "reason": "Unused asset; no references remain in documentation or build configuration"
+    },
+    {
+      "source": "01_Getting_Started/01_Quickstart/images/vbox-1.png",
+      "destination": "assets/source/01_Getting_Started/01_Quickstart/images/vbox-1.png",
+      "source_sha256": "6f02276022461f476d2bf22ff142b5daaf70c69efa2a5734f12ae80354b7808f",
+      "reason": "Unused asset; no references remain in documentation or build configuration"
+    },
+    {
+      "source": "01_Getting_Started/01_Quickstart/images/vbox-2.png",
+      "destination": "assets/source/01_Getting_Started/01_Quickstart/images/vbox-2.png",
+      "source_sha256": "a83b71d482d8ebbeff2f5b7e4b8c52e123ecb54d465e5317ee2dff872bd46e5d",
+      "reason": "Unused asset; no references remain in documentation or build configuration"
+    },
+    {
+      "source": "01_Getting_Started/01_Quickstart/images/vbox-3.png",
+      "destination": "assets/source/01_Getting_Started/01_Quickstart/images/vbox-3.png",
+      "source_sha256": "3f3a6fea3afa3089fb3243d7982bc36f49bcb9c0c6049356d0a45c6e233752ec",
+      "reason": "Unused asset; no references remain in documentation or build configuration"
+    },
+    {
+      "source": "01_Getting_Started/01_Quickstart/images/vbox-4.png",
+      "destination": "assets/source/01_Getting_Started/01_Quickstart/images/vbox-4.png",
+      "source_sha256": "4ed380bc386c0cf2c767319ef68b416ed7a667d149c5a38bc011e717d35ea7cc",
+      "reason": "Unused asset; no references remain in documentation or build configuration"
+    },
+    {
+      "source": "01_Getting_Started/01_Quickstart/images/vbox-5.png",
+      "destination": "assets/source/01_Getting_Started/01_Quickstart/images/vbox-5.png",
+      "source_sha256": "3a8e77bd8fa6abb0f02fef1019657311365586ced8d569211cd780ffb07a66a4",
+      "reason": "Unused asset; no references remain in documentation or build configuration"
+    },
+    {
+      "source": "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/images/RaspberryPi2-ModelB-debug-serial-cable.png",
+      "destination": "assets/source/01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/images/RaspberryPi2-ModelB-debug-serial-cable.png",
+      "source_sha256": "20965d3daacfc5c42ee10b5dece5cd2a53039a94d7d4882760bc3d3d13fc584f",
+      "reason": "Unused asset; no references remain in documentation or build configuration"
+    },
+    {
+      "source": "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/images/vbox-1.png",
+      "destination": "assets/source/01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/images/vbox-1.png",
+      "source_sha256": "6f02276022461f476d2bf22ff142b5daaf70c69efa2a5734f12ae80354b7808f",
+      "reason": "Unused asset; no references remain in documentation or build configuration"
+    },
+    {
+      "source": "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/images/vbox-2.png",
+      "destination": "assets/source/01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/images/vbox-2.png",
+      "source_sha256": "a83b71d482d8ebbeff2f5b7e4b8c52e123ecb54d465e5317ee2dff872bd46e5d",
+      "reason": "Unused asset; no references remain in documentation or build configuration"
+    },
+    {
+      "source": "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/images/vbox-3.png",
+      "destination": "assets/source/01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/images/vbox-3.png",
+      "source_sha256": "3f3a6fea3afa3089fb3243d7982bc36f49bcb9c0c6049356d0a45c6e233752ec",
+      "reason": "Unused asset; no references remain in documentation or build configuration"
+    },
+    {
+      "source": "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/images/vbox-4.png",
+      "destination": "assets/source/01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/images/vbox-4.png",
+      "source_sha256": "4ed380bc386c0cf2c767319ef68b416ed7a667d149c5a38bc011e717d35ea7cc",
+      "reason": "Unused asset; no references remain in documentation or build configuration"
+    },
+    {
+      "source": "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/images/vbox-5.png",
+      "destination": "assets/source/01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/images/vbox-5.png",
+      "source_sha256": "3a8e77bd8fa6abb0f02fef1019657311365586ced8d569211cd780ffb07a66a4",
+      "reason": "Unused asset; no references remain in documentation or build configuration"
+    },
+    {
+      "source": "01_Getting_Started/03_Build_and_Boot_guide_Profile/images/image3.png",
+      "destination": "assets/source/01_Getting_Started/03_Build_and_Boot_guide_Profile/images/image3.png",
+      "source_sha256": "d8d5c9a1633def8614a878cdc12f4e4d7a1e5fb7992e164bd8505cd711b2278b",
+      "reason": "Unused asset; no references remain in documentation or build configuration"
+    },
+    {
+      "source": "03_Architecture_Guides/01_Introduction/images/architecture.jpg",
+      "destination": "assets/source/03_Architecture_Guides/01_Introduction/images/architecture.jpg",
+      "source_sha256": "8f83e6a8fe31e5845dc779d356e07d13822afd73d2c9985e645942db1c26e553",
+      "reason": "Unused asset; no references remain in documentation or build configuration"
+    },
+    {
+      "source": "04_Developer_Guides/03_AGL_Application_Development/.TODO",
+      "destination": "assets/source/04_Developer_Guides/03_AGL_Application_Development/.TODO",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Unused asset; no references remain in documentation or build configuration"
+    },
+    {
+      "source": "04_Developer_Guides/03_AGL_Application_Development/Develop_using_Flutter/.TODO",
+      "destination": "assets/source/04_Developer_Guides/03_AGL_Application_Development/Develop_using_Flutter/.TODO",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Unused asset; no references remain in documentation or build configuration"
+    },
+    {
+      "source": "04_Developer_Guides/03_AGL_Application_Development/Develop_using_Qt/.TODO",
+      "destination": "assets/source/04_Developer_Guides/03_AGL_Application_Development/Develop_using_Qt/.TODO",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Unused asset; no references remain in documentation or build configuration"
+    },
+    {
+      "source": "04_Developer_Guides/10_Board_Specific_Guide/01_R-CarGen3/.TODO",
+      "destination": "assets/source/04_Developer_Guides/10_Board_Specific_Guide/01_R-CarGen3/.TODO",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Unused asset; no references remain in documentation or build configuration"
+    },
+    {
+      "source": "04_Developer_Guides/10_Board_Specific_Guide/02_R-CarGen4_Sparrow_Hawk/.TODO",
+      "destination": "assets/source/04_Developer_Guides/10_Board_Specific_Guide/02_R-CarGen4_Sparrow_Hawk/.TODO",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Unused asset; no references remain in documentation or build configuration"
+    },
+    {
+      "source": "04_Developer_Guides/10_Board_Specific_Guide/03_Rockchip_NanoPC-T6/.TODO",
+      "destination": "assets/source/04_Developer_Guides/10_Board_Specific_Guide/03_Rockchip_NanoPC-T6/.TODO",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Unused asset; no references remain in documentation or build configuration"
+    },
+    {
+      "source": "04_Developer_Guides/10_Board_Specific_Guide/05_VisionFive2/.TODO",
+      "destination": "assets/source/04_Developer_Guides/10_Board_Specific_Guide/05_VisionFive2/.TODO",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Unused asset; no references remain in documentation or build configuration"
+    },
+    {
+      "source": "05_APIs_and_Services/gateway/.empt",
+      "destination": "assets/source/05_APIs_and_Services/gateway/.empt",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Unused asset; no references remain in documentation or build configuration"
+    },
+    {
+      "source": "05_APIs_and_Services/ivi/.empt",
+      "destination": "assets/source/05_APIs_and_Services/ivi/.empt",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Unused asset; no references remain in documentation or build configuration"
+    },
+    {
+      "source": "06_Component_Documentation/04_Misc_Service/images/agl-voice-agent/AGL_Offline_VoiceAgent_(High_Level_Architecture).png",
+      "destination": "assets/source/06_Component_Documentation/04_Misc_Service/images/agl-voice-agent/AGL_Offline_VoiceAgent_(High_Level_Architecture).png",
+      "source_sha256": "32c67360544d9df1e7bdd43d00e3f705b1729f8d7acf4d34de57f9a65860de76",
+      "reason": "Unused asset; no references remain in documentation or build configuration"
+    },
+    {
+      "source": "06_Component_Documentation/04_Misc_Service/images/agl-voice-agent/voice-assistant-flutter-1.png",
+      "destination": "assets/source/06_Component_Documentation/04_Misc_Service/images/agl-voice-agent/voice-assistant-flutter-1.png",
+      "source_sha256": "d36f9d40b4ea41b7328680a5737fb8d5a4cd6241f21b793d23fbded20cf2e370",
+      "reason": "Unused asset; no references remain in documentation or build configuration"
+    },
+    {
+      "source": "06_Component_Documentation/04_Misc_Service/images/agl-voice-agent/voice-assistant-flutter-2.png",
+      "destination": "assets/source/06_Component_Documentation/04_Misc_Service/images/agl-voice-agent/voice-assistant-flutter-2.png",
+      "source_sha256": "369580bc3681093cb29b4106d5f8764f89dc112728fb49f3676f4a73dc14539e",
+      "reason": "Unused asset; no references remain in documentation or build configuration"
+    },
+    {
+      "source": "06_Component_Documentation/20_IVI_Application_Framework/images/application_switching.msc",
+      "destination": "assets/source/06_Component_Documentation/20_IVI_Application_Framework/images/application_switching.msc",
+      "source_sha256": "55fe8ed9a4899467f66babf3f29d693677c72328e14f86089f3a6b3c1f989a0f",
+      "reason": "Unused asset; no references remain in documentation or build configuration"
+    },
+    {
+      "source": "06_Component_Documentation/20_IVI_Application_Framework/images/start_and_activation.msc",
+      "destination": "assets/source/06_Component_Documentation/20_IVI_Application_Framework/images/start_and_activation.msc",
+      "source_sha256": "64c2d4fcf578b11a861c43eaca2cb223423dabf6163930395409d65e5fedf325",
+      "reason": "Unused asset; no references remain in documentation or build configuration"
+    },
+    {
+      "source": "06_Component_Documentation/60_Unified_HMI/images/Unified-HMI/Demo_Env.png",
+      "destination": "assets/source/06_Component_Documentation/60_Unified_HMI/images/Unified-HMI/Demo_Env.png",
+      "source_sha256": "defef8a1ee148dab433ce9395915d1a0ed1b58221ffb25a3448e0ba39a6e7b54",
+      "reason": "Unused asset; no references remain in documentation or build configuration"
+    },
+    {
+      "source": "06_Component_Documentation/60_Unified_HMI/images/Unified-HMI/UHMI_Architecture.png",
+      "destination": "assets/source/06_Component_Documentation/60_Unified_HMI/images/Unified-HMI/UHMI_Architecture.png",
+      "source_sha256": "20e0c4a714c20585aa106cdfec8055852a60228c7fd128c46a7793f969565c44",
+      "reason": "Unused asset; no references remain in documentation or build configuration"
+    },
+    {
+      "source": "07_How_To_Contribute/images/jira-1.png",
+      "destination": "assets/source/07_How_To_Contribute/images/jira-1.png",
+      "source_sha256": "8b7478e6af5685d37387079e76b4d211e5c16c4aa6d23a634494db63068e22f2",
+      "reason": "Unused asset; no references remain in documentation or build configuration"
     }
   ],
   "imported_markdown_count": 73,
-  "imported_asset_count": 101
+  "imported_asset_count": 70
 }

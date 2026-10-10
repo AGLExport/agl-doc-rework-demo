@@ -9,12 +9,12 @@ last_reviewed: '2026-10-10'
 
 Vehicle-data applications acquire signals, convert them into a common representation and make them available to local applications or connected services. [Introduction](../introduction/index.md#vehicle-data-processing) explains the E2E choice of processing in the vehicle, network and cloud.
 
-The [Connected Gateway](connected-gateway/index.md) chapter describes AGL's vehicle-side reference platform. Its [Architecture](connected-gateway/architecture/index.md) follows the master gateway demo recipe: CAN integration feeds a KUKSA databroker, and IVI, Cluster or other clients access vehicle signals using the configured network interfaces.
+The [Connected Gateway](connected-gateway/index.md) chapter describes AGL's vehicle-side reference platform. Its [Architecture](connected-gateway/architecture/index.md) is TBD.
 
 | Processing stage | Platform responsibility | Reference |
 | --- | --- | --- |
 | Acquisition | Receive CAN frames through the configured Linux interface | [CAN message definition](../development/virtual-car/can-messages/index.md) |
-| Signal conversion | Decode the configured DBC and map values to VSS paths | [Connected Gateway architecture](connected-gateway/architecture/index.md#can-to-vss-data-path) |
+| Signal conversion | TBD | [Connected Gateway architecture (TBD)](connected-gateway/architecture/index.md) |
 | Vehicle-side sharing | Publish vehicle signals through the databroker and configure its clients | [Gateway APIs](../vehicle-controller/distributed/agl-distribution/components/api/gateway/index.md) |
 | Edge and cloud integration | Select data, manage buffering and add the application's network/cloud connector | [E2E processing context](../introduction/index.md#vehicle-data-processing) |
 

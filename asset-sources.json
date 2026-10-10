@@ -170,25 +170,6 @@
         }
       ],
       "agl_branch": "master"
-    },
-    {
-      "path": "assets/diagrams/connected-gateway.svg",
-      "documentation_page": "vehicle-data/connected-gateway/architecture/index.md",
-      "description": "Authored AGL master Connected Gateway data and configuration architecture",
-      "reviewed_on": "2026-10-10",
-      "agl_branch": "master",
-      "sha256": "6b580c8d4374f7a134ea563820125794b9b0b5a4b4ade0d7dcdacece5454cf53",
-      "source_urls": [
-        "https://git.automotivelinux.org/AGL/meta-agl-demo/plain/recipes-platform/images/agl-gateway-demo.bb?h=master",
-        "https://git.automotivelinux.org/AGL/meta-agl-demo/plain/recipes-platform/packagegroups/packagegroup-agl-kuksa-val-databroker.bb?h=master",
-        "https://git.automotivelinux.org/AGL/meta-agl-demo/plain/recipes-connectivity/kuksa-val/kuksa-can-provider-conf-agl/config.ini?h=master",
-        "https://git.automotivelinux.org/AGL/meta-agl-demo/plain/recipes-connectivity/kuksa-val/kuksa-can-provider-conf-agl.bb?h=master",
-        "https://git.automotivelinux.org/AGL/meta-agl-demo/plain/recipes-connectivity/kuksa-val/kuksa-databroker-env.bb?h=master",
-        "https://git.automotivelinux.org/AGL/meta-agl-demo/plain/recipes-connectivity/kuksa-val/kuksa-databroker-env/kuksa-databroker.open?h=master",
-        "https://git.automotivelinux.org/AGL/meta-agl-demo/plain/recipes-connectivity/kuksa-val/kuksa-databroker-env/kuksa-databroker.default?h=master",
-        "https://git.automotivelinux.org/AGL/meta-agl-demo/plain/recipes-connectivity/kuksa-val/kuksa-can-provider-conf-gw-control-panel.bb?h=master",
-        "https://git.automotivelinux.org/AGL/meta-agl-demo/plain/recipes-connectivity/kuksa-val/kuksa-can-provider-conf-gw-hardware.bb?h=master"
-      ]
     }
   ]
 }

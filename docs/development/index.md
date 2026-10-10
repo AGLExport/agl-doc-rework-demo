@@ -18,6 +18,6 @@ This chapter brings together demonstration tools, the shared virtual-car CAN def
 | Build and deploy a system | [Build AGL system](../vehicle-controller/distributed/agl-distribution/build/index.md) or the selected [Vehicle Controller platform](../vehicle-controller/index.md) |
 | Change images, recipes and services | [Platform Customize](../vehicle-controller/distributed/agl-distribution/customize/index.md) |
 | Develop Flutter or Qt applications | [Application development](../vehicle-controller/distributed/agl-distribution/applications/index.md) |
-| Understand signal acquisition and data interfaces | [Connected Gateway architecture](../vehicle-data/connected-gateway/architecture/index.md) and [Gateway APIs](../vehicle-controller/distributed/agl-distribution/components/api/gateway/index.md) |
+| Understand signal acquisition and data interfaces | [Connected Gateway architecture (TBD)](../vehicle-data/connected-gateway/architecture/index.md) and [Gateway APIs](../vehicle-controller/distributed/agl-distribution/components/api/gateway/index.md) |
 
 Check the [AGL Virtual Car definition](virtual-car/index.md) before connecting demo generators to the target. Use [Troubleshooting](troubleshooting/index.md) when setup or runtime checks fail. Follow [Community standard](../community/index.md) when recording revisions or contributing changes.

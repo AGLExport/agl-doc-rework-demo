@@ -18,7 +18,7 @@ The gateway demo hosts the KUKSA.val databroker and CAN-input integration descri
 
 The imported source does not define an independent gateway request/response API. Use the component revision selected by the master recipe and its [KUKSA interface documentation](https://github.com/eclipse-kuksa/kuksa-databroker) and the CAN provider's DBC/VSS mappings. Keep signal names and schema versions consistent between gateway and clients.
 
-Read [Connected Gateway architecture](../../../../../../vehicle-data/connected-gateway/architecture/index.md) for the complete signal path and configuration boundaries.
+[Connected Gateway architecture](../../../../../../vehicle-data/connected-gateway/architecture/index.md) is TBD.
 
 ## Current master interface sources
 
