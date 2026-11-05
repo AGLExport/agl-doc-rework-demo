@@ -24,7 +24,7 @@ The AGL community develops software, discusses requirements, and maintains the p
 - [Mailing lists](https://lists.automotivelinux.org/g/agl-main) provide topic-specific discussions and public archives.
 - [Community meetings](https://www.automotivelinux.org/developer-meetings/) provide meeting information and ways to participate.
 - [AGL Expert Groups](https://lf-automotivelinux.atlassian.net/wiki/spaces/HOME/overview) provide technical collaboration spaces.
-- [Community standard](community/index.md) groups source-version guidance and the [Contribution gide](community/contributing/index.md) for accounts, code review and documentation contributions.
+- [Community standard](community/index.md) groups source-version guidance and the [Contribution guide](community/contributing/index.md) for accounts, code review and documentation contributions.
 - [Get community help](development/troubleshooting/reference/getting-help.md) explains how to ask questions and report useful diagnostic information.
 
 ## Develop and operate an AGL system

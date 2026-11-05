@@ -76,9 +76,15 @@ extra:
   qt_layer_branch: '6.12'
   artifact_kind: snapshots
 not_in_nav: |
+  /community/contributing/reference/ai-coding-assistants.md
   /community/contributing/reference/checklist.md
+  /community/contributing/reference/code-guidelines.md
   /community/contributing/reference/documentation.md
   /community/contributing/reference/general-guidelines.md
+  /community/contributing/reference/jira.md
+  /community/contributing/reference/linux-foundation-account.md
+  /community/contributing/reference/review-changes.md
+  /community/contributing/reference/gerrit-practices.md
   /community/contributing/reference/gerrit.md
   /community/contributing/reference/submit-changes.md
   /development/tools/reference/usb-can-adapter.md
@@ -295,4 +301,4 @@ nav:
   - Community standard:
     - community/index.md
     - Releases & migration: community/releases/index.md
-    - Contribution gide: community/contributing/index.md
+    - Contribution guide: community/contributing/index.md

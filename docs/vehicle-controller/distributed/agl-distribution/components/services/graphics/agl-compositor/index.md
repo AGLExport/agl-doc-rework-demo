@@ -11,7 +11,7 @@ last_reviewed: '2026-10-10'
 When the AGL project was started, Weston was chosen as the compositor, which was
 the reference implementation of a Wayland compositor, while for window management
 functionality it relied on *ivi-shell* (In-Vehicle Infotainment) together
-with an extension, called [wayland-ivi-exension](https://github.com/COVESA/wayland-ivi-extension).
+with an extension, called [wayland-ivi-extension](https://github.com/COVESA/wayland-ivi-extension).
 
 The demo platform image of AGL comes with a handful of demo applications, done
 with either the Qt toolkit, or the Flutter SDK, which abstracts the protocol
@@ -70,7 +70,7 @@ as it provides the server side implementation of the xdg-shell protocol which
 underlying toolkits (like Qt/Flutter/Chromium project) makes use of to deliver
 desktop-like functionality. The former is used to provide back-ends and
 rendering support, effectively managing the HW, besides implementing the
-wayland protocol. Later versions of Weston has integrated libweston-deskop
+wayland protocol. Later versions of Weston has integrated libweston-desktop
 inside libweston but decided to keep the older name for posterity.
 
 The high-level goal of [libweston](https://wayland.pages.freedesktop.org/weston/toc/libweston.html) is
@@ -137,7 +137,7 @@ Client shells can make use of this protocol to define panels and background
 roles for different surfaces. It includes to ability to activate other
 applications, assuming that those are already running. Activation happens by
 using the app_id, respectively using set_app_id request as defined by the
-xdg-shell protocol. Established client-side implementation of the xdg-shelll
+xdg-shell protocol. Established client-side implementation of the xdg-shell
 protocol will have a function exposed which can be used to set an application
 identifier.  Further more, the compositor will not present/display anything to
 the user as long the `ready()` is not requested. So, after creating the surfaces
@@ -433,9 +433,9 @@ message AppStateResponse {
 A C++ client implementation the gRPC API can be found in [agl-shell-activator](https://git.automotivelinux.org/src/agl-shell-activator/)
 project or in [window-management-client-grpc](https://git.automotivelinux.org/src/window-management-client-grpc) one.
 
-agl-shell-activator is a simple gRPRC client written to exercise code paths in
+agl-shell-activator is a simple gRPC client written to exercise code paths in
 the gRPC proxy server and to illustrate how can window management be
-acompolished with gRPC. It has most of following function available in terms
+accomplished with gRPC. It has most of following function available in terms
 window management functionality, like:
 
 - activate/deactivate (show/hide) a certain application
@@ -482,7 +482,7 @@ or use plain C and the wayland library to communicate with the compositor
 directly, without any toolkit abstraction.
 
 Currently, the demo applications in AGL use the Flutter embedder/SDK platform
-alonside Qt/QtWayland. It used to also support Chromium/CEF but currently that was
+alongside Qt/QtWayland. It used to also support Chromium/CEF but currently that was
 deprecated and discontinued.  The Qt platform has long been favoured in
 embedded systems so it feels natural why AGL project chose it over other
 alternatives.  For Web applications scene, it also felt natural to add support
@@ -579,7 +579,7 @@ the same functionality.
 Together, they provide proper means to achieve a seamless integration with
 other display devices in the car cabin.
 
-Note that both the remoting-pluging and the Waltham protocol have long been
+Note that both the remoting-plugin and the Waltham protocol have long been
 deprecated with plans to remove them entirely. Users should focus instead of
 using dedicated back-ends to achieve the same functionality (see the next
 paragraph).
@@ -669,7 +669,7 @@ application specified in the policy rule.  The most common example to exemplify
 this feature is the ability to show a custom application, like displaying the
 rear view camera application, when the automobile has been put in reverse.
 
-For deadling with these kind of rules, `ivi_policy_api::policy_rule_allow_to_add()`
+For dealing with these kind of rules, `ivi_policy_api::policy_rule_allow_to_add()`
 can be used to control if policy rules could be added or not. Finally, we have
 `ivi_policy_api::policy_rule_try_event()` which is executed for each policy
 rule added, by using the policy API `ivi_policy_add()` function.

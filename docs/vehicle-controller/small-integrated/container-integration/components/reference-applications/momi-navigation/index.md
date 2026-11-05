@@ -26,14 +26,14 @@ Momi navi supports configuration for customize.
 
 When you set environment variable to local.conf (or site.conf), you can customize Momi navi.
 
-| Environment variable | Customizing parametor |
+| Environment variable | Customizing parameter |
 |:---|:---|
 | MOMIMAP_INITIAL_LATITUDE | Default location |
 | MOMIMAP_INITIAL_LONGITUDE | Default location |
 
 When you set environment variable to /etc/default/mominavi at target, you can customize Momi navi.
 
-| Environment variable | Customizing parametor |
+| Environment variable | Customizing parameter |
 |:---|:---|
 | MOMIMAP_MAPLIBRE_STYLE | Map style URL |
 | MOMIMAP_MAP_COPYRIGHT | Copyright for map. (Must be set, if you set MOMIMAP_MAPLIBRE_STYLE) |

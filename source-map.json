@@ -1,6 +1,8 @@
 {
   "source_markdown_count": 84,
+  "imported_markdown_count": 79,
   "source_asset_count": 104,
+  "imported_asset_count": 74,
   "pages": [
     {
       "source": "01_Getting_Started/01_Quickstart/01_Using_Ready_Made_Images.md",
@@ -333,6 +335,16 @@
       "source_sha256": "538c44f5ecc329eb424fb3be2377f346869b3fcc7e69db504b3c666633d70305"
     },
     {
+      "source": "07_How_To_Contribute/01_Getting_Linux_Foundation_account.md",
+      "destination": "community/contributing/reference/linux-foundation-account.md",
+      "source_sha256": "d630d79a7e7eb5ee05df57ea09b85077b520aa65f36d3ce19a584e9705d8ee67"
+    },
+    {
+      "source": "07_How_To_Contribute/02_Using_Jira_for_current_work_items.md",
+      "destination": "community/contributing/reference/jira.md",
+      "source_sha256": "ff9c76b9b10d7cb47b33b8a2fb1c3336d07c34996672417b0958255b233e8fc5"
+    },
+    {
       "source": "07_How_To_Contribute/03_Working_with_Gerrit.md",
       "destination": "community/contributing/reference/gerrit.md",
       "source_sha256": "c71eec05e5ec5caa70259ba15f57a00ceaae22f03676a0f91a062440b92f05aa"
@@ -341,6 +353,16 @@
       "source": "07_How_To_Contribute/04_Submitting_Changes.md",
       "destination": "community/contributing/reference/submit-changes.md",
       "source_sha256": "38e8f09fcd6bfdfe86d9798f86d93ee34fef2131c516c03761094d00f171aed6"
+    },
+    {
+      "source": "07_How_To_Contribute/05_Reviewing_Changes.md",
+      "destination": "community/contributing/reference/review-changes.md",
+      "source_sha256": "af836d383c6fd98ba7f33c4e14bcd1e6eedcd6451092d4bd86ce435f708164a1"
+    },
+    {
+      "source": "07_How_To_Contribute/06_Gerrit_Recommended_Practices.md",
+      "destination": "community/contributing/reference/gerrit-practices.md",
+      "source_sha256": "dea558b4a8ff36fb6ef4b831472caff3eb0ffdf4d532eaddb95a1985c9255cc1"
     },
     {
       "source": "07_How_To_Contribute/07_General_Guidelines.md",
@@ -356,6 +378,16 @@
       "source": "07_How_To_Contribute/08_Getting_help.md",
       "destination": "development/troubleshooting/reference/getting-help.md",
       "source_sha256": "102e7a3f5b3b341769faf93d2e7083d5e765e29a2adf9985cedd6c63736ab248"
+    },
+    {
+      "source": "07_How_To_Contribute/08_Code_contribution_guidelines.md",
+      "destination": "community/contributing/reference/code-guidelines.md",
+      "source_sha256": "141559ad67e659d12a53581817a293d2538e4ef34543e0c3ee2b174229cc3e52"
+    },
+    {
+      "source": "07_How_To_Contribute/08_AI-coding-assistants.md",
+      "destination": "community/contributing/reference/ai-coding-assistants.md",
+      "source_sha256": "1753f7b877910e63540ebabdd37aa3be89c970f8c08f8ec1c5255452213f7ab8"
     },
     {
       "source": "07_How_To_Contribute/09_Adding_Documentation.md",
@@ -376,6 +408,12 @@
       "reason": "Unreferenced after removing Further reading sections"
     },
     {
+      "source": "03_Architecture_Guides/01_Introduction/01_Overview.md",
+      "destination": "introduction/reference/architecture.md",
+      "source_sha256": "38d6997a828fb761099ee16f25ca5e2af09493e0b897185503db949e7e2408d7",
+      "reason": "Removed by user; stale references cleaned up"
+    },
+    {
       "source": "04_Developer_Guides/01_Basic/01_Overview.md",
       "destination": "vehicle-controller/distributed/agl-distribution/applications/reference/sdk-overview.md",
       "source_sha256": "03b00a48eb723735da4ed1bd2bd1fe4f7d218b83277a141fcc80bc82022e8eac",
@@ -388,260 +426,192 @@
       "reason": "Unreferenced after removing Further reading sections"
     },
     {
-      "source": "07_How_To_Contribute/01_Getting_Linux_Foundation_account.md",
-      "destination": "community/contributing/reference/linux-foundation-account.md",
-      "source_sha256": "d630d79a7e7eb5ee05df57ea09b85077b520aa65f36d3ce19a584e9705d8ee67",
-      "reason": "Unreferenced after removing Further reading sections"
-    },
-    {
-      "source": "07_How_To_Contribute/02_Using_Jira_for_current_work_items.md",
-      "destination": "community/contributing/reference/jira.md",
-      "source_sha256": "ff9c76b9b10d7cb47b33b8a2fb1c3336d07c34996672417b0958255b233e8fc5",
-      "reason": "Unreferenced after removing Further reading sections"
-    },
-    {
-      "source": "07_How_To_Contribute/05_Reviewing_Changes.md",
-      "destination": "community/contributing/reference/review-changes.md",
-      "source_sha256": "af836d383c6fd98ba7f33c4e14bcd1e6eedcd6451092d4bd86ce435f708164a1",
-      "reason": "Unreferenced after removing Further reading sections"
-    },
-    {
-      "source": "07_How_To_Contribute/06_Gerrit_Recommended_Practices.md",
-      "destination": "community/contributing/reference/gerrit-practices.md",
-      "source_sha256": "dea558b4a8ff36fb6ef4b831472caff3eb0ffdf4d532eaddb95a1985c9255cc1",
-      "reason": "Unreferenced after removing Further reading sections"
-    },
-    {
-      "source": "07_How_To_Contribute/08_Code_contribution_guidelines.md",
-      "destination": "community/contributing/reference/code-guidelines.md",
-      "source_sha256": "141559ad67e659d12a53581817a293d2538e4ef34543e0c3ee2b174229cc3e52",
-      "reason": "Unreferenced after removing Further reading sections"
-    },
-    {
-      "source": "07_How_To_Contribute/08_AI-coding-assistants.md",
-      "destination": "community/contributing/reference/ai-coding-assistants.md",
-      "source_sha256": "1753f7b877910e63540ebabdd37aa3be89c970f8c08f8ec1c5255452213f7ab8",
-      "reason": "Unreferenced after removing Further reading sections"
-    },
-    {
       "source": "07_How_To_Contribute/11_Setup_AGL_LAVA_Lab.md",
       "destination": "community/contributing/reference/lava-lab.md",
       "source_sha256": "35c7cffab8dfa6efaa72302f3e74a80617c6076189f3bf1c4638e4313f74b718",
       "reason": "Unreferenced after removing Further reading sections"
-    },
-    {
-      "source": "03_Architecture_Guides/01_Introduction/01_Overview.md",
-      "destination": "introduction/reference/architecture.md",
-      "source_sha256": "38d6997a828fb761099ee16f25ca5e2af09493e0b897185503db949e7e2408d7",
-      "reason": "Removed by user; stale references cleaned up"
     }
   ],
   "excluded_assets": [
     {
-      "source": "07_How_To_Contribute/images/jira-2.png",
-      "destination": "assets/source/07_How_To_Contribute/images/jira-2.png",
-      "source_sha256": "5a9ba27106e22578a6b3dee5ac06c54d931c1bb364de57d20f5556c0a0d75e43",
+      "source": "04_Developer_Guides/03_AGL_Application_Development/.TODO",
+      "destination": "assets/source/04_Developer_Guides/03_AGL_Application_Development/.TODO",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "reason": "Unreferenced after removing Further reading sections"
     },
     {
-      "source": "07_How_To_Contribute/images/jira-3.png",
-      "destination": "assets/source/07_How_To_Contribute/images/jira-3.png",
-      "source_sha256": "e5bea818e16b2a93b84b858f86075f7ce4243907b16b26b63417647900026537",
+      "source": "04_Developer_Guides/10_Board_Specific_Guide/02_R-CarGen4_Sparrow_Hawk/.TODO",
+      "destination": "assets/source/04_Developer_Guides/10_Board_Specific_Guide/02_R-CarGen4_Sparrow_Hawk/.TODO",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "reason": "Unreferenced after removing Further reading sections"
     },
     {
-      "source": "07_How_To_Contribute/images/review.png",
-      "destination": "assets/source/07_How_To_Contribute/images/review.png",
-      "source_sha256": "7a3ab5eebff995d265fdeb262d958828cda5a4a9f83a1946f7542d9bf6cb6527",
+      "source": "04_Developer_Guides/10_Board_Specific_Guide/01_R-CarGen3/.TODO",
+      "destination": "assets/source/04_Developer_Guides/10_Board_Specific_Guide/01_R-CarGen3/.TODO",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Unreferenced after removing Further reading sections"
+    },
+    {
+      "source": "04_Developer_Guides/10_Board_Specific_Guide/03_Rockchip_NanoPC-T6/.TODO",
+      "destination": "assets/source/04_Developer_Guides/10_Board_Specific_Guide/03_Rockchip_NanoPC-T6/.TODO",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Unreferenced after removing Further reading sections"
+    },
+    {
+      "source": "04_Developer_Guides/10_Board_Specific_Guide/05_VisionFive2/.TODO",
+      "destination": "assets/source/04_Developer_Guides/10_Board_Specific_Guide/05_VisionFive2/.TODO",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Unreferenced after removing Further reading sections"
+    },
+    {
+      "source": "04_Developer_Guides/03_AGL_Application_Development/Develop_using_Flutter/.TODO",
+      "destination": "assets/source/04_Developer_Guides/03_AGL_Application_Development/Develop_using_Flutter/.TODO",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Unreferenced after removing Further reading sections"
+    },
+    {
+      "source": "04_Developer_Guides/03_AGL_Application_Development/Develop_using_Qt/.TODO",
+      "destination": "assets/source/04_Developer_Guides/03_AGL_Application_Development/Develop_using_Qt/.TODO",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Unreferenced after removing Further reading sections"
+    },
+    {
+      "source": "01_Getting_Started/01_Quickstart/images/vbox-1.png",
+      "destination": "assets/source/01_Getting_Started/01_Quickstart/images/vbox-1.png",
+      "source_sha256": "6f02276022461f476d2bf22ff142b5daaf70c69efa2a5734f12ae80354b7808f",
+      "reason": "Unreferenced after removing Further reading sections"
+    },
+    {
+      "source": "01_Getting_Started/01_Quickstart/images/vbox-5.png",
+      "destination": "assets/source/01_Getting_Started/01_Quickstart/images/vbox-5.png",
+      "source_sha256": "3a8e77bd8fa6abb0f02fef1019657311365586ced8d569211cd780ffb07a66a4",
       "reason": "Unreferenced after removing Further reading sections"
     },
     {
       "source": "01_Getting_Started/01_Quickstart/images/RaspberryPi2-ModelB-debug-serial-cable.png",
       "destination": "assets/source/01_Getting_Started/01_Quickstart/images/RaspberryPi2-ModelB-debug-serial-cable.png",
       "source_sha256": "20965d3daacfc5c42ee10b5dece5cd2a53039a94d7d4882760bc3d3d13fc584f",
-      "reason": "Unused asset; no references remain in documentation or build configuration"
-    },
-    {
-      "source": "01_Getting_Started/01_Quickstart/images/vbox-1.png",
-      "destination": "assets/source/01_Getting_Started/01_Quickstart/images/vbox-1.png",
-      "source_sha256": "6f02276022461f476d2bf22ff142b5daaf70c69efa2a5734f12ae80354b7808f",
-      "reason": "Unused asset; no references remain in documentation or build configuration"
+      "reason": "Unreferenced after removing Further reading sections"
     },
     {
       "source": "01_Getting_Started/01_Quickstart/images/vbox-2.png",
       "destination": "assets/source/01_Getting_Started/01_Quickstart/images/vbox-2.png",
       "source_sha256": "a83b71d482d8ebbeff2f5b7e4b8c52e123ecb54d465e5317ee2dff872bd46e5d",
-      "reason": "Unused asset; no references remain in documentation or build configuration"
-    },
-    {
-      "source": "01_Getting_Started/01_Quickstart/images/vbox-3.png",
-      "destination": "assets/source/01_Getting_Started/01_Quickstart/images/vbox-3.png",
-      "source_sha256": "3f3a6fea3afa3089fb3243d7982bc36f49bcb9c0c6049356d0a45c6e233752ec",
-      "reason": "Unused asset; no references remain in documentation or build configuration"
+      "reason": "Unreferenced after removing Further reading sections"
     },
     {
       "source": "01_Getting_Started/01_Quickstart/images/vbox-4.png",
       "destination": "assets/source/01_Getting_Started/01_Quickstart/images/vbox-4.png",
       "source_sha256": "4ed380bc386c0cf2c767319ef68b416ed7a667d149c5a38bc011e717d35ea7cc",
-      "reason": "Unused asset; no references remain in documentation or build configuration"
+      "reason": "Unreferenced after removing Further reading sections"
     },
     {
-      "source": "01_Getting_Started/01_Quickstart/images/vbox-5.png",
-      "destination": "assets/source/01_Getting_Started/01_Quickstart/images/vbox-5.png",
-      "source_sha256": "3a8e77bd8fa6abb0f02fef1019657311365586ced8d569211cd780ffb07a66a4",
-      "reason": "Unused asset; no references remain in documentation or build configuration"
-    },
-    {
-      "source": "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/images/RaspberryPi2-ModelB-debug-serial-cable.png",
-      "destination": "assets/source/01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/images/RaspberryPi2-ModelB-debug-serial-cable.png",
-      "source_sha256": "20965d3daacfc5c42ee10b5dece5cd2a53039a94d7d4882760bc3d3d13fc584f",
-      "reason": "Unused asset; no references remain in documentation or build configuration"
+      "source": "01_Getting_Started/01_Quickstart/images/vbox-3.png",
+      "destination": "assets/source/01_Getting_Started/01_Quickstart/images/vbox-3.png",
+      "source_sha256": "3f3a6fea3afa3089fb3243d7982bc36f49bcb9c0c6049356d0a45c6e233752ec",
+      "reason": "Unreferenced after removing Further reading sections"
     },
     {
       "source": "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/images/vbox-1.png",
       "destination": "assets/source/01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/images/vbox-1.png",
       "source_sha256": "6f02276022461f476d2bf22ff142b5daaf70c69efa2a5734f12ae80354b7808f",
-      "reason": "Unused asset; no references remain in documentation or build configuration"
-    },
-    {
-      "source": "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/images/vbox-2.png",
-      "destination": "assets/source/01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/images/vbox-2.png",
-      "source_sha256": "a83b71d482d8ebbeff2f5b7e4b8c52e123ecb54d465e5317ee2dff872bd46e5d",
-      "reason": "Unused asset; no references remain in documentation or build configuration"
-    },
-    {
-      "source": "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/images/vbox-3.png",
-      "destination": "assets/source/01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/images/vbox-3.png",
-      "source_sha256": "3f3a6fea3afa3089fb3243d7982bc36f49bcb9c0c6049356d0a45c6e233752ec",
-      "reason": "Unused asset; no references remain in documentation or build configuration"
-    },
-    {
-      "source": "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/images/vbox-4.png",
-      "destination": "assets/source/01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/images/vbox-4.png",
-      "source_sha256": "4ed380bc386c0cf2c767319ef68b416ed7a667d149c5a38bc011e717d35ea7cc",
-      "reason": "Unused asset; no references remain in documentation or build configuration"
+      "reason": "Unreferenced after removing Further reading sections"
     },
     {
       "source": "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/images/vbox-5.png",
       "destination": "assets/source/01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/images/vbox-5.png",
       "source_sha256": "3a8e77bd8fa6abb0f02fef1019657311365586ced8d569211cd780ffb07a66a4",
-      "reason": "Unused asset; no references remain in documentation or build configuration"
+      "reason": "Unreferenced after removing Further reading sections"
+    },
+    {
+      "source": "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/images/RaspberryPi2-ModelB-debug-serial-cable.png",
+      "destination": "assets/source/01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/images/RaspberryPi2-ModelB-debug-serial-cable.png",
+      "source_sha256": "20965d3daacfc5c42ee10b5dece5cd2a53039a94d7d4882760bc3d3d13fc584f",
+      "reason": "Unreferenced after removing Further reading sections"
+    },
+    {
+      "source": "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/images/vbox-2.png",
+      "destination": "assets/source/01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/images/vbox-2.png",
+      "source_sha256": "a83b71d482d8ebbeff2f5b7e4b8c52e123ecb54d465e5317ee2dff872bd46e5d",
+      "reason": "Unreferenced after removing Further reading sections"
+    },
+    {
+      "source": "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/images/vbox-4.png",
+      "destination": "assets/source/01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/images/vbox-4.png",
+      "source_sha256": "4ed380bc386c0cf2c767319ef68b416ed7a667d149c5a38bc011e717d35ea7cc",
+      "reason": "Unreferenced after removing Further reading sections"
+    },
+    {
+      "source": "01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/images/vbox-3.png",
+      "destination": "assets/source/01_Getting_Started/02_Building_AGL_Image/06_Building_the_AGL_Image/images/vbox-3.png",
+      "source_sha256": "3f3a6fea3afa3089fb3243d7982bc36f49bcb9c0c6049356d0a45c6e233752ec",
+      "reason": "Unreferenced after removing Further reading sections"
     },
     {
       "source": "01_Getting_Started/03_Build_and_Boot_guide_Profile/images/image3.png",
       "destination": "assets/source/01_Getting_Started/03_Build_and_Boot_guide_Profile/images/image3.png",
       "source_sha256": "d8d5c9a1633def8614a878cdc12f4e4d7a1e5fb7992e164bd8505cd711b2278b",
-      "reason": "Unused asset; no references remain in documentation or build configuration"
-    },
-    {
-      "source": "03_Architecture_Guides/01_Introduction/images/architecture.jpg",
-      "destination": "assets/source/03_Architecture_Guides/01_Introduction/images/architecture.jpg",
-      "source_sha256": "8f83e6a8fe31e5845dc779d356e07d13822afd73d2c9985e645942db1c26e553",
-      "reason": "Unused asset; no references remain in documentation or build configuration"
-    },
-    {
-      "source": "04_Developer_Guides/03_AGL_Application_Development/.TODO",
-      "destination": "assets/source/04_Developer_Guides/03_AGL_Application_Development/.TODO",
-      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "reason": "Unused asset; no references remain in documentation or build configuration"
-    },
-    {
-      "source": "04_Developer_Guides/03_AGL_Application_Development/Develop_using_Flutter/.TODO",
-      "destination": "assets/source/04_Developer_Guides/03_AGL_Application_Development/Develop_using_Flutter/.TODO",
-      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "reason": "Unused asset; no references remain in documentation or build configuration"
-    },
-    {
-      "source": "04_Developer_Guides/03_AGL_Application_Development/Develop_using_Qt/.TODO",
-      "destination": "assets/source/04_Developer_Guides/03_AGL_Application_Development/Develop_using_Qt/.TODO",
-      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "reason": "Unused asset; no references remain in documentation or build configuration"
-    },
-    {
-      "source": "04_Developer_Guides/10_Board_Specific_Guide/01_R-CarGen3/.TODO",
-      "destination": "assets/source/04_Developer_Guides/10_Board_Specific_Guide/01_R-CarGen3/.TODO",
-      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "reason": "Unused asset; no references remain in documentation or build configuration"
-    },
-    {
-      "source": "04_Developer_Guides/10_Board_Specific_Guide/02_R-CarGen4_Sparrow_Hawk/.TODO",
-      "destination": "assets/source/04_Developer_Guides/10_Board_Specific_Guide/02_R-CarGen4_Sparrow_Hawk/.TODO",
-      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "reason": "Unused asset; no references remain in documentation or build configuration"
-    },
-    {
-      "source": "04_Developer_Guides/10_Board_Specific_Guide/03_Rockchip_NanoPC-T6/.TODO",
-      "destination": "assets/source/04_Developer_Guides/10_Board_Specific_Guide/03_Rockchip_NanoPC-T6/.TODO",
-      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "reason": "Unused asset; no references remain in documentation or build configuration"
-    },
-    {
-      "source": "04_Developer_Guides/10_Board_Specific_Guide/05_VisionFive2/.TODO",
-      "destination": "assets/source/04_Developer_Guides/10_Board_Specific_Guide/05_VisionFive2/.TODO",
-      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "reason": "Unused asset; no references remain in documentation or build configuration"
-    },
-    {
-      "source": "05_APIs_and_Services/gateway/.empt",
-      "destination": "assets/source/05_APIs_and_Services/gateway/.empt",
-      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "reason": "Unused asset; no references remain in documentation or build configuration"
-    },
-    {
-      "source": "05_APIs_and_Services/ivi/.empt",
-      "destination": "assets/source/05_APIs_and_Services/ivi/.empt",
-      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "reason": "Unused asset; no references remain in documentation or build configuration"
+      "reason": "Unreferenced after removing Further reading sections"
     },
     {
       "source": "06_Component_Documentation/04_Misc_Service/images/agl-voice-agent/AGL_Offline_VoiceAgent_(High_Level_Architecture).png",
       "destination": "assets/source/06_Component_Documentation/04_Misc_Service/images/agl-voice-agent/AGL_Offline_VoiceAgent_(High_Level_Architecture).png",
       "source_sha256": "32c67360544d9df1e7bdd43d00e3f705b1729f8d7acf4d34de57f9a65860de76",
-      "reason": "Unused asset; no references remain in documentation or build configuration"
+      "reason": "Unreferenced after removing Further reading sections"
     },
     {
       "source": "06_Component_Documentation/04_Misc_Service/images/agl-voice-agent/voice-assistant-flutter-1.png",
       "destination": "assets/source/06_Component_Documentation/04_Misc_Service/images/agl-voice-agent/voice-assistant-flutter-1.png",
       "source_sha256": "d36f9d40b4ea41b7328680a5737fb8d5a4cd6241f21b793d23fbded20cf2e370",
-      "reason": "Unused asset; no references remain in documentation or build configuration"
+      "reason": "Unreferenced after removing Further reading sections"
     },
     {
       "source": "06_Component_Documentation/04_Misc_Service/images/agl-voice-agent/voice-assistant-flutter-2.png",
       "destination": "assets/source/06_Component_Documentation/04_Misc_Service/images/agl-voice-agent/voice-assistant-flutter-2.png",
       "source_sha256": "369580bc3681093cb29b4106d5f8764f89dc112728fb49f3676f4a73dc14539e",
-      "reason": "Unused asset; no references remain in documentation or build configuration"
-    },
-    {
-      "source": "06_Component_Documentation/20_IVI_Application_Framework/images/application_switching.msc",
-      "destination": "assets/source/06_Component_Documentation/20_IVI_Application_Framework/images/application_switching.msc",
-      "source_sha256": "55fe8ed9a4899467f66babf3f29d693677c72328e14f86089f3a6b3c1f989a0f",
-      "reason": "Unused asset; no references remain in documentation or build configuration"
+      "reason": "Unreferenced after removing Further reading sections"
     },
     {
       "source": "06_Component_Documentation/20_IVI_Application_Framework/images/start_and_activation.msc",
       "destination": "assets/source/06_Component_Documentation/20_IVI_Application_Framework/images/start_and_activation.msc",
       "source_sha256": "64c2d4fcf578b11a861c43eaca2cb223423dabf6163930395409d65e5fedf325",
-      "reason": "Unused asset; no references remain in documentation or build configuration"
+      "reason": "Unreferenced after removing Further reading sections"
+    },
+    {
+      "source": "06_Component_Documentation/20_IVI_Application_Framework/images/application_switching.msc",
+      "destination": "assets/source/06_Component_Documentation/20_IVI_Application_Framework/images/application_switching.msc",
+      "source_sha256": "55fe8ed9a4899467f66babf3f29d693677c72328e14f86089f3a6b3c1f989a0f",
+      "reason": "Unreferenced after removing Further reading sections"
     },
     {
       "source": "06_Component_Documentation/60_Unified_HMI/images/Unified-HMI/Demo_Env.png",
       "destination": "assets/source/06_Component_Documentation/60_Unified_HMI/images/Unified-HMI/Demo_Env.png",
       "source_sha256": "defef8a1ee148dab433ce9395915d1a0ed1b58221ffb25a3448e0ba39a6e7b54",
-      "reason": "Unused asset; no references remain in documentation or build configuration"
+      "reason": "Unreferenced after removing Further reading sections"
     },
     {
       "source": "06_Component_Documentation/60_Unified_HMI/images/Unified-HMI/UHMI_Architecture.png",
       "destination": "assets/source/06_Component_Documentation/60_Unified_HMI/images/Unified-HMI/UHMI_Architecture.png",
       "source_sha256": "20e0c4a714c20585aa106cdfec8055852a60228c7fd128c46a7793f969565c44",
-      "reason": "Unused asset; no references remain in documentation or build configuration"
+      "reason": "Unreferenced after removing Further reading sections"
     },
     {
-      "source": "07_How_To_Contribute/images/jira-1.png",
-      "destination": "assets/source/07_How_To_Contribute/images/jira-1.png",
-      "source_sha256": "8b7478e6af5685d37387079e76b4d211e5c16c4aa6d23a634494db63068e22f2",
-      "reason": "Unused asset; no references remain in documentation or build configuration"
+      "source": "05_APIs_and_Services/gateway/.empt",
+      "destination": "assets/source/05_APIs_and_Services/gateway/.empt",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Unreferenced after removing Further reading sections"
+    },
+    {
+      "source": "05_APIs_and_Services/ivi/.empt",
+      "destination": "assets/source/05_APIs_and_Services/ivi/.empt",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Unreferenced after removing Further reading sections"
+    },
+    {
+      "source": "03_Architecture_Guides/01_Introduction/images/architecture.jpg",
+      "destination": "assets/source/03_Architecture_Guides/01_Introduction/images/architecture.jpg",
+      "source_sha256": "8f83e6a8fe31e5845dc779d356e07d13822afd73d2c9985e645942db1c26e553",
+      "reason": "Unreferenced after removing Further reading sections"
     }
-  ],
-  "imported_markdown_count": 73,
-  "imported_asset_count": 70
+  ]
 }

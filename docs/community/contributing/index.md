@@ -1,10 +1,10 @@
 ---
-title: Contribution gide
+title: Contribution guide
 agl_branch: master
 last_reviewed: '2026-10-10'
 ---
 
-# Contribution gide
+# Contribution guide
 
 You can participate in AGL through code, documentation, and bug reports. Choose the guide that matches the contribution you want to make.
 
@@ -13,6 +13,15 @@ You can participate in AGL through code, documentation, and bug reports. Choose 
 Read the [general contribution guidelines](reference/general-guidelines.md) for the development environment, accounts, and the Gerrit change and review workflow.
 
 Identify the version your change targets and use the [contribution checklist](reference/checklist.md) to complete the required checks.
+
+Set up the accounts and tools first, then follow the review workflow:
+
+- [Get a Linux Foundation account](reference/linux-foundation-account.md): create your LF ID and configure Gerrit for SSH.
+- [Code contribution guidelines](reference/code-guidelines.md): requirements for a well-formed change.
+- [Gerrit recommended practices](reference/gerrit-practices.md): commit messages, topic branches, rebasing, and logs.
+- [Review changes](reference/review-changes.md): follow incoming and outgoing reviews in Gerrit.
+- [Track work in Jira](reference/jira.md): follow work items on the community roadmap.
+- [AI coding assistants](reference/ai-coding-assistants.md): rules for contributions made with AI assistance.
 
 ## Improve the documentation
 

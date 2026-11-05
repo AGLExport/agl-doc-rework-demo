@@ -1285,9 +1285,9 @@
       "breadcrumb": [
         "Home",
         "Community standard",
-        "Contribution gide"
+        "Contribution guide"
       ],
-      "heading": "Contribution gide",
+      "heading": "Contribution guide",
       "page": "community/contributing/index.md"
     }
   ],
@@ -3151,59 +3151,14 @@
   ],
   "removed_files": [
     {
-      "path": "assets/source/07_How_To_Contribute/images/jira-2.png",
-      "reason": "Unreferenced after removing Further reading sections",
-      "previous_sha256": "5a9ba27106e22578a6b3dee5ac06c54d931c1bb364de57d20f5556c0a0d75e43"
-    },
-    {
-      "path": "assets/source/07_How_To_Contribute/images/jira-3.png",
-      "reason": "Unreferenced after removing Further reading sections",
-      "previous_sha256": "e5bea818e16b2a93b84b858f86075f7ce4243907b16b26b63417647900026537"
-    },
-    {
-      "path": "assets/source/07_How_To_Contribute/images/review.png",
-      "reason": "Unreferenced after removing Further reading sections",
-      "previous_sha256": "7a3ab5eebff995d265fdeb262d958828cda5a4a9f83a1946f7542d9bf6cb6527"
-    },
-    {
       "path": "components/framework/sandboxing.md",
       "reason": "Unreferenced after removing Further reading sections",
       "previous_sha256": "4829fbe02c0ea5e7ae1260a56e2c09cb6edfa8a3fc7db03c80e41685da082ecf"
     },
     {
-      "path": "contributing/ai-coding-assistants.md",
-      "reason": "Unreferenced after removing Further reading sections",
-      "previous_sha256": "51730fec6389f23d3ce39fec7ccfab5f323fad92a82a180792e566c413d67b83"
-    },
-    {
-      "path": "contributing/code-guidelines.md",
-      "reason": "Unreferenced after removing Further reading sections",
-      "previous_sha256": "c9ac8caf36dcf839b9960d0a69977e0a003d078cbb2e385b08105b9d3c58fbb3"
-    },
-    {
-      "path": "contributing/gerrit-practices.md",
-      "reason": "Unreferenced after removing Further reading sections",
-      "previous_sha256": "03a8aa3be8e030fd8550b8b34e5ca4a2b20579977ca29aff02755a67e426ddb0"
-    },
-    {
-      "path": "contributing/jira.md",
-      "reason": "Unreferenced after removing Further reading sections",
-      "previous_sha256": "206a326f509fe03fb0141e6681b17c9d370930c0adeef73574d877c3f106cc8e"
-    },
-    {
       "path": "contributing/lava-lab.md",
       "reason": "Unreferenced after removing Further reading sections",
       "previous_sha256": "cf98afe52eb1b569fd055e956f67cecc247e5c2d90c36d2f5412b9395f70dd59"
-    },
-    {
-      "path": "contributing/linux-foundation-account.md",
-      "reason": "Unreferenced after removing Further reading sections",
-      "previous_sha256": "1afde5ae74466b96213f493381e349cd19512d2e7ebd7e539885603d5ad6133b"
-    },
-    {
-      "path": "contributing/review-changes.md",
-      "reason": "Unreferenced after removing Further reading sections",
-      "previous_sha256": "886e02a92261755e95662c0d1603d7aac6d8e1c1bbebf3c3f0d2e452f0913287"
     },
     {
       "path": "home/about-source.md",
@@ -3251,39 +3206,9 @@
       "previous_sha256": "4829fbe02c0ea5e7ae1260a56e2c09cb6edfa8a3fc7db03c80e41685da082ecf"
     },
     {
-      "path": "community/contributing/reference/ai-coding-assistants.md",
-      "reason": "Unreferenced after removing Further reading sections",
-      "previous_sha256": "51730fec6389f23d3ce39fec7ccfab5f323fad92a82a180792e566c413d67b83"
-    },
-    {
-      "path": "community/contributing/reference/code-guidelines.md",
-      "reason": "Unreferenced after removing Further reading sections",
-      "previous_sha256": "c9ac8caf36dcf839b9960d0a69977e0a003d078cbb2e385b08105b9d3c58fbb3"
-    },
-    {
-      "path": "community/contributing/reference/gerrit-practices.md",
-      "reason": "Unreferenced after removing Further reading sections",
-      "previous_sha256": "03a8aa3be8e030fd8550b8b34e5ca4a2b20579977ca29aff02755a67e426ddb0"
-    },
-    {
-      "path": "community/contributing/reference/jira.md",
-      "reason": "Unreferenced after removing Further reading sections",
-      "previous_sha256": "206a326f509fe03fb0141e6681b17c9d370930c0adeef73574d877c3f106cc8e"
-    },
-    {
       "path": "community/contributing/reference/lava-lab.md",
       "reason": "Unreferenced after removing Further reading sections",
       "previous_sha256": "cf98afe52eb1b569fd055e956f67cecc247e5c2d90c36d2f5412b9395f70dd59"
-    },
-    {
-      "path": "community/contributing/reference/linux-foundation-account.md",
-      "reason": "Unreferenced after removing Further reading sections",
-      "previous_sha256": "1afde5ae74466b96213f493381e349cd19512d2e7ebd7e539885603d5ad6133b"
-    },
-    {
-      "path": "community/contributing/reference/review-changes.md",
-      "reason": "Unreferenced after removing Further reading sections",
-      "previous_sha256": "886e02a92261755e95662c0d1603d7aac6d8e1c1bbebf3c3f0d2e452f0913287"
     },
     {
       "path": "introduction/reference/about-source.md",
@@ -3474,11 +3399,6 @@
       "path": "assets/source/06_Component_Documentation/60_Unified_HMI/images/Unified-HMI/UHMI_Architecture.png",
       "reason": "Unused asset; no references remain in documentation or build configuration",
       "previous_sha256": "20e0c4a714c20585aa106cdfec8055852a60228c7fd128c46a7793f969565c44"
-    },
-    {
-      "path": "assets/source/07_How_To_Contribute/images/jira-1.png",
-      "reason": "Unused asset; no references remain in documentation or build configuration",
-      "previous_sha256": "8b7478e6af5685d37387079e76b4d211e5c16c4aa6d23a634494db63068e22f2"
     },
     {
       "path": "assets/diagrams/connected-gateway.svg",

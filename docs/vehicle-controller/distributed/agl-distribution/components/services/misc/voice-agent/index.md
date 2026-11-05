@@ -249,7 +249,7 @@ To set up and run the Snips NLU Intent Engine, follow these steps:
 
 #### Observations
 - The Snips NLU engine is very lightweight and uses around 250 MB - 300 MB of RAM when running on the target device.
-- The underlying AI arhictecture of the Snips NLU is not extensible or changeable.
+- The underlying AI architecture of the Snips NLU is not extensible or changeable.
 - The Snips NLU engine is not very accurate as compared to RASA, however, its extremely lightweight and really fast.
 
 ### RASA
@@ -329,7 +329,7 @@ To set up and run the RASA NLU Intent Engine, follow these steps:
 
 #### Observations
 - The RASA NLU engine is heavy and uses around 0.8 GB - 1 GB of RAM when running on the target device.
-- The underlying AI arhictecture of the RASA NLU is extensible and changeable thanks to the TensorFlow backend.
+- The underlying AI architecture of the RASA NLU is extensible and changeable thanks to the TensorFlow backend.
 - The RASA NLU engine is very accurate as compared to Snips, however, its heavy and slightly slow.
 
 ## Voice Assistant Client

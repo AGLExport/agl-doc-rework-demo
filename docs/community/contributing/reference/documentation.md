@@ -110,7 +110,7 @@ has been maintained for this site.
 Use relative Markdown links, including a fragment when linking to a section:
 
 ```markdown
-[Contribution gide](../index.md)
+[Contribution guide](../index.md)
 [Collect diagnostic information](../../../development/troubleshooting/reference/diagnostics.md)
 ```
 

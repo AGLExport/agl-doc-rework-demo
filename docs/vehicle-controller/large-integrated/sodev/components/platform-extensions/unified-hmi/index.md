@@ -29,7 +29,7 @@ RVGPU is a client-server based rendering engine, which allows to render 3D on on
 RVGPU consists of three repositories on Github:
 
 1. [remote-virtio-gpu](https://github.com/unified-hmi/remote-virtio-gpu): Main framework of RVGPU, including **rvgpu-proxy** and **rvgpu-renderer**. Transfer the drawing commands to the remote Soc/VM and render them on the remote display.
-2. [virio-loopback-driver](https://github.com/unified-hmi/virtio-loopback-driver): Capture the drawing commands for VirtIO GPU and transfer them to the RVGPU framework.
+2. [virtio-loopback-driver](https://github.com/unified-hmi/virtio-loopback-driver): Capture the drawing commands for VirtIO GPU and transfer them to the RVGPU framework.
 3. [rvgpu-wlproxy](https://github.com/unified-hmi/rvgpu-wlproxy): Apply applications that operate on the Wayland Protocol, including Flutter apps, to RVGPU.
 
 ![RVGPU_Architecture](../../../../../../assets/source/06_Component_Documentation/60_Unified_HMI/images/Unified-HMI/RVGPU_arch.png)

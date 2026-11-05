@@ -143,7 +143,7 @@ Each document must be followed document structure as a follow.
 
   - Community standard
     - Releases & migration
-    - Contribution gide
+    - Contribution guide
 
 Do not omit, rename, duplicate, or reorder these headings.
 

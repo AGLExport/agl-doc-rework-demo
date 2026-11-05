@@ -611,7 +611,7 @@ Constraints can be defined according to the state of the Area/Zone and the state
 |IsHidden|	<Area\>.isHidden()	|The Area is hidden. Regardless of whether the ViewContent is allocated to the Area or not,true if the Area is hidden.|
 |ContentValue|	<Area\>.contentValue()|	The value of the ViewContentState allocated to the Area. If ViewContent is not allocated to the Area, it is not evaluated.|
 |ContentsList|	<Area\>.contentsList()|	A set of ViewContent which is allocatable to the Area.|
-|activeContents|	<Area\>.activeContents()	|The set of active content amang the ViewContent which is allocatable to the Area|
+|activeContents|	<Area\>.activeContents()	|The set of active content among the ViewContent which is allocatable to the Area|
 
 - State reference of ViewContent:
 
@@ -631,7 +631,7 @@ Constraints can be defined according to the state of the Area/Zone and the state
 |IsOn|	<Scene\>.isOn()|	True if the Scene is valid.|
 |Get|	<Scene\>.<Property\>.get()|	Get scene property value.|
 
-- Stereotyope:
+- Stereotype:
 
 |Name	| Notation	|Meaning|
 | :---              |    :----     |    :----     |

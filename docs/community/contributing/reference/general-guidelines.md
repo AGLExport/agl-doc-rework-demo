@@ -115,7 +115,7 @@ merged.
 -  Minimize the lines of code per CR. Why? If you send a 1,000 or 2,000 LOC
    change, how long do you think it takes to review all of that code? Keep your
    changes to < 200-300 LOC, if possible. If you have a larger change, decompose
-   it into multiple independent changess. If you are adding a bunch of new
+   it into multiple independent changes. If you are adding a bunch of new
    functions to fulfill the requirements of a new capability, add them
    separately with their tests, and then write the code that uses them to
    deliver the capability. Of course, there are always exceptions. If you add a
